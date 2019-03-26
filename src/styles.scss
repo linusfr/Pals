@@ -5,7 +5,7 @@
 @import '~dragula/dist/dragula.css';
 
 $custom-typography: mat-typography-config(
-    $font-family: 'Exo'
+  $font-family: 'Exo'
 );
 
 @include mat-core($custom-typography);

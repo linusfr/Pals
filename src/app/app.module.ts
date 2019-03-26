@@ -16,12 +16,10 @@ import { AppRoutingModule } from './app-routing/app-routing.module';
 import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
 
+import { MatCarouselModule } from '@ngmodule/material-carousel';
+
 @NgModule({
-  declarations: [
-    AppComponent,
-    HeaderComponent,
-    HomeComponent,
-  ],
+  declarations: [AppComponent, HeaderComponent, HomeComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -31,17 +29,21 @@ import { HomeComponent } from './home/home.component';
     AuthModule,
     AdminModule,
     AppRoutingModule,
+    MatCarouselModule
   ],
-  providers: [{
-    provide: HTTP_INTERCEPTORS,
-    useClass: AuthHeaderInterceptor,
-    multi: true,
-  }, {
-    provide: HTTP_INTERCEPTORS,
-    useClass: CatchErrorInterceptor,
-    multi: true,
-  }],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthHeaderInterceptor,
+      multi: true
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: CatchErrorInterceptor,
+      multi: true
+    }
+  ],
   entryComponents: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
