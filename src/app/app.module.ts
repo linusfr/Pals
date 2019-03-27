@@ -13,22 +13,11 @@ import { AdminModule } from './admin/admin.module';
 import { AuthHeaderInterceptor } from './interceptors/header.interceptor';
 import { CatchErrorInterceptor } from './interceptors/http-error.interceptor';
 
-import { AppRoutingModule } from './app-routing/app-routing.module';
 import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
 
-import { MatButtonModule } from '@angular/material/button';
-import { MatCardModule } from '@angular/material/card';
-import { MatCheckboxModule } from '@angular/material/checkbox';
-import { MatExpansionModule } from '@angular/material/expansion';
-import { MatIconModule } from '@angular/material/icon';
-import { MatInputModule } from '@angular/material/input';
-import { MatMenuModule } from '@angular/material/menu';
-import { MatSelectModule } from '@angular/material/select';
-import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatTooltipModule } from '@angular/material/tooltip';
-import { MatCarouselModule } from '@ngmodule/material-carousel';
+import { MaterialModule } from './material/material';
+import { AppRoutingModule } from './app-routing/app-routing.module';
 
 @NgModule({
   declarations: [AppComponent, HeaderComponent, HomeComponent],
@@ -40,20 +29,8 @@ import { MatCarouselModule } from '@ngmodule/material-carousel';
     SharedModule,
     AuthModule,
     AdminModule,
+    MaterialModule,
     AppRoutingModule,
-    MatCarouselModule,
-    MatButtonModule,
-    MatCardModule,
-    MatCheckboxModule,
-    MatCarouselModule,
-    MatExpansionModule,
-    MatIconModule,
-    MatInputModule,
-    MatMenuModule,
-    MatSelectModule,
-    MatSnackBarModule,
-    MatToolbarModule,
-    MatTooltipModule,
     FormsModule
   ],
   providers: [
