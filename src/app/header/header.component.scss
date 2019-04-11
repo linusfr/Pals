@@ -18,6 +18,25 @@ header {
     background-color: map-get($colors, secondary);
     background-color: $secondaryColor;
     width: 33%;
+    height: 80px;
+  }
+
+  .locationContainer {
+    i {
+      padding-right: 10px;
+    }
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .buttonWrapper {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
   }
 
   width: 100%;
@@ -30,11 +49,7 @@ header {
   }
 
   #logo {
-    // height: 80px;
-    // top: 0;
-    // bottom: 0;
-    // left: 0;
-    // right: 0;
+    float: left;
     padding-top: 10px;
     height: 80px;
     display: block;

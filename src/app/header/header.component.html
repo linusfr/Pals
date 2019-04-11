@@ -6,18 +6,21 @@
           <img id="logo" src="../assets/Pals_LOGO.png" alt="Dogs" />
         </a>
       </div>
-      <div class="flexChildren">
+      <div class="flexChildren locationContainer">
         <i class="material-icons md-18">location_on</i>
+        <span>Flensburg</span>
       </div>
       <div class="flexChildren">
-        <button
-          mat-stroked-button
-          color="primary"
-          [routerLink]="['/auth/login']"
-          *ngIf="!user"
-        >
-          Login
-        </button>
+        <div class="buttonWrapper">
+          <button
+            mat-stroked-button
+            color="primary"
+            [routerLink]="['/auth/login']"
+            *ngIf="!user"
+          >
+            Login
+          </button>
+        </div>
         <!-- <a class="links side" [routerLink]="['/auth/login']" *ngIf="!user">Login</a> -->
         <div>
           <a class="links side" *ngIf="user" [matMenuTriggerFor]="menu">
