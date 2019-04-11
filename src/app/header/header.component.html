@@ -2,9 +2,11 @@
   <mat-toolbar id="toolbar" color="secondary">
     <div class="flexParent">
       <div class="flexChildren">
-        <a [routerLink]="['/']">
-          <img id="logo" src="../assets/Pals_LOGO.png" alt="Dogs" />
-        </a>
+        <div class="logoWrapper">
+          <a [routerLink]="['/']">
+            <img id="logo" src="../assets/Pals_LOGO.png" alt="Dogs" />
+          </a>
+        </div>
       </div>
       <div class="flexChildren locationContainer">
         <i class="material-icons md-18">location_on</i>
