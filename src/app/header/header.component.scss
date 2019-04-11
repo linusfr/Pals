@@ -7,16 +7,35 @@ $colors: (
   warn: #f44539
 );
 
+/** HOW TO CREATE CSS FUNCTIONS **/
+@function color($color-name) {
+  @return map-get($colors, $color-name);
+}
+
+/** HOW TO USE SCSS VARIABLES AND FUNCTIONS **/
+/**
+  background-color: map-get($colors, secondary);
+  background-color: $secondaryColor;
+  background-color: color(secondary)
+**/
+
+$desktop: 840px;
+
+/** HOW TO CREATE MIXIN (MEDIA QUERIES) **/
+@mixin desktop {
+  @media (min-width: #{$desktop}) {
+    @content;
+  }
+}
+
 header {
   .flexParent {
     display: flex;
     flex-direction: row;
     width: 100%;
   }
-  /** HOW TO USE SCSS VARIABLES **/
+
   .flexChildren {
-    background-color: map-get($colors, secondary);
-    background-color: $secondaryColor;
     width: 33%;
     height: 80px;
   }
