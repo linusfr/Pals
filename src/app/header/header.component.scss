@@ -1,4 +1,7 @@
-/** HOW TO CREATE SCSS VARIABLES AND OBJECTS **/
+/* -------------------------------------------------------------------- */
+/* SCSS GUIDE */
+
+/* HOW TO CREATE SCSS VARIABLES AND OBJECTS */
 $secondaryColor: #262626;
 $colors: (
   primary: #c11e5c,
@@ -7,26 +10,39 @@ $colors: (
   warn: #f44539
 );
 
-/** HOW TO CREATE CSS FUNCTIONS **/
+/* HOW TO CREATE CSS FUNCTIONS */
 @function color($color-name) {
   @return map-get($colors, $color-name);
 }
 
-/** HOW TO USE SCSS VARIABLES AND FUNCTIONS **/
-/**
+/* HOW TO USE SCSS VARIABLES AND FUNCTIONS */
+/*
   background-color: map-get($colors, secondary);
   background-color: $secondaryColor;
   background-color: color(secondary)
-**/
+*/
 
 $desktop: 840px;
 
-/** HOW TO CREATE MIXIN (MEDIA QUERIES) **/
+/* HOW TO CREATE MIXIN (MEDIA QUERIES) **/
 @mixin desktop {
   @media (min-width: #{$desktop}) {
     @content;
   }
 }
+/* HOW TO USE MIXIN */
+/*
+  .whateverElement{
+    some scss before mixin
+
+    @include desktop{
+      putWhateverSCSS for the defined size
+    }
+  }
+*/
+
+/* END OF SCSS GUIDE */
+/* -------------------------------------------------------------------- */
 
 header {
   .flexParent {
