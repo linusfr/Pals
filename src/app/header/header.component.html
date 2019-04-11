@@ -1,22 +1,41 @@
 <header>
-  <mat-toolbar color="primary">
-    <a [routerLink]="['/']"> <h1 class="title">CampusClubs</h1></a>
-    <span class="example-spacer"></span>
-    <a class="links side" [routerLink]="['/auth/login']" *ngIf="!user">Login</a>
-    <div>
-      <a class="links side" *ngIf="user" [matMenuTriggerFor]="menu">
-        <mat-icon>account_circle</mat-icon>{{ user.fullname }}
-      </a>
-      <mat-menu #menu="matMenu">
+  <mat-toolbar id="toolbar" color="secondary">
+    <div class="flexParent">
+      <div class="flexChildren">
+        <a [routerLink]="['/']">
+          <img id="logo" src="../assets/Pals_LOGO.png" alt="Dogs" />
+        </a>
+      </div>
+      <div class="flexChildren">
+        <i class="material-icons md-18">location_on</i>
+      </div>
+      <div class="flexChildren">
         <button
-          mat-menu-item
-          *ngIf="user && user.isAdmin"
-          [routerLink]="['/admin']"
+          mat-stroked-button
+          color="primary"
+          [routerLink]="['/auth/login']"
+          *ngIf="!user"
         >
-          admin
+          Login
         </button>
-        <button mat-menu-item (click)="logout()">logout</button>
-      </mat-menu>
+        <!-- <a class="links side" [routerLink]="['/auth/login']" *ngIf="!user">Login</a> -->
+        <div>
+          <a class="links side" *ngIf="user" [matMenuTriggerFor]="menu">
+            <mat-icon>account_circle</mat-icon>{{ user.fullname }}
+          </a>
+          <mat-menu #menu="matMenu">
+            <button
+              mat-menu-item
+              *ngIf="user && user.isAdmin"
+              [routerLink]="['/admin']"
+            >
+              admin
+            </button>
+            <button mat-stroked-button color="accent">Accent</button>
+            <!-- <button mat-menu-item (click)="logout()">logout</button> -->
+          </mat-menu>
+        </div>
+      </div>
     </div>
   </mat-toolbar>
 </header>

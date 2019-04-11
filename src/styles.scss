@@ -1,5 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
-@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+@import '~@angular/material/prebuilt-themes/pink-bluegrey.css';
 @import '~angular-tree-component/dist/angular-tree-component.css';
 @import '~@angular/material/theming';
 @import '~dragula/dist/dragula.css';
@@ -17,3 +17,10 @@ body {
     font-family: 'Exo', sans-serif;
   }
 }
+
+$colors: (
+  primary: #c11e5c,
+  secondary: #262626,
+  accent: #aebcc3,
+  warn: #f44539
+);

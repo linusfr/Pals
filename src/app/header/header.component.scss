@@ -1,7 +1,44 @@
+/** HOW TO CREATE SCSS VARIABLES AND OBJECTS **/
+$secondaryColor: #262626;
+$colors: (
+  primary: #c11e5c,
+  secondary: #262626,
+  accent: #aebcc3,
+  warn: #f44539
+);
+
 header {
+  .flexParent {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+  }
+  /** HOW TO USE SCSS VARIABLES **/
+  .flexChildren {
+    background-color: map-get($colors, secondary);
+    background-color: $secondaryColor;
+    width: 33%;
+  }
+
   width: 100%;
   .example-spacer {
     flex: 1 1 auto;
+  }
+
+  #toolbar {
+    height: 80px;
+  }
+
+  #logo {
+    // height: 80px;
+    // top: 0;
+    // bottom: 0;
+    // left: 0;
+    // right: 0;
+    padding-top: 10px;
+    height: 80px;
+    display: block;
+    margin: 0 auto;
   }
 
   a {
@@ -12,10 +49,10 @@ header {
     font-size: 2em;
   }
   .title:hover {
-    color: hotpink;
+    color: black;
   }
   a:hover {
-    color: hotpink;
+    color: black;
   }
 
   .links {
@@ -30,9 +67,6 @@ header {
     &.side {
       padding: 0 14px;
     }
-  }
-  .mat-toolbar {
-    background: black;
   }
   .mat-icon {
     vertical-align: middle;
