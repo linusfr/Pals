@@ -1,12 +1,15 @@
-import { Injectable } from '@angular/core';
+// token.storage
+// injectable Service
+// manages local storage for the user authentication
+// uses the Token "AuthToken"
 
+import { Injectable } from '@angular/core';
 
 const TOKEN_KEY = 'AuthToken';
 
 @Injectable()
 export class TokenStorage {
-
-  constructor() { }
+  constructor() {}
 
   signOut() {
     window.localStorage.removeItem(TOKEN_KEY);
@@ -14,9 +17,11 @@ export class TokenStorage {
   }
 
   public saveToken(token: string) {
-    if (!token) return;
+    if (!token) {
+      return;
+    }
     window.localStorage.removeItem(TOKEN_KEY);
-    window.localStorage.setItem(TOKEN_KEY,  token);
+    window.localStorage.setItem(TOKEN_KEY, token);
   }
 
   public getToken(): string {

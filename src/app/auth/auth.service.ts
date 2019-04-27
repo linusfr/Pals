@@ -1,3 +1,8 @@
+// auth.service
+// injectable Service
+// intesection between angular and the server for passport
+// handles loging in and/or registering users
+
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';

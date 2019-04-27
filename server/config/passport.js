@@ -1,3 +1,6 @@
+// passport.js
+// sets up local login method
+
 const passport = require('passport');
 const LocalStrategy = require('passport-local');
 const JwtStrategy = require('passport-jwt').Strategy;
@@ -7,12 +10,16 @@ const bcrypt = require('bcrypt');
 const User = require('../models/user.model');
 const config = require('./config');
 
+// instantiates a local strategy
 const localLogin = new LocalStrategy(
   {
     usernameField: 'email'
   },
+  // uses email, password and done
   async (email, password, done) => {
     let user = await User.findOne({ email });
+
+    // if user exist and password matches -> returns user
     if (!user || !bcrypt.compareSync(password, user.hashedPassword)) {
       return done(null, false, {
         error: 'Your login details could not be verified. Please try again.'

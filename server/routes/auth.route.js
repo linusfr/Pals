@@ -14,6 +14,7 @@ router.post(
   passport.authenticate('local', { session: false }),
   login
 );
+
 router.get('/me', passport.authenticate('jwt', { session: false }), login);
 
 async function register(req, res, next) {
