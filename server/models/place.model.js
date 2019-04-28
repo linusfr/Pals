@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const PlaceSchema = new mongoose.Schema({
+const placeSchema = new mongoose.Schema({
   city: {
     type: String,
     required: true
@@ -11,4 +11,4 @@ const PlaceSchema = new mongoose.Schema({
   }
 });
 
-module.exports = mongoose.model('Place', UserSchema);
+module.exports = mongoose.model('Place', placeSchema);

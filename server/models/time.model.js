@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const TimeSchema = new mongoose.Schema({
+const timeSchema = new mongoose.Schema({
   month: {
     type: Number,
     required: true
@@ -19,4 +19,4 @@ const TimeSchema = new mongoose.Schema({
   }
 });
 
-module.exports = mongoose.model('Time', UserSchema);
+module.exports = mongoose.model('Time', timeSchema);
