@@ -18,6 +18,7 @@ import { HomeComponent } from './home/home.component';
 
 import { MaterialModule } from './material/material';
 import { AppRoutingModule } from './app-routing/app-routing.module';
+import { QueryService } from './services/queries.service';
 
 @NgModule({
   declarations: [AppComponent, HeaderComponent, HomeComponent],
@@ -34,6 +35,7 @@ import { AppRoutingModule } from './app-routing/app-routing.module';
     FormsModule
   ],
   providers: [
+    QueryService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthHeaderInterceptor,

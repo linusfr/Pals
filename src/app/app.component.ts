@@ -1,3 +1,4 @@
+import { QueryService } from './services/queries.service';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs/Subscription';
@@ -46,6 +47,7 @@ export class AppComponent implements OnInit {
     this.router.navigate([link]);
   }
 
+  // tslint:disable-next-line:use-life-cycle-interface
   ngOnDestroy() {
     if (this.userSubscription) {
       this.userSubscription.unsubscribe();
