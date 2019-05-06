@@ -1,21 +1,23 @@
 const express = require('express');
 const asyncHandler = require('express-async-handler');
 const clubCtrl = require('../controllers/club.controller');
+const config = require('../config/config');
 
 const router = express.Router();
 module.exports = router;
 
-router.post('/', async (req, res) => {
-  // let clubs = await clubCtrl.getClubs();
+router.get('/test', asyncHandler(getClubs));
 
-  clubs = { works: true };
+console.log('test');
+
+async function getClubs(req, res) {
+  console.log('server works');
+  let clubs = { works: true };
   res.json(clubs);
-  // res.send();
-});
+}
 
 // const userCtrl = require('../controllers/user.controller');
 // const authCtrl = require('../controllers/auth.controller');
-// const config = require('../config/config');
 
 // router.get('/me', passport.authenticate('jwt', { session: false }), login);
 
