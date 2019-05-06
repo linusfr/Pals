@@ -1,45 +1,53 @@
-<mat-card class="example-card">
+<mat-card class="register-card">
   <mat-card-header>
-    <mat-card-title>Register</mat-card-title>
+    <mat-card-title><img id="logo_login" src="../assets/Pals_LOGO.png" /></mat-card-title>
+    <mat-card-title id="header_register">Jetzt kostenlos registeren</mat-card-title>
   </mat-card-header>
+
   <mat-card-content>
-    <form class="example-form">
-      <table cellspacing="0" [formGroup]="userForm">
-        <tr>
-          <td>
-            <mat-form-field>
-              <input matInput placeholder="Fullname" formControlName="fullname" name="fullname" required>
-            </mat-form-field>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <mat-form-field>
-              <input matInput placeholder="Email" formControlName="email" name="email" required>
-              <mat-error *ngIf="email.invalid && email.errors.email">Invalid email address</mat-error>
-            </mat-form-field>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <mat-form-field>
-              <input matInput placeholder="Password" formControlName="password" type="password" name="password" required>
-            </mat-form-field>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <mat-form-field>
-              <input matInput placeholder="Reapet Password" formControlName="repeatPassword" type="password" name="repeatPassword" required>
-              <mat-error *ngIf="repeatPassword.invalid && repeatPassword.errors.passwordMatch">Password mismatch</mat-error>
-            </mat-form-field>
-          </td>
-        </tr>
-      </table>
-    </form>
+    <p>
+      <mat-form-field appearance="outline" class="form_field">
+        <mat-label>E-Mail-Adresse</mat-label>
+        <input matInput formControlName="email" name="email" required>
+        <mat-icon matSuffix><img id="icon" src="../assets/baseline-email-24px.svg"></mat-icon>
+        <mat-hint id="hint">E-Mail-Adresse</mat-hint>
+        <mat-error *ngIf="email.invalid && email.errors.email">Ungültige E-Mail-Address</mat-error>
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field appearance="outline" class="form_field">
+        <mat-label>Vollständiger Name</mat-label>
+        <input matInput formControlName="fullname" name="fullname" required>
+        <mat-icon matSuffix><img id="icon" src="../assets/baseline-account_circle-24px.svg"></mat-icon>
+        <mat-hint id="hint">Vollständiger Name</mat-hint>
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field appearance="outline" class="form_field">
+        <mat-label>Passwort</mat-label>
+        <input matInput formControlName="password" type="password" name="password" required>
+        <mat-icon  matSuffix><img id="icon" src="../assets/baseline-visibility-24px.svg"></mat-icon>
+        <mat-hint id="hint">Passwort</mat-hint>
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field appearance="outline" class="form_field">
+        <mat-label>Passwort wiederholen</mat-label>
+        <input matInput formControlName="repeatPassword" type="password" name="repeatPassword"
+          required>
+        <mat-icon  matSuffix><img id="icon" src="../assets/baseline-visibility-24px.svg"></mat-icon>
+        <mat-hint id="hint">Passwort wiederholen</mat-hint>
+        <mat-error *ngIf="repeatPassword.invalid && repeatPassword.errors.passwordMatch">Passwort ungleich</mat-error>
+      </mat-form-field>
+    </p>
+
+    <mat-card-actions>
+      <p>
+        <button mat-raised-button (click)="register()" color="primary">Registrieren</button><br>
+      </p>
+      <p>
+        <span>Sie haben schon einen Account? <a [routerLink]="['/auth/login']" color="primary">Zurück zum login!</a></span>
+      </p>
+    </mat-card-actions>
   </mat-card-content>
-  <mat-card-actions>
-    <button mat-raised-button (click)="register()" color="primary">Register</button>
-    <span>Allrady have an account ? <a [routerLink]="['/auth/login']">login</a> here</span>
-  </mat-card-actions>
 </mat-card>

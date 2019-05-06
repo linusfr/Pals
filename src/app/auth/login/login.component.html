@@ -1,29 +1,43 @@
-<mat-card class="example-card">
+<mat-card class="login-card">
   <mat-card-header>
-    <mat-card-title>Login</mat-card-title>
+    <mat-card-title><img id="logo_login" src="../assets/Pals_LOGO.png" /></mat-card-title>
+    <mat-card-title>Melde dich jetzt an und entdecke neue Clubs in deiner Stadt!</mat-card-title>
   </mat-card-header>
   <mat-card-content>
-    <form class="example-form">
-      <table cellspacing="0">
-        <tr>
-          <td>
-            <mat-form-field>
-              <input matInput placeholder="Email" [(ngModel)]="email" name="email" required>
-            </mat-form-field>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <mat-form-field>
-              <input matInput placeholder="Password" [(ngModel)]="password" type="password" name="password" required>
-            </mat-form-field>
-          </td>
-        </tr>
-      </table>
-    </form>
+    <p>
+      <mat-form-field appearance="outline" class="form_field">
+        <mat-label class="label">E-Mail</mat-label>
+        <input id="outline_field" matInput [(ngModel)]="email" name="email" required>
+        <mat-icon matSuffix><img id="icon" src="../assets/baseline-account_circle-24px.svg"></mat-icon>
+        <mat-hint id="hint">E-Mail Adresse</mat-hint>
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field appearance="outline" class="form_field">
+        <mat-label class="label">Passwort</mat-label>
+        <input id="outline_field" matInput [(ngModel)]="password" type="password" name="password" required>
+        <mat-icon  matSuffix><img id="icon" src="../assets/baseline-visibility-24px.svg"></mat-icon>
+        <mat-hint id="hint">Passwort</mat-hint>
+      </mat-form-field>
+    </p>
   </mat-card-content>
+
   <mat-card-actions>
-    <button mat-raised-button (click)="login()" color="primary">Login</button>
-    <span>Don't have an account ? <a [routerLink]="['/auth/register']" >register</a> here</span>
+    <button mat-raised-button (click)="login()" color="primary">Anmelden</button>
+    <p>
+      <span id="passwort">Passwort vergessen?</span>
+    </p>
+    <p>
+      <span>
+        Noch kein Konto?
+        <a id="register" [routerLink]="['/auth/register']" color="primary">Jetzt Registrieren!</a>
+      </span>
+    </p>
   </mat-card-actions>
 </mat-card>
+
+<!--
+<mat-card class="login-card-image">
+  <img id="image_basketball" src="../assets/login_basketball.jpg" alt="login_basketball" />
+</mat-card>
+-->
