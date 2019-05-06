@@ -6,7 +6,12 @@ const config = require('../config/config');
 const router = express.Router();
 module.exports = router;
 
-router.get('/test', async (req, res) => {
-  let test = { works: 'test Endpoint works' };
-  res.json(test);
+router.get('/', async (req, res) => {
+  let clubs = await clubCtrl.getClubs();
+  res.json(clubs);
+});
+
+router.post('/add', async (req, res) => {
+  console.log(req.body);
+  res.json(req.body);
 });
