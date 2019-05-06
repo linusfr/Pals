@@ -10,6 +10,7 @@ export class HomeComponent implements OnInit {
   constructor(private queryService: QueryService) {}
 
   ngOnInit() {
+    this.queryService.testQuery();
     this.queryService.getClubs();
   }
 }
