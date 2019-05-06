@@ -17,7 +17,7 @@ module.exports = {
   getMemberClubs
 };
 
-async function getClubs() {
+function getClubs() {
   return 'hello';
   // return await Club.find({});
 }

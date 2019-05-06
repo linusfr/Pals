@@ -1,13 +1,28 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
-import { Subscriber } from 'rxjs';
+// import { Subscriber } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class QueryService {
   constructor(private http: HttpClient) {}
+  getClubs() {
+    const observable = Observable.create((observer: Observable<any>) => {
+      observer.next(this.http.get('/api/clubs')); //wird immer noch in komischem Format geholt
+      observer.complete();
+    });
+    observable.subscribe(
+      // (value) => { console.log("new value: ", value); },
+      (value) => { console.log(JSON.stringify(value));},
+      (error) => { console.log("error: ", error); },
+      () => { console.log("completed succesfully");
+    });
+  }
+}
+
+//direkt nach dem constructor
 
   // getClubs() {
   // console.log('service function called');
@@ -24,8 +39,9 @@ export class QueryService {
   // });
   // }
 
-  getClubs() {
-    console.log('service function called');
+
+
+//auskommentierter Block von oben
 
     // ANGULAR DOCS EDITION
     // return this.http.get('/api/clubs').pipe(
@@ -57,8 +73,8 @@ export class QueryService {
     //   console.log('still alive');
     //   observer.complete();
     // });
-  }
-}
+
+
 
 // login(email: string, password: string): Observable < any > {
 //   return Observable.create(observer => {
