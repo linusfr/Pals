@@ -8,7 +8,7 @@
     <p>
       <mat-form-field appearance="outline" class="form_field">
         <mat-label>E-Mail-Adresse</mat-label>
-        <input matInput formControlName="email" name="email" required>
+        <input matInput [formControl]="email" type="text" required>
         <mat-icon matSuffix><img id="icon" src="../assets/baseline-email-24px.svg"></mat-icon>
         <mat-hint id="hint">E-Mail-Adresse</mat-hint>
         <mat-error *ngIf="email.invalid && email.errors.email">Ungültige E-Mail-Address</mat-error>
@@ -17,7 +17,7 @@
     <p>
       <mat-form-field appearance="outline" class="form_field">
         <mat-label>Vollständiger Name</mat-label>
-        <input matInput formControlName="fullname" name="fullname" required>
+        <input matInput [formControl]="fullname" type="text" required>
         <mat-icon matSuffix><img id="icon" src="../assets/baseline-account_circle-24px.svg"></mat-icon>
         <mat-hint id="hint">Vollständiger Name</mat-hint>
       </mat-form-field>
@@ -25,7 +25,7 @@
     <p>
       <mat-form-field appearance="outline" class="form_field">
         <mat-label>Passwort</mat-label>
-        <input matInput formControlName="password" type="password" name="password" required>
+        <input matInput [formControl]="password" type="password" required>
         <mat-icon  matSuffix><img id="icon" src="../assets/baseline-visibility-24px.svg"></mat-icon>
         <mat-hint id="hint">Passwort</mat-hint>
       </mat-form-field>
@@ -33,7 +33,7 @@
     <p>
       <mat-form-field appearance="outline" class="form_field">
         <mat-label>Passwort wiederholen</mat-label>
-        <input matInput formControlName="repeatPassword" type="password" name="repeatPassword"
+        <input matInput [formControl]="repeatPassword" type="password"
           required>
         <mat-icon  matSuffix><img id="icon" src="../assets/baseline-visibility-24px.svg"></mat-icon>
         <mat-hint id="hint">Passwort wiederholen</mat-hint>
