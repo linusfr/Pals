@@ -18,9 +18,10 @@ import { HomeComponent } from './home/home.component';
 
 import { MaterialModule } from './material/material';
 import { AppRoutingModule } from './app-routing/app-routing.module';
+import { DetailedViewComponent } from './home/detailed-view/detailed-view.component';
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, HomeComponent],
+  declarations: [AppComponent, HeaderComponent, HomeComponent, DetailedViewComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
