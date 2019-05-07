@@ -1,3 +1,14 @@
+/*-------------------------------------------------------------------- */
+//declaring variables
+$secondaryColor: #262626;
+$colors: (
+  primary: #c11e5c,
+  secondary: #262626,
+  accent: #aebcc3,
+  warn: #f44539
+);
+/*--------------------------------------------------------------------*/
+//general features
 .example-icon {
   padding: 0 14px;
 }
@@ -6,11 +17,64 @@
   flex: 1 1 auto;
 }
 
-.example-card {
-  width: 400px;
-  margin: 10% auto;
+#hint {
+  color: #aebcc3;
 }
 
-.mat-card-title {
-  font-size: 16px;
+#icon {
+  color: #aebcc3;
 }
+
+//Login-Card features
+/*.login-card.image {
+  width: 30%;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}*/
+
+.login-card {
+  opacity: 0.8;
+  background-color: black;
+  color: #aebcc3;
+  width: 30%;
+  margin: 10% auto;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.label {
+  color: #aebcc3; 
+}
+
+.form_field {
+  color: #aebcc3;
+  width: 50%;
+}
+
+#register {
+  color:#c11e5c;
+}
+
+#logo_login {
+  width: 20%;
+  height: 20%;
+}
+
+#outline_field {
+  width: 50%;
+}
+
+//register-Card features
+.register-card {
+  opacity: 0.8;
+  background-color: black;
+  color: #aebcc3;
+  width: 30%;
+  margin: 10% auto;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+

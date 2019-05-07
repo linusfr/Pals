@@ -120,11 +120,28 @@ header {
       padding: 0 14px;
     }
   }
-  .mat-icon {
-    vertical-align: middle;
-    margin: 0 5px;
-  }
+  
   a {
     cursor: pointer;
+  }
+
+  #favorit_icon {
+    padding-right: 2%;
+    padding-bottom: 4%;
+    width: 8%;
+    //height: 8%;
+  }
+
+  #chat_icon {
+    padding-right: 2%;
+    padding-bottom: 4%;
+    width: 8%;
+    //height: 8%;
+  }
+
+  #login_icon {
+    padding-right: 2%;
+    padding-bottom: 4%;
+    width: 8%;
   }
 }
