@@ -18,7 +18,10 @@ import { HomeComponent } from './home/home.component';
 
 import { MaterialModule } from './material/material';
 import { AppRoutingModule } from './app-routing/app-routing.module';
+
 import { DetailedViewComponent } from './home/detailed-view/detailed-view.component';
+
+import { QueryService } from './services/queries.service';
 
 @NgModule({
   declarations: [AppComponent, HeaderComponent, HomeComponent, DetailedViewComponent],
@@ -35,6 +38,7 @@ import { DetailedViewComponent } from './home/detailed-view/detailed-view.compon
     FormsModule
   ],
   providers: [
+    QueryService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthHeaderInterceptor,
