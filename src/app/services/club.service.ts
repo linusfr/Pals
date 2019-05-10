@@ -5,7 +5,7 @@ import { Observable } from 'rxjs/Observable';
 @Injectable({
   providedIn: 'root'
 })
-export class QueryService {
+export class ClubService {
   constructor(private http: HttpClient) {}
   getClubs() {
     console.log('in getClubs');

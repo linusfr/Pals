@@ -1,3 +1,4 @@
+import { UserService } from './../../services/user.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -9,15 +10,16 @@ import { AuthService } from '../auth.service';
   styleUrls: ['../auth.component.scss']
 })
 export class LoginComponent implements OnInit {
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+    private userService: UserService
+  ) {}
 
   email: string;
   password: string;
   ngOnInit() {
-    let user = (<any>window).user;
-    let loggedIn = user !== undefined;
-    console.log('user', (<any>window).user);
-    console.log('logged In:', loggedIn);
+    console.log(this.userService.isUserOnline());
   }
 
   login(): void {

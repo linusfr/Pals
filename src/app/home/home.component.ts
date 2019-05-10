@@ -1,6 +1,7 @@
 import { AuthService } from './../auth/auth.service';
 import { Component, OnInit } from '@angular/core';
-import { QueryService } from '../services/queries.service';
+import { ClubService } from '../services/club.service';
+import { UserService } from './../services/user.service';
 
 @Component({
   selector: 'app-home',
@@ -9,37 +10,37 @@ import { QueryService } from '../services/queries.service';
 })
 export class HomeComponent implements OnInit {
   constructor(
-    private queryService: QueryService,
-    private authService: AuthService
+    private clubService: ClubService,
+    private authService: AuthService,
+    private userService: UserService
   ) {}
 
   ngOnInit() {
-    this.queryService.testQuery();
-    this.queryService.getClubs();
+    console.log(this.userService.isUserOnline());
 
-    let date = new Date();
+    this.clubService.testQuery();
+    this.clubService.getClubs();
 
-    this.authService.getUser().subscribe(value => {
-      console.log('userUserOnline', value);
-    });
+    function createClub() {
+      let administrator: string = (<any>window).user._id;
+      let name = 'Hundefutter Gruppe';
+      let description =
+        'Wir mögen Hundefutter und treffen uns um zusammen Hundefutter zu futtern.';
+      let theme = 'futterWatt()';
+      let creationDate: number = Date.now();
+      let time = 'Jeden Dienstag um 16 Uhr';
+      let member = [administrator];
 
-    let user = (<any>window).user;
-    let loggedIn = user !== undefined;
-    console.log('user', (<any>window).user);
-    console.log('logged In:', loggedIn);
-
-    // console.log('User is Online?', isUserOnline);
-
-    let club = {
-      administrator: 'manu',
-      name: 'superClub',
-      description: 'finden sonst keine Freunde',
-      time: date,
-      creationDate: date,
-      theme: 'whatever',
-      member: ['linus', 'manuel']
-    };
-
-    this.queryService.addClubs(club);
+      return {
+        administrator,
+        name,
+        description,
+        theme,
+        creationDate,
+        time,
+        member
+      };
+    }
+    this.clubService.addClubs(createClub());
   }
 }

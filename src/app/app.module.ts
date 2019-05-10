@@ -15,16 +15,27 @@ import { CatchErrorInterceptor } from './interceptors/http-error.interceptor';
 
 import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
-
-import { MaterialModule } from './material/material';
 import { AppRoutingModule } from './app-routing/app-routing.module';
 
-import { DetailedViewComponent } from './home/detailed-view/detailed-view.component';
+// MATERIAL IMPORTS THROUGH THIS
+import { MaterialModule } from './material/material';
 
-import { QueryService } from './services/queries.service';
+// OWN COMPONENTS
+import { DetailedViewComponent } from './home/detailed-view/detailed-view.component';
+import { CreateClubComponent } from './home/create-club/create-club.component';
+
+// OWN SERVICES
+import { ClubService } from './services/club.service';
+import { UserService } from './services/user.service';
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, HomeComponent, DetailedViewComponent],
+  declarations: [
+    AppComponent,
+    HeaderComponent,
+    HomeComponent,
+    DetailedViewComponent,
+    CreateClubComponent
+  ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -38,7 +49,8 @@ import { QueryService } from './services/queries.service';
     FormsModule
   ],
   providers: [
-    QueryService,
+    ClubService,
+    UserService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthHeaderInterceptor,

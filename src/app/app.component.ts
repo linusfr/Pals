@@ -1,4 +1,4 @@
-import { QueryService } from './services/queries.service';
+import { ClubService } from './services/club.service';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs/Subscription';

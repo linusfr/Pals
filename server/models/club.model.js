@@ -1,12 +1,10 @@
 const mongoose = require('mongoose');
 
-// Message = require('./message.model.js');
-// User = require('./user.model.js');
-
 const clubSchema = new mongoose.Schema({
   administrator: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'User'
+    ref: 'User',
+    required: true
   },
   name: {
     type: String,
@@ -31,7 +29,6 @@ const clubSchema = new mongoose.Schema({
     required: false,
     unique: false
   },
-  message: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Message' }],
   member: [
     { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true }
   ]
