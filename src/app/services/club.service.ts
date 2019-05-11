@@ -7,19 +7,13 @@ import { Observable } from 'rxjs/Observable';
 })
 export class ClubService {
   constructor(private http: HttpClient) {}
+
   getClubs() {
-    console.log('in getClubs');
-    this.http.get('/api/clubs').subscribe(clubs => {
-      return clubs;
-    });
+    return this.http.get('/api/clubs');
   }
 
   addClubs(club) {
-    console.log('add query called');
-    this.http.post('/api/clubs/add', club).subscribe(res => {
-      console.log(res);
-      return res;
-    });
+    return this.http.post('/api/clubs/add', club);
   }
 
   testQuery() {

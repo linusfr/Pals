@@ -1,3 +1,4 @@
+import { ClubService } from './../services/club.service';
 import { AuthService } from './../auth/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { ClubService } from '../services/club.service';
@@ -18,29 +19,32 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     console.log(this.userService.isUserOnline());
 
-    this.clubService.testQuery();
-    this.clubService.getClubs();
+    // ----------- GET CLUBS -> WORKING! -----------------------
+    // this.clubService.getClubs().subscribe(data => console.log(data));
 
-    function createClub() {
-      let administrator: string = (<any>window).user._id;
-      let name = 'Hundefutter Gruppe';
-      let description =
-        'Wir mögen Hundefutter und treffen uns um zusammen Hundefutter zu futtern.';
-      let theme = 'futterWatt()';
-      let creationDate: number = Date.now();
-      let time = 'Jeden Dienstag um 16 Uhr';
-      let member = [administrator];
+    // ----------- ADD CLUBS -> WORKING! -----------------------
+    // this.clubService
+    //   .addClubs(this.createClub())
+    //   .subscribe(data => console.log(data));
+  }
 
-      return {
-        administrator,
-        name,
-        description,
-        theme,
-        creationDate,
-        time,
-        member
-      };
-    }
-    this.clubService.addClubs(createClub());
+  createClub() {
+    let administrator: string = (<any>window).user._id;
+    let name = 'Hundefutter Gruppe';
+    let description = 'Ganz tolle Testgruppe';
+    let theme = 'futterWatt()';
+    let creationDate: number = Date.now();
+    let time = 'Jeden Dienstag um 16 Uhr';
+    let member = [administrator];
+
+    return {
+      administrator,
+      name,
+      description,
+      theme,
+      creationDate,
+      time,
+      member
+    };
   }
 }
