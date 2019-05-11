@@ -1,18 +1,19 @@
 <body>
 
-    <div class="card">
-        <div class="image">
-
-        </div>
-        <div class="description">
-            <div class="clubname">
-                Clubname
-            </div>
-            <div class="category">
-                Kategorie
-            </div>
-        </div>
+  <div *ngFor="let club of clubs" class="card">
+    <div class="image">
 
     </div>
+    <div class="description">
+      {{club.description}}
+      <div class="clubname">
+        {{club.name}}
+      </div>
+      <div class="category">
+        {{club.category}}
+      </div>
+    </div>
+
+  </div>
 
 </body>

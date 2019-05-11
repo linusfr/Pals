@@ -1,7 +1,6 @@
 import { ClubService } from './../services/club.service';
 import { AuthService } from './../auth/auth.service';
 import { Component, OnInit } from '@angular/core';
-import { ClubService } from '../services/club.service';
 import { UserService } from './../services/user.service';
 
 @Component({
@@ -16,11 +15,16 @@ export class HomeComponent implements OnInit {
     private userService: UserService
   ) {}
 
+  clubs;
+
   ngOnInit() {
     console.log(this.userService.isUserOnline());
 
     // ----------- GET CLUBS -> WORKING! -----------------------
     // this.clubService.getClubs().subscribe(data => console.log(data));
+    this.clubService.getClubs().subscribe(clubs => {
+      this.clubs = clubs;
+    });
 
     // ----------- ADD CLUBS -> WORKING! -----------------------
     // this.clubService
