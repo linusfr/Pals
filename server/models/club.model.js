@@ -24,7 +24,7 @@ const clubSchema = new mongoose.Schema({
     required: false,
     unique: false
   },
-  theme: {
+  brief: {
     type: String,
     required: false,
     unique: false

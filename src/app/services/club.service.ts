@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 
 @Injectable({
@@ -10,6 +10,13 @@ export class ClubService {
 
   getClubs() {
     return this.http.get('/api/clubs');
+  }
+
+  getDetailedClub(clubID, userID) {
+    const params = {
+      params: new HttpParams().append('clubID', clubID).append('userID', userID)
+    };
+    return this.http.get('/api/clubs/detailedClub', params);
   }
 
   addClubs(club) {

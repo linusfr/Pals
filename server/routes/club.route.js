@@ -11,6 +11,11 @@ router.get('/', async (req, res) => {
   res.json(clubs);
 });
 
+router.get('/detailedClub', async (req, res) => {
+  let club = await clubCtrl.getDetailedClub(req.query.userID, req.query.clubID);
+  res.json(club);
+});
+
 router.post('/add', async (req, res) => {
   let club = req.body;
   clubCtrl.addClub(club);
