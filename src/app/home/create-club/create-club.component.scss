@@ -1,0 +1,70 @@
+.card {
+
+    width: 600px;
+    height: 300px;
+    border-width: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    display: flex;
+    border-radius: .9em;
+    flex: 1 1 0%;
+    background-color: gray;
+    flex-direction: row-reverse;
+    border-top-left-radius: .9em;
+    border-top-right-radius: .9em;
+    float: left;
+   
+    
+}
+
+.description {
+
+    opacity: 0.8;
+    background-color: #262626;
+    width: 60%;
+    border-bottom-right-radius: .9em;
+    border-top-right-radius: .9em;
+    color: white;
+    padding: .9em;
+    font-size: .9em;
+
+}
+
+.header {
+    font-size: 1.5em;
+    padding: .7em;
+    color: hotpink;
+}
+
+.clubname, .clubthema, .beschreibung, .submit {
+    font-size: .9em;
+    padding-bottom: 4%;
+    padding-right: 25%;
+    float: right;
+    text-align: center;
+    
+}
+
+.kategorien {
+    margin-top: 33%;
+    text-align: center;
+
+}
+
+.submit {
+    margin: 7%;
+}
+
+.button {
+    margin: 7%;
+    width: 100%;
+    border-radius: 7px;
+    font-size: 1em;
+}
+
+.button:hover {
+    background-color: hotpink;
+    color: white;
+    
+  }
+
