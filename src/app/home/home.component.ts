@@ -27,6 +27,11 @@ export class HomeComponent implements OnInit {
       this.clubs = clubs;
     });
 
+    // ----------- GET DETAILED CLUB -> WORKING! -----------------------
+    // this.clubService
+    //   .getDetailedClub('5cd6df7e4085dc3313ad1650', '5ca3510d6562c22643c589d2')
+    //   .subscribe(data => console.log(data));
+
     // ----------- ADD CLUBS -> WORKING! -----------------------
     // this.clubService
     //   .addClubs(this.createClub('Laufgruppe', 'Lass laufen.'))
@@ -50,11 +55,6 @@ export class HomeComponent implements OnInit {
     //     this.createClub('Pokerrunde', 'Wir ziehen dir das Geld aus der Tasche.')
     //   )
     //   .subscribe(data => console.log(data));
-
-    // ----------- GET DETAILED CLUB -> !WORKING! -----------------------
-    this.clubService
-      .getDetailedClub('5cd6df7e4085dc3313ad1650', '5ca3510d6562c22643c589d2')
-      .subscribe(data => console.log(data));
   }
 
   createClub(name, brief) {
