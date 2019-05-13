@@ -1,44 +1,42 @@
 .card {
-    padding-top: 10%;
-    width: 12%;
-    height: 40%;
-    border-width: 0;
-    box-sizing: border-box;
-    font-family: sans-serif;
-    display: flex;
-    border-radius: .9em;
-    flex: 1 1 0%;
-    flex-direction: column;
-    margin: 4%;
-    background-size: cover;
-    background-image: url(https://images.unsplash.com/photo-1523978591478-c753949ff840?w=900); 
-    
+  padding-top: 10%;
+  width: 170px;
+  height: 270px;
+  border-width: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+  display: flex;
+  border-radius: 0.9em;
+  flex: 1 1 0%;
+  float: left;
+  flex-direction: row;
+  margin: 4%;
+  background-size: cover;
+  background-image: url(https://images.unsplash.com/photo-1523978591478-c753949ff840?w=900);
 }
 
 .image {
-
-    height: 50%;
-
+  height: 50%;
 }
 
 .description {
-    opacity: 0.8;
-    padding-top: 20%;
-    background-color: #262626;
-    height: 50%;
-    border-bottom-left-radius: .9em;
-    border-bottom-right-radius: .9em;
-    color: white;
-    text-align: center;
-
+  padding: 0.4em;
+  font-size: 80%;
 }
 
 .clubname {
-    padding: .6em;
-    font-size: 1.5em;
+  padding: 0.4em;
+  font-size: 100%;
 }
 
-.category {
-    padding: .8em;
-    font-size: .9em;
+.text {
+  opacity: 0.8;
+  background-color: #262626;
+  height: 70%;
+  width: 100%;
+  border-bottom-left-radius: 0.9em;
+  border-bottom-right-radius: 0.9em;
+  color: white;
+  text-align: center;
+  padding: 12%;
 }
