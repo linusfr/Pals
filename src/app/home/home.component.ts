@@ -1,3 +1,4 @@
+import { CreateClubComponent } from './create-club/create-club.component';
 import { Subscription } from 'rxjs/Subscription';
 import { ClubService } from './../services/club.service';
 import { AuthService } from './../auth/auth.service';
