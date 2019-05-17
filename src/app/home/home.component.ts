@@ -2,6 +2,7 @@ import { ClubService } from './../services/club.service';
 import { AuthService } from './../auth/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { UserService } from './../services/user.service';
+import { ImageService } from '../services/image.service';
 
 @Component({
   selector: 'app-home',
@@ -11,10 +12,26 @@ import { UserService } from './../services/user.service';
 export class HomeComponent implements OnInit {
   constructor(
     private clubService: ClubService,
-    private userService: UserService
+    private userService: UserService,
+    private imageService: ImageService
   ) {}
 
+  selectedFile;
   clubs;
+
+  processFile(imageInput: any) {
+    const file: File = imageInput.files[0];
+    const reader = new FileReader();
+
+    reader.addEventListener('load', (event: any) => {
+      this.selectedFile = new ImageSnippet(event.target.result, file);
+
+      let image = this.imageService.uploadImage(this.selectedFile.file);
+      console.log(image);
+    });
+
+    reader.readAsDataURL(file);
+  }
 
   ngOnInit() {
     // ----------- GET CLUBS -> WORKING! -----------------------
@@ -73,4 +90,7 @@ export class HomeComponent implements OnInit {
       )
       .subscribe(data => console.log(data));
   }
+}
+class ImageSnippet {
+  constructor(public src: string, public file: File) {}
 }
