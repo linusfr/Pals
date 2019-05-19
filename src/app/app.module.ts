@@ -28,6 +28,10 @@ import { CreateClubComponent } from './home/create-club/create-club.component';
 import { ClubService } from './services/club.service';
 import { UserService } from './services/user.service';
 
+// GOOGLE CALENDAR EXPORT 
+import { NgAddToCalendarModule } from '@trademe/ng-add-to-calendar';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -46,7 +50,8 @@ import { UserService } from './services/user.service';
     AdminModule,
     MaterialModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    NgAddToCalendarModule
   ],
   providers: [
     ClubService,
