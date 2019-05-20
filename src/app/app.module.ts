@@ -56,9 +56,7 @@ import { TokenStorage } from './auth/token.storage';
     MaterialModule,
     AppRoutingModule,
     FormsModule,
-    NgAddToCalendarModule,
-    AuthService,
-    TokenStorage
+    NgAddToCalendarModule
   ],
   providers: [
     ClubService,
