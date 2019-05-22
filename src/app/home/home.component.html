@@ -1,25 +1,24 @@
 <body>
 
-  <div id="itemListContainer">
-    <div *ngFor="let club of clubs" class="card">
-      <div class="image"> </div>
-      <div class="text">
-        <div class="description">
-          {{club.brief}}
-        </div>
-        <div class="clubname">
-          {{club.name}}
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div id="createClub">
-    <app-create-club></app-create-club>
-  </div>
-
   <div id="detailed">
     <app-detailed-view></app-detailed-view>
   </div>
 
+ <div id="createClub">
+    <app-create-club></app-create-club>
+  </div>
+  
+  <div id="itemListContainer">
+    <div *ngFor="let club of clubs" class="card">
+      <div class="text">
+        <div class="clubname">
+          {{club.name}}
+        </div>
+        <div class="description">
+          {{club.brief}}
+        </div>
+      </div>
+    </div>
+  </div>
+  
 </body>
