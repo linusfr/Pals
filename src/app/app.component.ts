@@ -16,14 +16,17 @@ import * as schema from './schema/equipment.json';
 export class AppComponent implements OnInit {
   private userSubscription: Subscription;
   public user: any;
+  
 
   constructor(
     private authService: AuthService,
     private router: Router,
     private domSanitizer: DomSanitizer,
     private matIconRegistry: MatIconRegistry
+    
   ) {
     this.registerSvgIcons();
+    
   }
 
   public ngOnInit() {
@@ -36,6 +39,8 @@ export class AppComponent implements OnInit {
     this.userSubscription = this.authService.$userSource.subscribe(user => {
       this.user = user;
     });
+
+    
   }
 
   logout(): void {

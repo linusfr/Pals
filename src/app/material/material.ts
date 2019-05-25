@@ -1,6 +1,6 @@
-import { MatButtonModule, MatCheckboxModule } from '@angular/material';
+import { MatButtonModule, MatCheckboxModule, MatLabel, MatHint, MatFormField, MatFormFieldModule } from '@angular/material';
 import { NgModule } from '@angular/core';
-import { MatIconModule } from '@angular/material/icon';
+import { MatIconModule,  } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatInputModule } from '@angular/material/input';
@@ -24,7 +24,9 @@ import { MatCarouselModule } from '@ngmodule/material-carousel';
     MatCardModule,
     MatExpansionModule,
     MatInputModule,
-    MatMenuModule
+    MatMenuModule,
+    MatIconModule,
+    MatFormFieldModule
   ],
   exports: [
     MatButtonModule,
@@ -38,7 +40,9 @@ import { MatCarouselModule } from '@ngmodule/material-carousel';
     MatCardModule,
     MatExpansionModule,
     MatInputModule,
-    MatMenuModule
+    MatMenuModule,
+    MatIconModule,
+    MatFormFieldModule
   ]
 })
 export class MaterialModule {}

@@ -93,6 +93,7 @@ export class HomeComponent implements OnInit {
       .subscribe(data => console.log(data));
   }
 }
+
 class ImageSnippet {
   constructor(public src: string, public file: File) {}
 }
