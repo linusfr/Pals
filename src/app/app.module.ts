@@ -1,3 +1,4 @@
+import { HttpModule } from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
@@ -27,6 +28,14 @@ import { CreateClubComponent } from './home/create-club/create-club.component';
 // OWN SERVICES
 import { ClubService } from './services/club.service';
 import { UserService } from './services/user.service';
+import { ProfilePageComponent } from './home/profile-page/profile-page.component';
+
+// GOOGLE CALENDAR EXPORT 
+import { NgAddToCalendarModule } from '@trademe/ng-add-to-calendar';
+import { AuthService } from './auth/auth.service';
+import { TokenStorage } from './auth/token.storage';
+
+
 
 @NgModule({
   declarations: [
@@ -34,9 +43,11 @@ import { UserService } from './services/user.service';
     HeaderComponent,
     HomeComponent,
     DetailedViewComponent,
-    CreateClubComponent
+    CreateClubComponent,
+    ProfilePageComponent
   ],
   imports: [
+    HttpModule,
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
@@ -46,7 +57,8 @@ import { UserService } from './services/user.service';
     AdminModule,
     MaterialModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    NgAddToCalendarModule
   ],
   providers: [
     ClubService,

@@ -1,29 +1,26 @@
 .card {
-
-    width: 1200px;
-    height: 600px;
-    box-sizing: border-box;
-    font-family: sans-serif;
-    display: flex;
-    border-radius: .9em;
-    flex-direction: row-reverse;
-    border-top-left-radius: .9em;
-    border-top-right-radius: .9em;
-    background-size: cover;
-    background-image: url(https://images.unsplash.com/photo-1523978591478-c753949ff840?w=900); 
-    
-}
-
-.description {
-
-    opacity: 0.8;
-    background-color: #262626;
-    width: 63%;
-    border-bottom-right-radius: .9em;
-    border-top-right-radius: .9em;
-    color: white;
-    padding: .9em;
-    font-size: .9em;
+  width: 600px;
+  height: 300px;
+  border-width: 0;
+  width: 1200px;
+  height: 600px;
+  box-sizing: border-box;
+  font-family: sans-serif;
+  display: flex;
+  border-radius: 0.9em;
+  flex: 1 1 0%;
+  flex-direction: row-reverse;
+  border-top-left-radius: 0.9em;
+  border-top-right-radius: 0.9em;
+  opacity: 0.8;
+  background-color: #262626;
+  width: 60%;
+  width: 63%;
+  border-bottom-right-radius: 0.9em;
+  border-top-right-radius: 0.9em;
+  color: white;
+  padding: 0.9em;
+  font-size: 0.9em;
 }
 
 .material-icons {
@@ -34,38 +31,57 @@
 }
 
 .clubname {
-    padding: .5em;
-    font-size: 2.3em;
-    color: #c11e5c;
+  font-size: 1.5em;
+  padding: 0.5em;
+  font-size: 2.3em;
+  color: #c11e5c;
 }
 
-.brief, .category, .owner{
-    padding: .9em;
-    margin-left: 1.5em; 
-    font-size: 1.4em;
+.brief,
+.category,
+.owner {
+  padding: 0.3em;
+  font-size: 0.9em;
+  padding: 0.9em;
+  margin-left: 1.5em;
+  font-size: 1.4em;
 }
 
 .details {
-    padding: .9em;
-    font-size: 1.1em;
+  padding: 0.35em;
+  font-size: 0.75em;
+
+  padding: 0.9em;
+  font-size: 1.1em;
+}
+
+table {
+  width: 100%;
+  color: white;
+  height: 37%;
 }
 
 .chat {
-    width: 33em;
-    height: 16em;
-    float: left;
+  width: 33em;
+  height: 16em;
+  float: left;
+}
 
+.chat {
+  border-right: 2px solid hotpink;
+  width: 50%;
 }
 
 .meeting {
-    float: right;
-    height: 16em;
-    width: 19em;
-    border-left: .2em solid #c11e5c;
+  float: right;
+  height: 16em;
+  width: 19em;
+  border-left: 0.2em solid #c11e5c;
 }
 
-.time, .place {
-    padding: .5em;
+.time,
+.place {
+  padding: 0.5em;
 }
 
 @media only screen and (max-width: 768px){
