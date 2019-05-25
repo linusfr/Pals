@@ -42,6 +42,11 @@ export class HomeComponent implements OnInit {
       console.log(clubs);
     });
 
+    console.log('test');
+    this.userService.getActiveUser().subscribe(user => {
+      console.log(user);
+    });
+
     // ----------- GET DETAILED CLUB -> WORKING! -----------------------
     // this.clubService
     //   .getDetailedClub('5cd6df7e4085dc3313ad1650', '5ca3510d6562c22643c589d2')

@@ -21,5 +21,5 @@ async function getClubs() {
 }
 
 async function getDetailedClub(userID, clubID) {
-  return await Club.find({ _id: clubID });
+  return await Club.find({ _id: clubID }).populate('administrator');
 }
