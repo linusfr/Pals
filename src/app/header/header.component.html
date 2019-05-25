@@ -16,11 +16,11 @@
       </div>
       <div class="flexChildren">
         <div class="buttonWrapper">
-          <mat-icon id="chat_icon"><img src="../assets/baseline-chat_bubble-24px.svg" alt="notification"></mat-icon>
-          <mat-icon id="favorit_icon"><img src="../assets/baseline-favorite-24px.svg" alt="favorits"></mat-icon>
+          <mat-icon id="chat_icon">chat_bubble</mat-icon>
+          <mat-icon id="favorit_icon">favorite</mat-icon>
           <mat-icon id="login_icon" color="primary" [routerLink]="['/auth/login']" *ngIf="!user">
-            <img src="../assets/baseline-fingerprint-24px.svg" alt="favorits">
-          </mat-icon>
+           fingerprint
+          </mat-icon> 
           <!--<button mat-stroked-button>
             <img src="../assets/baseline-chat_bubble-24px.svg" alt="notification">
           </button>
@@ -32,7 +32,7 @@
           </button>-->
           <div>
             <a class="links side" *ngIf="user" [matMenuTriggerFor]="menu">
-              <mat-icon>account_circle</mat-icon>{{ user.fullname }}
+              <mat-icon id="loggedInIcon">how_to_reg</mat-icon>{{ user.fullname }}
             </a>
             <mat-menu #menu="matMenu">
               <button
@@ -42,6 +42,7 @@
               >
                 admin
               </button>
+              <button mat-menu-item [routerLink]="['/profile']" color="primary">Profil</button>
               <button mat-menu-item (click)="logout()">logout</button>
             </mat-menu>
           </div>
