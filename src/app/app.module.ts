@@ -27,6 +27,7 @@ import { CreateClubComponent } from './home/create-club/create-club.component';
 // OWN SERVICES
 import { ClubService } from './services/club.service';
 import { UserService } from './services/user.service';
+import { ProfilePageComponent } from './home/profile-page/profile-page.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { UserService } from './services/user.service';
     HeaderComponent,
     HomeComponent,
     DetailedViewComponent,
-    CreateClubComponent
+    CreateClubComponent,
+    ProfilePageComponent
   ],
   imports: [
     BrowserModule,
