@@ -1,18 +1,24 @@
 <body>
 
-  <div id="itemListContainer">
+  <div class="search">
+    <mat-form-field appearance="standard">
+      <mat-label>Club suchen</mat-label>
+      <input matInput placeholder="">
+    </mat-form-field>
+  </div>
+
+<!--   <div id="itemListContainer">
     <div *ngFor="let club of clubs" class="card">
-      <div class="image"> </div>
       <div class="text">
-        <div class="description">
-          {{club.brief}}
-        </div>
         <div class="clubname">
           {{club.name}}
         </div>
+        <div class="description">
+          {{club.brief}}
+        </div>
       </div>
     </div>
-  </div> -->
+  </div>  -->
 
   <div id="detailed">
     <app-detailed-view></app-detailed-view>
