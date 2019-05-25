@@ -22,10 +22,23 @@
   font-size: 0.9em;
 }
 .material-icons {
+<<<<<<< HEAD
   float: right;
   color: white;
   font-size: 50px;
   margin: 0.5%;
+=======
+	float: right;
+	color: white;
+	font-size: 50px;
+	margin: .5%;
+}
+	
+.clubname {
+    padding: .5em;
+    font-size: 2.3em;
+    color: #c11e5c;
+>>>>>>> frontend
 }
 
 .clubname {
@@ -107,3 +120,52 @@
     display: none;
   }
 }
+<<<<<<< HEAD
+=======
+@media only screen and (max-width: 768px){
+    .card {
+        width: 325px;
+        height: 550px;
+        flex-direction: column-reverse;
+
+    }
+    .description {
+        width: 300px;
+        height: 360px;
+        border-top-right-radius: 0em;
+        border-bottom-right-radius: .9em;
+        border-bottom-left-radius: .9em;
+        opacity: 0.9;
+    }
+    .clubname {
+        font-size: 1.3em;
+        font-weight: bold;
+    }
+    .material-icons {
+        font-size: 30px;
+    }
+    .brief, .category, .owner{
+        font-size: 1em;
+        margin-left: .9em;
+        padding: .5em;
+    }
+    .details {
+        font-size: .8em;
+    }
+    .meeting {
+        float: none;
+        height: 16em;
+        width: 19em;
+        padding-top: .3em;
+        border-top: .15em solid #c11e5c;
+        border-left: .0em;
+    }
+    
+    .time, .place {
+        margin: .5em;
+    }
+     .chat {
+        display: none; 
+    }
+}
+>>>>>>> frontend
