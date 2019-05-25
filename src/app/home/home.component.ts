@@ -26,8 +26,10 @@ export class HomeComponent implements OnInit {
     reader.addEventListener('load', (event: any) => {
       this.selectedFile = new ImageSnippet(event.target.result, file);
 
-      let image = this.imageService.uploadImage(this.selectedFile.file);
-      console.log(image);
+      console.log(this.selectedFile.src);
+      this.imageService
+        .uploadImage(this.selectedFile.src)
+        .subscribe(data => console.log(data));
     });
 
     reader.readAsDataURL(file);
