@@ -4,6 +4,7 @@ import { AuthGuard } from '../auth/auth-guard.service';
 import { HomeComponent } from '../home/home.component';
 import { DetailedViewComponent } from '../home/detailed-view/detailed-view.component';
 import { ProfilePageComponent } from '../home/profile-page/profile-page.component';
+import { CreateClubComponent } from '../home/create-club/create-club.component';
 
 const routes: Routes = [
   {
@@ -13,6 +14,10 @@ const routes: Routes = [
   {
     path: 'detailedClub/:id',
     component: DetailedViewComponent
+  },
+  {
+    path: 'createClub',
+    component: CreateClubComponent
   },
   {
     path: 'profile',
