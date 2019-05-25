@@ -17,7 +17,7 @@ body {
 }
 
 .card {
-  padding-top: 130px;
+  padding-top: 50%;
   width: 170px;
   height: 270px;
   box-sizing: border-box;
@@ -54,8 +54,12 @@ body {
 
 @media only screen and (max-width: 768px){
 
-  .card{
-    margin: auto;
-  }
+  .card {
+    height: 400px;
+    width: 250px;
+}
 
+  .text {
+    height: 210px;
+  }
 }
