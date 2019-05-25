@@ -46,10 +46,16 @@ export class DetailedViewComponent implements OnInit {
 
   ngOnInit() {
     this.club = this.route.params.subscribe(params => {
-      this.id = params['id']; // (+) converts string 'id' to a number
-      console.log(this.id);
-      console.log((<any>window).user);
-      // In a real app: dispatch action to load the details here.
+      this.id = params['id'];
+      console.log('club_id', this.id);
+      console.log('user_id', localStorage.activeUser);
+
+      this.clubService
+        .getDetailedClub(this.id, localStorage.activeUser)
+        .subscribe(club => {
+          this.club = club[0];
+          console.log(club);
+        });
     });
 
     // google cal

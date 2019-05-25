@@ -29,7 +29,6 @@ export class AuthService {
           observer.next({ user: data.user });
           this.setUser(data.user);
           localStorage.activeUser = data.user._id;
-          console.log(localStorage.activeUser);
           this.token.saveToken(data.token);
           observer.complete();
         });

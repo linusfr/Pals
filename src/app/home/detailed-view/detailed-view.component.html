@@ -4,21 +4,19 @@
 
     <div class="description">
       <div class="clubname">
-        Clubname
+        {{club.name}}
       </div>
       <div class="brief">
-        Kurzbeschreibung
+        {{club.brief}}
       </div>
       <div class="category">
-        Kategorie
+        {{club.name}}
       </div>
       <div class="owner">
         Clubleiter
       </div>
       <div class="details">
-        Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore
-        magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea
-        commodi consequat.
+        {{club.description}}
       </div>
     </div>
 
@@ -27,14 +25,13 @@
     </div>
     <div class="meeting">
       <div class="time">
-        Nächstes Treffen:
+        {{club.time}}
       </div>
       <div class="place">
         Treffpunkt:
       </div>
       <a class="googleCal" [href]="googleCalendarEventUrl" target="_blank">Zu Google Calendar hinzufügen</a>
     </div>
-
 
   </div>
 
