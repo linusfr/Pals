@@ -42,10 +42,11 @@ $colors: (
   text-align: center;
   margin-left: auto;
   margin-right: auto;
+  border-radius: 10px;
 }
 
 .label {
-  color: #aebcc3; 
+  color: #aebcc3;
 }
 
 .form_field {
@@ -54,7 +55,7 @@ $colors: (
 }
 
 #register {
-  color:#c11e5c;
+  color: #c11e5c;
 }
 
 #logo_login {
@@ -62,7 +63,7 @@ $colors: (
   height: 20%;
 }
 
-#outline_field {
+.outline_field {
   width: 50%;
 }
 
@@ -76,5 +77,27 @@ $colors: (
   text-align: center;
   margin-left: auto;
   margin-right: auto;
+  border-radius: 10px;
 }
 
+//Handy Ansicht
+@media only screen and (max-width: 768px) {
+  .register-card {
+    width: 90%;
+  }
+
+  #logo_login {
+    width: 40%;
+  }
+
+  #header_register {
+    font-size: 1.8em;
+  }
+
+  .mat-form-field-flex {
+    display: inline-flex;
+    align-items: center;
+    box-sizing: border-box;
+    width: 18em;
+  }
+}

@@ -8,30 +8,31 @@
               Erstelle deinen eigenen Club:
           </div>
 
-          <div class="clubname">
-              Clubname:
-              <input type="text">
-          </div>
-          <div class="clubthema">
-              Clubthema:
-              <input type="text">
-          </div>
-          <div class="beschreibung">
-              Beschreibung:
-              <input type="text">
-          </div>
-          <div class="kategorien">
-              Kategorie:
-              <select>
-                      <option value="kategorie1">Test</option>
-                      <option value="kategorie2">Test</option>
-                      <option value="kategorie3">Test</option>
-                  </select>
-          </div>
+          <mat-form-field class="clubname" appearance="standard">
+            <mat-label>Clubname</mat-label>
+            <input matInput>
+          </mat-form-field>
 
-          <div class="submit">
-              <button class="button" type="button">Club erstellen</button>
-          </div>
+          <mat-form-field class="clubthema" appearance="standard">
+            <mat-label>Clubthema</mat-label>
+            <input matInput>
+          </mat-form-field>
+
+          <mat-form-field class="beschreibung" appearance="standard">
+            <mat-label>Beschreibung</mat-label>
+            <input matInput >
+          </mat-form-field>
+
+            <mat-form-field class="kategorien">
+            <mat-label>Kategorie</mat-label>
+                <mat-select>
+                <mat-option *ngFor="let category of categories" [value]="category.value">
+                    {{category.value}}
+                </mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <button mat-stroked-button color="primary" class="submit" > Club erstellen </button>
           
       </div>
 

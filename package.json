@@ -30,6 +30,7 @@
     "@trademe/ng-add-to-calendar": "^3.0.4",
     "angular-pipes": "^8.0.0",
     "angular-tree-component": "^7.2.0",
+    "base64-img": "^1.0.4",
     "bcrypt": "^3.0.2",
     "body-parser": "^1.18.2",
     "compression": "^1.7.2",

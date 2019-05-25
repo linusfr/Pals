@@ -1,8 +1,8 @@
-import { Subscription } from 'rxjs/Subscription';
 import { ClubService } from './../services/club.service';
 import { AuthService } from './../auth/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { UserService } from './../services/user.service';
+import { ImageService } from '../services/image.service';
 
 @Component({
   selector: 'app-home',
@@ -12,17 +12,31 @@ import { UserService } from './../services/user.service';
 export class HomeComponent implements OnInit {
   constructor(
     private clubService: ClubService,
-    private authService: AuthService,
-    private userService: UserService
+    private userService: UserService,
+    private imageService: ImageService
   ) {}
 
+  selectedFile;
   clubs;
 
-  ngOnInit() {
-    console.log(this.userService.isUserOnline());
+  processFile(imageInput: any) {
+    const file: File = imageInput.files[0];
+    const reader = new FileReader();
 
+    reader.addEventListener('load', (event: any) => {
+      this.selectedFile = new ImageSnippet(event.target.result, file);
+
+      console.log(this.selectedFile.src);
+      this.imageService
+        .uploadImage(this.selectedFile.src)
+        .subscribe(data => console.log(data));
+    });
+
+    reader.readAsDataURL(file);
+  }
+
+  ngOnInit() {
     // ----------- GET CLUBS -> WORKING! -----------------------
-    // this.clubService.getClubs().subscribe(data => console.log(data));
     this.clubService.getClubs().subscribe(clubs => {
       this.clubs = clubs;
     });
@@ -38,23 +52,7 @@ export class HomeComponent implements OnInit {
     //   .subscribe(data => console.log(data));
 
     // ----------- ADD SAMPLE DATA  -----------------------
-    // this.clubService
-    //   .addClubs(this.createClub('Laufgruppe', 'Lass laufen.'))
-    //   .subscribe(data => console.log(data));
-    // this.clubService
-    //   .addClubs(this.createClub('Hundefutter Gruppe', 'Hunde füttern.'))
-    //   .subscribe(data => console.log(data));
-    // this.clubService
-    //   .addClubs(this.createClub('Schach', 'und matt.'))
-    //   .subscribe(data => console.log(data));
-    // this.clubService
-    //   .addClubs(this.createClub('Kletteräffchen', 'Ran an die Wand.'))
-    //   .subscribe(data => console.log(data));
-    // this.clubService
-    //   .addClubs(
-    //     this.createClub('Pokerrunde', 'Wir ziehen dir das Geld aus der Tasche.')
-    //   )
-    //   .subscribe(data => console.log(data));
+    // this.addSampleData();
   }
 
   createClub(name, brief) {
@@ -75,5 +73,27 @@ export class HomeComponent implements OnInit {
     };
   }
 
-  
+  addSampleData() {
+    this.clubService
+      .addClubs(this.createClub('Laufgruppe', 'Lass laufen.'))
+      .subscribe(data => console.log(data));
+    this.clubService
+      .addClubs(this.createClub('Hundefutter Gruppe', 'Hunde füttern.'))
+      .subscribe(data => console.log(data));
+    this.clubService
+      .addClubs(this.createClub('Schach', 'und matt.'))
+      .subscribe(data => console.log(data));
+    this.clubService
+      .addClubs(this.createClub('Kletteräffchen', 'Ran an die Wand.'))
+      .subscribe(data => console.log(data));
+    this.clubService
+      .addClubs(
+        this.createClub('Pokerrunde', 'Wir ziehen dir das Geld aus der Tasche.')
+      )
+      .subscribe(data => console.log(data));
+  }
+}
+
+class ImageSnippet {
+  constructor(public src: string, public file: File) {}
 }
