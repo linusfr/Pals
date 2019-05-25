@@ -1,3 +1,5 @@
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
 <mat-card class="login-card">
   <mat-card-header>
     <mat-card-title><img id="logo_login" src="../assets/Pals_LOGO.png" /></mat-card-title>
@@ -7,7 +9,7 @@
     <p>
       <mat-form-field appearance="outline" class="form_field">
         <mat-label class="label">E-Mail</mat-label>
-        <input id="outline_field" matInput [(ngModel)]="email" name="email" required>
+        <input class="outline_field" matInput [(ngModel)]="email" name="email" required>
         <mat-icon matSuffix><img id="icon" src="../assets/baseline-account_circle-24px.svg"></mat-icon>
         <mat-hint id="hint">E-Mail Adresse</mat-hint>
       </mat-form-field>
@@ -15,7 +17,7 @@
     <p>
       <mat-form-field appearance="outline" class="form_field">
         <mat-label class="label">Passwort</mat-label>
-        <input id="outline_field" matInput [(ngModel)]="password" type="password" name="password" required>
+        <input class="outline_field" matInput [(ngModel)]="password" type="password" name="password" required>
         <mat-icon  matSuffix><img id="icon" src="../assets/baseline-visibility-24px.svg"></mat-icon>
         <mat-hint id="hint">Passwort</mat-hint>
       </mat-form-field>
