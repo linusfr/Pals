@@ -1,6 +1,7 @@
 .card {
     height: 30em;
     margin: 4em;
+    margin-top: 0em;
     width: 90%;
     box-sizing: border-box;
     font-family: sans-serif;
@@ -46,6 +47,16 @@
     flex-direction: column;
    // width: 30em;
     align-items: center;
+}
+
+#backArrow {
+    font-size: 3em;
+    margin-left: 20px;
+    margin-top: 20px;
+}
+
+#backArrow:hover {
+    cursor: pointer;
 }
 
 @media only screen and (max-width: 768px){

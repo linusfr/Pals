@@ -1,4 +1,7 @@
 <body>
+  <div>
+    <mat-icon [routerLink]="['/profile']" id="backArrow">arrow_back</mat-icon>
+  </div>
 
   <div class="card">
 
@@ -26,7 +29,7 @@
           </div>
 
           <div id="buttonChangeProfile">
-            <button mat-stroked-button color="primary" class="submit" > Profil speichern </button>
+            <button mat-stroked-button [routerLink]="['/profile']" color="primary" class="submit" > Profil speichern </button>
             <!--route anlegen für profil bearbeiten-->
           </div>
           
