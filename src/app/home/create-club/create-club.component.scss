@@ -1,81 +1,85 @@
 .card {
-    width: 1200px;
-    height: 600px;
-    box-sizing: border-box;
-    font-family: sans-serif;
-    display: flex;
-    border-radius: .9em;
-    background-color: gray;
-    flex-direction: row-reverse;
-    border-top-left-radius: .9em;
-    border-top-right-radius: .9em;
-    float: left;
+  width: 1200px;
+  height: 600px;
+  box-sizing: border-box;
+  font-family: sans-serif;
+  display: flex;
+  border-radius: 0.9em;
+  background-color: gray;
+  flex-direction: row-reverse;
+  border-top-left-radius: 0.9em;
+  border-top-right-radius: 0.9em;
+  float: left;
 }
 
 .description {
-    opacity: 0.8;
-    background-color: #262626;
-    width: 63%;
-    border-bottom-right-radius: .9em;
-    border-top-right-radius: .9em;
-    color: white;
-    padding: .9em;
-    font-size: .9em;
+  opacity: 0.8;
+  background-color: #262626;
+  width: 63%;
+  border-bottom-right-radius: 0.9em;
+  border-top-right-radius: 0.9em;
+  color: white;
+  padding: 0.9em;
+  font-size: 0.9em;
 }
 
 .header {
-    text-align: center;
-    font-size: 2em;
-    padding-top: 1em;
-    padding-bottom: .5em; 
-    color: #c11e5c;
+  text-align: center;
+  font-size: 2em;
+  padding-top: 1em;
+  padding-bottom: 0.5em;
+  color: #c11e5c;
 }
 
-.clubname, .clubthema, .beschreibung, .kategorien {
-    font-size: 1.2em;
-    padding: 1%;
-    margin-right: 20%;
-    margin-left: 11%; 
-    float: left;
+.clubname,
+.clubthema,
+.beschreibung,
+.kategorien {
+  font-size: 1.2em;
+  padding: 1%;
+  margin-right: 20%;
+  margin-left: 11%;
+  float: left;
 }
 
 .submit {
-    margin: 14%;
-    float: right;
-    padding: 1%;
+  margin: 14%;
+  float: right;
+  padding: 1%;
 }
 
-@media only screen and (max-width: 768px){
+@media only screen and (max-width: 768px) {
+  .card {
+    width: 325px;
+    height: 550px;
+    flex-direction: column-reverse;
+  }
 
-    .card {
-        width: 325px;
-        height: 550px;
-        flex-direction: column-reverse;
-    }
+  .description {
+    width: 300px;
+    height: 360px;
+    border-top-right-radius: 0em;
+    border-bottom-right-radius: 0.9em;
+    border-bottom-left-radius: 0.9em;
+    opacity: 0.9;
+  }
 
-    .description {
-        width: 300px;
-        height: 360px;
-        border-top-right-radius: 0em;
-        border-bottom-right-radius: .9em;
-        border-bottom-left-radius: .9em;
-        opacity: 0.9;
-    }
+  .header {
+    font-size: 1.5em;
+    padding-top: 0.3em;
+    padding-bottom: 0.6em;
+  }
 
-    .header {
-        font-size: 1.5em;
-        padding-top: .3em;
-        padding-bottom: .6em; 
-    }
+  .clubname,
+  .clubthema,
+  .beschreibung,
+  .kategorien {
+    font-size: 0.8em;
+  }
 
-    .clubname, .clubthema, .beschreibung, .kategorien {
-        font-size: .8em;
-    }
-
-    .submit {
-        margin: 6%;
-        float: right;
-        padding: .7%;
-    }
-
+  .submit {
+    margin: 6%;
+    float: right;
+    padding: 0.7%;
+  }
 }
