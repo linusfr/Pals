@@ -1,3 +1,21 @@
+body {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+#detailed {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+#createClub {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+#itemListContainer {
+  margin: 0 auto;
+  margin-top: 50px;
+}
+
 .card {
   padding-top: 130px;
   width: 170px;
@@ -23,25 +41,15 @@
   font-size: 100%;
 }
 
-.description {
+.text {
   opacity: 0.8;
-  padding-top: 20%;
   background-color: #262626;
   height: 130px;
   border-bottom-left-radius: 0.9em;
   border-bottom-right-radius: 0.9em;
   color: white;
   text-align: center;
-}
-
-.clubname {
-  padding: 0.6em;
-  font-size: 1.5em;
-}
-
-.category {
-  padding: 0.8em;
-  font-size: 0.9em;
+  padding: 12%;
 }
 
 @media only screen and (max-width: 768px) {
