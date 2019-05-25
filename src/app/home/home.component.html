@@ -1,16 +1,17 @@
 <body>
 
   <div id="itemListContainer">
-    <div *ngFor="let club of clubs" class="card">
+    <div *ngFor="let club of clubs" [routerLink]="['detailedClub/', club._id]" class="card">
       <div class="image"> </div>
       <div class="text">
-        <div class="description">
-          {{club.brief}}
-        </div>
         <div class="clubname">
           {{club.name}}
+        </div>
+        <div class="description">
+          {{club.brief}}
         </div>
       </div>
     </div>
   </div>
+
 </body>

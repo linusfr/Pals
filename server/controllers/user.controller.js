@@ -13,7 +13,8 @@ const userSchema = Joi.object({
 });
 
 module.exports = {
-  insert
+  insert,
+  getActiveUser
 };
 
 async function insert(user) {
@@ -21,4 +22,16 @@ async function insert(user) {
   user.hashedPassword = bcrypt.hashSync(user.password, 10);
   delete user.password;
   return await new User(user).save();
+}
+
+async function getActiveUser(userID) {
+  let user = await User.find({ _id: userID });
+
+  let returnUser = {
+    _id: user[0]._id,
+    fullname: user[0].fullname,
+    email: user[0].email
+  };
+
+  return returnUser;
 }

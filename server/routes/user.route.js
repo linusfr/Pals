@@ -10,6 +10,12 @@ router.use(passport.authenticate('jwt', { session: false }));
 
 router.route('/').post(asyncHandler(insert));
 
+router.get('/activeUser', async (req, res) => {
+  console.log('test', req.query.userID);
+  let user = await userCtrl.getActiveUser(req.query.userID);
+  res.json(user);
+});
+
 async function insert(req, res) {
   let user = await userCtrl.insert(req.body);
   res.json(user);

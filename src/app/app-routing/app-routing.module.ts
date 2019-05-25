@@ -5,6 +5,8 @@ import { HomeComponent } from '../home/home.component';
 import { GroupViewComponent } from '../chat/group-view/group-view.component';
 import { ChatLoginComponent } from '../chat/chat-login/chat-login.component';
 
+import { DetailedViewComponent } from '../home/detailed-view/detailed-view.component';
+import { ProfilePageComponent } from '../home/profile-page/profile-page.component';
 
 const routes: Routes = [
   // originally we would start at home screen -> this only to test chat, comment back in after!
@@ -12,6 +14,14 @@ const routes: Routes = [
   {
     path: '',
     component: HomeComponent
+  },
+  {
+    path: 'detailedClub/:id',
+    component: DetailedViewComponent
+  },
+  {
+    path: 'profile',
+    component: ProfilePageComponent
   },
   {
     path: 'auth',

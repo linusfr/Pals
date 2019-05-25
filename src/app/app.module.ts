@@ -28,6 +28,7 @@ import { CreateClubComponent } from './home/create-club/create-club.component';
 // OWN SERVICES
 import { ClubService } from './services/club.service';
 import { UserService } from './services/user.service';
+import { ProfilePageComponent } from './home/profile-page/profile-page.component';
 
 // GOOGLE CALENDAR EXPORT 
 import { NgAddToCalendarModule } from '@trademe/ng-add-to-calendar';
@@ -51,7 +52,7 @@ import { ChatLoginComponent } from './chat/chat-login/chat-login.component';
     CreateClubComponent,
     GroupViewComponent,
     ChatLoginComponent,
-    
+    ProfilePageComponent
   ],
   imports: [
     HttpModule,

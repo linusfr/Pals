@@ -1,6 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { NgAddToCalendarService, ICalendarEvent } from '@trademe/ng-add-to-calendar';
+import { switchMap } from 'rxjs/operators';
+import {
+  NgAddToCalendarService,
+  ICalendarEvent
+} from '@trademe/ng-add-to-calendar';
 import { SafeUrl, DomSanitizer } from '@angular/platform-browser';
+import { ActivatedRoute, ParamMap } from '@angular/router';
+import { ClubService } from '../../services/club.service';
+import { AuthService } from '../../auth/auth.service';
 
 @Component({
   selector: 'app-detailed-view',
@@ -11,10 +18,13 @@ export class DetailedViewComponent implements OnInit {
   public googleCalendarEventUrl: SafeUrl;
   public newEvent: ICalendarEvent;
 
-  constructor
-    (private _addToCalendarService: NgAddToCalendarService,
-      private _sanitizer: DomSanitizer
-    ) {
+  constructor(
+    private route: ActivatedRoute,
+    private _addToCalendarService: NgAddToCalendarService,
+    private _sanitizer: DomSanitizer,
+    private clubService: ClubService,
+    private authService: AuthService
+  ) {
     this.newEvent = {
       // Event title
       title: 'My event title',
@@ -31,13 +41,29 @@ export class DetailedViewComponent implements OnInit {
     };
   }
 
+  club = {};
+  id;
+
   ngOnInit() {
-    // google cal 
+    this.club = this.route.params.subscribe(params => {
+      this.id = params['id'];
+      console.log('club_id', this.id);
+      console.log('user_id', localStorage.activeUser);
+
+      this.clubService
+        .getDetailedClub(this.id, localStorage.activeUser)
+        .subscribe(club => {
+          this.club = club[0];
+          console.log(club);
+        });
+    });
+
+    // google cal
     this.googleCalendarEventUrl = this._sanitizer.bypassSecurityTrustUrl(
-      this._addToCalendarService.getHrefFor(this._addToCalendarService.calendarType.google, this.newEvent)
+      this._addToCalendarService.getHrefFor(
+        this._addToCalendarService.calendarType.google,
+        this.newEvent
+      )
     );
   }
-
-
-
 }

@@ -52,8 +52,15 @@ body {
   padding: 12%;
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 768px){
+
   .card {
-    margin: auto;
+    height: 400px;
+    width: 250px;
+    padding-top: 210px; 
+}
+
+  .text {
+    height: 210px;
   }
 }

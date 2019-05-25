@@ -1,13 +1,20 @@
 <body>
-
   <div class="card">
-
     <div class="description">
       <div class="clubname">
-        Clubname
+        {{club.name}}
+        <i class="material-icons">
+          settings
+        </i>
+        <i class="material-icons">
+          exit_to_app
+        </i>
+        <i class="material-icons">
+          favorite
+        </i>
       </div>
       <div class="brief">
-        Kurzbeschreibung
+        {{club.brief}}
       </div>
       <div class="category">
         Kategorie
@@ -16,26 +23,23 @@
         Clubleiter
       </div>
       <div class="details">
-        Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore
-        magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea
-        commodi consequat.
+        {{club.description}}
       </div>
-    </div>
-
-    <div class="chat">
-      Chat
-    </div>
-    <div class="meeting">
-      <div class="time">
-        Nächstes Treffen:
+      <div class="chat">
+        Chat
       </div>
-      <div class="place">
-        Treffpunkt:
+
+      <div class="meeting">
+        <div class="time">
+          {{club.time}}
+        </div>
+        <div class="place">
+          Treffpunkt:
+        </div>
+        <a class="googleCal" [href]="googleCalendarEventUrl" target="_blank">Zu Google Calendar
+          hinzufügen</a>
       </div>
-      <a class="googleCal" [href]="googleCalendarEventUrl" target="_blank">Zu Google Calendar hinzufügen</a>
+
     </div>
-
-
   </div>
-
 </body>
