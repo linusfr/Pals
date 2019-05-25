@@ -10,6 +10,7 @@ import { Subject } from 'rxjs/Subject';
 
 import { TokenStorage } from './token.storage';
 import { TooltipComponent } from '@angular/material';
+import { ActivatedRoute } from '@angular/router';
 
 @Injectable()
 export class AuthService {
@@ -27,6 +28,8 @@ export class AuthService {
         .subscribe((data: any) => {
           observer.next({ user: data.user });
           this.setUser(data.user);
+          localStorage.activeUser = data.user._id;
+          console.log(localStorage.activeUser);
           this.token.saveToken(data.token);
           observer.complete();
         });
@@ -85,6 +88,7 @@ export class AuthService {
   signOut(): void {
     this.token.signOut();
     this.setUser(null);
+    localStorage.activeUser = undefined;
     delete (<any>window).user;
   }
 }

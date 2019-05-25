@@ -39,6 +39,7 @@ export class HomeComponent implements OnInit {
     // ----------- GET CLUBS -> WORKING! -----------------------
     this.clubService.getClubs().subscribe(clubs => {
       this.clubs = clubs;
+      console.log(clubs);
     });
 
     // ----------- GET DETAILED CLUB -> WORKING! -----------------------

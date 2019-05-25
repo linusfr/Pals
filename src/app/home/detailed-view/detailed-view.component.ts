@@ -1,6 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { NgAddToCalendarService, ICalendarEvent } from '@trademe/ng-add-to-calendar';
+import { switchMap } from 'rxjs/operators';
+import {
+  NgAddToCalendarService,
+  ICalendarEvent
+} from '@trademe/ng-add-to-calendar';
 import { SafeUrl, DomSanitizer } from '@angular/platform-browser';
+import { ActivatedRoute, ParamMap } from '@angular/router';
+import { ClubService } from '../../services/club.service';
+import { AuthService } from '../../auth/auth.service';
 
 @Component({
   selector: 'app-detailed-view',
@@ -11,10 +18,13 @@ export class DetailedViewComponent implements OnInit {
   public googleCalendarEventUrl: SafeUrl;
   public newEvent: ICalendarEvent;
 
-  constructor
-    (private _addToCalendarService: NgAddToCalendarService,
-      private _sanitizer: DomSanitizer
-    ) {
+  constructor(
+    private route: ActivatedRoute,
+    private _addToCalendarService: NgAddToCalendarService,
+    private _sanitizer: DomSanitizer,
+    private clubService: ClubService,
+    private authService: AuthService
+  ) {
     this.newEvent = {
       // Event title
       title: 'My event title',
@@ -31,13 +41,23 @@ export class DetailedViewComponent implements OnInit {
     };
   }
 
+  club = {};
+  id;
+
   ngOnInit() {
-    // google cal 
+    this.club = this.route.params.subscribe(params => {
+      this.id = params['id']; // (+) converts string 'id' to a number
+      console.log(this.id);
+      console.log((<any>window).user);
+      // In a real app: dispatch action to load the details here.
+    });
+
+    // google cal
     this.googleCalendarEventUrl = this._sanitizer.bypassSecurityTrustUrl(
-      this._addToCalendarService.getHrefFor(this._addToCalendarService.calendarType.google, this.newEvent)
+      this._addToCalendarService.getHrefFor(
+        this._addToCalendarService.calendarType.google,
+        this.newEvent
+      )
     );
   }
-
-
-
 }
