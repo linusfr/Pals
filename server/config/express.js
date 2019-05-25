@@ -77,10 +77,16 @@ app.use((err, req, res, next) => {
     err.message = err.details.map(e => e.message).join('; ');
     err.status = 400;
   }
-
-  res.status(err.status || 500).json({
-    message: err.message
-  });
+  if (err.message.includes('ENOENT')) {
+    res.status(err.status || 500).json({
+      angular: 'not done building yet...'
+    });
+    return { angular: 'not done building yet...' };
+  } else {
+    res.status(err.status || 500).json({
+      message: err.message
+    });
+  }
   next(err);
 });
 
