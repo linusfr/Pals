@@ -23,6 +23,27 @@ module.exports = function(config) {
     angularCli: {
       environment: 'dev'
     },
+files:[
+'app/home/detailed-view.component.ts',
+'node_modules/angular/angular.js',
+'BrowserModule',
+'BrowserAnimationsModule',
+'HttpClientModule',
+'RouterModule',
+'SharedModule',
+'AuthModule',
+'AdminModule',
+'MaterialModule',
+'AppRoutingModule',
+'FormsModule',
+'NgAddToCalendarModule',
+'AppComponent',
+'HeaderComponent',
+'HomeComponent',
+'DetailedViewComponent',
+'CreateClubComponent'
+],
+
     reporters: ['progress', 'kjhtml'],
     port: 9876,
     colors: true,

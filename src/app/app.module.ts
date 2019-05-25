@@ -1,3 +1,4 @@
+import { HttpModule } from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
@@ -29,6 +30,13 @@ import { ClubService } from './services/club.service';
 import { UserService } from './services/user.service';
 import { ProfilePageComponent } from './home/profile-page/profile-page.component';
 
+// GOOGLE CALENDAR EXPORT 
+import { NgAddToCalendarModule } from '@trademe/ng-add-to-calendar';
+import { AuthService } from './auth/auth.service';
+import { TokenStorage } from './auth/token.storage';
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,6 +47,7 @@ import { ProfilePageComponent } from './home/profile-page/profile-page.component
     ProfilePageComponent
   ],
   imports: [
+    HttpModule,
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
@@ -48,7 +57,8 @@ import { ProfilePageComponent } from './home/profile-page/profile-page.component
     AdminModule,
     MaterialModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    NgAddToCalendarModule
   ],
   providers: [
     ClubService,
