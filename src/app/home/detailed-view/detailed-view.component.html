@@ -1,16 +1,23 @@
 <body>
-
   <div class="card">
-
     <div class="description">
       <div class="clubname">
         {{club.name}}
+        <i class="material-icons">
+          settings
+        </i>
+        <i class="material-icons">
+          exit_to_app
+        </i>
+        <i class="material-icons">
+          favorite
+        </i>
       </div>
       <div class="brief">
         {{club.brief}}
       </div>
       <div class="category">
-        {{club.name}}
+        Kategorie
       </div>
       <div class="owner">
         Clubleiter
@@ -18,21 +25,21 @@
       <div class="details">
         {{club.description}}
       </div>
-    </div>
-
-    <div class="chat">
-      Chat
-    </div>
-    <div class="meeting">
-      <div class="time">
-        {{club.time}}
+      <div class="chat">
+        Chat
       </div>
-      <div class="place">
-        Treffpunkt:
-      </div>
-      <a class="googleCal" [href]="googleCalendarEventUrl" target="_blank">Zu Google Calendar hinzufügen</a>
-    </div>
 
+      <div class="meeting">
+        <div class="time">
+          {{club.time}}
+        </div>
+        <div class="place">
+          Treffpunkt:
+        </div>
+        <a class="googleCal" [href]="googleCalendarEventUrl" target="_blank">Zu Google Calendar
+          hinzufügen</a>
+      </div>
+
+    </div>
   </div>
-
 </body>
