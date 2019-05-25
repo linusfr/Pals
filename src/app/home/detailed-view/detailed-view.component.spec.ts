@@ -2,6 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { DetailedViewComponent } from './detailed-view.component';
 import { NgAddToCalendarModule } from '@trademe/ng-add-to-calendar';
+import { CreateClubComponent } from '../create-club/create-club.component';
 
 describe('DetailedViewComponent', () => {
   let component: DetailedViewComponent;
@@ -10,7 +11,7 @@ describe('DetailedViewComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [NgAddToCalendarModule],
-      declarations: [ DetailedViewComponent ]
+      declarations: [ DetailedViewComponent,CreateClubComponent ]
     })
     .compileComponents();
   }));

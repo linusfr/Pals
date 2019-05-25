@@ -25,6 +25,7 @@
     "@angular/platform-browser": "^6.1.9",
     "@angular/platform-browser-dynamic": "^6.1.9",
     "@angular/router": "^6.1.9",
+    "@cometchat-pro/chat": "^1.5.1",
     "@ngmodule/material-carousel": "^0.3.1",
     "@trademe/ng-add-to-calendar": "^3.0.4",
     "angular-pipes": "^8.0.0",

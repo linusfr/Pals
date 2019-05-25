@@ -7,6 +7,8 @@ import { DomSanitizer } from '@angular/platform-browser';
 
 import { AuthService } from './auth/auth.service';
 import * as schema from './schema/equipment.json';
+import { CometChatService } from './chat/CometChatService/comet-chat.service';
+import { environment } from '../environments/environment';
 
 @Component({
   selector: 'app-root',
@@ -22,8 +24,8 @@ export class AppComponent implements OnInit {
     private authService: AuthService,
     private router: Router,
     private domSanitizer: DomSanitizer,
-    private matIconRegistry: MatIconRegistry
-    
+    private matIconRegistry: MatIconRegistry,
+    private cometChat: CometChatService 
   ) {
     this.registerSvgIcons();
     
@@ -40,7 +42,7 @@ export class AppComponent implements OnInit {
       this.user = user;
     });
 
-    
+    this.cometChat.init(environment.cometChat.appId);  
   }
 
   logout(): void {

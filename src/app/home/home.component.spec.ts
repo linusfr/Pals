@@ -6,6 +6,9 @@ import { HomeComponent } from './home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthService } from '../auth/auth.service';
 import { TokenStorage } from '../auth/token.storage';
+import { CreateClubComponent } from './create-club/create-club.component';
+import { DetailedViewComponent } from './detailed-view/detailed-view.component';
+import { NgAddToCalendarService } from '@trademe/ng-add-to-calendar';
 
 describe('HomeComponent', () => {
   let component: HomeComponent;
@@ -15,8 +18,8 @@ describe('HomeComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [HttpClientModule],
-      declarations: [HomeComponent],
-      providers: [AuthService,TokenStorage]
+      declarations: [HomeComponent,CreateClubComponent,DetailedViewComponent],
+      providers: [AuthService,TokenStorage,NgAddToCalendarService]
     })
       .compileComponents();
   }));

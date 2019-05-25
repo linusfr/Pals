@@ -34,6 +34,12 @@ import { NgAddToCalendarModule } from '@trademe/ng-add-to-calendar';
 import { AuthService } from './auth/auth.service';
 import { TokenStorage } from './auth/token.storage';
 
+// CHAT
+import { GroupViewComponent } from './chat/group-view/group-view.component';
+import { ChatLoginComponent } from './chat/chat-login/chat-login.component';
+
+
+
 
 
 @NgModule({
@@ -42,7 +48,10 @@ import { TokenStorage } from './auth/token.storage';
     HeaderComponent,
     HomeComponent,
     DetailedViewComponent,
-    CreateClubComponent
+    CreateClubComponent,
+    GroupViewComponent,
+    ChatLoginComponent,
+    
   ],
   imports: [
     HttpModule,
