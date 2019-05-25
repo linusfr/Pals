@@ -5,14 +5,24 @@
       <div class="description">
 
           <div class="header">
-              Dein Profil
+            Dein Profil
           </div>
 
-          <div>
-              
+          <div id="profileInfo">
+            <div id="firstName">
+              Vorname: <!--hier name vom Nutzer reinladen, {{ user.firstname }}-->
+            </div>
+            <div id="secondName">
+              Nachname: <!--hier Nachname vom Nutzer, {{ user.lastname }}-->
+            </div>
+            <div id="email">
+              E-Mail-Adresse: <!--hier E-Mail, {{ user.email }}-->
+            </div>
           </div>
 
-            <button mat-stroked-button color="primary" class="submit" > Club erstellen </button>
+          <div id="buttonChangeProfile">
+            <button mat-stroked-button [routerLink]="['/changeProfile']" color="primary" class="submit" > Profil bearbeiten </button>
+          </div>
           
       </div>
 

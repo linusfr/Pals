@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from '../auth/auth-guard.service';
 import { HomeComponent } from '../home/home.component';
 import { ProfilePageComponent } from '../home/profile-page/profile-page.component';
+import { ChangeProfilePageComponent } from '../home/change-profile-page/change-profile-page.component';
 
 const routes: Routes = [
   {
@@ -12,6 +13,10 @@ const routes: Routes = [
   {
     path: 'profile',
     component: ProfilePageComponent
+  },
+  {
+    path: 'changeProfile',
+    component: ChangeProfilePageComponent
   },
   {
     path: 'auth',
