@@ -28,10 +28,9 @@ export class HomeComponent implements OnInit {
   //     this.selectedFile = new ImageSnippet(event.target.result, file);
 
   //     console.log(this.selectedFile.src);
-  //     this.imageService
-  //       .uploadImage(this.selectedFile.src)
-  //       .subscribe(data => console.log(data));
-  //   });
+
+  // this.selectedFile.src
+  // .subscribe(data => console.log(data));
 
   //   reader.readAsDataURL(file);
   // }
@@ -46,6 +45,8 @@ export class HomeComponent implements OnInit {
     console.log('test');
     this.userService.getActiveUser().subscribe(user => {
       console.log(user);
+
+      this.imageService.uploadImage();
     });
 
     // ----------- GET DETAILED CLUB -> WORKING! -----------------------
