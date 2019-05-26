@@ -1,0 +1,37 @@
+.card {
+    padding-top: 50px;
+    width: 170px;
+    height: 270px;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    display: flex;
+    border-radius: 0.9em;
+    float: left;
+    flex-direction: column;
+    margin: 4%;
+    background-size: cover;
+    background-color: #d8d8d8;
+    text-align: center;
+    color: #3f4041;
+  }
+
+  .text {
+    height: 130px;
+    padding: 12%;   
+  }
+
+  .material-icons {    
+      font-size: 100px;
+  }
+  
+  @media only screen and (max-width: 768px) {
+    .card {
+      height: 400px;
+      width: 250px;
+      padding-top: 210px;
+    }
+  
+    .text {
+      height: 210px;
+    }
+  }
