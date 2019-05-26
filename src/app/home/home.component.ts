@@ -17,7 +17,6 @@ export class HomeComponent implements OnInit {
   ) {}
 
   selectedFile;
-  user;
   clubs;
 
   processFile(imageInput: any) {

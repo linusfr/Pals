@@ -52,7 +52,6 @@ export class AuthService {
         .subscribe((data: any) => {
           observer.next({ user: data.user });
           this.setUser(data.user);
-          console.log(data.user._id);
           localStorage.activeUser = data.user._id;
           this.token.saveToken(data.token);
           observer.complete();
