@@ -5,6 +5,7 @@ import { HomeComponent } from '../home/home.component';
 import { DetailedViewComponent } from '../home/detailed-view/detailed-view.component';
 import { ProfilePageComponent } from '../home/profile-page/profile-page.component';
 import { CreateClubComponent } from '../home/create-club/create-club.component';
+import { ChangeProfilePageComponent } from '../home/change-profile-page/change-profile-page.component';
 
 const routes: Routes = [
   {
@@ -22,6 +23,10 @@ const routes: Routes = [
   {
     path: 'profile',
     component: ProfilePageComponent
+  },
+  {
+    path: 'changeProfile',
+    component: ChangeProfilePageComponent
   },
   {
     path: 'auth',

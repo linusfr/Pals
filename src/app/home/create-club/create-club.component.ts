@@ -8,25 +8,23 @@ import {
 } from '@angular/forms';
 
 @Component({
-  selector: 'app-create-club',
+  selector: '[app-create-club], [ng-if-simple]',
   templateUrl: './create-club.component.html',
-  styleUrls: ['./create-club.component.scss']
+  styleUrls: ['./create-club.component.scss'],
 })
-export class CreateClubComponent implements OnInit {
-  constructor(private userService: UserService) {}
-
+  
+  export class CreateClubComponent implements OnInit {
+    constructor(private userService: UserService) {}
+    
+    show : boolean =  false;
   ngOnInit() {}
 
-  // // Form Group
-  // userForm = new FormGroup({
-  //   fullname: new FormControl('', [Validators.required]),
-  //   email: new FormControl('', [Validators.required, Validators.email]),
-  //   password: new FormControl('', [Validators.required]),
-  //   repeatPassword: new FormControl('', [
-  //     Validators.required,
-  //     this.passwordsMatchValidator
-  //   ])
-  // });
+  // Form Group
+  userForm = new FormGroup({
+    name: new FormControl('', [Validators.required]),
+    theme: new FormControl(),
+    description: new FormControl()
+  });
 
   // get fullname(): any {
   //   return this.userForm.get('fullname');

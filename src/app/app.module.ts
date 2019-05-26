@@ -18,6 +18,9 @@ import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
 import { AppRoutingModule } from './app-routing/app-routing.module';
 
+import { ProfilePageComponent } from './home/profile-page/profile-page.component';
+import { ChangeProfilePageComponent } from './home/change-profile-page/change-profile-page.component';
+
 // MATERIAL IMPORTS THROUGH THIS
 import { MaterialModule } from './material/material';
 
@@ -28,7 +31,6 @@ import { CreateClubComponent } from './home/create-club/create-club.component';
 // OWN SERVICES
 import { ClubService } from './services/club.service';
 import { UserService } from './services/user.service';
-import { ProfilePageComponent } from './home/profile-page/profile-page.component';
 
 // GOOGLE CALENDAR EXPORT 
 import { NgAddToCalendarModule } from '@trademe/ng-add-to-calendar';
@@ -44,7 +46,8 @@ import { TokenStorage } from './auth/token.storage';
     HomeComponent,
     DetailedViewComponent,
     CreateClubComponent,
-    ProfilePageComponent
+    ProfilePageComponent,
+    ChangeProfilePageComponent,
   ],
   imports: [
     HttpModule,

@@ -101,10 +101,10 @@ header {
     font-size: 2em;
   }
   .title:hover {
-    color: black;
+    color: #c11e5c,;
   }
   a:hover {
-    color: black;
+    color: #c11e5c,;
   }
 
   .links {
@@ -129,6 +129,11 @@ header {
     padding-bottom: 4%;
     font-size: 2.2em;
     padding-right: 20px;
+  }
+
+  #favorit_icon:hover, #chat_icon:hover, #login_icon:hover, #loggedInIcon:hover {
+    cursor: pointer;
+    color: #c11e5c;
   }
 
   #chat_icon {
