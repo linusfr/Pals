@@ -1,3 +1,7 @@
+<div>
+    <mat-icon [routerLink]="['/']" id="backArrow">arrow_back</mat-icon>
+  </div> 
+  
   <div class="card">
     <div class="description">
       <div class="clubname">
@@ -49,5 +53,16 @@
           hinzufügen</a>
       </div>
 
+    <div class="meeting">
+      <div class="time">
+        {{ club.time }}
+      </div>
+      <div class="place">
+        Treffpunkt:
+      </div>
+      <a class="googleCal" [href]="googleCalendarEventUrl" target="_blank"
+        >Zu Google Calendar hinzufügen</a
+      >
     </div>
   </div>
+</div>

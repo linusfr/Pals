@@ -26,7 +26,11 @@
   float: right;
   color: white;
   font-size: 50px;
-  margin: 0.5%;
+  margin-right: 30px;
+}
+
+.material-icons:hover {
+  cursor: pointer;
 }
 
 .clubname {
@@ -112,10 +116,15 @@
     width: 19em;
     height: 5em;
   }
-
+  
+  #backArrow {
+    font-size: 3em;
+    margin-left: 20px;
+    margin-top: 20px;
+  }
   #joinClubButton{
     font-size: 1em;
     padding-top: 5px; 
   }
-  
 }
+

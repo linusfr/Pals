@@ -21,6 +21,9 @@ import { AppRoutingModule } from './app-routing/app-routing.module';
 import { ProfilePageComponent } from './home/profile-page/profile-page.component';
 import { ChangeProfilePageComponent } from './home/change-profile-page/change-profile-page.component';
 
+import { FavoritesComponent } from './home/favorites/favorites.component';
+import { EditClubComponent } from './home/edit-club/edit-club.component';
+
 // MATERIAL IMPORTS THROUGH THIS
 import { MaterialModule } from './material/material';
 
@@ -36,10 +39,9 @@ import { UserService } from './services/user.service';
 import { NgAddToCalendarModule } from '@trademe/ng-add-to-calendar';
 import { AuthService } from './auth/auth.service';
 import { TokenStorage } from './auth/token.storage';
+
 import { AddClubComponent } from './home/add-club/add-club.component';
-import { EditClubComponent } from './home/edit-club/edit-club.component';
 import { ClubSmallComponent } from './home/club-small/club-small.component';
-import { FavoritesComponent } from './home/favorites/favorites.component';
 
 
 
