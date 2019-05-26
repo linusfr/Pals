@@ -1,13 +1,26 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import { CometChat } from '@cometchat-pro/chat';
 import { environment } from '../../../environments/environment';
+import { UserService } from '../../services/user.service';
+import { elementEventFullName } from '@angular/compiler/src/view_compiler/view_compiler';
+
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class CometChatService {
-  currentUser = null;
+  constructor(private userService: UserService){}
+  currentUser;
+
+  // currentName = this.currentUser.fullname;
+  ngOnInit(){
+    this.userService.getActiveUser().subscribe(user => {
+      this.currentUser = user;
+      console.log(user)
+    })
+    console.log(this.currentUser)
+  }
 
   init(apiKey: string = environment.cometChat.appId) {
     CometChat.init(apiKey).then(

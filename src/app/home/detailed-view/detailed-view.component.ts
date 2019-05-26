@@ -8,6 +8,7 @@ import { SafeUrl, DomSanitizer } from '@angular/platform-browser';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { ClubService } from '../../services/club.service';
 import { AuthService } from '../../auth/auth.service';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-detailed-view',
@@ -23,25 +24,13 @@ export class DetailedViewComponent implements OnInit {
     private _addToCalendarService: NgAddToCalendarService,
     private _sanitizer: DomSanitizer,
     private clubService: ClubService,
-    private authService: AuthService
+    private authService: AuthService,
+    private userService: UserService
   ) {
-    this.newEvent = {
-      // Event title
-      title: 'My event title',
-      // Event start date
-      start: new Date('June 15, 2013 19:00'),
-      // Event duration (IN MINUTES)
-      duration: 120,
-      // If an end time is set, this will take precedence over duration (optional)
-      end: new Date('June 15, 2013 23:00'),
-      // Event Address (optional)
-      address: '1 test street, testland',
-      // Event Description (optional)
-      description: 'An awesome event'
-    };
   }
 
   club = {};
+  currentUsr = {};
   id;
 
   ngOnInit() {
@@ -55,15 +44,38 @@ export class DetailedViewComponent implements OnInit {
         .subscribe(club => {
           this.club = club[0];
           console.log(club);
+
+          this.newEvent = {
+            // Event title
+            title: club[0].name,
+            // Event start date
+            start: new Date('June 15, 2013 19:00'),
+            // Event duration (IN MINUTES)
+            duration: 120,
+            // If an end time is set, this will take precedence over duration (optional)
+            // end: new Date('June 15, 2013 23:00'),
+            // Event Address (optional)
+            address: '1 test street, testland',
+            // Event Description (optional)
+            description: club[0].description
+          };
+          this.googleCalendarEventUrl = this._sanitizer.bypassSecurityTrustUrl(
+            this._addToCalendarService.getHrefFor(
+              this._addToCalendarService.calendarType.google,
+              this.newEvent
+            )
+          );
+
         });
     });
 
-    // google cal
-    this.googleCalendarEventUrl = this._sanitizer.bypassSecurityTrustUrl(
-      this._addToCalendarService.getHrefFor(
-        this._addToCalendarService.calendarType.google,
-        this.newEvent
-      )
-    );
+
+    this.userService
+      .getActiveUser().subscribe(user => {
+        this.currentUsr = user[0];
+        console.log(this.currentUsr);
+      });
   }
+
+
 }

@@ -17,6 +17,7 @@ export class HomeComponent implements OnInit {
   ) {}
 
   selectedFile;
+  user;
   clubs;
 
   processFile(imageInput: any) {
@@ -39,12 +40,13 @@ export class HomeComponent implements OnInit {
     // ----------- GET CLUBS -> WORKING! -----------------------
     this.clubService.getClubs().subscribe(clubs => {
       this.clubs = clubs;
-      console.log(clubs);
+     console.log(clubs);
     });
 
-    console.log('test');
-    this.userService.getActiveUser().subscribe(user => {
-      console.log(user);
+    // console.log('test');
+    // this.userService.getActiveUser().subscribe(user => {
+    //   this.user = user;
+    //   console.log(user);
     });
 
     // ----------- GET DETAILED CLUB -> WORKING! -----------------------
