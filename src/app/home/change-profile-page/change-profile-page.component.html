@@ -11,32 +11,24 @@
     </div>
 
     <div id="profileInfo">
-        <mat-form-field class="input">
-          <mat-label>Vorname:</mat-label>
-          <textarea matInput>{{ userSplit[0] }}</textarea
-          >
-        </mat-form-field>
+      <mat-form-field>
+        <mat-label>Vorname:</mat-label>
+        <textarea matInput [formControl]="firstName" type="text">{{ userSplit[0] }}</textarea>
+      </mat-form-field>
 
-        <mat-form-field class="input">
-            <mat-label>Nachname:</mat-label>
-          <textarea matInput>{{ userSplit[1] }}</textarea
-          >
-        </mat-form-field>
+      <mat-form-field>
+        <mat-label>Nachname:</mat-label>
+        <textarea matInput [formControl]="lastName" type="text">{{ userSplit[1] }}</textarea>
+      </mat-form-field>
 
-        <mat-form-field class="input">
-            <mat-label>E-Mail-Adresse:</mat-label>
-          <textarea matInput>{{ email }}</textarea
-          >
-        </mat-form-field>
+      <mat-form-field>
+        <mat-label>E-Mail-Adresse:</mat-label>
+        <textarea matInput [formControl]="email" type="text">{{ email }}</textarea>
+      </mat-form-field>
     </div>
 
     <div id="buttonChangeProfile">
-      <button
-        mat-stroked-button
-        [routerLink]="['/profile']"
-        color="primary"
-        class="submit"
-      >
+      <button mat-stroked-button [routerLink]="['/profile']" color="primary" class="submit">
         Profil speichern
       </button>
     </div>
