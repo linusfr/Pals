@@ -11,6 +11,13 @@ export class ClubService {
   getClubs() {
     return this.http.get('/api/clubs');
   }
+  getJoinedClubs() {
+    let userID = localStorage.activeUser;
+    const params = {
+      params: new HttpParams().append('userID', userID)
+    };
+    return this.http.get('/api/clubs/joined', params);
+  }
 
   getDetailedClub(clubID, userID) {
     const params = {

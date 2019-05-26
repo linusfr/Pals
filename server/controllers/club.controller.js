@@ -3,7 +3,8 @@ const Club = require('../models/club.model');
 module.exports = {
   getClubs,
   addClub,
-  getDetailedClub
+  getDetailedClub,
+  getJoinedClubs
 };
 
 async function addClub(club) {
@@ -14,6 +15,16 @@ async function addClub(club) {
 
 async function getClubs() {
   let clubs = await Club.find({});
+
+  let filteredClubs = clubs.map(({ _id, name, brief }) => {
+    return { _id, name, brief };
+  });
+
+  return filteredClubs;
+}
+
+async function getJoinedClubs(id) {
+  let clubs = await Club.find({ member: id });
 
   let filteredClubs = clubs.map(({ _id, name, brief }) => {
     return { _id, name, brief };
