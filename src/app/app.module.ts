@@ -36,6 +36,9 @@ import { UserService } from './services/user.service';
 import { NgAddToCalendarModule } from '@trademe/ng-add-to-calendar';
 import { AuthService } from './auth/auth.service';
 import { TokenStorage } from './auth/token.storage';
+import { AddClubComponent } from './home/add-club/add-club.component';
+import { EditClubComponent } from './home/edit-club/edit-club.component';
+import { ClubSmallComponent } from './home/club-small/club-small.component';
 
 
 
@@ -48,6 +51,9 @@ import { TokenStorage } from './auth/token.storage';
     CreateClubComponent,
     ProfilePageComponent,
     ChangeProfilePageComponent,
+    AddClubComponent,
+    EditClubComponent,
+    ClubSmallComponent,
   ],
   imports: [
     HttpModule,
