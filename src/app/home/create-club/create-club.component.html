@@ -2,6 +2,7 @@
   <mat-icon [routerLink]="['/']" id="backArrow">arrow_back</mat-icon>
 </div>
 <div class="card">
+
   <div class="profilImage">
     <div id="image"></div>
     <div id="pictureText">
@@ -28,10 +29,10 @@
       </mat-form-field>
 
       <mat-form-field appearance="standard">
-        <mat-label>Club-Thema: *</mat-label>
-        <input matInput [formControl]="theme" type="text" required />
+        <mat-label>Club-Thema:</mat-label>
+        <input matInput [formControl]="brief" type="text" required />
       </mat-form-field>
-
+ 
       <mat-form-field appearance="standard">
         <mat-label>Beschreibung: *</mat-label>
         <input matInput [formControl]="description" type="text" required />
@@ -60,12 +61,12 @@
           <textarea matInput></textarea>
         </mat-form-field>
       </div>
+      
     </div>
-
-    <div id="createClubButton">
-      <button mat-stroked-button color="secondary" class="submit">
-        Club erstellen
-      </button>
-    </div>
+      <div id="createClubButton">
+        <button mat-stroked-button (click)="createClub()" color="primary" class="submit">
+          Club erstellen
+        </button>
+      </div>
   </div>
 </div>

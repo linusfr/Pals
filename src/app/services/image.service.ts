@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
+// import { CloudinaryModule } from '@cloudinary/angular-5.x';
+// import * as Cloudinary from 'cloudinary-core';
 
 @Injectable({
   providedIn: 'root'
@@ -8,16 +10,21 @@ import { HttpClient } from '@angular/common/http';
 export class ImageService {
   constructor(private http: HttpClient) {}
 
-  public uploadImage(image: File) {
-    const formData = new FormData();
-
-    console.log(image);
-    // formData.append('image', image);
-
-    let url =
-      'https://api.cloudinary.com/v1_1/dejvimnnm/image/upload?callback=foo';
-
+  public uploadImage() {
+    // parameter -> image: File
+    // const formData = new FormData();
+    // console.log(image);
+    // const params = {
+    //   params: new HttpParams()
+    //     .append('cloud_name', 'dejvimnnm')
+    //     .append('api_key', '398537455597268')
+    //     .append('api_secret', 'KEueI7QcRDYEpXEe7Ky88iVaVtc')
+    // };
+    // let url = 'https://api.cloudinary.com/v1_1/dejvimnnm/image/upload';
+    // cloudinary.uploader.upload('~/Downloads/test.jpg', function(error, result) {
+    //   console.log(result);
+    // });
     // return this.http.post('/api/image/upload', image);
-    return this.http.post(url, image);
+    // return this.http.post(url, image);
   }
 }
