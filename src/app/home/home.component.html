@@ -1,10 +1,20 @@
 <body>
 
   <div class="search">
-    <mat-form-field appearance="standard">
+    <mat-form-field class="searchByText" appearance="standard">
       <mat-label>Club suchen</mat-label>
       <input matInput placeholder="">
     </mat-form-field>
+
+    <mat-form-field class="searchByCategory">
+      <mat-label>nach Kategorie suchen </mat-label>
+          <mat-select>
+          <mat-option *ngFor="let category of categories" [value]="category.value">
+              {{category.value}}
+          </mat-option>
+          </mat-select>
+      </mat-form-field>
+    
   </div>
 
 <!--   <div id="itemListContainer">
