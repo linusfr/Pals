@@ -5,19 +5,13 @@
 <div class="card">
   <div class="description">
     <div class="clubname">
-      {{club.name}}
-      <i class="material-icons">
-        settings
-      </i>
-      <i class="material-icons">
-        exit_to_app
-      </i>
-      <i class="material-icons">
-        favorite
-      </i>
+      {{ club.name }}
+      <mat-icon class="material-icons" [routerLink]="['/editClub']">settings</mat-icon>
+      <mat-icon class="material-icons">exit_to_app</mat-icon>
+      <mat-icon class="material-icons">favorite</mat-icon>
     </div>
     <div class="brief">
-      {{club.brief}}
+      {{ club.brief }}
     </div>
     <div class="category">
       Kategorie
@@ -26,8 +20,12 @@
       Clubleiter
     </div>
     <div class="details">
-      {{club.description}}
+      {{ club.description }}
     </div>
+    <div class="chat">
+      Chat
+    </div>
+
     <div class="leftDiv">
       <div id="joinClubButton">
         <button mat-stroked-button color="primary" class="submit">
