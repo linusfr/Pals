@@ -6,7 +6,7 @@ import { DetailedViewComponent } from '../home/detailed-view/detailed-view.compo
 import { ProfilePageComponent } from '../home/profile-page/profile-page.component';
 import { CreateClubComponent } from '../home/create-club/create-club.component';
 import { ChangeProfilePageComponent } from '../home/change-profile-page/change-profile-page.component';
-import { FavoritesComponent } from '../home/favorites/favorites.component';
+import { JoinedClubsComponent } from '../home/joined-clubs/joined-clubs.component';
 import { EditClubComponent } from '../home/edit-club/edit-club.component';
 
 const routes: Routes = [
@@ -23,12 +23,12 @@ const routes: Routes = [
     component: EditClubComponent
   },
   {
-    path: 'favorits',
-    component: FavoritesComponent
-  },
-  {
     path: 'createClub',
     component: CreateClubComponent
+  },
+  {
+    path: 'joinedClubs',
+    component: JoinedClubsComponent
   },
   {
     path: 'profile',

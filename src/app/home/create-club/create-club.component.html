@@ -10,6 +10,7 @@
         Lade ein aussagekräftiges Bild hoch!
       </p>
     </div>
+
     <div id="loadButton">
       <button mat-stroked-button class="submit" color="secondary">
         Datei auswählen
@@ -32,7 +33,7 @@
         <mat-label>Club-Thema:</mat-label>
         <input matInput [formControl]="brief" type="text" required />
       </mat-form-field>
- 
+
       <mat-form-field appearance="standard">
         <mat-label>Beschreibung: *</mat-label>
         <input matInput [formControl]="description" type="text" required />
@@ -42,14 +43,11 @@
         <mat-select placeholder="Kategorie:">
           <button (click)="neue = !neue" id="showButton">
             <mat-option value="Kategorie">
-              {{ show ? '' : 'neue' }}                  
+              {{ show ? '' : 'neue' }}
               Kategorie anlegen
             </mat-option>
           </button>
-          <mat-option
-            *ngFor="let category of categories"
-            [value]="category.value"
-          >
+          <mat-option *ngFor="let category of categories" [value]="category.value">
             {{ category.value }}
           </mat-option>
         </mat-select>
@@ -61,12 +59,12 @@
           <textarea matInput></textarea>
         </mat-form-field>
       </div>
-      
+
     </div>
-      <div id="createClubButton">
-        <button mat-stroked-button (click)="createClub()" color="primary" class="submit">
-          Club erstellen
-        </button>
-      </div>
+    <div id="createClubButton">
+      <button mat-stroked-button (click)="createClub()" color="primary" class="submit">
+        Club erstellen
+      </button>
+    </div>
   </div>
 </div>

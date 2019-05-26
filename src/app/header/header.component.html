@@ -1,7 +1,7 @@
 <header>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <mat-toolbar id="toolbar" >
+  <mat-toolbar id="toolbar">
     <div class="flexParent">
       <div class="flexChildren">
         <div class="logoWrapper">
@@ -17,29 +17,16 @@
       <div class="flexChildren">
         <div class="buttonWrapper">
           <mat-icon id="chat_icon">chat_bubble</mat-icon>
-          <mat-icon id="favorit_icon" [routerLink]="['/favorits']">favorite</mat-icon>
-          <mat-icon id="login_icon" [routerLink]="['/auth/login']" *ngIf="!user">
-           fingerprint
-          </mat-icon> 
-          <!--<button mat-stroked-button>
-            <img src="../assets/baseline-chat_bubble-24px.svg" alt="notification">
-          </button>
-          <button mat-stroked-button>
-            <img src="../assets/baseline-favorite-24px.svg" alt="favorits">
-          </button>-->
-          <!--<button mat-stroked-button color="primary" [routerLink]="['/auth/login']" *ngIf="!user">
-          <img src="../assets/baseline-fingerprint-24px.svg" alt="login">
-          </button>-->
+          <mat-icon id="favorit_icon" [routerLink]="['joinedClubs']">favorite</mat-icon>
+          <mat-icon id="login_icon" color="primary" [routerLink]="['/auth/login']" *ngIf="!user">
+            fingerprint
+          </mat-icon>
           <div>
             <a class="links side" *ngIf="user" [matMenuTriggerFor]="menu">
               <mat-icon id="loggedInIcon">how_to_reg</mat-icon>{{ user.fullname }}
             </a>
             <mat-menu #menu="matMenu">
-              <button
-                mat-menu-item
-                *ngIf="user && user.isAdmin"
-                [routerLink]="['/admin']"
-              >
+              <button mat-menu-item *ngIf="user && user.isAdmin" [routerLink]="['/admin']">
                 admin
               </button>
               <button mat-menu-item [routerLink]="['/profile']" color="primary">Profil</button>
