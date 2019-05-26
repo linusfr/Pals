@@ -7,7 +7,9 @@ module.exports = {
 };
 
 async function addClub(club) {
-  return await new Club(club).save();
+  club = await new Club(club).save();
+  console.log('TEST', club);
+  return club;
 }
 
 async function getClubs() {

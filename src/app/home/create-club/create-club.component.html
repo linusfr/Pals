@@ -1,41 +1,70 @@
 <body>
-
+  <div>
+    <mat-icon [routerLink]="['/']" id="backArrow">arrow_back</mat-icon>
+  </div>
   <div class="card">
+    <div class="profilImage">
+      <div id="image"></div>
+      <div id="pictureText">
+        <p>
+          Lade ein aussagekräftiges Bild hoch!
+        </p>
+      </div>
+      <div id="loadButton">
+        <button mat-stroked-button class="submit">
+          Datei auswählen
+        </button>
+      </div>
+    </div>
 
     <div class="description">
-
       <div class="header">
         Erstelle deinen eigenen Club:
       </div>
 
-      <mat-form-field class="clubname" appearance="standard">
-        <mat-label>Clubname</mat-label>
-        <input matInput [formControl]="name" type="text" required>
-      </mat-form-field>
+      <div id="createClubInfo" ng-if="false">
+        <mat-form-field appearance="standard">
+          <mat-label>Clubname:</mat-label>
+          <input matInput [formControl]="name" type="text" required />
+        </mat-form-field>
 
-      <mat-form-field class="clubthema" appearance="standard">
-        <mat-label>Clubthema</mat-label>
-        <input matInput [formControl]="theme" type="text" required>
-      </mat-form-field>
+        <mat-form-field appearance="standard">
+          <mat-label>Club-Thema:</mat-label>
+          <input matInput [formControl]="brief" type="text" required />
+        </mat-form-field>
 
-      <mat-form-field class="beschreibung" appearance="standard">
-        <mat-label>Beschreibung</mat-label>
-        <input matInput [formControl]="description" type="text" required>
-      </mat-form-field>
+        <mat-form-field appearance="standard">
+          <mat-label>Beschreibung:</mat-label>
+          <input matInput [formControl]="description" type="text" required />
+        </mat-form-field>
 
-      <mat-form-field class="kategorien">
-        <mat-label>Kategorie</mat-label>
-        <mat-select>
-          <mat-option *ngFor="let category of categories" [value]="category.value">
-            {{category.value}}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
+        <mat-form-field>
+          <mat-select placeholder="Kategorie:">
+            <button (click)="neue = !neue" id="showButton">
+              <mat-option value="Kategorie">
+                {{ show ? '' : 'neue' }}
+                Kategorie anlegen
+              </mat-option>
+            </button>
+            <mat-option *ngFor="let category of categories" [value]="category.value">
+              {{ category.value }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
 
-      <button mat-stroked-button color="primary" class="submit"> Club erstellen </button>
+        <!--<button (click)="show = !show">{{ show ? 'hide' : 'show' }}</button> -->
+        <!-- <div *ngIf="neue" id="newKategorie">
+          <mat-form-field>
+            <textarea matInput placeholder="Neue Kategorie:"></textarea>
+          </mat-form-field>
+        </div> -->
+      </div>
 
+      <div id="createClubButton">
+        <button mat-stroked-button (click)="createClub()" color="primary" class="submit">
+          Club erstellen
+        </button>
+      </div>
     </div>
-
   </div>
-
 </body>

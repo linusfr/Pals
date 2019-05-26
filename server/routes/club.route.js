@@ -18,7 +18,7 @@ router.get('/detailedClub', async (req, res) => {
 
 router.post('/add', async (req, res) => {
   let club = req.body;
-  clubCtrl.addClub(club);
-  console.log(req.body);
-  res.json(req.body);
+  newClub = await clubCtrl.addClub(club);
+  console.log('TEST2', newClub);
+  res.json(newClub);
 });

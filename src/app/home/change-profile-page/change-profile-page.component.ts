@@ -1,12 +1,12 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../services/user.service';
 
 @Component({
-  selector: 'app-profile-page',
-  templateUrl: './profile-page.component.html',
-  styleUrls: ['./profile-page.component.scss']
+  selector: 'app-change-profile-page',
+  templateUrl: './change-profile-page.component.html',
+  styleUrls: ['./change-profile-page.component.scss']
 })
-export class ProfilePageComponent implements OnInit {
+export class ChangeProfilePageComponent implements OnInit {
   user;
   email;
   fullname;
@@ -23,6 +23,9 @@ export class ProfilePageComponent implements OnInit {
       this.userSplit = this.fullname.split(" ");
       this.userSplit.forEach(value => console.log(value))
     })
+
+    //User neu belegen
+    
   }
 
 }

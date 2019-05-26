@@ -1,18 +1,35 @@
 <body>
 
+  <div class="search">
+    <mat-form-field class="searchByText" appearance="standard">
+      <mat-label>Club suchen</mat-label>
+      <input matInput placeholder="">
+    </mat-form-field>
+
+    <mat-form-field class="searchByCategory">
+      <mat-label>nach Kategorie suchen </mat-label>
+      <mat-select>
+        <mat-option *ngFor="let category of categories" [value]="category.value">
+          {{category.value}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+  </div>
+
   <div id="itemListContainer">
     <div [routerLink]="['createClub']" class="newCard">
-      <div class="image"> </div>
+      <div class="image"></div>
       <div class="text">
         <div class="clubname">
           Neuen Club erstellen
         </div>
-        <div class="description">
-        </div>
+        <div class="description"></div>
       </div>
     </div>
+
     <div *ngFor="let club of clubs" [routerLink]="['detailedClub/', club._id]" class="card">
-      <div class="image"> </div>
+
       <div class="text">
         <div class="clubname">
           {{club.name}}
@@ -23,5 +40,6 @@
       </div>
     </div>
   </div>
+
 
 </body>

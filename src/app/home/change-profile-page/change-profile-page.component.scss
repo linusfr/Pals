@@ -45,22 +45,9 @@ body {
 #profileInfo {
   display: flex;
   flex-direction: column;
-  align-items: left;
-  padding: 5em;
-}
-
-#firstName {
-  font-size: 1.2em;
-}
-
-#secondName {
+  margin: 0 auto;
   margin-top: 30px;
-  font-size: 1.2em;
-}
-
-#email {
-  margin-top: 30px;
-  font-size: 1.2em;
+  width: 20em;
 }
 
 #backArrow {

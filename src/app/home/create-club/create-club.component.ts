@@ -6,6 +6,8 @@ import {
   Validators,
   ValidationErrors
 } from '@angular/forms';
+import { ClubService } from '../../services/club.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-create-club',
@@ -13,43 +15,69 @@ import {
   styleUrls: ['./create-club.component.scss']
 })
 export class CreateClubComponent implements OnInit {
-  constructor(private userService: UserService) {}
+  constructor(
+    private clubService: ClubService,
+    private userService: UserService,
+    private router: Router
+  ) {}
 
+  show = false;
   ngOnInit() {}
 
-  // // Form Group
-  // userForm = new FormGroup({
-  //   fullname: new FormControl('', [Validators.required]),
-  //   email: new FormControl('', [Validators.required, Validators.email]),
-  //   password: new FormControl('', [Validators.required]),
-  //   repeatPassword: new FormControl('', [
-  //     Validators.required,
-  //     this.passwordsMatchValidator
-  //   ])
-  // });
+  // Form Group
+  userForm = new FormGroup({
+    name: new FormControl('', [Validators.required]),
+    brief: new FormControl(),
+    description: new FormControl()
+  });
 
-  // get fullname(): any {
-  //   return this.userForm.get('fullname');
-  // }
-  // get email(): any {
-  //   return this.userForm.get('email');
-  // }
-  // get password(): any {
-  //   return this.userForm.get('password');
-  // }
-  // get repeatPassword(): any {
-  //   return this.userForm.get('repeatPassword');
+  get name(): any {
+    return this.userForm.get('name');
+  }
+  get brief(): any {
+    return this.userForm.get('brief');
+  }
+  get description(): any {
+    return this.userForm.get('description');
+  }
+
+  // --> CATEGORY
+  // get cate(): any {
+  // return this.userForm.get('repeatPassword');
   // }
 
-  // register() {
-  //   if (!this.userForm.valid) {
-  //     return;
-  //   }
+  createClub() {
+    if (!this.userForm.valid) {
+      return;
+    }
 
-  //   let {
-  //     fullname,
-  //     email,
-  //     password,
-  //     repeatPassword
-  //   } = this.userForm.getRawValue();
+    let {
+      name,
+      brief,
+      description
+      // category
+    } = this.userForm.getRawValue();
+
+    let administrator = localStorage.activeUser;
+    let creationDate = new Date().toISOString;
+    let time = 'test';
+    let member = [administrator];
+
+    let club;
+
+    this.clubService
+      .addClubs({
+        administrator,
+        name,
+        description,
+        brief,
+        creationDate,
+        time,
+        member
+      })
+      .subscribe(data => {
+        club = data;
+        this.router.navigate(['detailedClub', club._id]);
+      });
+  }
 }
