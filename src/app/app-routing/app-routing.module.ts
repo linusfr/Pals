@@ -7,6 +7,7 @@ import { ProfilePageComponent } from '../home/profile-page/profile-page.componen
 import { CreateClubComponent } from '../home/create-club/create-club.component';
 import { ChangeProfilePageComponent } from '../home/change-profile-page/change-profile-page.component';
 import { JoinedClubsComponent } from '../home/joined-clubs/joined-clubs.component';
+import { EditClubComponent } from '../home/edit-club/edit-club.component';
 
 const routes: Routes = [
   {
@@ -16,6 +17,10 @@ const routes: Routes = [
   {
     path: 'detailedClub/:id',
     component: DetailedViewComponent
+  },
+  {
+    path: 'editClub',
+    component: EditClubComponent
   },
   {
     path: 'createClub',

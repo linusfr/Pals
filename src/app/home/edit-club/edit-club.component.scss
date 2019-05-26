@@ -1,0 +1,51 @@
+.card {
+    width: 90%;
+    height: 40em;
+    display: flex;
+    flex-direction: row;
+    margin: 4em;
+    margin-top: 0em;
+    color: #607D8B;
+  }
+  
+  .profilImage{
+    background-color: #D8D8D8;
+    border-top-left-radius: 0.9em;
+    border-bottom-left-radius: 0.9em;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .description {
+    background-color: #EBEBEB;
+    border-top-right-radius: 0.9em;
+    border-bottom-right-radius: 0.9em;
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    color: #607D8B;
+  }
+  
+  .header {
+    text-align: center;
+    font-size: 2em;
+    padding-top: 1em;
+    padding-bottom: 0.5em;
+    color: #37474F;
+  }
+    
+  #backArrow {
+    font-size: 3em;
+    margin-left: 20px;
+    margin-top: 20px;
+  }
+  
+  #backArrow:hover {
+    cursor: pointer;
+  }
+  
+  @media only screen and (max-width: 768px) {
+    
+  }
+  
