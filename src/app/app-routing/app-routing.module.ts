@@ -9,6 +9,7 @@ import { DetailedViewComponent } from '../home/detailed-view/detailed-view.compo
 import { ProfilePageComponent } from '../home/profile-page/profile-page.component';
 import { CreateClubComponent } from '../home/create-club/create-club.component';
 import { ChangeProfilePageComponent } from '../home/change-profile-page/change-profile-page.component';
+import { JoinedClubsComponent } from '../home/joined-clubs/joined-clubs.component';
 
 const routes: Routes = [
   // originally we would start at home screen -> this only to test chat, comment back in after!
@@ -24,6 +25,10 @@ const routes: Routes = [
   {
     path: 'createClub',
     component: CreateClubComponent
+  },
+  {
+    path: 'joinedClubs',
+    component: JoinedClubsComponent
   },
   {
     path: 'profile',

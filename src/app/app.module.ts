@@ -36,6 +36,7 @@ import { UserService } from './services/user.service';
 import { NgAddToCalendarModule } from '@trademe/ng-add-to-calendar';
 import { AuthService } from './auth/auth.service';
 import { TokenStorage } from './auth/token.storage';
+import { JoinedClubsComponent } from './home/joined-clubs/joined-clubs.component';
 
 // CHAT
 import { GroupViewComponent } from './chat/group-view/group-view.component';
@@ -56,6 +57,7 @@ import { ChatLoginComponent } from './chat/chat-login/chat-login.component';
     ChatLoginComponent,
     ProfilePageComponent,
     ChangeProfilePageComponent,
+    JoinedClubsComponent,
   ],
   imports: [
     HttpModule,
