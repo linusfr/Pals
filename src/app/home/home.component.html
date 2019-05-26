@@ -1,6 +1,16 @@
 <body>
 
   <div id="itemListContainer">
+    <div [routerLink]="['createClub']" class="newCard">
+      <div class="image"> </div>
+      <div class="text">
+        <div class="clubname">
+          Neuen Club erstellen
+        </div>
+        <div class="description">
+        </div>
+      </div>
+    </div>
     <div *ngFor="let club of clubs" [routerLink]="['detailedClub/', club._id]" class="card">
       <div class="image"> </div>
       <div class="text">
