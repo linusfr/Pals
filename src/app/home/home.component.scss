@@ -16,7 +16,28 @@ body {
   margin: 0 auto;
   margin-top: 50px;
 }
+.newCard {
+  padding-top: 130px;
+  width: 170px;
+  height: 270px;
+  box-sizing: border-box;
+  font-family: sans-serif;
+  display: flex;
+  border-radius: 0.9em;
+  float: left;
+  flex-direction: column;
+  margin: 4%;
+  background-size: cover;
+  border: black;
+  border-style: solid;
+  border-width: 1px;
+  background-color: white;
 
+  .text {
+    background-color: white;
+    color: black;
+  }
+}
 .search {
 
   width: 100%;
@@ -67,13 +88,12 @@ body {
   padding: 12%;
 }
 
-@media only screen and (max-width: 768px){
-
+@media only screen and (max-width: 768px) {
   .card {
     height: 400px;
     width: 250px;
-    padding-top: 210px; 
-}
+    padding-top: 210px;
+  }
 
   .text {
     height: 210px;

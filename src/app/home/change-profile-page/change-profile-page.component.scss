@@ -1,58 +1,67 @@
+body {
+    background-color: #fcb6d1;
+}
+
 .card {
-    height: 30em;
-    margin: 4em;
-    width: 90%;
-    box-sizing: border-box;
-    font-family: sans-serif;
-    display: flex;
-    border-radius: .9em;
-    background-color: gray;
-    flex-direction: row-reverse;
-    border-top-left-radius: .9em;
-    border-top-right-radius: .9em;
-    float: left;
-    align-items: center;
+  width: 90%;
+  height: 30em;
+  display: flex;
+  flex-direction: row;
+  margin: 4em;
+  margin-top: 0em;
+  color: white;
+}
+
+.image {
+  background-color: gray;
+  border-top-left-radius: 0.9em;
+  border-bottom-left-radius: 0.9em;
+  width: 30%;
+  display: flex;
 }
 
 .description {
-    opacity: 0.8;
-    background-color: #262626;
-    width: 63%;
-    height: 95%;
-    border-bottom-right-radius: .9em;
-    border-top-right-radius: .9em;
-    color: white;
-    padding: .9em;
-    font-size: .9em;
+  background-color: #262626;
+  border-top-right-radius: 0.9em;
+  border-bottom-right-radius: 0.9em;
+  width: 70%;
+  display: flex;
+  flex-direction: column;
 }
 
 .header {
-    text-align: center;
-    font-size: 2em;
-    padding-top: 1em;
-    padding-bottom: .5em; 
-    color: #c11e5c;
+  text-align: center;
+  font-size: 2em;
+  padding-top: 1em;
+  padding-bottom: 0.5em;
+  color: #c11e5c;
 }
 
-
-
 #buttonChangeProfile {
-   text-align: center;
-    margin-top: 40px;
+  text-align: center;
+  margin-top: 1.5em;
 }
 
 #profileInfo {
-    display: flex;
-    flex-direction: column;
-   // width: 30em;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  margin-top: 30px;
+  width: 20em;
 }
 
-@media only screen and (max-width: 768px){
+#backArrow {
+  font-size: 3em;
+  margin-left: 20px;
+  margin-top: 20px;
+}
 
-    .card {
-        width: 80%;
+#backArrow:hover {
+  cursor: pointer;
+}
 
-    }
-
+@media only screen and (max-width: 768px) {
+  .card {
+    width: 80%;
+  }
 }
