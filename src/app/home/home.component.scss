@@ -2,7 +2,6 @@ body {
   display: flex;
   align-items: center;
   flex-direction: column;
-  background-color: #aebcc3;
 }
 #detailed {
   margin-top: 50px;
@@ -39,12 +38,10 @@ body {
   }
 }
 .search {
-
   width: 100%;
   color: #c11e5c;
   background-color: #3f4041;
   text-align: center;
-
 }
 
 .searchByText, .searchByCategory {

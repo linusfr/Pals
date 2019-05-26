@@ -39,6 +39,7 @@ import { TokenStorage } from './auth/token.storage';
 import { AddClubComponent } from './home/add-club/add-club.component';
 import { EditClubComponent } from './home/edit-club/edit-club.component';
 import { ClubSmallComponent } from './home/club-small/club-small.component';
+import { FavoritesComponent } from './home/favorites/favorites.component';
 
 
 
@@ -54,6 +55,7 @@ import { ClubSmallComponent } from './home/club-small/club-small.component';
     AddClubComponent,
     EditClubComponent,
     ClubSmallComponent,
+    FavoritesComponent,
   ],
   imports: [
     HttpModule,
