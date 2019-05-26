@@ -10,11 +10,7 @@
       </div>
     </div>
 
-    <div
-      *ngFor="let club of clubs"
-      [routerLink]="['detailedClub/', club._id]"
-      class="card"
-    >
+    <div *ngFor="let club of clubs" [routerLink]="['detailedClub/', club._id]" class="card">
       <div class="image"></div>
       <div class="search">
         <mat-form-field appearance="standard">
@@ -24,26 +20,5 @@
       </div>
     </div>
   </div>
-  <!--   <div id="itemListContainer">
-    <div *ngFor="let club of clubs" class="card">
-      <div class="text">
-        <div class="clubname">
-          {{club.name}}
-        </div>
-        <div class="description">
-          {{club.brief}}
-        </div>
-      </div>
-    </div>
-  </div>
 
-  </div>  -->
-
-  <div id="detailed">
-    <app-detailed-view></app-detailed-view>
-  </div>
-
-  <!-- <div id="createClub">
-    <app-create-club></app-create-club>
-  </div> -->
 </body>

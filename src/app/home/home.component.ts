@@ -16,24 +16,25 @@ export class HomeComponent implements OnInit {
     private imageService: ImageService
   ) {}
 
-  selectedFile;
+  // selectedFile;
+
   clubs;
 
-  processFile(imageInput: any) {
-    const file: File = imageInput.files[0];
-    const reader = new FileReader();
+  // processFile(imageInput: any) {
+  //   const file: File = imageInput.files[0];
+  //   const reader = new FileReader();
 
-    reader.addEventListener('load', (event: any) => {
-      this.selectedFile = new ImageSnippet(event.target.result, file);
+  //   reader.addEventListener('load', (event: any) => {
+  //     this.selectedFile = new ImageSnippet(event.target.result, file);
 
-      console.log(this.selectedFile.src);
-      this.imageService
-        .uploadImage(this.selectedFile.src)
-        .subscribe(data => console.log(data));
-    });
+  //     console.log(this.selectedFile.src);
+  //     this.imageService
+  //       .uploadImage(this.selectedFile.src)
+  //       .subscribe(data => console.log(data));
+  //   });
 
-    reader.readAsDataURL(file);
-  }
+  //   reader.readAsDataURL(file);
+  // }
 
   ngOnInit() {
     // ----------- GET CLUBS -> WORKING! -----------------------
@@ -100,6 +101,6 @@ export class HomeComponent implements OnInit {
   }
 }
 
-class ImageSnippet {
-  constructor(public src: string, public file: File) {}
-}
+// class ImageSnippet {
+//   constructor(public src: string, public file: File) {}
+// }
