@@ -1,4 +1,5 @@
 .card {
+  margin: auto;
   width: 1200px;
   height: 600px;
   box-sizing: border-box;
@@ -33,9 +34,7 @@
   font-size: 2.3em;
   color: #c11e5c;
 }
-.brief,
-.category,
-.owner {
+.brief, .category, .owner {
   padding: 0.9em;
   margin-left: 1.5em;
   font-size: 1.4em;
@@ -44,7 +43,7 @@
   padding: 0.9em;
   font-size: 1.1em;
 }
-.chat {
+.leftDiv {
   width: 33em;
   height: 16em;
   float: left;
@@ -55,10 +54,15 @@
   width: 19em;
   border-left: 0.2em solid #c11e5c;
 }
-.time,
-.place {
+.time, .place {
   padding: 0.5em;
 }
+
+#joinClubButton {
+  padding-top: 100px;
+    text-align: center;
+  }
+
 @media only screen and (max-width: 768px) {
   .card {
     width: 325px;
@@ -99,57 +103,19 @@
     border-left: 0em;
   }
 
-  .time,
-  .place {
+  .time, .place {
     margin: 0.5em;
   }
-  .chat {
-    display: none;
-  }
-}
-@media only screen and (max-width: 768px){
-    .card {
-        width: 325px;
-        height: 550px;
-        flex-direction: column-reverse;
 
-    }
-    .description {
-        width: 300px;
-        height: 360px;
-        border-top-right-radius: 0em;
-        border-bottom-right-radius: .9em;
-        border-bottom-left-radius: .9em;
-        opacity: 0.9;
-    }
-    .clubname {
-        font-size: 1.3em;
-        font-weight: bold;
-    }
-    .material-icons {
-        font-size: 30px;
-    }
-    .brief, .category, .owner{
-        font-size: 1em;
-        margin-left: .9em;
-        padding: .5em;
-    }
-    .details {
-        font-size: .8em;
-    }
-    .meeting {
-        float: none;
-        height: 16em;
-        width: 19em;
-        padding-top: .3em;
-        border-top: .15em solid #c11e5c;
-        border-left: .0em;
-    }
-    
-    .time, .place {
-        margin: .5em;
-    }
-     .chat {
-        display: none; 
-    }
+  .leftDiv {
+    float: none;
+    width: 19em;
+    height: 5em;
+  }
+
+  #joinClubButton{
+    font-size: 1em;
+    padding-top: 5px; 
+  }
+  
 }
