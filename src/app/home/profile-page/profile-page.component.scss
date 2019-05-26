@@ -1,7 +1,3 @@
-body {
-    background-color: #fcb6d1;
-}
-
 .card {
   width: 90%;
   height: 30em;
@@ -9,11 +5,11 @@ body {
   flex-direction: row;
   margin: 4em;
   margin-top: 0em;
-  color: white;
+  color: #607D8B;
 }
 
 .image {
-  background-color: gray;
+  background-color: #D8D8D8;
   border-top-left-radius: 0.9em;
   border-bottom-left-radius: 0.9em;
   width: 30%;
@@ -21,7 +17,7 @@ body {
 }
 
 .description {
-  background-color: #262626;
+  background-color: #EBEBEB;
   border-top-right-radius: 0.9em;
   border-bottom-right-radius: 0.9em;
   width: 70%;
@@ -34,7 +30,7 @@ body {
   font-size: 2em;
   padding-top: 1em;
   padding-bottom: 0.5em;
-  color: #c11e5c;
+  color: #37474F;
 }
 
 #buttonChangeProfile {

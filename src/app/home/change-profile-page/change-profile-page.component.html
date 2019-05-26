@@ -1,46 +1,47 @@
-<body>
-  <div>
-    <mat-icon [routerLink]="['/profile']" id="backArrow">arrow_back</mat-icon>
-  </div>
+<div>
+  <mat-icon [routerLink]="['/profile']" id="backArrow">arrow_back</mat-icon>
+</div>
 
-  <div class="card">
-    <div class="image"></div>
+<div class="card">
+  <div class="image"></div>
 
-    <div class="description">
-      <div class="header">
-        Dein Profil bearbeiten
-      </div>
+  <div class="description">
+    <div class="header">
+      Dein Profil bearbeiten
+    </div>
 
-      <div id="profileInfo">
+    <div id="profileInfo">
         <mat-form-field class="profilInput">
-          <textarea matInput placeholder="Vorname:">
- {{ userSplit[0] }}</textarea
+          <mat-label>Vorname:</mat-label>
+          <textarea matInput>
+{{ userSplit[0] }}</textarea
           >
         </mat-form-field>
 
         <mat-form-field class="profilInput">
-          <textarea matInput placeholder="Nachname:">
+            <mat-label>Nachname:</mat-label>
+          <textarea matInput>
  {{ userSplit[1] }}</textarea
           >
         </mat-form-field>
 
         <mat-form-field class="profilInput">
-          <textarea matInput placeholder="E-Mail-Adresse:">
+            <mat-label>E-Mail-Adresse:</mat-label>
+          <textarea matInput>
  {{ email }}</textarea
           >
         </mat-form-field>
-      </div>
+    </div>
 
-      <div id="buttonChangeProfile">
-        <button
-          mat-stroked-button
-          [routerLink]="['/profile']"
-          color="primary"
-          class="submit"
-        >
-          Profil speichern
-        </button>
-      </div>
+    <div id="buttonChangeProfile">
+      <button
+        mat-stroked-button
+        [routerLink]="['/profile']"
+        color="primary"
+        class="submit"
+      >
+        Profil speichern
+      </button>
     </div>
   </div>
-</body>
+</div>

@@ -1,7 +1,7 @@
 <header>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <mat-toolbar id="toolbar" color="secondary">
+  <mat-toolbar id="toolbar" >
     <div class="flexParent">
       <div class="flexChildren">
         <div class="logoWrapper">
@@ -18,7 +18,7 @@
         <div class="buttonWrapper">
           <mat-icon id="chat_icon">chat_bubble</mat-icon>
           <mat-icon id="favorit_icon">favorite</mat-icon>
-          <mat-icon id="login_icon" color="primary" [routerLink]="['/auth/login']" *ngIf="!user">
+          <mat-icon id="login_icon" [routerLink]="['/auth/login']" *ngIf="!user">
            fingerprint
           </mat-icon> 
           <!--<button mat-stroked-button>

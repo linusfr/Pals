@@ -1,73 +1,71 @@
-<body>
-  <div>
-    <mat-icon [routerLink]="['/']" id="backArrow">arrow_back</mat-icon>
+<div>
+  <mat-icon [routerLink]="['/']" id="backArrow">arrow_back</mat-icon>
+</div>
+<div class="card">
+  <div class="profilImage">
+    <div id="image"></div>
+    <div id="pictureText">
+      <p>
+        Lade ein aussagekräftiges Bild hoch!
+      </p>
+    </div>
+    <div id="loadButton">
+      <button mat-stroked-button class="submit" color="secondary">
+        Datei auswählen
+      </button>
+    </div>
   </div>
-  <div class="card">
-    <div class="profilImage">
-      <div id="image"></div>
-      <div id="pictureText">
-        <p>
-          Lade ein aussagekräftiges Bild hoch!
-        </p>
-      </div>
-      <div id="loadButton">
-        <button mat-stroked-button class="submit">
-          Datei auswählen
-        </button>
-      </div>
+
+  <div class="description">
+    <div class="header">
+      Erstelle deinen eigenen Club:
     </div>
 
-    <div class="description">
-      <div class="header">
-        Erstelle deinen eigenen Club:
-      </div>
+    <div id="createClubInfo" ng-if="false">
+      <mat-form-field appearance="standard">
+        <mat-label>Clubname: *</mat-label>
+        <input matInput [formControl]="name" type="text" required />
+      </mat-form-field>
 
-      <div id="createClubInfo" ng-if="false">
-        <mat-form-field appearance="standard">
-          <mat-label>Clubname:</mat-label>
-          <input matInput [formControl]="name" type="text" required />
-        </mat-form-field>
+      <mat-form-field appearance="standard">
+        <mat-label>Club-Thema: *</mat-label>
+        <input matInput [formControl]="theme" type="text" required />
+      </mat-form-field>
 
-        <mat-form-field appearance="standard">
-          <mat-label>Club-Thema:</mat-label>
-          <input matInput [formControl]="theme" type="text" required />
-        </mat-form-field>
+      <mat-form-field appearance="standard">
+        <mat-label>Beschreibung: *</mat-label>
+        <input matInput [formControl]="description" type="text" required />
+      </mat-form-field>
 
-        <mat-form-field appearance="standard">
-          <mat-label>Beschreibung:</mat-label>
-          <input matInput [formControl]="description" type="text" required />
-        </mat-form-field>
-
-        <mat-form-field>
-          <mat-select placeholder="Kategorie:">
-            <button (click)="neue = !neue" id="showButton">
-              <mat-option value="Kategorie" >
-                {{ show ? '' : 'neue' }}
-                Kategorie anlegen  
-              </mat-option>
-            </button>
-            <mat-option
-              *ngFor="let category of categories"
-              [value]="category.value"
-            >
-              {{ category.value }}
+      <mat-form-field>
+        <mat-select placeholder="Kategorie:">
+          <button (click)="neue = !neue" id="showButton">
+            <mat-option value="Kategorie">
+              {{ show ? '' : 'neue' }}                  
+              Kategorie anlegen
             </mat-option>
-          </mat-select>
+          </button>
+          <mat-option
+            *ngFor="let category of categories"
+            [value]="category.value"
+          >
+            {{ category.value }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <div *ngIf="neue" id="newKategorie">
+        <mat-form-field>
+          <mat-label>Neue Kategorie:</mat-label>
+          <textarea matInput></textarea>
         </mat-form-field>
-
-        <!--<button (click)="show = !show">{{ show ? 'hide' : 'show' }}</button> -->
-        <div *ngIf="neue" id="newKategorie">
-          <mat-form-field>
-            <textarea matInput placeholder="Neue Kategorie:"></textarea>
-          </mat-form-field>
-        </div>
-      </div>
-
-      <div id="createClubButton">
-        <button mat-stroked-button color="primary" class="submit">
-          Club erstellen
-        </button>
       </div>
     </div>
+
+    <div id="createClubButton">
+      <button mat-stroked-button color="secondary" class="submit">
+        Club erstellen
+      </button>
+    </div>
   </div>
-</body>
+</div>
