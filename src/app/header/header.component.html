@@ -17,7 +17,7 @@
       <div class="flexChildren">
         <div class="buttonWrapper">
           <mat-icon id="chat_icon">chat_bubble</mat-icon>
-          <mat-icon id="favorit_icon">favorite</mat-icon>
+          <mat-icon id="favorit_icon" [routerLink]="['/favorits']">favorite</mat-icon>
           <mat-icon id="login_icon" [routerLink]="['/auth/login']" *ngIf="!user">
            fingerprint
           </mat-icon> 

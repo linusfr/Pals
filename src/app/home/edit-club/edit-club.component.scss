@@ -34,40 +34,7 @@
     padding-bottom: 0.5em;
     color: #37474F;
   }
-  
-  #image {
-    background-color: #607D8B;
-    width: 15em;
-    height: 20em;
-    margin: 0 auto;
-    margin-bottom: 20px;
-    margin-top: 60px;
-    border-radius: 0.9em;
-  }
-  
-  #pictureText {
-    font-size: 1.2em;
-    text-align: center;
-  }
-  
-  #loadButton {
-    margin: 0 auto;
-    color: #37474F;
-  }
-  
-  #createClubInfo {
-    padding: 30px;
-    display: flex;
-    flex-direction: column;
-    width: 25em;
-    margin: 0 auto;
-  }
-  
-  #createClubButton {
-    margin: 0 auto;
-    margin-top: 2em;
-  }
-  
+    
   #backArrow {
     font-size: 3em;
     margin-left: 20px;
@@ -76,25 +43,6 @@
   
   #backArrow:hover {
     cursor: pointer;
-  }
-  
-  #showButton {
-    text-decoration: none;
-    background-color: #607D8B;
-    border: none;
-    width: 100%;
-  }
-  
-  #newKategorie {
-    width: 25em;
-  }
-  
-  mat-label {
-    color: #607D8B;
-  }
-  
-  mat-select {
-    color: #607D8B;
   }
   
   @media only screen and (max-width: 768px) {
