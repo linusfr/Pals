@@ -43,6 +43,17 @@ export class DetailedViewComponent implements OnInit {
 
   club = {};
   id;
+  isMember = false;
+
+  render = function() {
+    return this.isMember
+      ? `<div id="joinClubButton">
+        <button mat-stroked-button color="primary" class="submit">
+          Club beitreten
+        </button>
+      </div>`
+      : `<div class="chat">Chat</div>`;
+  };
 
   ngOnInit() {
     this.club = this.route.params.subscribe(params => {
