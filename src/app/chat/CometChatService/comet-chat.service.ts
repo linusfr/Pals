@@ -9,6 +9,7 @@ import { elementEventFullName } from '@angular/compiler/src/view_compiler/view_c
 @Injectable({
   providedIn: 'root'
 })
+
 export class CometChatService {
   constructor(private userService: UserService){}
   currentUser;
@@ -22,8 +23,8 @@ export class CometChatService {
     console.log(this.currentUser)
   }
 
-  init(apiKey: string = environment.cometChat.appId) {
-    CometChat.init(apiKey).then(
+  init(appID: string = environment.cometChat.appId) {
+    CometChat.init(appID).then(
       msg => console.log('Initialized succesfull: ', msg),
       err => {
         console.log('Initialization failed: ', err);
