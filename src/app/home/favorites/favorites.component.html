@@ -1,3 +1,18 @@
-<p>
-  favorites works!
-</p>
+<div>
+  <mat-icon [routerLink]="['/']" id="backArrow">arrow_back</mat-icon>
+</div>
+
+<div
+  *ngFor="let club of clubs"
+  [routerLink]="['detailedClub/', club._id]"
+  class="card"
+>
+  <div class="text">
+    <div class="clubname">
+      {{ club.name }}
+    </div>
+    <div class="description">
+      {{ club.brief }}
+    </div>
+  </div>
+</div>
