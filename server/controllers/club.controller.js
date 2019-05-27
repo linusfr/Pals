@@ -1,4 +1,6 @@
 const Club = require('../models/club.model');
+const Category = require('../models/category.model');
+const categoryCtrl = require('./category.controller');
 
 module.exports = {
   getClubs,
@@ -8,8 +10,18 @@ module.exports = {
 };
 
 async function addClub(club) {
+  let categoryExists = await categoryCtrl.categoryExists({
+    name: club.category
+  });
+
+  if (categoryExists === false) {
+    club.category = await categoryCtrl.addCategory({ name: club.category })._id;
+  } else {
+    console.log('categoryExists', categoryExists);
+    club.category = categoryExists._id;
+  }
+
   club = await new Club(club).save();
-  console.log('TEST', club);
   return club;
 }
 

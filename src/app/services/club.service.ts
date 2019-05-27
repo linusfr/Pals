@@ -27,6 +27,7 @@ export class ClubService {
   }
 
   addClubs(club) {
+    console.log(club);
     return this.http.post('/api/clubs/add', club);
   }
 

@@ -13,26 +13,25 @@ const clubSchema = new mongoose.Schema({
   },
   name: {
     type: String,
-    required: true
+    required: true,
+    unique: true
+  },
+  place: {
+    type: String
   },
   description: {
     type: String,
-    required: false,
-    unique: false
+    required: true
   },
   time: {
-    type: String,
-    requiered: true
+    type: String
   },
   creationDate: {
-    type: String,
-    required: false,
-    unique: false
+    type: String
   },
   brief: {
     type: String,
-    required: false,
-    unique: false
+    required: true
   },
   member: [
     { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true }

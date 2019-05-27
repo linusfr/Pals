@@ -1,13 +1,8 @@
-import { UserService } from './../../services/user.service';
 import { Component, OnInit } from '@angular/core';
-import {
-  FormGroup,
-  FormControl,
-  Validators,
-  ValidationErrors
-} from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ClubService } from '../../services/club.service';
 import { Router } from '@angular/router';
+import { CategoryService } from '../../services/category.service';
 
 @Component({
   selector: 'app-create-club',
@@ -16,19 +11,25 @@ import { Router } from '@angular/router';
 })
 export class CreateClubComponent implements OnInit {
   constructor(
+    private categoryService: CategoryService,
     private clubService: ClubService,
-    private userService: UserService,
     private router: Router
   ) {}
 
   show = false;
-  ngOnInit() {}
+  selectedValue = 'Kategorie';
+  ngOnInit() {
+    this.categoryService
+      .getCategories()
+      .subscribe(data => (this.categories = data));
+  }
 
   // Form Group
   userForm = new FormGroup({
     name: new FormControl('', [Validators.required]),
     brief: new FormControl(),
-    description: new FormControl()
+    description: new FormControl(),
+    category: new FormControl()
   });
 
   get name(): any {
@@ -40,27 +41,29 @@ export class CreateClubComponent implements OnInit {
   get description(): any {
     return this.userForm.get('description');
   }
+  get category(): any {
+    return this.userForm.get('category');
+  }
 
-  // --> CATEGORY
-  // get cate(): any {
-  // return this.userForm.get('repeatPassword');
-  // }
+  categories;
 
-  createClub() {
+  addCategory = category => {
+    this.show = false;
+    this.categoryService
+      .addCategory({ name: category })
+      .subscribe(value => this.categories.push(value));
+    // tslint:disable-next-line:semicolon
+  };
+
+  async createClub() {
     if (!this.userForm.valid) {
       return;
     }
 
-    let {
-      name,
-      brief,
-      description
-      // category
-    } = this.userForm.getRawValue();
+    let { name, brief, description, category } = this.userForm.getRawValue();
 
     let administrator = localStorage.activeUser;
-    let creationDate = new Date().toISOString;
-    let time = 'test';
+    let creationDate = await new Date().toISOString();
     let member = [administrator];
 
     let club;
@@ -68,11 +71,11 @@ export class CreateClubComponent implements OnInit {
     this.clubService
       .addClubs({
         administrator,
+        category,
         name,
         description,
         brief,
         creationDate,
-        time,
         member
       })
       .subscribe(data => {
