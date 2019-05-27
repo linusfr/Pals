@@ -6,9 +6,10 @@
     margin: 4em;
     margin-top: 0em;
     color: #607D8B;
+    background-color: orange;
   }
   
-  .profilImage{
+  .profileImage{
     background-color: #D8D8D8;
     border-top-left-radius: 0.9em;
     border-bottom-left-radius: 0.9em;
@@ -34,7 +35,35 @@
     padding-bottom: 0.5em;
     color: #37474F;
   }
+
+  #image {
+    background-color: #607D8B;
+    width: 15em;
+    height: 20em;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    margin-top: 60px;
+    border-radius: 0.9em;
+  }
+
+  #loadButton {
+    margin: 0 auto;
+    color: #37474F;
+  }
     
+  #editClubInfo {
+    display: flex;
+    flex-direction: column;
+    width: 25em;
+    margin: 0 auto;
+    color: #37474F;
+  }
+  
+  #button {
+    float: right;
+    margin-right: 2em; 
+  }
+
   #backArrow {
     font-size: 3em;
     color: white;
@@ -45,12 +74,24 @@
     height: 50px;
     border-radius: 1em;
   }
-  
   #backArrow:hover {
     cursor: pointer;
+  }
+
+  mat-label {
+    color: #607D8B;
+  }
+  
+  mat-select {
+    color: #607D8B;
   }
   
   @media only screen and (max-width: 768px) {
     
+    .card {
+      width: 67%;
+      margin: 0 auto;
+      flex-direction: column;
+    } 
   }
   

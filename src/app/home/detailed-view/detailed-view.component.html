@@ -3,12 +3,11 @@
 </div>
 
 <div class="card">
+    <div id="image"></div>
   <div class="description">
     <div class="clubname">
       {{ club.name }}
-      <mat-icon class="material-icons" [routerLink]="['/editClub']"
-        >settings</mat-icon
-      >
+      <mat-icon class="material-icons" [routerLink]="['/editClub']">settings</mat-icon>
       <mat-icon class="material-icons">exit_to_app</mat-icon>
       <mat-icon class="material-icons">favorite</mat-icon>
     </div>
@@ -28,7 +27,7 @@
       Chat
     </div>
 
-    <div class="leftDiv">
+    <div class="leftDiv" >
       <div id="joinClubButton">
         <button mat-stroked-button color="primary" class="submit">
           Club beitreten
