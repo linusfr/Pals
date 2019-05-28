@@ -10,7 +10,7 @@
     flex-direction: column;
     margin: 4%;
     background-size: cover;
-    background-color: #d8d8d8;
+    background-color: #EBEBEB;
     text-align: center;
     color: #3f4041;
   }
@@ -22,6 +22,10 @@
 
   .material-icons {    
       font-size: 100px;
+  }
+
+  .card:hover{
+    cursor: pointer;
   }
   
   @media only screen and (max-width: 768px) {

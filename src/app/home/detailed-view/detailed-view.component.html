@@ -3,6 +3,7 @@
 </div>
 
 <div class="card">
+  <div id="image"></div>
   <div class="description">
     <div class="clubname">
       {{ club.name }}
@@ -24,8 +25,16 @@
     </div>
 
     <div class="leftDiv">
+      <!-- <div *ngIf=""> eingeloggt </div> -->
+      <div id="joinClubButton">
+        <button mat-stroked-button color="primary" class="submit">
+          Club beitreten
+        </button>
+      </div>
 
-      {{ render() }}
+
+      <!-- <div *ngIf=""> eingeloggt </div> -->
+      Chat!
 
     </div>
 
