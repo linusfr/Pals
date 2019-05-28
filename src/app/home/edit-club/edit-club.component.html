@@ -7,7 +7,7 @@
     <div id="image"></div>
     
     <div id="loadButton">
-        <button mat-stroked-button class="submit" color="secondary">
+        <button mat-stroked-button id="editImage" class="submit" color="secondary">
           Bild bearbeiten
         </button>
       </div>
@@ -20,18 +20,18 @@
 
     <div id="editClubInfo">
         <mat-form-field appearance="standard">
-          <mat-label>Clubname: </mat-label>
-          <input matInput [formControl]="name" type="text" required />
+          <mat-label>Clubname:  </mat-label>
+          <input matInput [formControl]="name" placeholder="{{club.name}}" type="text" required />
         </mat-form-field>
   
         <mat-form-field appearance="standard">
           <mat-label>Club-Thema:</mat-label>
-          <input matInput [formControl]="brief" type="text" required />
+          <input matInput [formControl]="brief" placeholder="{{club.brief}}" type="text" required />
         </mat-form-field>
   
         <mat-form-field appearance="standard">
           <mat-label>Beschreibung: </mat-label>
-          <input matInput [formControl]="description" type="text" required />
+          <input matInput [formControl]="description" placeholder="{{club.description}}" type="text" required />
         </mat-form-field>
   
          <mat-form-field>
@@ -44,12 +44,12 @@
 
         <mat-form-field appearance="standard">
             <mat-label>Nächstes Treffen: </mat-label>
-            <input matInput [formControl]="description" type="text" required />
+            <input matInput [formControl]="time" placeholder="{{club.time}}" type="text" required />
           </mat-form-field>
 
           <mat-form-field appearance="standard">
               <mat-label>Treffpunkt: </mat-label>
-              <input matInput [formControl]="description" type="text" required />
+              <input matInput [formControl]="place" type="text" required />
             </mat-form-field>
   
       </div>

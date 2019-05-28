@@ -19,7 +19,7 @@ const routes: Routes = [
     component: DetailedViewComponent
   },
   {
-    path: 'editClub',
+    path: 'editClub/:id',
     component: EditClubComponent
   },
   {
