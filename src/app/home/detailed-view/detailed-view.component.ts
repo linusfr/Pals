@@ -66,6 +66,13 @@ export class DetailedViewComponent implements OnInit {
         .subscribe(club => {
           this.club = club[0];
           console.log(club);
+          let user = localStorage.activeUser;
+          club[0].member.forEach(member => {
+            if (member === user) {
+              this.isMember = true;
+            }
+          });
+          console.log('isMember', this.isMember);
         });
     });
 
