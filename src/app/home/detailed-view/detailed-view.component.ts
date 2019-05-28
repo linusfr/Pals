@@ -84,4 +84,22 @@ export class DetailedViewComponent implements OnInit {
       )
     );
   }
+
+  exitClub = () => {
+    this.clubService
+      .removeMember(this.club, localStorage.activeUser)
+      .subscribe(data => {
+        this.club = data;
+        this.isMember = false;
+      });
+  };
+
+  joinClub = () => {
+    this.clubService
+      .addMember(this.club, localStorage.activeUser)
+      .subscribe(data => {
+        this.club = data;
+        this.isMember = true;
+      });
+  };
 }

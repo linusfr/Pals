@@ -6,7 +6,9 @@ module.exports = {
   getClubs,
   addClub,
   getDetailedClub,
-  getJoinedClubs
+  getJoinedClubs,
+  addMember,
+  removeMember
 };
 
 async function addClub(club) {
@@ -45,4 +47,19 @@ async function getJoinedClubs(id) {
 
 async function getDetailedClub(userID, clubID) {
   return await Club.find({ _id: clubID }).populate('administrator');
+}
+
+async function addMember(club, activeUser) {
+  club.member.push(activeUser);
+  await Club.replaceOne({ _id: club._id }, club).populate('administrator');
+  return await Club.findOne({ _id: club._id }).populate('administrator');
+}
+
+async function removeMember(club, activeUser) {
+  club.member.push(activeUser);
+  club.member.forEach((val, index) => {
+    val === activeUser ? club.member.splice(index) : null;
+  });
+  await Club.replaceOne({ _id: club._id }, club).populate('administrator');
+  return await Club.findOne({ _id: club._id }).populate('administrator');
 }

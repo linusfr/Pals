@@ -8,7 +8,7 @@
     <div class="clubname">
       {{ club.name }}
       <mat-icon class="material-icons" [routerLink]="['/editClub', club._id]">settings</mat-icon>
-      <mat-icon class="material-icons">exit_to_app</mat-icon>
+      <mat-icon class="material-icons" *ngIf="isMember" (click)="exitClub()">exit_to_app</mat-icon>
       <mat-icon class="material-icons">favorite</mat-icon>
     </div>
     <div class="brief">
@@ -25,15 +25,15 @@
     </div>
 
     <div class="leftDiv">
-      <div *ngIf="!isMember">  
-      <div id="joinClubButton">
-        <button mat-stroked-button color="primary" class="submit">
-          Club beitreten
-        </button>
+      <div *ngIf="!isMember">
+        <div id="joinClubButton">
+          <button mat-stroked-button color="primary" (click)="joinClub()" class="submit">
+            Club beitreten
+          </button>
+        </div>
       </div>
-    </div>
 
-      <div *ngIf="isMember">  
+      <div *ngIf="isMember">
         Chat!
       </div>
     </div>
