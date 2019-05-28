@@ -13,11 +13,9 @@ async function addClub(club) {
   let categoryExists = await categoryCtrl.categoryExists({
     name: club.category
   });
-
   if (categoryExists === false) {
     club.category = await categoryCtrl.addCategory({ name: club.category })._id;
   } else {
-    console.log('categoryExists', categoryExists);
     club.category = categoryExists._id;
   }
 

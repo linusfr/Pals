@@ -11,14 +11,15 @@ async function getCategories() {
 }
 
 async function categoryExists(category) {
-  Category.find({ name: category.name }, (err, docs) => {
+  let returnValue;
+  await Category.find({ name: category.name }, (err, docs) => {
     if (docs.length > 0) {
-      console.log(docs, docs[0], docs[0]._id);
-      return docs[0];
+      returnValue = docs[0];
     } else {
-      return false;
+      returnValue = false;
     }
   });
+  return returnValue;
 }
 
 async function addCategory(category) {
