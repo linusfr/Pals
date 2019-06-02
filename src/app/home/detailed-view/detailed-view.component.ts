@@ -44,6 +44,7 @@ export class DetailedViewComponent implements OnInit {
   club = {};
   id;
   isMember = false;
+  isOwner = false;
 
   render = function() {
     return this.isMember
@@ -60,6 +61,8 @@ export class DetailedViewComponent implements OnInit {
       this.id = params['id'];
       console.log('club_id', this.id);
       console.log('user_id', localStorage.activeUser);
+      
+
 
       this.clubService
         .getDetailedClub(this.id, localStorage.activeUser)
@@ -74,6 +77,20 @@ export class DetailedViewComponent implements OnInit {
           });
           console.log('isMember', this.isMember);
         });
+
+        /* this.clubService
+        .getDetailedClub(this.id, localStorage.activeUser)
+        .subscribe(club => {
+          this.club = club[0];
+          console.log(club);
+          let user = localStorage.activeUser;
+          console.log('administrator', this.club[0].administrator);
+          if (club[0].administrator === user){
+              this.isOwner = true;
+          }
+          console.log('isOwner', this.isOwner);
+        }); */
+
     });
 
     // google cal
