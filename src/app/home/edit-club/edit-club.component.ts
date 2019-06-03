@@ -30,4 +30,5 @@ export class EditClubComponent implements OnInit {
         });
     });
   }
+  
 }
