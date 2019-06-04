@@ -27,8 +27,19 @@ export class ClubService {
   }
 
   addClubs(club) {
+    console.log(club);
     return this.http.post('/api/clubs/add', club);
   }
+
+  addMember = (club, activeUser) => {
+    let data = { club: club, activeUser: activeUser };
+    return this.http.post('/api/clubs/addMember', data);
+  };
+
+  removeMember = (club, activeUser) => {
+    let data = { club: club, activeUser: activeUser };
+    return this.http.post('/api/clubs/removeMember', data);
+  };
 
   testQuery() {
     console.log('test query called');

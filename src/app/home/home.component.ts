@@ -3,6 +3,7 @@ import { AuthService } from './../auth/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { UserService } from './../services/user.service';
 import { ImageService } from '../services/image.service';
+import { CategoryService } from '../services/category.service';
 
 @Component({
   selector: 'app-home',
@@ -13,7 +14,8 @@ export class HomeComponent implements OnInit {
   constructor(
     private clubService: ClubService,
     private userService: UserService,
-    private imageService: ImageService
+    private imageService: ImageService,
+    private categoryService: CategoryService
   ) {}
 
   // selectedFile;
@@ -61,6 +63,7 @@ export class HomeComponent implements OnInit {
 
     // ----------- ADD SAMPLE DATA  -----------------------
     // this.addSampleData();
+    // this.addSampleCategories();
   }
 
   createClub(name, brief) {
@@ -79,6 +82,26 @@ export class HomeComponent implements OnInit {
       time,
       member
     };
+  }
+  addSampleCategories() {
+    this.categoryService
+      .addCategory({ name: 'Laufen' })
+      .subscribe(value => console.log(value));
+    this.categoryService
+      .addCategory({ name: 'Schach' })
+      .subscribe(value => console.log(value));
+    this.categoryService
+      .addCategory({ name: 'Döner' })
+      .subscribe(value => console.log(value));
+    this.categoryService
+      .addCategory({ name: 'Hundefutter' })
+      .subscribe(value => console.log(value));
+    this.categoryService
+      .addCategory({ name: 'BiB' })
+      .subscribe(value => console.log(value));
+    this.categoryService
+      .addCategory({ name: 'Yoga' })
+      .subscribe(value => console.log(value));
   }
 
   addSampleData() {

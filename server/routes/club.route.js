@@ -27,3 +27,15 @@ router.post('/add', async (req, res) => {
   console.log('TEST2', newClub);
   res.json(newClub);
 });
+
+router.post('/addMember', async (req, res) => {
+  let { club, activeUser } = req.body;
+  let newClub = await clubCtrl.addMember(club, activeUser);
+  res.json(newClub);
+});
+
+router.post('/removeMember', async (req, res) => {
+  let { club, activeUser } = req.body;
+  let newClub = await clubCtrl.removeMember(club, activeUser);
+  res.json(newClub);
+});

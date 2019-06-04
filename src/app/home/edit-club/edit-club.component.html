@@ -5,17 +5,59 @@
 </div>
 
 <div class="card">
-  <div class="profilImage">
-
+  <div class="imageDiv">
+    <div id="image"></div>
+    
+    <div id="loadButton">
+        <button mat-stroked-button id="editImage" class="submit" color="secondary">
+          Bild bearbeiten
+        </button>
+      </div>
   </div>
 
   <div class="description">
-    <div class="header">
+    <div class="clubname">
       Bearbeite deinen Club:
     </div>
 
-    <div id="createClubButton">
-      <button mat-stroked-button color="secondary" class="submit">
+    <div id="editClubInfo">
+        <mat-form-field appearance="standard">
+          <mat-label>Clubname:  </mat-label>
+          <input matInput [formControl]="name" placeholder="{{club.name}}" type="text" required />
+        </mat-form-field>
+  
+        <mat-form-field appearance="standard">
+          <mat-label>Club-Thema:</mat-label>
+          <input matInput [formControl]="brief" placeholder="{{club.brief}}" type="text" required />
+        </mat-form-field>
+  
+        <mat-form-field appearance="standard">
+          <mat-label>Beschreibung: </mat-label>
+          <input matInput [formControl]="description" placeholder="{{club.description}}" type="text" required />
+        </mat-form-field>
+  
+         <mat-form-field>
+          <mat-select placeholder="Kategorie:"> 
+            <mat-option *ngFor="let category of categories" [value]="category.value">
+              {{ category.value }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field> 
+
+        <mat-form-field appearance="standard">
+            <mat-label>Nächstes Treffen: </mat-label>
+            <input matInput [formControl]="time" placeholder="{{club.time}}" type="text" required />
+          </mat-form-field>
+
+          <mat-form-field appearance="standard">
+              <mat-label>Treffpunkt: </mat-label>
+              <input matInput [formControl]="place" type="text" required />
+            </mat-form-field>
+  
+      </div>
+
+    <div id="editClubButton">
+      <button id="button" mat-stroked-button color="primary" class="submit">
         Änderungen speichern
       </button>
     </div>
