@@ -11,10 +11,15 @@ import { Subject } from 'rxjs/Subject';
 import { TokenStorage } from './token.storage';
 import { TooltipComponent } from '@angular/material';
 import { ActivatedRoute } from '@angular/router';
+import { CometChatApiService } from '../chat/CometChatService/comet-chat-api.service';
 
 @Injectable()
 export class AuthService {
-  constructor(private http: HttpClient, private token: TokenStorage) {}
+  constructor(
+    private http: HttpClient,
+    private token: TokenStorage,
+    private chatAuth: CometChatApiService
+  ) {}
 
   public $userSource = new Subject<any>();
 
@@ -53,6 +58,8 @@ export class AuthService {
           observer.next({ user: data.user });
           this.setUser(data.user);
           localStorage.activeUser = data.user._id;
+          console.log('chatTest', data.user._id, data.user.fullname);
+          this.chatAuth.createUser(data.user._id, data.user.fullname);
           this.token.saveToken(data.token);
           observer.complete();
         });

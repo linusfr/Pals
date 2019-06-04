@@ -29,7 +29,6 @@ export class GroupViewComponent implements OnInit, OnDestroy {
     this.chatService.login(this.currentUser(), environment.cometChat.apiKey); // <-- add getActiveUserService
     this.getMessages().then(_ => this.listenForMessages());
     this.chatAuth.createAuthToken(this.currentUser());
-    this.chatAuth.createUser(this.currentUser(), 'name');
   }
 
   sendMessage(message: string) {
@@ -38,7 +37,7 @@ export class GroupViewComponent implements OnInit, OnDestroy {
       sender: { uid: this.currentUser }
     });
     this.chatService.sendMessage(this.groupId, message);
-    console.log(this.messages);
+    console.log('message', this.messages);
   }
 
   getMessages() {
