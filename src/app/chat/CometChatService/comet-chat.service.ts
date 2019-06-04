@@ -18,9 +18,7 @@ export class CometChatService {
   ngOnInit(){
     this.userService.getActiveUser().subscribe(user => {
       this.currentUser = user;
-      console.log(user)
     })
-    console.log(this.currentUser)
   }
 
   init(appID: string = environment.cometChat.appId) {
@@ -33,7 +31,7 @@ export class CometChatService {
     );
   }
 
-  login(userId: string, apiKey: string = environment.cometChat.apiKey) {
+  login(userId: string, apiKey) {
     return CometChat.login(userId, apiKey)
       .then(usr => (this.currentUser = usr), (this.currentUser = null))
       .then(_ => console.log('User logged in'), console.error);
