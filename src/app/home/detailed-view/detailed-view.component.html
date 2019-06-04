@@ -8,9 +8,10 @@
   <div class="description">
     <div class="clubname">
       {{ club.name }}
-      <mat-icon class="material-icons" id="editClub" *ngIf="isOwner" [routerLink]="['/editClub', club._id]">settings</mat-icon>
+      <mat-icon class="material-icons" id="editClub" *ngIf="isOwner" [routerLink]="['/editClub', club._id]">settings
+      </mat-icon>
       <mat-icon class="material-icons" id="exitClub" *ngIf="isMember" (click)="exitClub()">exit_to_app</mat-icon>
-      <mat-icon class="material-icons" id="isMember" *ngIf="isMember" >favorite</mat-icon>
+      <mat-icon class="material-icons" id="isMember" *ngIf="isMember">favorite</mat-icon>
     </div>
     <div class="brief">
       {{ club.brief }}
@@ -44,7 +45,7 @@
         Wann: {{club.time}}
       </div>
       <div class="place">
-        Treffpunkt: 
+        Treffpunkt:
       </div>
       <a class="googleCal" [href]="googleCalendarEventUrl" target="_blank">Zu Google Calendar
         hinzufügen</a>

@@ -44,9 +44,9 @@ body {
   text-align: center;
 }
 
-.searchByText, .searchByCategory {
+.searchByText,
+.searchByCategory {
   padding: 1%;
-
 }
 
 .card {
@@ -76,7 +76,7 @@ body {
 
 .text {
   opacity: 0.8;
-  background-color: #37474F;
+  background-color: #37474f;
   height: 130px;
   border-bottom-left-radius: 0.9em;
   border-bottom-right-radius: 0.9em;

@@ -106,7 +106,7 @@ export class DetailedViewComponent implements OnInit {
         this.club = data;
         this.isMember = false;
       });
-  };
+  }
 
   joinClub = () => {
     this.clubService
@@ -115,5 +115,5 @@ export class DetailedViewComponent implements OnInit {
         this.club = data;
         this.isMember = true;
       });
-  };
+  }
 }
