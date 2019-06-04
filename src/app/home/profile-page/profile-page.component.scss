@@ -85,19 +85,30 @@
   .image {
     border-top-left-radius: 0.9em;
     border-top-right-radius: 0.9em;
+    border-bottom-left-radius: 0em;
     width: 100%;
-    height: 40em;
+    height: 20em;
   }
   
   .description {
     border-bottom-right-radius: 0.9em;
     border-bottom-left-radius: 0.9em;
+    border-top-right-radius: 0em;
     width: 100%;
+    margin-bottom: 20px;
+
   }
 
   #buttonChangeProfile {
     margin: 0em;
-    margin-bottom: 20px;
+  }
+
+  #reviseProfile {
+    margin-bottom: 7em;
+  }
+
+  #backArrow {
+    margin-bottom: 10px;
   }
 
 }

@@ -81,6 +81,7 @@ mat-form-field {
   .image {
     border-top-left-radius: 0.9em;
     border-top-right-radius: 0.9em;
+    border-bottom-left-radius: 0em;
     width: 100%;
     height: 40em;
   }
@@ -88,11 +89,17 @@ mat-form-field {
   .description {
     border-bottom-right-radius: 0.9em;
     border-bottom-left-radius: 0.9em;
+    border-top-right-radius: 0em;
     width: 100%;
   }
 
   #buttonChangeProfile {
     margin: 0em;
-    margin-bottom: 20px;
+    margin-bottom: 7em;
+    margin-top: 1em;
+  }
+
+  #backArrow {
+    margin-bottom: 10px;
   }
 }
