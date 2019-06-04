@@ -1,0 +1,47 @@
+.card {
+    padding-top: 130px;
+    width: 170px;
+    height: 270px;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    display: flex;
+    border-radius: 0.9em;
+    float: left;
+    flex-direction: column;
+    margin: 4%;
+    background-size: cover;
+    background-image: url(https://images.unsplash.com/photo-1523978591478-c753949ff840?w=900);
+  }
+  
+  .description {
+    padding: 0.4em;
+    font-size: 80%;
+  }
+  
+  .clubname {
+    padding: 0.4em;
+    font-size: 100%;
+  }
+  
+  .text {
+    opacity: 0.8;
+    background-color: #262626;
+    height: 130px;
+    border-bottom-left-radius: 0.9em;
+    border-bottom-right-radius: 0.9em;
+    color: white;
+    text-align: center;
+    padding: 12%;
+  }
+  
+  @media only screen and (max-width: 768px) {
+    .card {
+      height: 400px;
+      width: 250px;
+      padding-top: 210px;
+    }
+  
+    .text {
+      height: 210px;
+    }
+  }

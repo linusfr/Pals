@@ -1,41 +1,32 @@
-<body>
-  <div>
-    <mat-icon [routerLink]="['/']" id="backArrow">arrow_back</mat-icon>
+<div>
+  <mat-icon [routerLink]="['/']" id="backArrow">arrow_back</mat-icon>
+</div>
+
+<div class="card">
+  <div class="image">
+    hier Profilbild
   </div>
 
-  <div class="card">
-    <div class="image"></div>
+  <div class="description">
+    <div class="header">
+      Dein Profil
+    </div>
 
-    <div class="description">
-      <div class="header">
-        Dein Profil
-      </div>
+    <div id="profileInfo">
+      <div id="firstName">Vorname: {{ userSplit[0] }}</div>
+      <div id="secondName">Nachname: {{ userSplit[1] }}</div>
+      <div id="email">E-Mail-Adresse: {{ email }}</div>
+    </div>
 
-      <div id="profileInfo">
-        <div id="firstName">
-          Vorname: {{ userSplit[0]
-          }}<!--hier name vom Nutzer reinladen, {{ user.firstname }}-->
-        </div>
-        <div id="secondName">
-          Nachname: {{ userSplit[1] }}
-          <!--hier Nachname vom Nutzer, {{ user.lastname }}-->
-        </div>
-        <div id="email">
-          E-Mail-Adresse: {{ email }}
-          <!--hier E-Mail, {{ user.email }}-->
-        </div>
-      </div>
-
-      <div id="buttonChangeProfile">
-        <button
-          mat-stroked-button
-          [routerLink]="['/changeProfile']"
-          color="primary"
-          class="submit"
-        >
-          Profil bearbeiten
-        </button>
-      </div>
+    <div id="buttonChangeProfile">
+      <button
+        mat-stroked-button
+        [routerLink]="['/changeProfile']"
+        color="primary"
+        class="submit"
+      >
+        Profil bearbeiten
+      </button>
     </div>
   </div>
-</body>
+</div>

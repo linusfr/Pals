@@ -2,7 +2,6 @@ body {
   display: flex;
   align-items: center;
   flex-direction: column;
-  background-color: #aebcc3;
 }
 #detailed {
   margin-top: 50px;
@@ -45,9 +44,9 @@ body {
   text-align: center;
 }
 
-.searchByText, .searchByCategory {
+.searchByText,
+.searchByCategory {
   padding: 1%;
-
 }
 
 .card {
@@ -77,7 +76,7 @@ body {
 
 .text {
   opacity: 0.8;
-  background-color: #262626;
+  background-color: #37474f;
   height: 130px;
   border-bottom-left-radius: 0.9em;
   border-bottom-right-radius: 0.9em;

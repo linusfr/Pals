@@ -25,10 +25,9 @@ describe('HomeComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [HttpClientModule],
-      declarations: [HomeComponent,CreateClubComponent,DetailedViewComponent],
-      providers: [AuthService,TokenStorage,NgAddToCalendarService]
-    })
-      .compileComponents();
+      declarations: [HomeComponent, CreateClubComponent, DetailedViewComponent],
+      providers: [AuthService, TokenStorage, NgAddToCalendarService]
+    }).compileComponents();
   }));
 
   beforeEach(() => {

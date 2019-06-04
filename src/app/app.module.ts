@@ -20,6 +20,7 @@ import { AppRoutingModule } from './app-routing/app-routing.module';
 
 import { ProfilePageComponent } from './home/profile-page/profile-page.component';
 import { ChangeProfilePageComponent } from './home/change-profile-page/change-profile-page.component';
+import { EditClubComponent } from './home/edit-club/edit-club.component';
 
 // MATERIAL IMPORTS THROUGH THIS
 import { MaterialModule } from './material/material';
@@ -32,7 +33,7 @@ import { CreateClubComponent } from './home/create-club/create-club.component';
 import { ClubService } from './services/club.service';
 import { UserService } from './services/user.service';
 
-// GOOGLE CALENDAR EXPORT 
+// GOOGLE CALENDAR EXPORT
 import { NgAddToCalendarModule } from '@trademe/ng-add-to-calendar';
 import { AuthService } from './auth/auth.service';
 import { TokenStorage } from './auth/token.storage';
@@ -42,9 +43,8 @@ import { JoinedClubsComponent } from './home/joined-clubs/joined-clubs.component
 import { GroupViewComponent } from './chat/group-view/group-view.component';
 import { ChatLoginComponent } from './chat/chat-login/chat-login.component';
 
-
-
-
+import { AddClubComponent } from './home/add-club/add-club.component';
+import { ClubSmallComponent } from './home/club-small/club-small.component';
 
 @NgModule({
   declarations: [
@@ -58,6 +58,9 @@ import { ChatLoginComponent } from './chat/chat-login/chat-login.component';
     ProfilePageComponent,
     ChangeProfilePageComponent,
     JoinedClubsComponent,
+    AddClubComponent,
+    EditClubComponent,
+    ClubSmallComponent
   ],
   imports: [
     HttpModule,

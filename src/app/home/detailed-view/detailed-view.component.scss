@@ -1,33 +1,55 @@
+#backArrow {
+  font-size: 3em;
+  color: white;
+  margin-left: 20px;
+  margin-top: 20px;
+  background-color: #37474f;
+  width: 50px;
+  height: 50px;
+  border-radius: 1em;
+}
+
 .card {
-  width: 1200px;
-  height: 600px;
-  box-sizing: border-box;
-  font-family: sans-serif;
+  width: 90%;
+  height: 40em;
   display: flex;
   border-radius: 0.9em;
-  flex-direction: row-reverse;
+  flex-direction: row;
+  margin: 4em;
+  margin-top: 0em;
+}
+
+.image {
+  background-color: #d8d8d8;
   border-top-left-radius: 0.9em;
-  border-top-right-radius: 0.9em;
+  border-bottom-left-radius: 0.9em;
+  width: 38%;
   background-size: cover;
   background-image: url(https://images.unsplash.com/photo-1523978591478-c753949ff840?w=900);
 }
+
 .description {
-  opacity: 0.8;
-  background-color: #262626;
-  width: 63%;
+  background-color: #ebebeb;
+  width: 62%;
   border-bottom-right-radius: 0.9em;
   border-top-right-radius: 0.9em;
-  color: white;
+  color: #607d8b;
   padding: 0.9em;
   font-size: 0.9em;
 }
-.material-icons {
+
+#editClub,
+#exitClub,
+#isMember {
   float: right;
-  color: white;
+  color: #607d8b;
   font-size: 50px;
-  margin: 0.5%;
+  margin-right: 30px;
 }
 
+.material-icons:hover {
+  cursor: pointer;
+}
 .clubname {
   padding: 0.5em;
   font-size: 2.3em;
@@ -44,41 +66,64 @@
   padding: 0.9em;
   font-size: 1.1em;
 }
-.chat {
-  width: 33em;
+.leftDiv {
+  width: 60%;
   height: 16em;
   float: left;
+  margin: 0 auto;
 }
 .meeting {
   float: right;
   height: 16em;
-  width: 19em;
+  width: 35%;
+  padding: 2%;
   border-left: 0.2em solid #c11e5c;
 }
 .time,
-.place {
+.place,
+.googleCal {
   padding: 0.5em;
 }
+
+#joinClubButton {
+  padding-top: 100px;
+  text-align: center;
+}
+
 @media only screen and (max-width: 768px) {
   .card {
-    width: 325px;
-    height: 550px;
-    flex-direction: column-reverse;
+    width: 67%;
+    height: 35em;
+    margin: 0 auto;
+    flex-direction: column;
   }
+
+  .image {
+    width: 100%;
+    margin-top: 0%;
+    height: 10em;
+    border-bottom-left-radius: 0em;
+    border-bottom-right-radius: 0em;
+    border-top-right-radius: 0.9em;
+  }
+
   .description {
-    width: 300px;
-    height: 360px;
+    width: 100%;
+    height: 24em;
     border-top-right-radius: 0em;
     border-bottom-right-radius: 0.9em;
     border-bottom-left-radius: 0.9em;
-    opacity: 0.9;
+    padding: 0%;
   }
   .clubname {
     font-size: 1.3em;
     font-weight: bold;
   }
-  .material-icons {
+  #editClub,
+  #exitClub,
+  #isMember {
     font-size: 30px;
+    margin-right: 0.2em;
   }
   .brief,
   .category,
@@ -93,63 +138,27 @@
   .meeting {
     float: none;
     height: 16em;
-    width: 19em;
+    width: 92%;
+    margin: 0 auto;
     padding-top: 0.3em;
     border-top: 0.15em solid #c11e5c;
     border-left: 0em;
   }
 
-  .time,
-  .place {
-    margin: 0.5em;
+  .leftDiv {
+    float: none;
+    width: 19em;
+    height: 3em;
+    padding: 1%;
   }
-  .chat {
-    display: none;
-  }
-}
-@media only screen and (max-width: 768px){
-    .card {
-        width: 325px;
-        height: 550px;
-        flex-direction: column-reverse;
 
-    }
-    .description {
-        width: 300px;
-        height: 360px;
-        border-top-right-radius: 0em;
-        border-bottom-right-radius: .9em;
-        border-bottom-left-radius: .9em;
-        opacity: 0.9;
-    }
-    .clubname {
-        font-size: 1.3em;
-        font-weight: bold;
-    }
-    .material-icons {
-        font-size: 30px;
-    }
-    .brief, .category, .owner{
-        font-size: 1em;
-        margin-left: .9em;
-        padding: .5em;
-    }
-    .details {
-        font-size: .8em;
-    }
-    .meeting {
-        float: none;
-        height: 16em;
-        width: 19em;
-        padding-top: .3em;
-        border-top: .15em solid #c11e5c;
-        border-left: .0em;
-    }
-    
-    .time, .place {
-        margin: .5em;
-    }
-     .chat {
-        display: none; 
-    }
+  #backArrow {
+    font-size: 3em;
+    margin-left: 20px;
+    margin-top: 20px;
+  }
+  #joinClubButton {
+    font-size: 1em;
+    padding: 0% 5%;
+  }
 }

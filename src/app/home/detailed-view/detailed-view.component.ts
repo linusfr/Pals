@@ -26,23 +26,46 @@ export class DetailedViewComponent implements OnInit {
     private clubService: ClubService,
     private authService: AuthService,
     private userService: UserService
-  ) {
-  }
+  ) {}
 
   club = {};
   currentUsr = {};
   id;
+  isMember = false;
+  isOwner = false;
+
+  render = function() {
+    return this.isMember
+      ? `<div id="joinClubButton">
+        <button mat-stroked-button color="primary" class="submit">
+          Club beitreten
+        </button>
+      </div>`
+      : `<div class="chat">Chat</div>`;
+  };
 
   ngOnInit() {
     this.club = this.route.params.subscribe(params => {
       this.id = params['id'];
-      console.log('club_id', this.id);
-      console.log('user_id', localStorage.activeUser);
 
       this.clubService
         .getDetailedClub(this.id, localStorage.activeUser)
         .subscribe(club => {
           this.club = club[0];
+          let user = localStorage.activeUser;
+
+          // check member
+          club[0].member.forEach(member => {
+            if (member === user) {
+              this.isMember = true;
+            }
+          });
+
+          // check owner
+          if (club[0].administrator._id === user) {
+            this.isOwner = true;
+          }
+
           console.log(club);
 
           this.newEvent = {
@@ -66,16 +89,38 @@ export class DetailedViewComponent implements OnInit {
             )
           );
 
+          console.log('isOwner', this.isOwner);
+          console.log('isMember', this.isMember);
+        });
+
+      this.clubService
+        .getDetailedClub(this.id, localStorage.activeUser)
+        .subscribe(club => {
+          this.club = club[0];
         });
     });
 
+    this.userService.getActiveUser().subscribe(user => {
+      this.currentUsr = user[0];
+      console.log(this.currentUsr);
+    });
+  }
 
-    this.userService
-      .getActiveUser().subscribe(user => {
-        this.currentUsr = user[0];
-        console.log(this.currentUsr);
+  exitClub = () => {
+    this.clubService
+      .removeMember(this.club, localStorage.activeUser)
+      .subscribe(data => {
+        this.club = data;
+        this.isMember = false;
       });
   }
 
-
+  joinClub = () => {
+    this.clubService
+      .addMember(this.club, localStorage.activeUser)
+      .subscribe(data => {
+        this.club = data;
+        this.isMember = true;
+      });
+  }
 }

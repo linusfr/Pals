@@ -16,14 +16,11 @@
   </div>
 
   <div id="itemListContainer">
-    <div [routerLink]="['createClub']" class="newCard">
-      <div class="image"></div>
-      <div class="text">
-        <div class="clubname">
-          Neuen Club erstellen
-        </div>
-        <div class="description"></div>
-      </div>
+    
+    <div [routerLink]="['createClub']" >
+       <div id="addClub">
+    <app-add-club></app-add-club>
+  </div>
     </div>
 
     <div *ngFor="let club of clubs" [routerLink]="['detailedClub/', club._id]" class="card">
@@ -36,5 +33,7 @@
           {{club.brief}}
         </div>
       </div>
+
+      
     </div>
   </div>
