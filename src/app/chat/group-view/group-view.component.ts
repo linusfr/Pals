@@ -16,20 +16,21 @@ export class GroupViewComponent implements OnInit, OnDestroy {
   messages = [];
   listenerId = 'Web_App_Listener_Group_ID';
 
-  get currentUser() {
-    return localStorage.activeUser
-  }
+  
 
   constructor(private chatService: CometChatService,private chatAuth: CometChatApiService) {}
+
+  currentUser() {
+    return localStorage.activeUser;
+  }
 
   ngOnInit() {
     // Users are already members of the group
     this.chatService.joinGroup(this.groupId);
-    this.chatService.login(this.currentUser); // <-- add getActiveUserService
+    this.chatService.login(this.currentUser(),environment.cometChat.apiKey); // <-- add getActiveUserService
     this.getMessages().then(_ => this.listenForMessages());
-    console.log("createNewUser");
-    console.log(this.currentUser);
-    //this.chatAuth.createUser(localStorage.activeUser,"name");
+    this.chatAuth.createAuthToken(this.currentUser());
+    this.chatAuth.createUser(this.currentUser(),"name");
   }
 
   sendMessage(message: string) {
