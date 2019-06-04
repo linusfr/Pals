@@ -34,12 +34,12 @@ export class ClubService {
   addMember = (club, activeUser) => {
     let data = { club: club, activeUser: activeUser };
     return this.http.post('/api/clubs/addMember', data);
-  };
+  }
 
   removeMember = (club, activeUser) => {
     let data = { club: club, activeUser: activeUser };
     return this.http.post('/api/clubs/removeMember', data);
-  };
+  }
 
   testQuery() {
     console.log('test query called');

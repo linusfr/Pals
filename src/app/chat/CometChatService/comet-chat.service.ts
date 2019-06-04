@@ -4,21 +4,24 @@ import { environment } from '../../../environments/environment';
 import { UserService } from '../../services/user.service';
 import { elementEventFullName } from '@angular/compiler/src/view_compiler/view_compiler';
 
-
-
 @Injectable({
   providedIn: 'root'
 })
-
 export class CometChatService {
-  constructor(private userService: UserService){}
+  constructor(private userService: UserService) {}
   currentUser;
 
   // currentName = this.currentUser.fullname;
-  ngOnInit(){
+  ngOnInit() {
     this.userService.getActiveUser().subscribe(user => {
       this.currentUser = user;
+<<<<<<< HEAD
     })
+=======
+      console.log(user);
+    });
+    console.log(this.currentUser);
+>>>>>>> c3a20a214bdea30da7d126903c9885f289fee4af
   }
 
   init(appID: string = environment.cometChat.appId) {
