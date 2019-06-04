@@ -43,6 +43,19 @@ header {
     background-color: #37474F;
   }
 
+  .wrapper {
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+  }
+
+  .flexParent{
+    display: flex;
+    flex-direction: row;
+    background-color: #37474F;
+    color: white;
+  }
+
   .flexChildren {
     width: 33%;
     height: 80px;
@@ -57,6 +70,7 @@ header {
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    margin: 0 auto;
   }
 
   .buttonWrapper {
@@ -145,4 +159,25 @@ header {
     font-size: 2.5em;
     margin-right: 10px;
   }
+
+  @media only screen and (max-width: 768px) {
+
+    .flexParent {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .flexChildren {
+      width: 100%;
+      flex-direction: row;
+      margin: 0 auto;
+    }
+
+    .wrapper {
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+    }
+  }
+
 }

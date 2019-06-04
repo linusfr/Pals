@@ -1,40 +1,53 @@
 <header>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <mat-toolbar id="toolbar">
-    <div class="flexParent">
-      <div class="flexChildren">
-        <div class="logoWrapper">
-          <a [routerLink]="['/']">
-            <img id="logo" src="../assets/Pals_LOGO.png" alt="Dogs" />
+  <div class="flexParent">
+    <div class="wrapper">
+    <div class="flexChildren">
+      <div class="logoWrapper">
+        <a [routerLink]="['/']">
+          <img id="logo" src="../assets/Pals_LOGO.png" alt="Pals" />
+        </a>
+      </div>
+    </div>
+    <div class="flexChildren locationContainer">
+      <i class="material-icons md-18">location_on</i>
+      <span>Flensburg</span>
+    </div>
+  </div>
+    <div class="flexChildren">
+      <div class="buttonWrapper">
+        <mat-icon id="chat_icon">chat_bubble</mat-icon>
+        <mat-icon id="favorit_icon" [routerLink]="['joinedClubs']"
+          >favorite</mat-icon
+        >
+        <mat-icon
+          id="login_icon"
+          color="primary"
+          [routerLink]="['/auth/login']"
+          *ngIf="!user"
+        >
+          fingerprint
+        </mat-icon>
+        <div>
+          <a class="links side" *ngIf="user" [matMenuTriggerFor]="menu">
+            <mat-icon id="loggedInIcon">how_to_reg</mat-icon>{{ user.fullname }}
           </a>
-        </div>
-      </div>
-      <div class="flexChildren locationContainer">
-        <i class="material-icons md-18">location_on</i>
-        <span>Flensburg</span>
-      </div>
-      <div class="flexChildren">
-        <div class="buttonWrapper">
-          <mat-icon id="chat_icon">chat_bubble</mat-icon>
-          <mat-icon id="favorit_icon" [routerLink]="['joinedClubs']">favorite</mat-icon>
-          <mat-icon id="login_icon" color="primary" [routerLink]="['/auth/login']" *ngIf="!user">
-            fingerprint
-          </mat-icon>
-          <div>
-            <a class="links side" *ngIf="user" [matMenuTriggerFor]="menu">
-              <mat-icon id="loggedInIcon">how_to_reg</mat-icon>{{ user.fullname }}
-            </a>
-            <mat-menu #menu="matMenu">
-              <button mat-menu-item *ngIf="user && user.isAdmin" [routerLink]="['/admin']">
-                admin
-              </button>
-              <button mat-menu-item [routerLink]="['/profile']" color="primary">Profil</button>
-              <button mat-menu-item (click)="logout()">logout</button>
-            </mat-menu>
-          </div>
+          <mat-menu #menu="matMenu">
+            <button
+              mat-menu-item
+              *ngIf="user && user.isAdmin"
+              [routerLink]="['/admin']"
+            >
+              admin
+            </button>
+            <button mat-menu-item [routerLink]="['/profile']" color="primary">
+              Profil
+            </button>
+            <button mat-menu-item (click)="logout()">logout</button>
+          </mat-menu>
         </div>
       </div>
     </div>
-  </mat-toolbar>
+  </div>
 </header>

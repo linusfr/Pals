@@ -68,7 +68,15 @@ a {
 //Handy Ansicht
 @media only screen and (max-width: 768px) {
   .register-card {
-    width: 90%;
+    width: 80%;
+  }
+
+  .login-card {
+    width: 80%;
+  }
+
+  mat-card-content {
+    margin: 0 auto;
   }
 
   #logo_login {
@@ -84,6 +92,14 @@ a {
     align-items: center;
     box-sizing: border-box;
     width: 18em;
+  }
+
+  #back {
+    font-size: 1.2em;
+  }
+
+  #registerButton {
+    font-size: 1.5em;
   }
 
 }

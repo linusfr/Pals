@@ -66,18 +66,17 @@
 
     <mat-card-actions>
       <p>
-        <button mat-raised-button (click)="register()" color="primary">
+        <button mat-raised-button id="registerButton" (click)="register()" color="primary">
           Registrieren</button
         ><br />
       </p>
-      <p>
+        <div id="back">
         <span
           >Sie haben schon einen Account?
           <a [routerLink]="['/auth/login']" color="primary"
             >Zurück zum login!</a
-          ></span
-        >
-      </p>
+          ></span>
+      </div>
     </mat-card-actions>
   </mat-card-content>
 </mat-card>
