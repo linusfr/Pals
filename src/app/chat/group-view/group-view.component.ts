@@ -11,6 +11,7 @@ import { CometChatApiService } from '../CometChatService/comet-chat-api.service'
   styleUrls: ['./group-view.component.scss']
 })
 export class GroupViewComponent implements OnInit, OnDestroy {
+  
   groupId: 'supergroup';
   messages = [];
   listenerId = 'Web_App_Listener_Group_ID';
