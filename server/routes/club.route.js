@@ -46,6 +46,6 @@ router.post('/removeMember', async (req, res) => {
 });
 
 router.get('/search', async (req, res) => {
-  let clubs = await clubCtrl.getClubsByName(req.query.name);
+  let clubs = await clubCtrl.getClubsByName(req.query.name, req.query.category);
   res.json(clubs);
 });

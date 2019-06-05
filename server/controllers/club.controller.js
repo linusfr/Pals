@@ -52,10 +52,27 @@ async function getClubs() {
   return filteredClubs;
 }
 
-async function getClubsByName(name) {
-  let clubs = await Club.find({
-    name: { $regex: name, $options: 'i' }
+async function getClubsByName(name, category) {
+  let categoryID = '';
+  let categories = await categoryCtrl.getCategories();
+  categories.forEach(value => {
+    if (value.name === category) {
+      categoryID = value._id;
+    }
   });
+
+  let clubs;
+
+  if (categoryID === '') {
+    clubs = await Club.find({
+      name: { $regex: name, $options: 'i' }
+    });
+  } else {
+    clubs = await Club.find({
+      name: { $regex: name, $options: 'i' },
+      category: categoryID
+    });
+  }
 
   let filteredClubs = clubs.map(({ _id, name, brief }) => {
     return { _id, name, brief };

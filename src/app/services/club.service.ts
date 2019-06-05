@@ -46,9 +46,9 @@ export class ClubService {
     return this.http.post('/api/clubs/removeMember', data);
   }
 
-  searchClubs = name => {
+  searchClubs = (name, category) => {
     const params = {
-      params: new HttpParams().append('name', name)
+      params: new HttpParams().append('name', name).append('category', category)
     };
     return this.http.get('/api/clubs/search', params);
   }

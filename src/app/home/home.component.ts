@@ -3,6 +3,7 @@ import { AuthService } from './../auth/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { UserService } from './../services/user.service';
 import { CategoryService } from '../services/category.service';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-home',
@@ -17,15 +18,33 @@ export class HomeComponent implements OnInit {
   ) {}
 
   clubs;
+  categories;
+
+  userForm = new FormGroup({
+    category: new FormControl()
+  });
+  nameForm = new FormGroup({
+    name: new FormControl()
+  });
+
+  get category(): any {
+    return this.userForm.get('category');
+  }
+  get name(): any {
+    return this.nameForm.get('name');
+  }
 
   ngOnInit() {
+    this.categoryService
+      .getCategories()
+      .subscribe(data => (this.categories = data));
+
     // ----------- GET CLUBS -> WORKING! -----------------------
     this.clubService.getClubs().subscribe(clubs => {
       this.clubs = clubs;
       console.log(clubs);
     });
 
-    console.log('test');
     this.userService.getActiveUser().subscribe(user => {
       console.log(user);
     });
@@ -36,8 +55,28 @@ export class HomeComponent implements OnInit {
   }
 
   onKey(event) {
+    let { category } = this.userForm.getRawValue();
+    if (category === null) {
+      category = 'all';
+    }
+    console.log(category);
     console.log(event.target.value);
-    this.clubService.searchClubs(event.target.value).subscribe(data => {
+    this.clubService
+      .searchClubs(event.target.value, category)
+      .subscribe(data => {
+        console.log(data);
+        this.clubs = data;
+      });
+  }
+  onChange(event) {
+    let { name } = this.nameForm.getRawValue();
+    if (name === null) {
+      name = '';
+    }
+
+    console.log(event);
+
+    this.clubService.searchClubs(name, event.value).subscribe(data => {
       console.log(data);
       this.clubs = data;
     });
