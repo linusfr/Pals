@@ -7,23 +7,23 @@
 
   <div class="description">
     <div class="clubname">
-      {{ club.name }}
+      {{club.name}}
       <mat-icon class="material-icons" id="editClub" *ngIf="isOwner" [routerLink]="['/editClub', club._id]">settings
       </mat-icon>
       <mat-icon class="material-icons" id="exitClub" *ngIf="isMember" (click)="exitClub()">exit_to_app</mat-icon>
       <mat-icon class="material-icons" id="isMember" *ngIf="isMember">favorite</mat-icon>
     </div>
     <div class="brief">
-      {{ club.brief }}
+      {{club.brief}}
     </div>
     <div class="category">
-      Kategorie: {{ club.category }}
+      Kategorie: {{club.category}}
     </div>
     <div class="owner">
-      Clubleiter: {{ club.administrator.fullname }}
+      Clubleiter: {{club.administrator.fullname}}
     </div>
     <div class="details">
-      {{ club.description }}
+      {{club.description}}
     </div>
 
     <div class="leftDiv">

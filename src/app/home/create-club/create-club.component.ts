@@ -3,6 +3,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ClubService } from '../../services/club.service';
 import { Router } from '@angular/router';
 import { CategoryService } from '../../services/category.service';
+import { CometChatApiService } from '../../chat/CometChatService/comet-chat-api.service';
 
 @Component({
   selector: 'app-create-club',
@@ -13,7 +14,8 @@ export class CreateClubComponent implements OnInit {
   constructor(
     private categoryService: CategoryService,
     private clubService: ClubService,
-    private router: Router
+    private router: Router,
+    private chatAuth: CometChatApiService
   ) {}
 
   show = false;
@@ -80,6 +82,7 @@ export class CreateClubComponent implements OnInit {
       })
       .subscribe(data => {
         club = data;
+        this.chatAuth.createGroup(club._id,name);
         this.router.navigate(['detailedClub', club._id]);
       });
   }
