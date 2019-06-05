@@ -23,9 +23,14 @@ router.get('/detailedClub', async (req, res) => {
 
 router.post('/add', async (req, res) => {
   let club = req.body;
-  newClub = await clubCtrl.addClub(club);
-  console.log('TEST2', newClub);
+  let newClub = await clubCtrl.addClub(club);
   res.json(newClub);
+});
+
+router.post('/edit', async (req, res) => {
+  let club = req.body;
+  let editedClub = await clubCtrl.editClub(club);
+  res.json(editedClub);
 });
 
 router.post('/addMember', async (req, res) => {

@@ -17,7 +17,7 @@
       {{ club.brief }}
     </div>
     <div class="category">
-      Kategorie: {{ club.category }}
+      Kategorie: {{ club.category.name }}
     </div>
     <div class="owner">
       Clubleiter: {{ club.administrator.fullname }}
@@ -45,7 +45,7 @@
         Wann: {{club.time}}
       </div>
       <div class="place">
-        Treffpunkt:
+        Treffpunkt: {{club.place}}
       </div>
       <a class="googleCal" [href]="googleCalendarEventUrl" target="_blank">Zu Google Calendar
         hinzufügen</a>

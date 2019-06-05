@@ -5,6 +5,7 @@ const categoryCtrl = require('./category.controller');
 module.exports = {
   getClubs,
   addClub,
+  editClub,
   getDetailedClub,
   getJoinedClubs,
   addMember,
@@ -23,6 +24,21 @@ async function addClub(club) {
 
   club = await new Club(club).save();
   return club;
+}
+
+async function editClub(club) {
+  // alten Club rausziehen
+  let oldClub = await Club.findOne({ _id: club.changedID });
+
+  // Geänderte Felder überarbeiten
+  oldClub.brief = club.brief;
+  oldClub.description = club.description;
+  oldClub.time = club.time;
+  oldClub.place = club.place;
+
+  // alten Club überschreiben
+  let res = await Club.replaceOne({ _id: club.changedID }, oldClub);
+  return oldClub;
 }
 
 async function getClubs() {
@@ -46,13 +62,19 @@ async function getJoinedClubs(id) {
 }
 
 async function getDetailedClub(userID, clubID) {
-  return await Club.find({ _id: clubID }).populate('administrator');
+  return await Club.find({ _id: clubID })
+    .populate('administrator')
+    .populate('category');
 }
 
 async function addMember(club, activeUser) {
   club.member.push(activeUser);
-  await Club.replaceOne({ _id: club._id }, club).populate('administrator');
-  return await Club.findOne({ _id: club._id }).populate('administrator');
+  await Club.replaceOne({ _id: club._id }, club)
+    .populate('administrator')
+    .populate('category');
+  return await Club.findOne({ _id: club._id })
+    .populate('administrator')
+    .populate('category');
 }
 
 async function removeMember(club, activeUser) {
@@ -60,6 +82,10 @@ async function removeMember(club, activeUser) {
   club.member.forEach((val, index) => {
     val === activeUser ? club.member.splice(index) : null;
   });
-  await Club.replaceOne({ _id: club._id }, club).populate('administrator');
-  return await Club.findOne({ _id: club._id }).populate('administrator');
+  await Club.replaceOne({ _id: club._id }, club)
+    .populate('administrator')
+    .populate('category');
+  return await Club.findOne({ _id: club._id })
+    .populate('administrator')
+    .populate('category');
 }

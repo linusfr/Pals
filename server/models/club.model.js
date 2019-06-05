@@ -12,6 +12,11 @@ const clubSchema = new mongoose.Schema({
     unique: true,
     dropDups: true
   },
+  category: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Category',
+    required: true
+  },
   place: {
     type: String
   },

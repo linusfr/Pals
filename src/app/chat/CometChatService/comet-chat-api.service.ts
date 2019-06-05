@@ -8,7 +8,6 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 export class CometChatApiService {
   constructor(private http: HttpClient) {}
 
-
   // Methode um einen Authentifizierungs-Token für jeden Nutzer zu erstellen, der im Chat eingeloggt werden soll
   createAuthToken(userid) {
     let data = null;
@@ -17,7 +16,6 @@ export class CometChatApiService {
 
     xhr.addEventListener('readystatechange', function() {
       if (this.readyState === this.DONE) {
-        console.log(this.responseText);
       }
     });
 
@@ -32,7 +30,7 @@ export class CometChatApiService {
   }
 
   // Methode um via API von CometChat in deren System einen neuen Nutzer zu erstellen
-  
+
   createUser(userid, uname) {
     // let data = `{uid: ${userid}, name: ${uname}, metadata :""}`;
     // tslint:disable-next-line:quotemark
@@ -42,7 +40,6 @@ export class CometChatApiService {
 
     xhr.addEventListener('readystatechange', function() {
       if (this.readyState === this.DONE) {
-        console.log(this.responseText);
       }
     });
 
@@ -52,5 +49,4 @@ export class CometChatApiService {
     xhr.setRequestHeader('content-type', 'application/json');
     xhr.send(data);
   }
-  
 }

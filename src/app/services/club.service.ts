@@ -31,6 +31,11 @@ export class ClubService {
     return this.http.post('/api/clubs/add', club);
   }
 
+  editClub(club) {
+    console.log(club);
+    return this.http.post('/api/clubs/edit', club);
+  }
+
   addMember = (club, activeUser) => {
     let data = { club: club, activeUser: activeUser };
     return this.http.post('/api/clubs/addMember', data);
