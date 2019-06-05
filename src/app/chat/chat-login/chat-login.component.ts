@@ -13,11 +13,11 @@ export class ChatLoginComponent {
 
   constructor(private cometChat: CometChatService, private router: Router) { }
 
-  login(userId: string) {
+  login(userId: string,apiKey) {
     this.hasError = false;
 
     this.cometChat
-      .login(userId)
+      .login(userId,apiKey)
       .then(_ => this.router.navigateByUrl('chat'))
       .catch(err => {
         this.hasError = true;

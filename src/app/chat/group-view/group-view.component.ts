@@ -26,7 +26,7 @@ export class GroupViewComponent implements OnInit, OnDestroy {
   ngOnInit() {
     // Users are already members of the group
     this.chatService.joinGroup(this.groupId);
-    this.chatService.login(this.currentUser(), environment.cometChat.apiKey); // <-- add getActiveUserService
+    this.chatService.login(this.currentUser(), environment.cometChat.apiKey); 
     this.getMessages().then(_ => this.listenForMessages());
     this.chatAuth.createAuthToken(this.currentUser());
   }
