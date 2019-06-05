@@ -44,3 +44,8 @@ router.post('/removeMember', async (req, res) => {
   let newClub = await clubCtrl.removeMember(club, activeUser);
   res.json(newClub);
 });
+
+router.get('/search', async (req, res) => {
+  let clubs = await clubCtrl.getClubsByName(req.query.name);
+  res.json(clubs);
+});

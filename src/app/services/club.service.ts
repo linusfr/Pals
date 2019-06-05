@@ -46,10 +46,10 @@ export class ClubService {
     return this.http.post('/api/clubs/removeMember', data);
   }
 
-  testQuery() {
-    console.log('test query called');
-    this.http.get('/api/test').subscribe(test => {
-      console.log(test);
-    });
+  searchClubs = name => {
+    const params = {
+      params: new HttpParams().append('name', name)
+    };
+    return this.http.get('/api/clubs/search', params);
   }
 }

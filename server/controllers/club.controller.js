@@ -4,6 +4,7 @@ const categoryCtrl = require('./category.controller');
 
 module.exports = {
   getClubs,
+  getClubsByName,
   addClub,
   editClub,
   getDetailedClub,
@@ -43,6 +44,18 @@ async function editClub(club) {
 
 async function getClubs() {
   let clubs = await Club.find({});
+
+  let filteredClubs = clubs.map(({ _id, name, brief }) => {
+    return { _id, name, brief };
+  });
+
+  return filteredClubs;
+}
+
+async function getClubsByName(name) {
+  let clubs = await Club.find({
+    name: { $regex: name, $options: 'i' }
+  });
 
   let filteredClubs = clubs.map(({ _id, name, brief }) => {
     return { _id, name, brief };

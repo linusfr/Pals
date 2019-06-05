@@ -2,7 +2,6 @@ import { ClubService } from './../services/club.service';
 import { AuthService } from './../auth/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { UserService } from './../services/user.service';
-import { ImageService } from '../services/image.service';
 import { CategoryService } from '../services/category.service';
 
 @Component({
@@ -14,28 +13,10 @@ export class HomeComponent implements OnInit {
   constructor(
     private clubService: ClubService,
     private userService: UserService,
-    private imageService: ImageService,
     private categoryService: CategoryService
   ) {}
 
-  // selectedFile;
-
   clubs;
-
-  // processFile(imageInput: any) {
-  //   const file: File = imageInput.files[0];
-  //   const reader = new FileReader();
-
-  //   reader.addEventListener('load', (event: any) => {
-  //     this.selectedFile = new ImageSnippet(event.target.result, file);
-
-  //     console.log(this.selectedFile.src);
-
-  // this.selectedFile.src
-  // .subscribe(data => console.log(data));
-
-  //   reader.readAsDataURL(file);
-  // }
 
   ngOnInit() {
     // ----------- GET CLUBS -> WORKING! -----------------------
@@ -47,23 +28,19 @@ export class HomeComponent implements OnInit {
     console.log('test');
     this.userService.getActiveUser().subscribe(user => {
       console.log(user);
-
-      this.imageService.uploadImage();
     });
-
-    // ----------- GET DETAILED CLUB -> WORKING! -----------------------
-    // this.clubService
-    //   .getDetailedClub('5cd6df7e4085dc3313ad1650', '5ca3510d6562c22643c589d2')
-    //   .subscribe(data => console.log(data));
-
-    // ----------- ADD CLUBS -> WORKING! -----------------------
-    // this.clubService
-    //   .addClubs(this.createClub('Laufgruppe', 'Lass laufen.'))
-    //   .subscribe(data => console.log(data));
 
     // ----------- ADD SAMPLE DATA  -----------------------
     // this.addSampleData();
     // this.addSampleCategories();
+  }
+
+  onKey(event) {
+    console.log(event.target.value);
+    this.clubService.searchClubs(event.target.value).subscribe(data => {
+      console.log(data);
+      this.clubs = data;
+    });
   }
 
   createClub(name, brief) {
@@ -83,6 +60,7 @@ export class HomeComponent implements OnInit {
       member
     };
   }
+
   addSampleCategories() {
     this.categoryService
       .addCategory({ name: 'Laufen' })
@@ -124,7 +102,3 @@ export class HomeComponent implements OnInit {
       .subscribe(data => console.log(data));
   }
 }
-
-// class ImageSnippet {
-//   constructor(public src: string, public file: File) {}
-// }

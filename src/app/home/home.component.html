@@ -1,7 +1,7 @@
   <div class="search">
     <mat-form-field class="searchByText" appearance="standard">
       <mat-label>Club suchen</mat-label>
-      <input matInput placeholder="">
+      <input (keyup)="onKey($event)" matInput placeholder="">
     </mat-form-field>
 
     <mat-form-field class="searchByCategory">
@@ -16,11 +16,11 @@
   </div>
 
   <div id="itemListContainer">
-    
-    <div [routerLink]="['createClub']" >
-       <div id="addClub">
-    <app-add-club></app-add-club>
-  </div>
+
+    <div [routerLink]="['createClub']">
+      <div id="addClub">
+        <app-add-club></app-add-club>
+      </div>
     </div>
 
     <div *ngFor="let club of clubs" [routerLink]="['detailedClub/', club._id]" class="card">
@@ -34,6 +34,6 @@
         </div>
       </div>
 
-      
+
     </div>
   </div>
