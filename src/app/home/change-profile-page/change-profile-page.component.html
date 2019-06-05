@@ -23,12 +23,12 @@
 
       <mat-form-field>
         <mat-label>E-Mail-Adresse:</mat-label>
-        <textarea matInput [formControl]="email" type="text">{{ email }}</textarea>
+        <textarea matInput [formControl]="userEmail" type="text">{{ email }}</textarea>
       </mat-form-field>
     </div>
 
     <div id="buttonChangeProfile">
-      <button mat-stroked-button [routerLink]="['/profile']" color="primary" class="submit">
+      <button mat-stroked-button (click)="editUser()" color="primary" class="submit">
         Profil speichern
       </button>
     </div>

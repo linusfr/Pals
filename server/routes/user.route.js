@@ -16,6 +16,12 @@ router.get('/activeUser', async (req, res) => {
   res.json(user);
 });
 
+router.post('/edit', async (req, res) => {
+  let { id, fullName, userEmail } = req.body;
+  let success = await userCtrl.editUser(id, fullName, userEmail);
+  res.json(success);
+});
+
 async function insert(req, res) {
   let user = await userCtrl.insert(req.body);
   res.json(user);

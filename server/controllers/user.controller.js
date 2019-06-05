@@ -5,7 +5,6 @@ const User = require('../models/user.model');
 const userSchema = Joi.object({
   fullname: Joi.string().required(),
   email: Joi.string().email(),
-  mobileNumber: Joi.string().regex(/^[1-9][0-9]{9}$/),
   password: Joi.string().required(),
   repeatPassword: Joi.string()
     .required()
@@ -14,7 +13,8 @@ const userSchema = Joi.object({
 
 module.exports = {
   insert,
-  getActiveUser
+  getActiveUser,
+  editUser
 };
 
 async function insert(user) {
@@ -22,6 +22,14 @@ async function insert(user) {
   user.hashedPassword = bcrypt.hashSync(user.password, 10);
   delete user.password;
   return await new User(user).save();
+}
+
+async function editUser(id, fullName, userEmail) {
+  let oldUser = await User.findOne({ _id: id });
+  oldUser.fullname = fullName;
+  oldUser.email = userEmail;
+
+  return await User.replaceOne({ _id: id }, oldUser);
 }
 
 async function getActiveUser(userID) {

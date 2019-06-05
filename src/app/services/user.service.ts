@@ -11,8 +11,7 @@ export class UserService {
     let user = (<any>window).user;
     let loggedIn = user !== undefined;
     return loggedIn;
-    // tslint:disable-next-line:semicolon
-  };
+  }
 
   getActiveUser() {
     let user = localStorage.activeUser;
@@ -20,5 +19,9 @@ export class UserService {
       params: new HttpParams().append('userID', user)
     };
     return this.http.get('/api/user/activeUser', params);
+  }
+
+  editUser(user) {
+    return this.http.post('/api/user/edit', user);
   }
 }
