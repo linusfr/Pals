@@ -53,7 +53,7 @@ export class CometChatApiService {
     xhr.send(data);
   }
 
-  createGroup(groupid,groupname) {
+  createGroup(groupid, groupname) {
     var data = `{\"guid\":\"${groupid}\",\"name\":\"${groupname}\",\"type\":\"public\"}`;
 
     var xhr = new XMLHttpRequest();
@@ -72,5 +72,22 @@ export class CometChatApiService {
     xhr.send(data);
   }
 
+  addGroupMember(groupid,userid) {
+    var data = null;
+
+    var xhr = new XMLHttpRequest();
+
+    xhr.addEventListener("readystatechange", function () {
+      if (this.readyState === this.DONE) {
+        console.log(this.responseText);
+      }
+    });
+
+    xhr.open("POST", `https://api.cometchat.com/v1.6/groups/${groupid}/members/${userid}`);
+    xhr.setRequestHeader("apikey", environment.cometChat.apiKey);
+    xhr.setRequestHeader("appid", environment.cometChat.appId);
+
+    xhr.send(data);
+  }
 
 }
