@@ -3,6 +3,7 @@ import { CometChatService } from '../CometChatService/comet-chat.service';
 import { environment } from '../../../environments/environment';
 import { ChatLoginComponent } from '../chat-login/chat-login.component';
 import { CometChatApiService } from '../CometChatService/comet-chat-api.service';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-group-view',
@@ -11,15 +12,18 @@ import { CometChatApiService } from '../CometChatService/comet-chat-api.service'
 })
 export class GroupViewComponent implements OnInit, OnDestroy {
   // groupId= localStorage.getItem('clubID');    // <- fix so that it takes the current club id instead, but throws cannot read data error!
-  
+
   groupId = '5cf7d59f648ab40817b73472'
   messages = [];
   listenerId = 'Web_App_Listener_Group_ID';
+  user;
+  fullname;
 
   constructor(
     private chatService: CometChatService,
-    private chatAuth: CometChatApiService
-  ) {}
+    private chatAuth: CometChatApiService,
+    private userService: UserService
+  ) { }
 
   currentUser() {
     return localStorage.activeUser;
@@ -27,16 +31,23 @@ export class GroupViewComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     // Users are already members of the group
-   // this.chatService.joinGroup(this.groupId);
-    this.chatService.login(this.currentUser(), environment.cometChat.apiKey); 
+    // this.chatService.joinGroup(this.groupId);
+    this.userService.getActiveUser().subscribe(user => {
+      console.log(user);
+      this.user = user;
+      this.fullname = this.user.fullname;
+    })
+
+    this.chatService.login(this.currentUser(), environment.cometChat.apiKey);
     console.log(`current user is logged in: ${this.currentUser()}`);
     this.getMessages().then(data => this.listenForMessages());
-    }
+
+  }
 
   sendMessage(message: string) {
     this.messages.push({
       text: message,
-      sender: {uid:"myname"}  // übergibt statt userid den Nutzernamen, damit dieser im Chat dargestellt wird
+      sender: { uid: this.fullname }  // übergibt statt userid den Nutzernamen, damit dieser im Chat dargestellt wird
       // sender: { uid: this.currentUser() }
     });
     this.chatService.sendMessage(this.groupId, message);
