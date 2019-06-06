@@ -9,6 +9,7 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
 import { ClubService } from '../../services/club.service';
 import { AuthService } from '../../auth/auth.service';
 import { UserService } from '../../services/user.service';
+import { CometChatApiService } from '../../chat/CometChatService/comet-chat-api.service';
 
 @Component({
   selector: 'app-detailed-view',
@@ -25,8 +26,9 @@ export class DetailedViewComponent implements OnInit {
     private _sanitizer: DomSanitizer,
     private clubService: ClubService,
     private authService: AuthService,
-    private userService: UserService
-  ) {}
+    private userService: UserService,
+    private chatAuth: CometChatApiService
+  ) { }
 
   club = {};
   currentUsr = {};
@@ -34,7 +36,7 @@ export class DetailedViewComponent implements OnInit {
   isMember = false;
   isOwner = false;
 
-  render = function() {
+  render = function () {
     return this.isMember
       ? `<div id="joinClubButton">
         <button mat-stroked-button color="primary" class="submit">
@@ -47,6 +49,7 @@ export class DetailedViewComponent implements OnInit {
   ngOnInit() {
     this.club = this.route.params.subscribe(params => {
       this.id = params['id'];
+      localStorage.setItem('clubID', this.id);
 
       this.clubService
         .getDetailedClub(this.id, localStorage.activeUser)
@@ -121,10 +124,9 @@ export class DetailedViewComponent implements OnInit {
       .subscribe(data => {
         this.club = data;
         this.isMember = true;
+        this.chatAuth.addGroupMember(this.id, localStorage.activeUser);
       });
   }
 
-  getClubId = () => {
-    return this.id;
-  }
+
 }

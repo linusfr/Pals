@@ -10,7 +10,7 @@ import { CometChatApiService } from '../CometChatService/comet-chat-api.service'
   styleUrls: ['./group-view.component.scss']
 })
 export class GroupViewComponent implements OnInit, OnDestroy {
-  groupId= '5cf7d59f648ab40817b73472';    // <- fix so that it takes the current club id instead!
+  groupId= localStorage.getItem('clubID');    // <- fix so that it takes the current club id instead!
   messages = [];
   listenerId = 'Web_App_Listener_Group_ID';
 
@@ -25,16 +25,15 @@ export class GroupViewComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     // Users are already members of the group
-    this.chatService.joinGroup(this.groupId);
     this.chatService.login(this.currentUser(), environment.cometChat.apiKey); 
+    this.chatService.joinGroup(this.groupId);
     this.getMessages().then(_ => this.listenForMessages());
-    this.chatAuth.createAuthToken(this.currentUser());
-  }
+    }
 
   sendMessage(message: string) {
     this.messages.push({
       text: message,
-      sender: { uid: this.currentUser }
+      sender: { uid: this.currentUser() }
     });
     this.chatService.sendMessage(this.groupId, message);
     console.log('message', this.messages);
