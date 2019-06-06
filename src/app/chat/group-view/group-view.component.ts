@@ -13,7 +13,7 @@ import { UserService } from '../../services/user.service';
 export class GroupViewComponent implements OnInit, OnDestroy {
   // groupId= localStorage.getItem('clubID');    // <- fix so that it takes the current club id instead, but throws cannot read data error!
 
-  groupId = '5cf7d59f648ab40817b73472'
+  groupId;
   messages = [];
   listenerId = 'Web_App_Listener_Group_ID';
   user;
@@ -30,17 +30,24 @@ export class GroupViewComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    // Users are already members of the group
     // this.chatService.joinGroup(this.groupId);
+
+    //Aktuellen Nutzer über userService abfragen, um den Nutzernamen für das Chatfenster zu erhalten
     this.userService.getActiveUser().subscribe(user => {
       console.log(user);
       this.user = user;
       this.fullname = this.user.fullname;
     })
+    console.log(`local storage - clubID : ${localStorage.getItem("clubID")}`)
+    this.groupId = localStorage.getItem("clubID");
 
     this.chatService.login(this.currentUser(), environment.cometChat.apiKey);
     console.log(`current user is logged in: ${this.currentUser()}`);
-    this.getMessages().then(data => this.listenForMessages());
+    
+    setTimeout(function () {
+      this.getMessages().then(data => this.listenForMessages()); // this needs to run async, as groupid needs to be read from localstorage first, which takes about 3ms
+    }, 400);
+
 
   }
 
