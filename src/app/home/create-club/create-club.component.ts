@@ -82,7 +82,7 @@ export class CreateClubComponent implements OnInit {
       })
       .subscribe(data => {
         club = data;
-        this.chatAuth.createGroup(club._id,name);
+        this.chatAuth.createGroup(club._id,name); // create new group in chat db
         this.router.navigate(['detailedClub', club._id]);
       });
   }

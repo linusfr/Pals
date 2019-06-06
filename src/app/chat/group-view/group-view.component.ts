@@ -10,7 +10,7 @@ import { CometChatApiService } from '../CometChatService/comet-chat-api.service'
   styleUrls: ['./group-view.component.scss']
 })
 export class GroupViewComponent implements OnInit, OnDestroy {
-  groupId: 'supergroup';
+  groupId= '5cf7d59f648ab40817b73472';    // <- fix so that it takes the current club id instead!
   messages = [];
   listenerId = 'Web_App_Listener_Group_ID';
 

@@ -123,4 +123,8 @@ export class DetailedViewComponent implements OnInit {
         this.isMember = true;
       });
   }
+
+  getClubId = () => {
+    return this.id;
+  }
 }
