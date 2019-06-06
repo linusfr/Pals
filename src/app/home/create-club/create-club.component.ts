@@ -16,7 +16,7 @@ export class CreateClubComponent implements OnInit {
     private clubService: ClubService,
     private router: Router,
     private chatAuth: CometChatApiService
-  ) {}
+  ) { }
 
   show = false;
   selectedValue = 'Kategorie';
@@ -82,7 +82,7 @@ export class CreateClubComponent implements OnInit {
       })
       .subscribe(data => {
         club = data;
-        this.chatAuth.createGroup(club._id,name); // create new group in chat db
+        this.chatAuth.createGroup(club._id, name); // create new group in chat db
         this.chatAuth.addGroupMember(club._id, localStorage.activeUser);
         this.router.navigate(['detailedClub', club._id]);
       });

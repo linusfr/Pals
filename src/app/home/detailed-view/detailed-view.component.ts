@@ -36,7 +36,7 @@ export class DetailedViewComponent implements OnInit {
   isMember = false;
   isOwner = false;
 
-  render = function () {
+  render = function() {
     return this.isMember
       ? `<div id="joinClubButton">
         <button mat-stroked-button color="primary" class="submit">
