@@ -28,7 +28,7 @@ export class DetailedViewComponent implements OnInit {
     private authService: AuthService,
     private userService: UserService,
     private chatAuth: CometChatApiService
-  ) { }
+  ) {}
 
   club = {};
   currentUsr = {};
@@ -49,9 +49,9 @@ export class DetailedViewComponent implements OnInit {
   ngOnInit() {
     this.club = this.route.params.subscribe(params => {
       this.id = params['id'];
-      localStorage.setItem('clubID', this.id);
-      var b = localStorage.getItem('clubID'); 
-      console.log(`this is the club id: ${b}`,b)
+      localStorage.clubID = this.id;
+      let b = localStorage.getItem('clubID');
+      console.log(`this is the club id: ${b}`, b);
 
       this.clubService
         .getDetailedClub(this.id, localStorage.activeUser)
@@ -129,6 +129,4 @@ export class DetailedViewComponent implements OnInit {
         this.chatAuth.addGroupMember(this.id, localStorage.activeUser);
       });
   }
-
-
 }

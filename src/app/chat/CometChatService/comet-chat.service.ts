@@ -35,6 +35,7 @@ export class CometChatService {
   }
 
   sendMessage(receiverId: string, text: string) {
+    receiverId = localStorage.clubID;
     const message = new CometChat.TextMessage(
       receiverId,
       text,

@@ -23,7 +23,7 @@ export class GroupViewComponent implements OnInit, OnDestroy {
     private chatService: CometChatService,
     private chatAuth: CometChatApiService,
     private userService: UserService
-  ) { }
+  ) {}
 
   currentUser() {
     return localStorage.activeUser;
@@ -36,33 +36,31 @@ export class GroupViewComponent implements OnInit, OnDestroy {
   ngOnInit() {
     // this.chatService.joinGroup(this.groupId);
 
-    //Aktuellen Nutzer über userService abfragen, um den Nutzernamen für das Chatfenster zu erhalten
+    // Aktuellen Nutzer über userService abfragen, um den Nutzernamen für das Chatfenster zu erhalten
     this.userService.getActiveUser().subscribe(user => {
-      console.log(user);
+      console.log('userlog', user);
       this.user = user;
       this.fullname = this.user.fullname;
-    })
-    //console.log(`local storage - clubID : ${localStorage.getItem("clubID")}`)
+    });
+    // console.log(`local storage - clubID : ${localStorage.getItem("clubID")}`)
 
-    this.groupId = localStorage.getItem("clubID");
     this.chatService.login(this.currentUser(), environment.cometChat.apiKey);
     this.getMessages().then(data => this.listenForMessages());
 
-    //console.log(`current user is logged in: ${this.currentUser()}`);
+    // console.log(`current user is logged in: ${this.currentUser()}`);
 
-    // getMessages needs to run async, as groupid needs to be read from localstorage first, 
-    //which takes about 3ms. Hence we will use a Promise and wait for it to resolve, before we continue
-    //this.groupId = localStorage.getItem("clubID");
-    //this.getGroupId().then(data => this.getMessages()).then(data => this.listenForMessages());
-    
-    this.getMessages().then(data => this.listenForMessages());
+    // getMessages needs to run async, as groupid needs to be read from localstorage first,
+    // which takes about 3ms. Hence we will use a Promise and wait for it to resolve, before we continue
+    // this.groupId = localStorage.getItem("clubID");
+    // this.getGroupId().then(data => this.getMessages()).then(data => this.listenForMessages());
+
+    // this.getMessages().then(data => this.listenForMessages());
 
     // this.asyncLocalStorage.getItem('clubID')
     //   .then(function (value) {
     //    // this.groupId = value;
     //     console.log('Value has been set to:', value);
     //   });
-
   }
 
   // asyncLocalStorage = {
@@ -73,38 +71,39 @@ export class GroupViewComponent implements OnInit, OnDestroy {
   // }
 
   // // function containing Promise to get groupId for chat room to be able to get messages
-  // getGroupId() {
-  //   return new Promise((resolve, reject) => {
-  //     setTimeout(() => {
-  //       if (this.groupId !== undefined) {
-  //         resolve('groupId was set successfully');
+  getGroupId() {
+    return new Promise((resolve, reject) => {
+      resolve(localStorage.clubID);
+    });
+  }
 
-  //       } else {
-  //         reject('groupId is still undefinded')
-  //         console.log(`local storage - clubID : ${localStorage.getItem("clubID")}`)
-  //       }
+  // setTimeout(() => {
   //     }, 500);
-  //   })
-  // }
-
 
   sendMessage(message: string) {
     this.messages.push({
       text: message,
-      sender: { uid: this.fullname }  // übergibt statt userid den Nutzernamen, damit dieser im Chat dargestellt wird
+      sender: { uid: this.fullname } // übergibt statt userid den Nutzernamen, damit dieser im Chat dargestellt wird
       // sender: { uid: this.currentUser() }
     });
     this.chatService.sendMessage(this.groupId, message);
-   // this.chatService.sendMessage(this.currentGroup(), message);
+    // this.chatService.sendMessage(this.currentGroup(), message);
     console.log('message', this.messages);
   }
 
-  getMessages() {
-    return this.chatService
-      //.getPreviousMessages(this.currentGroup())
-      .getPreviousMessages(this.groupId)
-      .then(messages => (this.messages = messages))
-      .then(console.log, console.error);
+  async getMessages() {
+    let id: string;
+    this.getGroupId().then(data => {
+      id = '' + data;
+      console.log('groupID', id);
+      return (
+        this.chatService
+          // .getPreviousMessages(this.currentGroup())
+          .getPreviousMessages(id)
+          .then(messages => (this.messages = messages))
+          .then(console.log, console.error)
+      );
+    });
   }
 
   listenForMessages() {
