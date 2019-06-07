@@ -4,6 +4,7 @@ import { environment } from '../../../environments/environment';
 import { ChatLoginComponent } from '../chat-login/chat-login.component';
 import { CometChatApiService } from '../CometChatService/comet-chat-api.service';
 import { UserService } from '../../services/user.service';
+import { log } from 'util';
 
 @Component({
   selector: 'app-group-view',
@@ -29,13 +30,8 @@ export class GroupViewComponent implements OnInit, OnDestroy {
     return localStorage.activeUser;
   }
 
-  // currentGroup(){
-  //   return localStorage.clubID;
-  // }
-
   ngOnInit() {
     this.messages = [];
-    // this.chatService.joinGroup(this.groupId);
 
     // Aktuellen Nutzer über userService abfragen, um den Nutzernamen für das Chatfenster zu erhalten
     this.userService.getActiveUser().subscribe(user => {
@@ -43,83 +39,48 @@ export class GroupViewComponent implements OnInit, OnDestroy {
       this.user = user;
       this.fullname = this.user.fullname;
     });
-    // console.log(`local storage - clubID : ${localStorage.getItem("clubID")}`)
 
     this.chatService.login(this.currentUser(), environment.cometChat.apiKey);
     this.getMessages().then(data => this.listenForMessages());
-
-    // console.log(`current user is logged in: ${this.currentUser()}`);
-
-    // getMessages needs to run async, as groupid needs to be read from localstorage first,
-    // which takes about 3ms. Hence we will use a Promise and wait for it to resolve, before we continue
-    // this.groupId = localStorage.getItem("clubID");
-    // this.getGroupId().then(data => this.getMessages()).then(data => this.listenForMessages());
-
-    // this.getMessages().then(data => this.listenForMessages());
-
-    // this.asyncLocalStorage.getItem('clubID')
-    //   .then(function (value) {
-    //    // this.groupId = value;
-    //     console.log('Value has been set to:', value);
-    //   });
   }
 
-  // asyncLocalStorage = {
-  //   getItem: async function (key) {
-  //     await Promise.resolve();
-  //     return localStorage.getItem(key);
-  //   }
-  // }
-
-  // // function containing Promise to get groupId for chat room to be able to get messages
   getGroupId() {
     return new Promise((resolve, reject) => {
       resolve(localStorage.clubID);
     });
   }
 
-  // setTimeout(() => {
-  //     }, 500);
-
   sendMessage(message: string) {
     this.getGroupId().then(data => {
       let id = '' + data;
+      console.log(this.fullname);
+
       this.messages.push({
         text: message,
-        sender: { uid: this.fullname } // übergibt statt userid den Nutzernamen, damit dieser im Chat dargestellt wird
-        // sender: { uid: this.currentUser() }
+        sender: { uid: this.fullname }
       });
       this.chatService.sendMessage(id, message);
-      // this.chatService.sendMessage(this.currentGroup(), message);
-      console.log('message', this.messages);
     });
   }
 
   async getMessages() {
-    setTimeout(() => {
-      this.getGroupId().then(data => {
-        let id = '' + data;
-        console.log('groupID', id);
-        return (
-          this.chatService
-            // .getPreviousMessages(this.currentGroup())
-            .getPreviousMessages(id)
-            .then(messages => (this.messages = messages))
-            .then(console.log, console.error)
-        );
-      });
-    }, 2000);
+    this.getGroupId().then(data => {
+      let id = '' + data;
+      return this.chatService
+        .getPreviousMessages(id)
+        .then(messages => (this.messages = messages))
+        .then(console.log, console.error);
+    });
   }
 
   listenForMessages() {
     this.getGroupId().then(data => {
       let id = '' + data;
-      console.log('registering messages listner');
       this.chatService.listenForMessages(id, msg => {
-        console.log('new message received: ', msg);
-        console.log(msg.sender.uid, this.currentUser());
+        console.log('message', msg, msg.sender.uid);
         let sender = '' + msg.sender.uid;
         if (msg.receiver === id && sender !== this.currentUser()) {
+          msg.sender.uid = msg.sender.name;
           this.messages.push(msg);
         }
       });
