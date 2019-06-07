@@ -117,7 +117,9 @@ export class GroupViewComponent implements OnInit, OnDestroy {
       console.log('registering messages listner');
       this.chatService.listenForMessages(id, msg => {
         console.log('new message received: ', msg);
-        this.messages.push(msg);
+        if (msg.receiver === id) {
+          this.messages.push(msg);
+        }
       });
     });
   }
