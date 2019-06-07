@@ -34,6 +34,7 @@ export class GroupViewComponent implements OnInit, OnDestroy {
   // }
 
   ngOnInit() {
+    this.messages = [];
     // this.chatService.joinGroup(this.groupId);
 
     // Aktuellen Nutzer über userService abfragen, um den Nutzernamen für das Chatfenster zu erhalten
@@ -95,29 +96,37 @@ export class GroupViewComponent implements OnInit, OnDestroy {
   }
 
   async getMessages() {
-    let id: string;
-    this.getGroupId().then(data => {
-      id = '' + data;
-      console.log('groupID', id);
-      return (
-        this.chatService
-          // .getPreviousMessages(this.currentGroup())
-          .getPreviousMessages(id)
-          .then(messages => (this.messages = messages))
-          .then(console.log, console.error)
-      );
-    });
+    setTimeout(() => {
+      this.getGroupId().then(data => {
+        let id = '' + data;
+        console.log('groupID', id);
+        return (
+          this.chatService
+            // .getPreviousMessages(this.currentGroup())
+            .getPreviousMessages(id)
+            .then(messages => (this.messages = messages))
+            .then(console.log, console.error)
+        );
+      });
+    }, 2000);
   }
 
   listenForMessages() {
-    console.log('registering messages listner');
-    this.chatService.listenForMessages(this.listenerId, msg => {
-      console.log('new message received: ', msg);
-      this.messages.push(msg);
+    this.getGroupId().then(data => {
+      let id = '' + data;
+      console.log('registering messages listner');
+      this.chatService.listenForMessages(id, msg => {
+        console.log('new message received: ', msg);
+        this.messages.push(msg);
+      });
     });
   }
 
   ngOnDestroy(): void {
-    this.chatService.removeListener(this.listenerId);
+    this.getGroupId().then(data => {
+      let id = '' + data;
+      this.chatService.removeListener(id);
+      this.messages = [];
+    });
   }
 }
