@@ -6,8 +6,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
   providedIn: 'root'
 })
 export class CometChatApiService {
-  constructor(private http: HttpClient) { }
-
+  constructor(private http: HttpClient) {}
 
   // Methode um einen Authentifizierungs-Token für jeden Nutzer zu erstellen, der im Chat eingeloggt werden soll
   createAuthToken(userid) {
@@ -15,7 +14,7 @@ export class CometChatApiService {
 
     let xhr = new XMLHttpRequest();
 
-    xhr.addEventListener('readystatechange', function () {
+    xhr.addEventListener('readystatechange', function() {
       if (this.readyState === this.DONE) {
         console.log(this.responseText);
       }
@@ -40,7 +39,7 @@ export class CometChatApiService {
 
     let xhr = new XMLHttpRequest();
 
-    xhr.addEventListener('readystatechange', function () {
+    xhr.addEventListener('readystatechange', function() {
       if (this.readyState === this.DONE) {
         console.log(this.responseText);
       }
@@ -54,40 +53,42 @@ export class CometChatApiService {
   }
 
   createGroup(groupid, groupname) {
-    var data = `{\"guid\":\"${groupid}\",\"name\":\"${groupname}\",\"type\":\"public\"}`;
+    let data = `{\"guid\":\"${groupid}\",\"name\":\"${groupname}\",\"type\":\"public\"}`;
 
-    var xhr = new XMLHttpRequest();
+    let xhr = new XMLHttpRequest();
 
-    xhr.addEventListener("readystatechange", function () {
+    xhr.addEventListener('readystatechange', function() {
       if (this.readyState === this.DONE) {
         console.log(this.responseText);
       }
     });
 
-    xhr.open("POST", "https://api.cometchat.com/v1/groups");
-    xhr.setRequestHeader("apikey", environment.cometChat.apiKey);
-    xhr.setRequestHeader("appid", environment.cometChat.appId);
-    xhr.setRequestHeader("content-type", "application/json");
+    xhr.open('POST', 'https://api.cometchat.com/v1/groups');
+    xhr.setRequestHeader('apikey', environment.cometChat.apiKey);
+    xhr.setRequestHeader('appid', environment.cometChat.appId);
+    xhr.setRequestHeader('content-type', 'application/json');
 
     xhr.send(data);
   }
 
-  addGroupMember(groupid,userid) {
-    var data = null;
+  addGroupMember(groupid, userid) {
+    let data = null;
 
-    var xhr = new XMLHttpRequest();
+    let xhr = new XMLHttpRequest();
 
-    xhr.addEventListener("readystatechange", function () {
+    xhr.addEventListener('readystatechange', function() {
       if (this.readyState === this.DONE) {
         console.log(this.responseText);
       }
     });
 
-    xhr.open("POST", `https://api.cometchat.com/v1.6/groups/${groupid}/members/${userid}`);
-    xhr.setRequestHeader("apikey", environment.cometChat.apiKey);
-    xhr.setRequestHeader("appid", environment.cometChat.appId);
+    xhr.open(
+      'POST',
+      `https://api.cometchat.com/v1.6/groups/${groupid}/members/${userid}`
+    );
+    xhr.setRequestHeader('apikey', environment.cometChat.apiKey);
+    xhr.setRequestHeader('appid', environment.cometChat.appId);
 
     xhr.send(data);
   }
-
 }

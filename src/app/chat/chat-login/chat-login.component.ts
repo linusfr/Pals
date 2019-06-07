@@ -8,16 +8,15 @@ import { Router } from '@angular/router';
   styleUrls: ['./chat-login.component.scss']
 })
 export class ChatLoginComponent {
-
   hasError = false;
 
-  constructor(private cometChat: CometChatService, private router: Router) { }
+  constructor(private cometChat: CometChatService, private router: Router) {}
 
-  login(userId: string,apiKey) {
+  login(userId: string, apiKey) {
     this.hasError = false;
 
     this.cometChat
-      .login(userId,apiKey)
+      .login(userId, apiKey)
       .then(_ => this.router.navigateByUrl('chat'))
       .catch(err => {
         this.hasError = true;

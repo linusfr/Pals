@@ -81,14 +81,17 @@ export class GroupViewComponent implements OnInit, OnDestroy {
   //     }, 500);
 
   sendMessage(message: string) {
-    this.messages.push({
-      text: message,
-      sender: { uid: this.fullname } // übergibt statt userid den Nutzernamen, damit dieser im Chat dargestellt wird
-      // sender: { uid: this.currentUser() }
+    this.getGroupId().then(data => {
+      let id = '' + data;
+      this.messages.push({
+        text: message,
+        sender: { uid: this.fullname } // übergibt statt userid den Nutzernamen, damit dieser im Chat dargestellt wird
+        // sender: { uid: this.currentUser() }
+      });
+      this.chatService.sendMessage(id, message);
+      // this.chatService.sendMessage(this.currentGroup(), message);
+      console.log('message', this.messages);
     });
-    this.chatService.sendMessage(this.groupId, message);
-    // this.chatService.sendMessage(this.currentGroup(), message);
-    console.log('message', this.messages);
   }
 
   async getMessages() {
