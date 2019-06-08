@@ -37,6 +37,7 @@
       <mat-form-field appearance="standard">
         <mat-label>Nächstes Treffen: </mat-label>
         <input matInput [formControl]="time" placeholder="{{club.time}}" type="text" required />
+        <mat-hint id="formatHint">Format: Tag-Monat-Jahr-Std-Min (z.B. 22-04-2019-13-30)</mat-hint>
       </mat-form-field>
 
       <mat-form-field appearance="standard">
