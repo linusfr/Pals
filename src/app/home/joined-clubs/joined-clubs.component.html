@@ -4,7 +4,7 @@
 
 <div class="wrap">
   <div id="itemListContainer">
-    <div *ngFor="let club of clubs" [routerLink]="['detailedClub/', club._id]" class="card">
+    <div *ngFor="let club of clubs" [routerLink]="['/detailedClub/', club._id]" class="card">
       <div class="text">
         <div class="clubname">
           {{ club.name }}

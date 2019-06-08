@@ -32,8 +32,6 @@ export class CometChatApiService {
   // Methode um via API von CometChat in deren System einen neuen Nutzer zu erstellen
 
   createUser(userid, uname) {
-    // let data = `{uid: ${userid}, name: ${uname}, metadata :""}`;
-    // tslint:disable-next-line:quotemark
     let data = `{\"uid\":\"${userid}\",\"name\":\"${uname}\"}`;
 
     let xhr = new XMLHttpRequest();
@@ -47,6 +45,46 @@ export class CometChatApiService {
     xhr.setRequestHeader('apikey', environment.cometChat.apiKey);
     xhr.setRequestHeader('appid', environment.cometChat.appId);
     xhr.setRequestHeader('content-type', 'application/json');
+    xhr.send(data);
+  }
+
+  createGroup(groupid, groupname) {
+    let data = `{\"guid\":\"${groupid}\",\"name\":\"${groupname}\",\"type\":\"public\"}`;
+
+    let xhr = new XMLHttpRequest();
+
+    xhr.addEventListener('readystatechange', function() {
+      if (this.readyState === this.DONE) {
+        console.log(this.responseText);
+      }
+    });
+
+    xhr.open('POST', 'https://api.cometchat.com/v1/groups');
+    xhr.setRequestHeader('apikey', environment.cometChat.apiKey);
+    xhr.setRequestHeader('appid', environment.cometChat.appId);
+    xhr.setRequestHeader('content-type', 'application/json');
+
+    xhr.send(data);
+  }
+
+  addGroupMember(groupid, userid) {
+    let data = null;
+
+    let xhr = new XMLHttpRequest();
+
+    xhr.addEventListener('readystatechange', function() {
+      if (this.readyState === this.DONE) {
+        console.log(this.responseText);
+      }
+    });
+
+    xhr.open(
+      'POST',
+      `https://api.cometchat.com/v1.6/groups/${groupid}/members/${userid}`
+    );
+    xhr.setRequestHeader('apikey', environment.cometChat.apiKey);
+    xhr.setRequestHeader('appid', environment.cometChat.appId);
+
     xhr.send(data);
   }
 }

@@ -58,7 +58,7 @@ export class AuthService {
           observer.next({ user: data.user });
           this.setUser(data.user);
           localStorage.activeUser = data.user._id;
-          console.log('chatTest', data.user._id, data.user.fullname);
+          // console.log('chatTest', data.user._id, data.user.fullname);
           this.chatAuth.createUser(data.user._id, data.user.fullname);
           this.token.saveToken(data.token);
           observer.complete();
