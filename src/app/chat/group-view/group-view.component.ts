@@ -14,9 +14,7 @@ import { log } from 'util';
 export class GroupViewComponent implements OnInit, OnDestroy {
   // groupId= localStorage.getItem('clubID');    // <- fix so that it takes the current club id instead, but throws cannot read data error!
 
-  groupId;
   messages = [];
-  listenerId = 'Web_App_Listener_Group_ID';
   user;
   fullname;
 
@@ -41,7 +39,9 @@ export class GroupViewComponent implements OnInit, OnDestroy {
     });
 
     this.chatService.login(this.currentUser(), environment.cometChat.apiKey);
-    this.getMessages().then(data => this.listenForMessages());
+    this.getMessages().then(() => this.listenForMessages());
+
+    console.log(this.messages);
   }
 
   getGroupId() {
@@ -53,7 +53,7 @@ export class GroupViewComponent implements OnInit, OnDestroy {
   sendMessage(message: string) {
     this.getGroupId().then(data => {
       let id = '' + data;
-      console.log(this.fullname);
+      // console.log(this.fullname);
 
       this.messages.push({
         text: message,
@@ -77,7 +77,7 @@ export class GroupViewComponent implements OnInit, OnDestroy {
     this.getGroupId().then(data => {
       let id = '' + data;
       this.chatService.listenForMessages(id, msg => {
-        console.log('message', msg, msg.sender.uid);
+        // console.log('message', msg, msg.sender.uid);
         let sender = '' + msg.sender.uid;
         if (msg.receiver === id && sender !== this.currentUser()) {
           msg.sender.uid = msg.sender.name;

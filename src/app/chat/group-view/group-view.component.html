@@ -1,6 +1,6 @@
 <div class="container">
   <div class="messages">
-    <p *ngFor="let message of messages" [ngClass]="{ ownMessage: message.sender.uid === currentUser.uid }">
+    <p *ngFor="let message of messages" [ngClass]="{ ownMessage: message.sender.name === currentUser.email }">
       <i>{{ message.sender.uid }}</i> <br /> {{ message.text }}
     </p>
   </div>
