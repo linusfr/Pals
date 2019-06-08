@@ -142,11 +142,11 @@
   }
   .meeting {
     float: none;
-    height: 6em;
-    width: 92%;
+    height: 5.2em;
+    width: 91%;
     margin: 0 auto;
-    padding-top: 0.1em;
-    border-top: 0.15em solid #c11e5c;
+    padding: 0em;
+    border-bottom: 0.15em solid #c11e5c;
     border-left: 0em;
   }
 
@@ -173,4 +173,9 @@
     font-size: 1em;
     padding: 15% 5%;
   }
+  .meta {
+  display: flex;
+  flex-direction: column-reverse;
+  }
+
 }
