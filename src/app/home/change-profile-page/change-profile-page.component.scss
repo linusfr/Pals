@@ -14,6 +14,17 @@
   border-bottom-left-radius: 0.9em;
   width: 30%;
   display: flex;
+  flex-direction: column;
+}
+
+#ppicture {
+  display: flex;
+  width: 60%;
+  height: 60%;
+  margin: 0 auto;  
+  margin-top: 10px;
+  border-radius: 0.9em;
+  vertical-align: middle;
 }
 
 .description {
@@ -47,6 +58,15 @@
   color: #607D8B;
 }
 
+#pictureText{
+  text-align: center;
+}
+
+#loadButton {
+  display: flex;
+  margin: 0 auto;
+}
+
 #backArrow {
   font-size: 3em;
   color: white;
@@ -76,6 +96,11 @@ mat-form-field {
     flex-direction: column;
     margin: 0 auto;
     margin-bottom: 20px;
+    height: 60em;
+  }
+
+  #ppicture {
+    height: 70%;
   }
 
   .image {
