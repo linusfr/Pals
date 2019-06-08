@@ -18,5 +18,5 @@ router.get('/', async (req, res) => {
   let data = await pexelsClient.search(categoryName, 50, 1);
   let randomNumber = Math.floor(Math.random() * data.photos.length);
 
-  res.json(data.photos[randomNumber].src.medium);
+  res.json(data.photos[randomNumber].src.large2x);
 });

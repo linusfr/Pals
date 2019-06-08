@@ -49,8 +49,8 @@ async function editClub(club) {
 async function getClubs() {
   let clubs = await Club.find({});
 
-  let filteredClubs = clubs.map(({ _id, name, brief }) => {
-    return { _id, name, brief };
+  let filteredClubs = clubs.map(({ _id, name, brief, imgURL }) => {
+    return { _id, name, brief, imgURL };
   });
 
   return filteredClubs;
@@ -78,8 +78,8 @@ async function getClubsByName(name, category) {
     });
   }
 
-  let filteredClubs = clubs.map(({ _id, name, brief }) => {
-    return { _id, name, brief };
+  let filteredClubs = clubs.map(({ _id, name, brief, imgURL }) => {
+    return { _id, name, brief, imgURL };
   });
 
   return filteredClubs;
@@ -88,8 +88,8 @@ async function getClubsByName(name, category) {
 async function getJoinedClubs(id) {
   let clubs = await Club.find({ member: id });
 
-  let filteredClubs = clubs.map(({ _id, name, brief }) => {
-    return { _id, name, brief };
+  let filteredClubs = clubs.map(({ _id, name, brief, imgURL }) => {
+    return { _id, name, brief, imgURL };
   });
 
   return filteredClubs;
