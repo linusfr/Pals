@@ -25,7 +25,6 @@
   border-bottom-left-radius: 0.9em;
   width: 38%;
   background-size: cover;
-  background-image: url(https://images.unsplash.com/photo-1523978591478-c753949ff840?w=900);
 }
 .description {
   background-color: #ebebeb;
@@ -108,6 +107,10 @@
     border-bottom-left-radius: 0em;
     border-bottom-right-radius: 0em;
     border-top-right-radius: 0.9em;
+  }
+  .image img {
+    height: 100%;
+    width: auto;
   }
 
   .description {

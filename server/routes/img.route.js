@@ -1,23 +1,22 @@
+//Require Wrapper Library
+const PexelsAPI = require('pexels-api-wrapper');
 const express = require('express');
-const asyncHandler = require('express-async-handler');
-const clubCtrl = require('../controllers/club.controller');
 const config = require('../config/config');
-
 const router = express.Router();
 module.exports = router;
 
+//Create Client instance by passing in API key
+const pexelsClient = new PexelsAPI(
+  '563492ad6f91700001000001d6010444517a44dab4d3ea7b859f0d40'
+);
+
 router.get('/', async (req, res) => {
-  let clubs = await clubCtrl.getClubs();
-  res.json(clubs);
-});
+  let categoryName = req.query.categoryName;
 
-router.get('/detailedClub', async (req, res) => {
-  let club = await clubCtrl.getDetailedClub(req.query.userID, req.query.clubID);
-  res.json(club);
-});
+  // Holt 50 Bilder für die angebebene Kategorie
+  // Wählt zufällig eines davon aus und gibt dessen URL zurück.
+  let data = await pexelsClient.search(categoryName, 50, 1);
+  let randomNumber = Math.floor(Math.random() * data.photos.length);
 
-router.post('/upload', async (req, res) => {
-  let img = req.body;
-  console.log(req.body);
-  res.json(req.body);
+  res.json(data.photos[randomNumber].src.medium);
 });

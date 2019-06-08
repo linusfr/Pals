@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpParams } from '@angular/common/http';
-// import { CloudinaryModule } from '@cloudinary/angular-5.x';
-// import * as Cloudinary from 'cloudinary-core';
 
 @Injectable({
   providedIn: 'root'
@@ -10,21 +8,48 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 export class ImageService {
   constructor(private http: HttpClient) {}
 
-  public uploadImage() {
-    // parameter -> image: File
-    // const formData = new FormData();
-    // console.log(image);
-    // const params = {
-    //   params: new HttpParams()
-    //     .append('cloud_name', 'dejvimnnm')
-    //     .append('api_key', '398537455597268')
-    //     .append('api_secret', 'KEueI7QcRDYEpXEe7Ky88iVaVtc')
-    // };
-    // let url = 'https://api.cloudinary.com/v1_1/dejvimnnm/image/upload';
-    // cloudinary.uploader.upload('~/Downloads/test.jpg', function(error, result) {
-    //   console.log(result);
-    // });
-    // return this.http.post('/api/image/upload', image);
-    // return this.http.post(url, image);
+  public async getRandomPicture(categoryName) {
+    switch (categoryName) {
+      case 'Sport':
+        categoryName = 'sports';
+        break;
+      case 'Essen':
+        categoryName = 'food';
+        break;
+      case 'Natur':
+        categoryName = 'nature';
+        break;
+      case 'Sprachen':
+        categoryName = 'language';
+        break;
+      case 'Musik':
+        categoryName = 'music';
+        break;
+      case 'Kreatives':
+        categoryName = 'design';
+        break;
+      case 'Denksport':
+        categoryName = 'thinking';
+        break;
+      case 'Gesellschaft':
+        categoryName = 'groups';
+        break;
+      case 'Technisches':
+        categoryName = 'technology';
+        break;
+      case 'Spiele':
+        categoryName = 'game';
+        break;
+      case 'Tiere':
+        categoryName = 'animal';
+        break;
+
+      default:
+        categoryName = 'abstract';
+        break;
+    }
+
+    let data = await fetch(`/api/image?categoryName=${categoryName}`);
+    return data.json();
   }
 }
