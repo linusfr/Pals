@@ -45,7 +45,7 @@
   margin-right: 30px;
 }
 
-.material-icons:hover {
+#editClub, #exitClub:hover {
   cursor: pointer;
 }
 .clubname {
@@ -94,8 +94,8 @@
 
 @media only screen and (max-width: 768px) {
   .card {
-    width: 67%;
-    height: 35em;
+    width: 90%;
+    height: 60em;
     margin: 0 auto;
     flex-direction: column;
   }
