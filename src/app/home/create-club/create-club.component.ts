@@ -83,10 +83,14 @@ export class CreateClubComponent implements OnInit {
       .then(data => {
         data.subscribe(value => {
           club = value;
-
-          this.chatAuth.createGroup(club._id, name); // create new group in chat db
-          this.chatAuth.addGroupMember(club._id, localStorage.activeUser);
-          this.router.navigate(['detailedClub', club._id]);
+          console.log(value);
+          if (value === 'error') {
+            alert('Clubname schon in Benutzung!');
+          } else {
+            this.chatAuth.createGroup(club._id, name); // create new group in chat db
+            this.chatAuth.addGroupMember(club._id, localStorage.activeUser);
+            this.router.navigate(['detailedClub', club._id]);
+          }
         });
       });
   }

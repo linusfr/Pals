@@ -23,7 +23,11 @@ async function addClub(club) {
     club.category = categoryExists._id;
   }
 
-  club = await new Club(club).save();
+  try {
+    club = await new Club(club).save();
+  } catch {
+    club = 'error';
+  }
   return club;
 }
 
