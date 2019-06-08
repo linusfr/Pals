@@ -14,9 +14,7 @@ import { log } from 'util';
 export class GroupViewComponent implements OnInit, OnDestroy {
   // groupId= localStorage.getItem('clubID');    // <- fix so that it takes the current club id instead, but throws cannot read data error!
 
-  groupId;
   messages = [];
-  listenerId = 'Web_App_Listener_Group_ID';
   user;
   fullname;
 
@@ -40,8 +38,10 @@ export class GroupViewComponent implements OnInit, OnDestroy {
       this.fullname = this.user.fullname;
     });
 
-    this.chatService.login(this.currentUser(), environment.cometChat.apiKey);
-    this.getMessages().then(data => this.listenForMessages());
+    setTimeout(() => {
+      this.chatService.login(this.currentUser(), environment.cometChat.apiKey);
+      this.getMessages().then(data => this.listenForMessages());
+    }, 5000);
   }
 
   getGroupId() {
@@ -53,7 +53,7 @@ export class GroupViewComponent implements OnInit, OnDestroy {
   sendMessage(message: string) {
     this.getGroupId().then(data => {
       let id = '' + data;
-      console.log(this.fullname);
+      // console.log(this.fullname);
 
       this.messages.push({
         text: message,
@@ -68,7 +68,10 @@ export class GroupViewComponent implements OnInit, OnDestroy {
       let id = '' + data;
       return this.chatService
         .getPreviousMessages(id)
-        .then(messages => (this.messages = messages))
+        .then(messages => {
+          this.messages = messages;
+          console.log('test', messages);
+        })
         .then(console.log, console.error);
     });
   }
@@ -77,12 +80,12 @@ export class GroupViewComponent implements OnInit, OnDestroy {
     this.getGroupId().then(data => {
       let id = '' + data;
       this.chatService.listenForMessages(id, msg => {
-        console.log('message', msg, msg.sender.uid);
         let sender = '' + msg.sender.uid;
-        if (msg.receiver === id && sender !== this.currentUser()) {
+        if (msg.receiver === id) {
           msg.sender.uid = msg.sender.name;
           this.messages.push(msg);
         }
+        // sender !== this.currentUser()
       });
     });
   }
