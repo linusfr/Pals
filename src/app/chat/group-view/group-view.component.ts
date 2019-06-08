@@ -38,10 +38,12 @@ export class GroupViewComponent implements OnInit, OnDestroy {
       this.fullname = this.user.fullname;
     });
 
-    this.chatService.login(this.currentUser(), environment.cometChat.apiKey);
-    this.getMessages().then(() => this.listenForMessages());
+    setTimeout(() => {
+      this.chatService.login(this.currentUser(), environment.cometChat.apiKey);
+      this.getMessages().then(() => this.listenForMessages());
 
-    console.log(this.messages);
+      console.log(this.messages);
+    }, 5000);
   }
 
   getGroupId() {
@@ -68,7 +70,10 @@ export class GroupViewComponent implements OnInit, OnDestroy {
       let id = '' + data;
       return this.chatService
         .getPreviousMessages(id)
-        .then(messages => (this.messages = messages))
+        .then(messages => {
+          this.messages = messages;
+          console.log('test', messages);
+        })
         .then(console.log, console.error);
     });
   }
@@ -77,12 +82,12 @@ export class GroupViewComponent implements OnInit, OnDestroy {
     this.getGroupId().then(data => {
       let id = '' + data;
       this.chatService.listenForMessages(id, msg => {
-        // console.log('message', msg, msg.sender.uid);
         let sender = '' + msg.sender.uid;
-        if (msg.receiver === id && sender !== this.currentUser()) {
+        if (msg.receiver === id) {
           msg.sender.uid = msg.sender.name;
           this.messages.push(msg);
         }
+        // sender !== this.currentUser()
       });
     });
   }
