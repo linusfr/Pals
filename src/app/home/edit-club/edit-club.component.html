@@ -1,9 +1,8 @@
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 <div>
   <mat-icon [routerLink]="['/detailedClub/:id']" id="backArrow">arrow_back</mat-icon>
 </div>
-
+<!-- edit-Club lässt den Clubbesitzer den aktuellen Club bearbeiten -->
 <div class="card">
   <div class="imageDiv">
     <div id="image"></div>
@@ -20,7 +19,10 @@
       Bearbeite deinen Club:
     </div>
 
+
+
     <div id="editClubInfo">
+    <!-- Eingabefelder für die änderbaren Parameter -->
 
       <mat-form-field appearance="standard">
         <mat-label>Club-Thema:</mat-label>

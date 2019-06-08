@@ -20,14 +20,14 @@
 
   <div id="itemListContainer">
 
-    <div [routerLink]="['createClub']">
+    <div *ngIf="loggedIn" [routerLink]="['createClub']">
       <div id="addClub">
         <app-add-club></app-add-club>
       </div>
     </div>
 
+    <div class="container">
     <div *ngFor="let club of clubs" [routerLink]="['detailedClub/', club._id]" class="card">
-
       <div class="text">
         <div class="clubname">
           {{club.name}}
@@ -36,7 +36,7 @@
           {{club.brief}}
         </div>
       </div>
-
-
     </div>
+  </div>
+
   </div>

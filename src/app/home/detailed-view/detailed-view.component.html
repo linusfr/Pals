@@ -6,28 +6,22 @@
   <div class="image" [ngStyle]="{ 'background-image': 'url(' + club.imgURL + ')'}">
   </div>
 
+  <!-- Beschreibung des Clubs und je nach Bereichtigung auch Buttons für Austritt und bearbeiten -->
   <div class="description">
-    <div class="clubname">
-      {{club.name}}
-      <mat-icon class="material-icons" id="editClub" *ngIf="isOwner" [routerLink]="['/editClub', club._id]">settings
-      </mat-icon>
+    <div class="clubname"> {{club.name}}
+      <mat-icon class="material-icons" id="editClub" *ngIf="isOwner" [routerLink]="['/editClub', club._id]">settings</mat-icon>
       <mat-icon class="material-icons" id="exitClub" *ngIf="isMember" (click)="exitClub()">exit_to_app</mat-icon>
       <mat-icon class="material-icons" id="isMember" *ngIf="isMember">favorite</mat-icon>
     </div>
-    <div class="brief">
-      {{club.brief}}
-    </div>
-    <div class="category">
-      Kategorie: {{ club.category.name }}
-    </div>
-    <div class="owner">
-      Clubleiter: {{club.administrator.fullname}}
-    </div>
-    <div class="details">
-      {{club.description}}
-    </div>
+    <div class="brief"> {{club.brief}} </div>
+    <div class="category"> Kategorie: {{ club.category.name }} </div>
+    <div class="owner"> Clubleiter: {{club.administrator.fullname}} </div>
+    <div class="details"> {{club.description}} </div>
 
+    <!-- dieser Bereich passt sich je nach Status des Users an -->
+   <div class="meta">
     <div class="leftDiv">
+      <!-- ist der User nicht Clubmitglied , erscheint der Button zum Beitritt -->
       <div *ngIf="!isMember">
         <div id="joinClubButton">
           <button mat-stroked-button color="primary" (click)="joinClub()" class="submit">
@@ -36,11 +30,13 @@
         </div>
       </div>
 
+      <!-- ist der Nutzer Clubmitglied wird der Chat angezeigt -->
       <div *ngIf="isMember">
         <app-group-view></app-group-view>
       </div>
     </div>
 
+    <!-- Zeit und Ort für das nächste Treffen, sowie der Link zum export zu GoogleCalendar -->
     <div class="meeting">
       <div class="time">
         Wann: {{meinDatum}}
@@ -51,6 +47,8 @@
       <a class="googleCal" [href]="googleCalendarEventUrl" target="_blank">Zu Google Calendar
         hinzufügen</a>
     </div>
+  </div>
+
 
   </div>
 </div>

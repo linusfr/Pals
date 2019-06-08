@@ -19,6 +19,7 @@ export class HomeComponent implements OnInit {
 
   clubs;
   categories;
+  loggedIn = false;
 
   userForm = new FormGroup({
     category: new FormControl()
@@ -46,9 +47,12 @@ export class HomeComponent implements OnInit {
     });
 
     this.userService.getActiveUser().subscribe(user => {
+      this.loggedIn = true;
+      console.log("eingeloggt: " + this.loggedIn);
       console.log(user);
     });
 
+    console.log("check2: " + this.loggedIn);
     // ----------- ADD SAMPLE DATA  -----------------------
     // this.addSampleData();
     // this.addSampleCategories();
