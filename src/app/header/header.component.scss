@@ -46,7 +46,7 @@ header {
   .wrapper {
     display: flex;
     flex-direction: row;
-    width: 80%;
+    width: 60%;
   }
 
   .flexParent{
@@ -97,6 +97,7 @@ header {
   #logo {
     padding-top: 5px;
     height: 90px;
+    padding-left: 5px;
   }
 
   a {
