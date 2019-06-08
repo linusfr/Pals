@@ -11,18 +11,17 @@ $custom-typography: mat-typography-config(
 @include mat-core($custom-typography);
 
 body {
-  background-color: #CDD8DD;
-  color: #607D8D;
+  background-color: #cdd8dd;
+  color: #607d8d;
   margin: 0;
   app-root * {
     font-family: 'Exo', sans-serif;
-    
   }
 }
 
 $colors: (
-  primary: #37474F,
-  secondary: #607D8D,
+  primary: #37474f,
+  secondary: #607d8d,
   accent: #c11e5c,
   warn: #f44539
 );

@@ -29,7 +29,7 @@ export class DetailedViewComponent implements OnInit {
     private authService: AuthService,
     private userService: UserService,
     private chatAuth: CometChatApiService
-  ) { }
+  ) {}
 
   club = {};
   currentUsr = {};
@@ -39,7 +39,7 @@ export class DetailedViewComponent implements OnInit {
   meinDatum;
   myDate;
 
-  render = function () {
+  render = function() {
     return this.isMember
       ? `<div id="joinClubButton">
         <button mat-stroked-button color="primary" class="submit">
@@ -61,7 +61,7 @@ export class DetailedViewComponent implements OnInit {
         .subscribe(club => {
           this.club = club[0];
           let user = localStorage.activeUser;
-          
+
           // check member
           club[0].member.forEach(member => {
             if (member === user) {
@@ -74,8 +74,8 @@ export class DetailedViewComponent implements OnInit {
             this.isOwner = true;
           }
 
-          //console.log(club);
-          //console.log(this.formatMeetingDate(club[0].time));
+          // console.log(club);
+          // console.log(this.formatMeetingDate(club[0].time));
           this.meinDatum = this.formatMeetingDate(club[0].time);
           this.myDate = this.formatDateforCalendar(club[0].time);
 
@@ -117,23 +117,30 @@ export class DetailedViewComponent implements OnInit {
   // Funktion um das erhaltene Datum in das richtige Format für ein Date-Objekt zu bringen, damit dies in der Google Calendar Api gelesen werden kann.
   // Format as given: 27-04-2019-12-00
   // needed: YYYY-MM-DDTHH:MM:SS
-  formatMeetingDate = (olddate) => {
-    var parts =olddate.split('-');
+  formatMeetingDate = olddate => {
+    let parts = olddate.split('-');
     // monat (part 1) wird von JavaScript von 0 an gezählt, daher -1 rechnen --> 0 = Januar
-    var mydate = new Date(parts[2], parts[1] - 1, parts[0],parts[3],parts[4]); 
+    let mydate = new Date(parts[2], parts[1] - 1, parts[0], parts[3], parts[4]);
     console.log(mydate.toDateString());
 
     // als ausgeschriebenes Datum auf Deutsch darstellen:
-    var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric',hour: 'numeric',minutes: 'numeric' };
-    var meinDatum = mydate.toLocaleDateString('de-DE', options);
+    let options = {
+      weekday: 'long',
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+      hour: 'numeric',
+      minutes: 'numeric'
+    };
+    let meinDatum = mydate.toLocaleDateString('de-DE', options);
 
     return meinDatum;
   }
 
-  formatDateforCalendar =  (olddate) => {
-    var parts =olddate.split('-');
+  formatDateforCalendar = olddate => {
+    let parts = olddate.split('-');
     // monat (part 1) wird von JavaScript von 0 an gezählt, daher -1 rechnen --> 0 = Januar
-    var mydate = new Date(parts[2], parts[1] - 1, parts[0],parts[3],parts[4]); 
+    let mydate = new Date(parts[2], parts[1] - 1, parts[0], parts[3], parts[4]);
 
     return mydate;
   }

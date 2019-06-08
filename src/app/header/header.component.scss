@@ -40,7 +40,7 @@ header {
   }
 
   #toolbar {
-    background-color: #37474F;
+    background-color: #37474f;
   }
 
   .wrapper {
@@ -49,10 +49,10 @@ header {
     width: 80%;
   }
 
-  .flexParent{
+  .flexParent {
     display: flex;
     flex-direction: row;
-    background-color: #37474F;
+    background-color: #37474f;
     color: white;
   }
 
@@ -107,10 +107,10 @@ header {
     font-size: 2em;
   }
   .title:hover {
-    color: #c11e5c,;
+    color: #c11e5c;
   }
   a:hover {
-    color: #c11e5c,;
+    color: #c11e5c;
   }
 
   .links {
@@ -126,7 +126,7 @@ header {
       padding: 0 14px;
     }
   }
-  
+
   a {
     cursor: pointer;
   }
@@ -137,7 +137,10 @@ header {
     padding-right: 20px;
   }
 
-  #favorit_icon:hover, #chat_icon:hover, #login_icon:hover, #loggedInIcon:hover {
+  #favorit_icon:hover,
+  #chat_icon:hover,
+  #login_icon:hover,
+  #loggedInIcon:hover {
     cursor: pointer;
     color: #c11e5c;
   }
@@ -146,7 +149,7 @@ header {
     padding-bottom: 4%;
     font-size: 2.2em;
     padding-right: 40px;
- }
+  }
 
   #login_icon {
     padding-bottom: 4%;
@@ -161,7 +164,6 @@ header {
   }
 
   @media only screen and (max-width: 768px) {
-
     .flexParent {
       display: flex;
       flex-direction: column;
@@ -179,5 +181,4 @@ header {
       width: 100%;
     }
   }
-
 }

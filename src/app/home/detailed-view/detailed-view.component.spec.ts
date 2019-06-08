@@ -11,9 +11,8 @@ describe('DetailedViewComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [NgAddToCalendarModule],
-      declarations: [ DetailedViewComponent,CreateClubComponent ]
-    })
-    .compileComponents();
+      declarations: [DetailedViewComponent, CreateClubComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {

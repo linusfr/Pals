@@ -21,9 +21,15 @@
       "description": "API for auth in the system"
     }
   ],
-  "schemes": ["http"],
-  "consumes": ["application/json"],
-  "produces": ["application/json"],
+  "schemes": [
+    "http"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
   "securityDefinitions": {
     "AuthHeader": {
       "type": "apiKey",
@@ -34,7 +40,9 @@
   "paths": {
     "/auth/login": {
       "post": {
-        "tags": ["Auth"],
+        "tags": [
+          "Auth"
+        ],
         "description": "Login to the system",
         "parameters": [
           {
@@ -43,7 +51,10 @@
             "description": "User auth details",
             "schema": {
               "type": "object",
-              "required": ["email", "password"],
+              "required": [
+                "email",
+                "password"
+              ],
               "properties": {
                 "email": {
                   "type": "string"
@@ -55,7 +66,9 @@
             }
           }
         ],
-        "produces": ["application/json"],
+        "produces": [
+          "application/json"
+        ],
         "responses": {
           "200": {
             "description": "User is loggedin",
@@ -69,7 +82,10 @@
   },
   "definitions": {
     "User": {
-      "required": ["email", "fullname"],
+      "required": [
+        "email",
+        "fullname"
+      ],
       "properties": {
         "_id": {
           "type": "string",

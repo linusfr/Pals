@@ -124,7 +124,7 @@
   .clubname {
     font-size: 1.3em;
     font-weight: bold;
-    padding-bottom: .1em;
+    padding-bottom: 0.1em;
   }
   #editClub,
   #exitClub,
@@ -141,7 +141,7 @@
   }
   .details {
     font-size: 0.8em;
-    padding: .3em;
+    padding: 0.3em;
   }
   .meeting {
     float: none;
@@ -162,11 +162,11 @@
   }
 
   .time,
-.place,
-.googleCal {
-  padding: 0.3em;
-}
-  
+  .place,
+  .googleCal {
+    padding: 0.3em;
+  }
+
   #backArrow {
     font-size: 3em;
     margin-left: 20px;
@@ -177,8 +177,7 @@
     padding: 15% 5%;
   }
   .meta {
-  display: flex;
-  flex-direction: column-reverse;
+    display: flex;
+    flex-direction: column-reverse;
   }
-
 }

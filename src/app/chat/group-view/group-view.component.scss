@@ -1,80 +1,77 @@
 .container {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 18em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 18em;
+}
 
+.messages {
+  display: flex;
+  flex-direction: column;
+  overflow: scroll;
+  height: 400px;
+  //border: 1px solid lightgray;
+  background-color: lightgray;
+}
+
+.messageInput {
+  margin-top: 15px;
+  display: flex;
+}
+
+.messageContainer {
+  width: 100%;
+  margin: 0px 5px;
+}
+
+input {
+  height: 24px;
+  width: 100%;
+}
+
+button {
+  margin-left: 5px;
+  height: 30px;
+  width: 120px;
+  font-size: large;
+}
+
+p {
+  font-size: medium;
+  background-color: lightgray;
+  padding: 5px;
+  width: fit-content;
+  border-radius: 5px;
+  margin: 7px;
+}
+
+.ownMessage {
+  background-color: lightblue;
+  align-self: flex-end;
+}
+
+i {
+  color: chocolate;
+}
+
+@media only screen and (max-width: 768px) {
+  .container {
+    height: 9.5em;
   }
-  
-  .messages {
-    display: flex;
-    flex-direction: column;
-    overflow: scroll;
-    height: 400px;
-    //border: 1px solid lightgray;
-    background-color: lightgray;
-  }
-  
+
   .messageInput {
-    margin-top: 15px;
-    display: flex;
+    margin-top: 0.3em;
   }
-  
-  .messageContainer {
-    width: 100%;
-    margin: 0px 5px;
-  }
-  
-  input {
-    height: 24px;
-    width: 100%;
-  }
-  
-  button {
-    margin-left: 5px;
-    height: 30px;
-    width: 120px;
-    font-size: large;
-  }
-  
+
   p {
-    font-size: medium;
-    background-color: lightgray;
-    padding: 5px;
-    width: fit-content;
-    border-radius: 5px;
-    margin: 7px;
-  }
-  
-  .ownMessage {
-    background-color: lightblue;
-    align-self: flex-end;
-  }
-  
-  i {
-    color: chocolate;
+    font-size: small;
+    padding: 3px;
+    margin: 0px;
   }
 
-  @media only screen and (max-width: 768px) {
-
-    .container {
-      height: 9.5em;
-    }
-
-    .messageInput {
-      margin-top: .3em;
-    }
-
-    p {
-      font-size: small;
-      padding: 3px;
-      margin: 0px;
-    }
-
-    button {
-      width: 5em;
-      height: 2.3em;
-      font-size: small;
-    }
-
+  button {
+    width: 5em;
+    height: 2.3em;
+    font-size: small;
   }
+}

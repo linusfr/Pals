@@ -1,5 +1,5 @@
 import { ClubService } from './services/club.service';
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, Output, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs/Subscription';
 import { MatIconRegistry } from '@angular/material';
@@ -16,33 +16,32 @@ import { environment } from '../environments/environment';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
+  userName;
+
   private userSubscription: Subscription;
-  public user: any;
-  
 
   constructor(
     private authService: AuthService,
     private router: Router,
     private domSanitizer: DomSanitizer,
     private matIconRegistry: MatIconRegistry,
-    private cometChat: CometChatService 
+    private cometChat: CometChatService
   ) {
     this.registerSvgIcons();
-    
   }
 
   public ngOnInit() {
     // init this.user on startup
     this.authService.me().subscribe(data => {
-      this.user = data.user;
+      this.userName = data.user;
     });
 
     // update this.user after login/register/logout
     this.userSubscription = this.authService.$userSource.subscribe(user => {
-      this.user = user;
+      this.userName = user;
     });
 
-    this.cometChat.init(environment.cometChat.appId);  
+    this.cometChat.init(environment.cometChat.appId);
   }
 
   logout(): void {

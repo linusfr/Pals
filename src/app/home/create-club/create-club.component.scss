@@ -5,11 +5,11 @@
   flex-direction: row;
   margin: 4em;
   margin-top: 0em;
-  color: #607D8B;
+  color: #607d8b;
 }
 
-.profilImage{
-  background-color: #D8D8D8;
+.profilImage {
+  background-color: #d8d8d8;
   border-top-left-radius: 0.9em;
   border-bottom-left-radius: 0.9em;
   width: 30%;
@@ -18,13 +18,13 @@
 }
 
 .description {
-  background-color: #EBEBEB;
+  background-color: #ebebeb;
   border-top-right-radius: 0.9em;
   border-bottom-right-radius: 0.9em;
   width: 70%;
   display: flex;
   flex-direction: column;
-  color: #607D8B;
+  color: #607d8b;
 }
 
 .header {
@@ -32,11 +32,11 @@
   font-size: 2em;
   padding-top: 1em;
   padding-bottom: 0.5em;
-  color: #37474F;
+  color: #37474f;
 }
 
 #image {
-  background-color: #607D8B;
+  background-color: #607d8b;
   width: 15em;
   height: 20em;
   margin: 0 auto;
@@ -52,7 +52,7 @@
 
 #loadButton {
   margin: 0 auto;
-  color: #37474F;
+  color: #37474f;
 }
 
 #createClubInfo {
@@ -73,7 +73,7 @@
   color: white;
   margin-left: 20px;
   margin-top: 20px;
-  background-color: #37474F;
+  background-color: #37474f;
   width: 50px;
   height: 50px;
   border-radius: 1em;
@@ -85,7 +85,7 @@
 
 #showButton {
   text-decoration: none;
-  background-color: #607D8B;
+  background-color: #607d8b;
   border: none;
   width: 100%;
 }
@@ -95,11 +95,11 @@
 }
 
 mat-label {
-  color: #607D8B;
+  color: #607d8b;
 }
 
 mat-select {
-  color: #607D8B;
+  color: #607d8b;
 }
 
 @media only screen and (max-width: 768px) {
@@ -117,7 +117,7 @@ mat-select {
     width: 100%;
     height: 40em;
   }
-  
+
   .description {
     border-bottom-right-radius: 0.9em;
     border-bottom-left-radius: 0.9em;
@@ -144,7 +144,7 @@ mat-select {
     margin-top: 0em;
     margin-bottom: 50px;
   }
-  
+
   #backArrow {
     margin-bottom: 10px;
   }

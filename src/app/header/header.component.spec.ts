@@ -9,18 +9,16 @@ import { TokenStorage } from '../auth/token.storage';
 import { AppRoutingModule } from '../app-routing/app-routing.module';
 import { HomeComponent } from '../home/home.component';
 
-
 describe('HeaderComponent', () => {
   let component: HeaderComponent;
   let fixture: ComponentFixture<HeaderComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [AppRoutingModule,MaterialModule,HttpClientModule],
-      providers: [AuthService,TokenStorage],
-      declarations: [HeaderComponent,HomeComponent]
-    })
-    .compileComponents();
+      imports: [AppRoutingModule, MaterialModule, HttpClientModule],
+      providers: [AuthService, TokenStorage],
+      declarations: [HeaderComponent, HomeComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {
