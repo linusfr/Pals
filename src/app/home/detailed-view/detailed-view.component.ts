@@ -83,7 +83,7 @@ export class DetailedViewComponent implements OnInit {
             // If an end time is set, this will take precedence over duration (optional)
             // end: new Date('June 15, 2013 23:00'),
             // Event Address (optional)
-            address: '1 test street, testland',
+            address: club[0].place ? club[0].place : 'place',
             // Event Description (optional)
             description: club[0].description
           };
@@ -93,9 +93,6 @@ export class DetailedViewComponent implements OnInit {
               this.newEvent
             )
           );
-
-          // console.log('isOwner', this.isOwner);
-          // console.log('isMember', this.isMember);
         });
 
       this.clubService
