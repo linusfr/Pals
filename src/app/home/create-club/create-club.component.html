@@ -41,12 +41,12 @@
 
       <mat-form-field>
         <mat-label>Kategorie</mat-label>
-        <mat-select [formControl]="category">
+        <mat-select #selected [formControl]="category">
           <mat-option *ngFor="let category of categories" [value]="category.name">
             {{ category.name }}
           </mat-option>
           <button (click)="neue = !neue" id="showButton">
-            <mat-option value="Kategorie">
+            <mat-option placeholder="Kategorie">
               {{ show ? '' : 'neue' }}
               Kategorie anlegen
             </mat-option>
@@ -60,6 +60,10 @@
           <textarea matInput #categoryInput (keydown.enter)="addCategory(categoryInput.value)"
             (keyup.enter)="neue=!neue"></textarea>
         </mat-form-field>
+        <button mat-stroked-button id="cButton" (click)="addCategory(categoryInput.value)" (click)="neue = !neue"
+          (click)="selected.value = categoryInput.value" color="secondary" class="submit">
+          Kategorie erstellen
+        </button>
       </div>
 
     </div>

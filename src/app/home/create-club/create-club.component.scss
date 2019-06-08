@@ -17,6 +17,10 @@
   flex-direction: column;
 }
 
+#cButton {
+  margin-left: 20px;
+}
+
 .description {
   background-color: #ebebeb;
   border-top-right-radius: 0.9em;
@@ -103,6 +107,17 @@ mat-select {
 }
 
 @media only screen and (max-width: 768px) {
+  #newKategorie {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    #cButton {
+      margin-left: 0;
+      margin-bottom: 10px;
+    }
+  }
+
   .card {
     width: 90%;
     flex-direction: column;
