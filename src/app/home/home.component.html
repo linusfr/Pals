@@ -20,7 +20,7 @@
 
   <div id="itemListContainer">
 
-    <div [routerLink]="['createClub']">
+    <div *ngIf="loggedIn" [routerLink]="['createClub']">
       <div id="addClub">
         <app-add-club></app-add-club>
       </div>
