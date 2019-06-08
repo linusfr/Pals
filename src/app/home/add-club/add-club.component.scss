@@ -1,3 +1,5 @@
+
+
 .card {
     padding-top: 50px;
     width: 170px;
@@ -29,7 +31,13 @@
   }
   
   @media only screen and (max-width: 768px) {
-    .card {
+  .container {
+    margin: 0 auto;
+    width: 250px;
+    height: 400px;
+  }
+
+  .card {
       height: 400px;
       width: 250px;
       padding-top: 210px;

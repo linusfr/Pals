@@ -59,8 +59,8 @@
 }
 
 #button {
-  float: right;
-  margin-right: 2em;
+  display: flex;
+  width: 12em;
 }
 
 #backArrow {
@@ -87,8 +87,8 @@ mat-select {
 
 #editClubButton {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  margin: 0 auto;
+  margin-top: 2em;
 }
 
 @media only screen and (max-width: 768px) {
@@ -109,7 +109,10 @@ mat-select {
   }
 
   #image {
-    display: none;
+      background-color: #d8d8d8;
+      height: 70%;
+      width: 100%;
+      margin: 0;
   }
 
   .description {
@@ -121,11 +124,11 @@ mat-select {
   }
 
   #loadButton {
-    margin-top: 35%;
+    margin-top: 1.5%;
   }
 
   #editImage {
-    font-size: 0.6em;
+    font-size: 0.75em;
   }
 
   .clubname {
@@ -135,10 +138,6 @@ mat-select {
 
   #editClubInfo {
     width: 80%;
-  }
-
-  #editClubInfo {
-    margin-top: 2em;
   }
 
   mat-form-field {

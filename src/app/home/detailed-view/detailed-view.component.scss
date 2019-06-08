@@ -121,6 +121,7 @@
   .clubname {
     font-size: 1.3em;
     font-weight: bold;
+    padding-bottom: .1em;
   }
   #editClub,
   #exitClub,
@@ -133,28 +134,36 @@
   .owner {
     font-size: 1em;
     margin-left: 0.9em;
-    padding: 0.5em;
+    padding: 0.2em;
   }
   .details {
     font-size: 0.8em;
+    padding: .3em;
   }
   .meeting {
     float: none;
-    height: 16em;
+    height: 6em;
     width: 92%;
     margin: 0 auto;
-    padding-top: 0.3em;
+    padding-top: 0.1em;
     border-top: 0.15em solid #c11e5c;
     border-left: 0em;
   }
 
   .leftDiv {
     float: none;
-    width: 19em;
-    height: 3em;
+    margin: 0 auto;
+    width: 98%;
+    height: 10em;
     padding: 1%;
   }
 
+  .time,
+.place,
+.googleCal {
+  padding: 0.3em;
+}
+  
   #backArrow {
     font-size: 3em;
     margin-left: 20px;
@@ -162,6 +171,6 @@
   }
   #joinClubButton {
     font-size: 1em;
-    padding: 0% 5%;
+    padding: 15% 5%;
   }
 }
