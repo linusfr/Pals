@@ -41,7 +41,7 @@ export class GroupViewComponent implements OnInit, OnDestroy {
     setTimeout(() => {
       this.chatService.login(this.currentUser(), environment.cometChat.apiKey);
       this.getMessages().then(data => this.listenForMessages());
-    }, 5000);
+    }, 400);
   }
 
   getGroupId() {
