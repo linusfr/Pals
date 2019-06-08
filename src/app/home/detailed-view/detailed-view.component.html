@@ -18,6 +18,7 @@
     <div class="details"> {{club.description}} </div>
 
     <!-- dieser Bereich passt sich je nach Status des Users an -->
+   <div class="meta">
     <div class="leftDiv">
       <!-- ist der User nicht Clubmitglied , erscheint der Button zum Beitritt -->
       <div *ngIf="!isMember">
@@ -45,6 +46,8 @@
       <a class="googleCal" [href]="googleCalendarEventUrl" target="_blank">Zu Google Calendar
         hinzufügen</a>
     </div>
+  </div>
+
 
   </div>
 </div>
