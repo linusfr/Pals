@@ -38,10 +38,11 @@ export class GroupViewComponent implements OnInit, OnDestroy {
       this.fullname = this.user.fullname;
     });
 
+    // Timeout nötig, da Websocket sonst noch nicht fertig geladen hat und ein Fehler geworfen wird
     setTimeout(() => {
       this.chatService.login(this.currentUser(), environment.cometChat.apiKey);
       this.getMessages().then(data => this.listenForMessages());
-    }, 5000);
+    }, 400);
   }
 
   getGroupId() {
