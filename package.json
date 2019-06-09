@@ -4,7 +4,7 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "serve": "node server",
+    "serve": "nodemon server",
     "start": "ng build --watch & nodemon server",
     "start2": "concurrently -c \"yellow.bold,green.bold\" \"SERVER,BUILD\" \"nodemon server\" \"ng build --watch\"",
     "build": "ng build --prod",
