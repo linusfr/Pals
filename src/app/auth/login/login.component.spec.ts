@@ -11,19 +11,22 @@ import { AppRoutingModule } from '../../app-routing/app-routing.module';
 import { HomeComponent } from '../../home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-
 describe('LoginComponent', () => {
   let component: LoginComponent;
   let fixture: ComponentFixture<LoginComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [MaterialModule, FormsModule, AppRoutingModule,HttpClientModule,BrowserAnimationsModule],
-      providers: [AuthService,TokenStorage],
-      declarations: [LoginComponent,HomeComponent]
-
-    })
-      .compileComponents();
+      imports: [
+        MaterialModule,
+        FormsModule,
+        AppRoutingModule,
+        HttpClientModule,
+        BrowserAnimationsModule
+      ],
+      providers: [AuthService, TokenStorage],
+      declarations: [LoginComponent, HomeComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {

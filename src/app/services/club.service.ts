@@ -1,12 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
+import { ImageService } from './image.service';
+import { CanActivate } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ClubService {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private imgService: ImageService) {}
 
   getClubs() {
     return this.http.get('/api/clubs');
@@ -26,8 +28,13 @@ export class ClubService {
     return this.http.get('/api/clubs/detailedClub', params);
   }
 
-  addClubs(club) {
+  async addClubs(club) {
     console.log(club);
+
+    let category = '' + club.category;
+
+    let imgURL = await this.imgService.getRandomPicture(category);
+    club.imgURL = imgURL;
     return this.http.post('/api/clubs/add', club);
   }
 

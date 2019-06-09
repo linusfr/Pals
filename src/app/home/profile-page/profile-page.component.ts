@@ -11,18 +11,17 @@ export class ProfilePageComponent implements OnInit {
   email;
   fullname;
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService) {}
   userSplit = [];
 
   ngOnInit() {
-    this.userService.getActiveUser().subscribe( user =>{
+    this.userService.getActiveUser().subscribe(user => {
       console.log(user);
       this.user = user;
       this.email = this.user.email;
       this.fullname = this.user.fullname;
-      this.userSplit = this.fullname.split(" ");
-      this.userSplit.forEach(value => console.log(value))
-    })
+      this.userSplit = this.fullname.split(' ');
+      this.userSplit.forEach(value => console.log(value));
+    });
   }
-
 }

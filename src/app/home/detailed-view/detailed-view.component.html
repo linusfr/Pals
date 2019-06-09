@@ -3,12 +3,14 @@
 </div>
 
 <div class="card">
-  <div class="image"></div>
+  <div class="image" [ngStyle]="{ 'background-image': 'url(' + club.imgURL + ')'}">
+  </div>
 
   <!-- Beschreibung des Clubs und je nach Bereichtigung auch Buttons für Austritt und bearbeiten -->
   <div class="description">
     <div class="clubname"> {{club.name}}
-      <mat-icon class="material-icons" id="editClub" *ngIf="isOwner" [routerLink]="['/editClub', club._id]">settings</mat-icon>
+      <mat-icon class="material-icons" id="editClub" *ngIf="isOwner" [routerLink]="['/editClub', club._id]">settings
+      </mat-icon>
       <mat-icon class="material-icons" id="exitClub" *ngIf="isMember" (click)="exitClub()">exit_to_app</mat-icon>
       <mat-icon class="material-icons" id="isMember" *ngIf="isMember">favorite</mat-icon>
     </div>
@@ -18,35 +20,35 @@
     <div class="details"> {{club.description}} </div>
 
     <!-- dieser Bereich passt sich je nach Status des Users an -->
-   <div class="meta">
-    <div class="leftDiv">
-      <!-- ist der User nicht Clubmitglied , erscheint der Button zum Beitritt -->
-      <div *ngIf="!isMember">
-        <div id="joinClubButton">
-          <button mat-stroked-button color="primary" (click)="joinClub()" class="submit">
-            Club beitreten
-          </button>
+    <div class="meta">
+      <div class="leftDiv">
+        <!-- ist der User nicht Clubmitglied , erscheint der Button zum Beitritt -->
+        <div *ngIf="!isMember">
+          <div id="joinClubButton">
+            <button mat-stroked-button color="primary" (click)="joinClub()" class="submit">
+              Club beitreten
+            </button>
+          </div>
+        </div>
+
+        <!-- ist der Nutzer Clubmitglied wird der Chat angezeigt -->
+        <div *ngIf="isMember">
+          <app-group-view></app-group-view>
         </div>
       </div>
 
-      <!-- ist der Nutzer Clubmitglied wird der Chat angezeigt -->
-      <div *ngIf="isMember">
-        <app-group-view></app-group-view>
+      <!-- Zeit und Ort für das nächste Treffen, sowie der Link zum export zu GoogleCalendar -->
+      <div class="meeting">
+        <div class="time">
+          Wann: {{meinDatum}}
+        </div>
+        <div class="place">
+          Treffpunkt: {{club.place}}
+        </div>
+        <a class="googleCal" [href]="googleCalendarEventUrl" target="_blank">Zu Google Calendar
+          hinzufügen</a>
       </div>
     </div>
-
-    <!-- Zeit und Ort für das nächste Treffen, sowie der Link zum export zu GoogleCalendar -->
-    <div class="meeting">
-      <div class="time">
-        Wann: {{club.time}}
-      </div>
-      <div class="place">
-        Treffpunkt: {{club.place}}
-      </div>
-      <a class="googleCal" [href]="googleCalendarEventUrl" target="_blank">Zu Google Calendar
-        hinzufügen</a>
-    </div>
-  </div>
 
 
   </div>

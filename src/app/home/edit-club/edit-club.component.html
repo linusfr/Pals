@@ -1,6 +1,5 @@
-
 <div>
-  <mat-icon [routerLink]="['/detailedClub/:id']" id="backArrow">arrow_back</mat-icon>
+  <mat-icon [routerLink]="['/detailedClub/', id]" id="backArrow">arrow_back</mat-icon>
 </div>
 <!-- edit-Club lässt den Clubbesitzer den aktuellen Club bearbeiten -->
 <div class="card">
@@ -12,26 +11,27 @@
     </div>
 
     <div id="editClubInfo">
-    <!-- Eingabefelder für die änderbaren Parameter -->
+      <!-- Eingabefelder für die änderbaren Parameter -->
 
       <mat-form-field appearance="standard">
         <mat-label>Club-Thema:</mat-label>
-        <input matInput [formControl]="brief" placeholder="{{club.brief}}" type="text" required />
+        <input matInput [formControl]="brief" placeholder="{{club.brief}}" type="text" />
       </mat-form-field>
 
       <mat-form-field appearance="standard">
         <mat-label>Beschreibung: </mat-label>
-        <input matInput [formControl]="description" placeholder="{{club.description}}" type="text" required />
+        <input matInput [formControl]="description" placeholder="{{club.description}}" type="text" />
       </mat-form-field>
 
       <mat-form-field appearance="standard">
         <mat-label>Nächstes Treffen: </mat-label>
-        <input matInput [formControl]="time" placeholder="{{club.time}}" type="text" required />
+        <input matInput [formControl]="time" placeholder="{{club.time}}" type="text" />
+        <mat-hint id="formatHint">Format: Tag-Monat-Jahr-Std-Min (z.B. 22-04-2019-13-30)</mat-hint>
       </mat-form-field>
 
       <mat-form-field appearance="standard">
         <mat-label>Treffpunkt: </mat-label>
-        <input matInput [formControl]="place" type="text" required />
+        <input matInput [formControl]="place" type="text" />
       </mat-form-field>
 
     </div>

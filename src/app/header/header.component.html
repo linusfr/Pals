@@ -17,16 +17,8 @@
     </div>
     <div class="flexChildren">
       <div class="buttonWrapper">
-        <mat-icon id="chat_icon">chat_bubble</mat-icon>
-        <mat-icon id="favorit_icon" [routerLink]="['joinedClubs']"
-          >favorite</mat-icon
-        >
-        <mat-icon
-          id="login_icon"
-          color="primary"
-          [routerLink]="['/auth/login']"
-          *ngIf="!user"
-        >
+        <mat-icon id="favorit_icon" [routerLink]="['joinedClubs']">favorite</mat-icon>
+        <mat-icon id="login_icon" color="primary" [routerLink]="['/auth/login']" *ngIf="!user">
           fingerprint
         </mat-icon>
         <div id="logos">
@@ -34,11 +26,7 @@
             <mat-icon id="loggedInIcon">how_to_reg</mat-icon>{{ user.fullname }}
           </a>
           <mat-menu #menu="matMenu">
-            <button
-              mat-menu-item
-              *ngIf="user && user.isAdmin"
-              [routerLink]="['/admin']"
-            >
+            <button mat-menu-item *ngIf="user && user.isAdmin" [routerLink]="['/admin']">
               admin
             </button>
             <button mat-menu-item [routerLink]="['/profile']" color="primary">

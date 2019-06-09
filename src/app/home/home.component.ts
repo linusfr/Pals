@@ -48,11 +48,11 @@ export class HomeComponent implements OnInit {
 
     this.userService.getActiveUser().subscribe(user => {
       this.loggedIn = true;
-      console.log("eingeloggt: " + this.loggedIn);
+      console.log('eingeloggt: ' + this.loggedIn);
       console.log(user);
     });
 
-    console.log("check2: " + this.loggedIn);
+    console.log('check2: ' + this.loggedIn);
     // ----------- ADD SAMPLE DATA  -----------------------
     // this.addSampleData();
     // this.addSampleCategories();
@@ -104,44 +104,44 @@ export class HomeComponent implements OnInit {
     };
   }
 
-  addSampleCategories() {
-    this.categoryService
-      .addCategory({ name: 'Laufen' })
-      .subscribe(value => console.log(value));
-    this.categoryService
-      .addCategory({ name: 'Schach' })
-      .subscribe(value => console.log(value));
-    this.categoryService
-      .addCategory({ name: 'Döner' })
-      .subscribe(value => console.log(value));
-    this.categoryService
-      .addCategory({ name: 'Hundefutter' })
-      .subscribe(value => console.log(value));
-    this.categoryService
-      .addCategory({ name: 'BiB' })
-      .subscribe(value => console.log(value));
-    this.categoryService
-      .addCategory({ name: 'Yoga' })
-      .subscribe(value => console.log(value));
-  }
+  //   addSampleCategories() {
+  //     this.categoryService
+  //       .addCategory({ name: 'Laufen' })
+  //       .subscribe(value => console.log(value));
+  //     this.categoryService
+  //       .addCategory({ name: 'Schach' })
+  //       .subscribe(value => console.log(value));
+  //     this.categoryService
+  //       .addCategory({ name: 'Döner' })
+  //       .subscribe(value => console.log(value));
+  //     this.categoryService
+  //       .addCategory({ name: 'Hundefutter' })
+  //       .subscribe(value => console.log(value));
+  //     this.categoryService
+  //       .addCategory({ name: 'BiB' })
+  //       .subscribe(value => console.log(value));
+  //     this.categoryService
+  //       .addCategory({ name: 'Yoga' })
+  //       .subscribe(value => console.log(value));
+  //   }
 
-  addSampleData() {
-    this.clubService
-      .addClubs(this.createClub('Laufgruppe', 'Lass laufen.'))
-      .subscribe(data => console.log(data));
-    this.clubService
-      .addClubs(this.createClub('Hundefutter Gruppe', 'Hunde füttern.'))
-      .subscribe(data => console.log(data));
-    this.clubService
-      .addClubs(this.createClub('Schach', 'und matt.'))
-      .subscribe(data => console.log(data));
-    this.clubService
-      .addClubs(this.createClub('Kletteräffchen', 'Ran an die Wand.'))
-      .subscribe(data => console.log(data));
-    this.clubService
-      .addClubs(
-        this.createClub('Pokerrunde', 'Wir ziehen dir das Geld aus der Tasche.')
-      )
-      .subscribe(data => console.log(data));
-  }
+  //   addSampleData() {
+  //     this.clubService
+  //       .addClubs(this.createClub('Laufgruppe', 'Lass laufen.'))
+  //       .subscribe(data => console.log(data));
+  //     this.clubService
+  //       .addClubs(this.createClub('Hundefutter Gruppe', 'Hunde füttern.'))
+  //       .subscribe(data => console.log(data));
+  //     this.clubService
+  //       .addClubs(this.createClub('Schach', 'und matt.'))
+  //       .subscribe(data => console.log(data));
+  //     this.clubService
+  //       .addClubs(this.createClub('Kletteräffchen', 'Ran an die Wand.'))
+  //       .subscribe(data => console.log(data));
+  //     this.clubService
+  //       .addClubs(
+  //         this.createClub('Pokerrunde', 'Wir ziehen dir das Geld aus der Tasche.')
+  //       )
+  //       .subscribe(data => console.log(data));
+  //   }
 }

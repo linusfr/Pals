@@ -49,22 +49,25 @@ export class CometChatApiService {
   }
 
   createGroup(groupid, groupname) {
-    let data = `{\"guid\":\"${groupid}\",\"name\":\"${groupname}\",\"type\":\"public\"}`;
+    return new Promise((resolve, reject) => {
+      let data = `{\"guid\":\"${groupid}\",\"name\":\"${groupname}\",\"type\":\"public\"}`;
 
-    let xhr = new XMLHttpRequest();
+      let xhr = new XMLHttpRequest();
 
-    xhr.addEventListener('readystatechange', function() {
-      if (this.readyState === this.DONE) {
-        console.log(this.responseText);
-      }
+      xhr.addEventListener('readystatechange', function() {
+        if (this.readyState === this.DONE) {
+          resolve();
+          console.log(this.responseText);
+        }
+      });
+
+      xhr.open('POST', 'https://api.cometchat.com/v1/groups');
+      xhr.setRequestHeader('apikey', environment.cometChat.apiKey);
+      xhr.setRequestHeader('appid', environment.cometChat.appId);
+      xhr.setRequestHeader('content-type', 'application/json');
+
+      xhr.send(data);
     });
-
-    xhr.open('POST', 'https://api.cometchat.com/v1/groups');
-    xhr.setRequestHeader('apikey', environment.cometChat.apiKey);
-    xhr.setRequestHeader('appid', environment.cometChat.appId);
-    xhr.setRequestHeader('content-type', 'application/json');
-
-    xhr.send(data);
   }
 
   addGroupMember(groupid, userid) {

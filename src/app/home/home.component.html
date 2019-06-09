@@ -27,16 +27,17 @@
     </div>
 
     <div class="container">
-    <div *ngFor="let club of clubs" [routerLink]="['detailedClub/', club._id]" class="card">
-      <div class="text">
-        <div class="clubname">
-          {{club.name}}
-        </div>
-        <div class="description">
-          {{club.brief}}
+      <div *ngFor="let club of clubs" [routerLink]="['detailedClub/', club._id]" class="card"
+        [ngStyle]="{ 'background-image': 'url(' + club.imgURL + ')'}">
+        <div class="text">
+          <div class="clubname">
+            {{club.name}}
+          </div>
+          <div class="description">
+            {{club.brief}}
+          </div>
         </div>
       </div>
     </div>
-  </div>
 
   </div>

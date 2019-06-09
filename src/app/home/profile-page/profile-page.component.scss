@@ -5,11 +5,11 @@
   flex-direction: row;
   margin: 4em;
   margin-top: 0em;
-  color: #607D8B;
+  color: #607d8b;
 }
 
 .image {
-  background-color:#607D8B;
+  background-color: #607d8b;
   border-top-left-radius: 0.9em;
   border-bottom-left-radius: 0.9em;
   width: 30%;
@@ -20,13 +20,13 @@
   display: flex;
   width: 80%;
   height: 100%;
-  margin: 0 auto;  
+  margin: 0 auto;
   border-radius: 0.9em;
   vertical-align: middle;
 }
 
 .description {
-  background-color: #EBEBEB;
+  background-color: #ebebeb;
   border-top-right-radius: 0.9em;
   border-bottom-right-radius: 0.9em;
   width: 70%;
@@ -39,7 +39,7 @@
   font-size: 2em;
   padding-top: 1em;
   padding-bottom: 0.5em;
-  color: #37474F;
+  color: #37474f;
 }
 
 #buttonChangeProfile {
@@ -73,7 +73,7 @@
   color: white;
   margin-left: 20px;
   margin-top: 20px;
-  background-color: #37474F;
+  background-color: #37474f;
   width: 50px;
   height: 50px;
   border-radius: 1em;
@@ -102,14 +102,13 @@
   #ppicture {
     width: 50%;
   }
-  
+
   .description {
     border-bottom-right-radius: 0.9em;
     border-bottom-left-radius: 0.9em;
     border-top-right-radius: 0em;
     width: 100%;
     margin-bottom: 20px;
-
   }
 
   #buttonChangeProfile {
@@ -123,5 +122,4 @@
   #backArrow {
     margin-bottom: 10px;
   }
-
 }
