@@ -18,37 +18,14 @@ import { HttpClient, HttpParams } from '@angular/common/http';
   providedIn: 'root'
 })
 export class CometChatApiService {
-  constructor(private http: HttpClient) {}
-
-  // Funktion um einen Authentifizierungs-Token für jeden Nutzer zu erstellen,
-  // der im Chat eingeloggt werden soll.
-  // Dieser Token wird dann in der Comet-Chat-eigenen Datenbank hinterlegt.
-  // Der Aufruf hierzu funktioniert über XMLHttpRequest, wobei hierzu lediglich
-  // die userid, der API-Key und die App-Id vorliegen müssen
-  createAuthToken(userid) {
-    let data = null;
-    let xhr = new XMLHttpRequest();
-    xhr.addEventListener('readystatechange', function() {
-      if (this.readyState === this.DONE) {
-      }
-    });
-    xhr.open(
-      'POST',
-      `https://api.cometchat.com/v1/users/${userid}/auth_tokens`
-    );
-    xhr.setRequestHeader('apikey', environment.cometChat.apiKey);
-    xhr.setRequestHeader('appid', environment.cometChat.appId);
-    xhr.send(data);
-  }
+  constructor(private http: HttpClient) { }
 
   // Funktion um via Comet-Chat-API einen neuen Nutzer in der Comet-Chat-Datenbank zu erstellen.
   // Dies geschieht über einen XMLHttpRequest. Hierzu übergeben wir die NutzerId sowie den Nutzernamen.
   createUser(userid, uname) {
     let data = `{\"uid\":\"${userid}\",\"name\":\"${uname}\"}`;
-
     let xhr = new XMLHttpRequest();
-
-    xhr.addEventListener('readystatechange', function() {
+    xhr.addEventListener('readystatechange', function () {
       if (this.readyState === this.DONE) {
       }
     });
@@ -67,7 +44,7 @@ export class CometChatApiService {
     return new Promise((resolve, reject) => {
       let data = `{\"guid\":\"${groupid}\",\"name\":\"${groupname}\",\"type\":\"public\"}`;
       let xhr = new XMLHttpRequest();
-      xhr.addEventListener('readystatechange', function() {
+      xhr.addEventListener('readystatechange', function () {
         if (this.readyState === this.DONE) {
           resolve();
         }
@@ -87,7 +64,7 @@ export class CometChatApiService {
   addGroupMember(groupid, userid) {
     let data = null;
     let xhr = new XMLHttpRequest();
-    xhr.addEventListener('readystatechange', function() {
+    xhr.addEventListener('readystatechange', function () {
       if (this.readyState === this.DONE) {
       }
     });
