@@ -1,3 +1,9 @@
+// -----------------------------------------------------------------------------
+//Diese Komponente dient der Bearbeitung von Clubs.
+//Es werden die vom User eingegebenen Parameter überprüft
+//und validiert und anschließend an den Service weitergeleitet.
+//------------------------------------------------------------------------------
+
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ClubService } from '../../services/club.service';
@@ -18,7 +24,8 @@ export class EditClubComponent implements OnInit {
 
   club = {};
   id;
-
+  
+  //Es werden die Kategorien aus dem categoryService geholt.
   ngOnInit() {
     this.club = this.route.params.subscribe(params => {
       this.id = params['id'];
