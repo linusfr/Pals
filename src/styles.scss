@@ -8,6 +8,50 @@ $custom-typography: mat-typography-config(
   $font-family: 'Exo'
 );
 
+mat-hint {
+  color: black;
+}
+.mat-form-field-appearance-standard .mat-form-field-underline {
+  height: 1px;
+  background-color: #607d8d;
+}
+
+.mat-form-field-appearance-legacy .mat-form-field-underline {
+  height: 1px;
+  background-color: #607d8d;
+}
+
+.mat-select-placeholder {
+  color: #607d8d;
+}
+
+.mat-input-element::placeholder {
+  color: #607d8d;
+}
+.mat-input-element::-moz-placeholder {
+  color: #607d8d;
+}
+.mat-input-element::-webkit-input-placeholder {
+  color: #607d8d;
+}
+.mat-input-element:-ms-input-placeholder {
+  color: #607d8d;
+}
+
+::placeholder {
+  color: #607d8d;
+}
+
+/* When the input is not focused */
+md-input-container label {
+  color: #607d8d;
+}
+
+/* When the input is focused */
+md-input-container.md-input-focused label {
+  color: #607d8d;
+}
+
 @include mat-core($custom-typography);
 
 body {
