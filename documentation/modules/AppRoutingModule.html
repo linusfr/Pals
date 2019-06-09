@@ -119,10 +119,6 @@ const routes: Routes &#x3D; [
     path: &#x27;auth&#x27;,
     loadChildren: &#x27;app/auth/auth.module#AuthModule&#x27;
   },
-  {
-    path: &#x27;admin&#x27;,
-    loadChildren: &#x27;app/admin/admin.module#AdminModule&#x27;
-  },
   // { path: &#x27;&#x27;, redirectTo: &#x27;chat&#x27;, pathMatch: &#x27;full&#x27; }, // our home screen would also lead to the chat login field
   { path: &#x27;chatLogin&#x27;, component: ChatLoginComponent }, // would start at login screen, which we do not need --&gt;
   { path: &#x27;chat&#x27;, component: GroupViewComponent }

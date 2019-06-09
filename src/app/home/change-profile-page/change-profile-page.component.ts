@@ -68,7 +68,12 @@ export class ChangeProfilePageComponent implements OnInit {
 
       this.userService.editUser({ id, fullName, userEmail }).subscribe(data => {
         console.log(data);
-        this.router.navigate(['/profile']);
+        data = '' + data;
+        if (data === 'emailExists') {
+          alert('Emailadresse bereits in Verwendung.');
+        } else {
+          this.router.navigate(['/profile']);
+        }
       });
     });
   }

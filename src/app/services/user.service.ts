@@ -7,12 +7,6 @@ import { HttpParams, HttpClient } from '@angular/common/http';
 export class UserService {
   constructor(private http: HttpClient) {}
 
-  isUserOnline = () => {
-    let user = (<any>window).user;
-    let loggedIn = user !== undefined;
-    return loggedIn;
-  }
-
   getActiveUser() {
     let user = localStorage.activeUser;
     const params = {
