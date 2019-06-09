@@ -1,3 +1,8 @@
+//----------------------------------------------------
+//Dies ist das Schema für die User
+//Mindestens benötigt werden Name, E-Mail und Passwort
+//----------------------------------------------------
+
 const mongoose = require('mongoose');
 
 const userSchema = new mongoose.Schema(
@@ -10,12 +15,13 @@ const userSchema = new mongoose.Schema(
       type: String,
       required: true,
       unique: true,
-      // Regexp to validate emails with more strict rules as added in tests/users.js which also conforms mostly with RFC2822 guide lines
+      //Die Regex wir verwendet, um Regeln für das E-Mail-Feld festzulegen
       match: [
         /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
         'Please enter a valid email'
       ]
     },
+    //Hier wird das Passwort als Hashwert hinterlegt
     hashedPassword: {
       type: String,
       required: true

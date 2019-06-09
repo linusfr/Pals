@@ -1,3 +1,9 @@
+//--------------------------------------------------------------------
+//Hier ist das Schema für die Clubs hinterlegt.
+//Dieses Schema muss mindestens einen Administrator, Namen, Kategorie,
+//Beschreibung, Kurzbeschreibung und die Clubmitglieder enthalten.
+//--------------------------------------------------------------------
+
 const mongoose = require('mongoose');
 
 const clubSchema = new mongoose.Schema({
