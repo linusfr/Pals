@@ -52,37 +52,16 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                         </a>
                         <ul class="links collapse" ${ isNormalMode ? 'id="modules-links"' : 'id="xs-modules-links"' }>
                             <li class="link">
-                                <a href="modules/AdminModule.html" data-type="entity-link">AdminModule</a>
-                                    <li class="chapter inner">
-                                        <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                            'data-target="#components-links-module-AdminModule-deaaa200b103249a40e37f5b15636016"' : 'data-target="#xs-components-links-module-AdminModule-deaaa200b103249a40e37f5b15636016"' }>
-                                            <span class="icon ion-md-cog"></span>
-                                            <span>Components</span>
-                                            <span class="icon ion-ios-arrow-down"></span>
-                                        </div>
-                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-AdminModule-deaaa200b103249a40e37f5b15636016"' :
-                                            'id="xs-components-links-module-AdminModule-deaaa200b103249a40e37f5b15636016"' }>
-                                            <li class="link">
-                                                <a href="components/AdminComponent.html"
-                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">AdminComponent</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                            </li>
-                            <li class="link">
-                                <a href="modules/AdminRoutingModule.html" data-type="entity-link">AdminRoutingModule</a>
-                            </li>
-                            <li class="link">
                                 <a href="modules/AppModule.html" data-type="entity-link">AppModule</a>
                                     <li class="chapter inner">
                                         <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                            'data-target="#components-links-module-AppModule-17aa0fc722a7a61cdac95216fb780275"' : 'data-target="#xs-components-links-module-AppModule-17aa0fc722a7a61cdac95216fb780275"' }>
+                                            'data-target="#components-links-module-AppModule-df444b7895c6b552bd574a3c84b57289"' : 'data-target="#xs-components-links-module-AppModule-df444b7895c6b552bd574a3c84b57289"' }>
                                             <span class="icon ion-md-cog"></span>
                                             <span>Components</span>
                                             <span class="icon ion-ios-arrow-down"></span>
                                         </div>
-                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-AppModule-17aa0fc722a7a61cdac95216fb780275"' :
-                                            'id="xs-components-links-module-AppModule-17aa0fc722a7a61cdac95216fb780275"' }>
+                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-AppModule-df444b7895c6b552bd574a3c84b57289"' :
+                                            'id="xs-components-links-module-AppModule-df444b7895c6b552bd574a3c84b57289"' }>
                                             <li class="link">
                                                 <a href="components/AddClubComponent.html"
                                                     data-type="entity-link" data-context="sub-entity" data-context-id="modules">AddClubComponent</a>
@@ -135,13 +114,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                     </li>
                                 <li class="chapter inner">
                                     <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                        'data-target="#injectables-links-module-AppModule-17aa0fc722a7a61cdac95216fb780275"' : 'data-target="#xs-injectables-links-module-AppModule-17aa0fc722a7a61cdac95216fb780275"' }>
+                                        'data-target="#injectables-links-module-AppModule-df444b7895c6b552bd574a3c84b57289"' : 'data-target="#xs-injectables-links-module-AppModule-df444b7895c6b552bd574a3c84b57289"' }>
                                         <span class="icon ion-md-arrow-round-down"></span>
                                         <span>Injectables</span>
                                         <span class="icon ion-ios-arrow-down"></span>
                                     </div>
-                                    <ul class="links collapse" ${ isNormalMode ? 'id="injectables-links-module-AppModule-17aa0fc722a7a61cdac95216fb780275"' :
-                                        'id="xs-injectables-links-module-AppModule-17aa0fc722a7a61cdac95216fb780275"' }>
+                                    <ul class="links collapse" ${ isNormalMode ? 'id="injectables-links-module-AppModule-df444b7895c6b552bd574a3c84b57289"' :
+                                        'id="xs-injectables-links-module-AppModule-df444b7895c6b552bd574a3c84b57289"' }>
                                         <li class="link">
                                             <a href="injectables/ClubService.html"
                                                 data-type="entity-link" data-context="sub-entity" data-context-id="modules" }>ClubService</a>
@@ -256,9 +235,6 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                         <ul class="links collapse" ${ isNormalMode ? 'id="guards-links"' : 'id="xs-guards-links"' }>
                             <li class="link">
                                 <a href="guards/AuthGuard.html" data-type="entity-link">AuthGuard</a>
-                            </li>
-                            <li class="link">
-                                <a href="guards/OnlyAdminUsersGuard.html" data-type="entity-link">OnlyAdminUsersGuard</a>
                             </li>
                         </ul>
                     </li>

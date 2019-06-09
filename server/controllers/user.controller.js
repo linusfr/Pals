@@ -25,6 +25,18 @@ async function insert(user) {
 }
 
 async function editUser(id, fullName, userEmail) {
+  let data;
+  try {
+    data = await User.find({ email: userEmail });
+  } catch (e) {
+    console.log(e);
+  }
+
+  console.log(data, data.length);
+  if (data.length !== 0) {
+    return 'emailExists';
+  }
+
   let oldUser = await User.findOne({ _id: id });
   oldUser.fullname = fullName;
   oldUser.email = userEmail;

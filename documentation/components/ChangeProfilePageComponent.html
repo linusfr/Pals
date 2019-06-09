@@ -325,8 +325,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="76"
-                            class="link-to-prism">src/app/home/change-profile-page/change-profile-page.component.ts:76</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="79"
+                            class="link-to-prism">src/app/home/change-profile-page/change-profile-page.component.ts:79</a></div>
                 </td>
             </tr>
 
@@ -619,8 +619,11 @@ export class ChangeProfilePageComponent implements OnInit {
       console.log(&#x27;data&#x27;, id, fullName, userEmail);
 
       this.userService.editUser({ id, fullName, userEmail }).subscribe(data &#x3D;&gt; {
-        console.log(data);
-        this.router.navigate([&#x27;/profile&#x27;]);
+        if (data &#x3D;&#x3D;&#x3D; &#x27;emailExists&#x27;) {
+          alert(&#x27;Emailadresse bereit in verwendung.&#x27;);
+        } else {
+          this.router.navigate([&#x27;/profile&#x27;]);
+        }
       });
     });
   }
@@ -857,7 +860,7 @@ mat-form-field {
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
         var COMPONENT_TEMPLATE = '<div><div>  <mat-icon [routerLink]="[\'/profile\']" id="backArrow">arrow_back</mat-icon></div><div class="card">  <div class="image">    <img id="ppicture" src="../assets/Teddy-bear-looking-for-a-friend.jpg" alt="Profilbild" />    <div id="pictureText">      <p>        Lade ein aussagekräftiges Bild hoch!      </p>    </div>    <div id="loadButton">      <button mat-stroked-button class="submit" color="secondary">        Datei auswählen      </button>    </div>  </div>  <div class="description">    <div class="header">      Dein Profil bearbeiten    </div>    <div id="profileInfo">      <mat-form-field>        <mat-label>Vorname:</mat-label>        <textarea matInput [formControl]="firstName" type="text">{{ userSplit[0] }}</textarea>      </mat-form-field>      <mat-form-field>        <mat-label>Nachname:</mat-label>        <textarea matInput [formControl]="lastName" type="text">{{ userSplit[1] }}</textarea>      </mat-form-field>      <mat-form-field>        <mat-label>E-Mail-Adresse:</mat-label>        <textarea matInput [formControl]="userEmail" type="text">{{ email }}</textarea>      </mat-form-field>    </div>    <div id="buttonChangeProfile">      <button mat-stroked-button (click)="editUser()" color="primary" class="submit">        Profil speichern      </button>    </div>  </div></div></div>'
-    var COMPONENTS = [{'name': 'AddClubComponent', 'selector': 'app-add-club'},{'name': 'AdminComponent', 'selector': 'app-admin'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'ChangeProfilePageComponent', 'selector': 'app-change-profile-page'},{'name': 'ChatLoginComponent', 'selector': 'app-chat-login'},{'name': 'CreateClubComponent', 'selector': 'app-create-club'},{'name': 'DetailedViewComponent', 'selector': 'app-detailed-view'},{'name': 'EditClubComponent', 'selector': 'app-edit-club'},{'name': 'GroupViewComponent', 'selector': 'app-group-view'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'JoinedClubsComponent', 'selector': 'app-joined-clubs'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'ProfilePageComponent', 'selector': 'app-profile-page'},{'name': 'RegisterComponent', 'selector': 'app-register'}];
+    var COMPONENTS = [{'name': 'AddClubComponent', 'selector': 'app-add-club'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'ChangeProfilePageComponent', 'selector': 'app-change-profile-page'},{'name': 'ChatLoginComponent', 'selector': 'app-chat-login'},{'name': 'CreateClubComponent', 'selector': 'app-create-club'},{'name': 'DetailedViewComponent', 'selector': 'app-detailed-view'},{'name': 'EditClubComponent', 'selector': 'app-edit-club'},{'name': 'GroupViewComponent', 'selector': 'app-group-view'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'JoinedClubsComponent', 'selector': 'app-joined-clubs'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'ProfilePageComponent', 'selector': 'app-profile-page'},{'name': 'RegisterComponent', 'selector': 'app-register'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'ChangeProfilePageComponent'};
 </script>

@@ -66,20 +66,6 @@
     <h3 id="index">Index</h3>
     <table class="table table-sm table-bordered index-table">
         <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <h6><b>Properties</b></h6>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <ul class="index-list">
-                            <li>
-                                <a href="#isUserOnline">isUserOnline</a>
-                            </li>
-                        </ul>
-                    </td>
-                </tr>
 
                 <tr>
                     <td class="col-md-4">
@@ -183,8 +169,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="24"
-                            class="link-to-prism">src/app/services/user.service.ts:24</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="18"
+                            class="link-to-prism">src/app/services/user.service.ts:18</a></div>
                 </td>
             </tr>
 
@@ -249,8 +235,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="16"
-                            class="link-to-prism">src/app/services/user.service.ts:16</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="10"
+                            class="link-to-prism">src/app/services/user.service.ts:10</a></div>
                 </td>
             </tr>
 
@@ -267,38 +253,6 @@
         </tbody>
     </table>
 </section>
-            <section>
-    
-        <h3 id="inputs">
-            Properties
-        </h3>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="isUserOnline"></a>
-                        <span class="name">
-                            <b>
-                            isUserOnline</b>
-                            <a href="#isUserOnline"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Default value : </i><code>() &#x3D;&gt; {...}</code>
-                        </td>
-                    </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">src/app/services/user.service.ts:10</a></div>
-                            </td>
-                        </tr>
-
-
-            </tbody>
-        </table>
-</section>
 
     </div>
 
@@ -312,12 +266,6 @@ import { HttpParams, HttpClient } from &#x27;@angular/common/http&#x27;;
 })
 export class UserService {
   constructor(private http: HttpClient) {}
-
-  isUserOnline &#x3D; () &#x3D;&gt; {
-    let user &#x3D; (&lt;any&gt;window).user;
-    let loggedIn &#x3D; user !&#x3D;&#x3D; undefined;
-    return loggedIn;
-  }
 
   getActiveUser() {
     let user &#x3D; localStorage.activeUser;
