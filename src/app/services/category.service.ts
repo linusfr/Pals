@@ -1,3 +1,5 @@
+//Dieser Service verwaltet die Logik für die Kategorien
+
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
