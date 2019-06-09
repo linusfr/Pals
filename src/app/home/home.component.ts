@@ -56,9 +56,9 @@ export class HomeComponent implements OnInit {
     // this.addSampleCategories();
   }
 
-  //Wird für die Suche nach Clubs genutzt.
-  //Die Suche wird pro neu eingegebenem Buchstaben andere Resultate liefern.
-  //Zusätzlich wird der Kategorien-Filter berücksichtigt.
+  // Wird für die Suche nach Clubs genutzt.
+  // Die Suche wird pro neu eingegebenem Buchstaben andere Resultate liefern.
+  // Zusätzlich wird der Kategorien-Filter berücksichtigt.
   onKey(event) {
     let { category } = this.userForm.getRawValue();
     if (category === null) {

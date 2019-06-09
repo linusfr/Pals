@@ -1,6 +1,6 @@
-//------------------------------------------------------------
-//Der ClubService verwaltet die für die Clubs benötigte Logik.
-//------------------------------------------------------------
+// ------------------------------------------------------------
+// Der ClubService verwaltet die für die Clubs benötigte Logik.
+// ------------------------------------------------------------
 
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';

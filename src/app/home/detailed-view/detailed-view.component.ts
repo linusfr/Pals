@@ -110,7 +110,9 @@ export class DetailedViewComponent implements OnInit {
     });
   }
 
-  // Funktion um das erhaltene Datum in das richtige Format für ein Date-Objekt zu bringen, damit dies in der Google Calendar Api gelesen werden kann.
+  // Funktion um das erhaltene Datum in das 
+  // richtige Format für ein Date-Objekt zu bringen, 
+  // damit dies in der Google Calendar Api gelesen werden kann.
   // Format as given: 27-04-2019-12-00
   // needed: YYYY-MM-DDTHH:MM:SS
   formatMeetingDate = olddate => {
