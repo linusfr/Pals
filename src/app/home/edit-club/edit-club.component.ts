@@ -1,8 +1,8 @@
 // -----------------------------------------------------------------------------
-//Diese Komponente dient der Bearbeitung von Clubs.
-//Es werden die vom User eingegebenen Parameter überprüft
-//und validiert und anschließend an den Service weitergeleitet.
-//------------------------------------------------------------------------------
+// Diese Komponente dient der Bearbeitung von Clubs.
+// Es werden die vom User eingegebenen Parameter überprüft
+// und validiert und anschließend an den Service weitergeleitet.
+// ------------------------------------------------------------------------------
 
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
@@ -25,16 +25,16 @@ export class EditClubComponent implements OnInit {
   club = {};
   id;
 
-  //Es werden die Kategorien aus dem categoryService geholt.
-  //Als Parameter werden die ID des Clubs mitgegeben, der bearbeitet werden soll.
-  //Weiterhin wird geprüft, ob der User, der den Club bearbeiten will, der Administrator ist.
+  // Es werden die Kategorien aus dem categoryService geholt.
+  // Als Parameter werden die ID des Clubs mitgegeben, der bearbeitet werden soll.
+  // Weiterhin wird geprüft, ob der User, der den Club bearbeiten will, der Administrator ist.
   ngOnInit() {
     this.club = this.route.params.subscribe(params => {
       this.id = params['id'];
       console.log('club_id', this.id);
       console.log('user_id', localStorage.activeUser);
-      //Die Detailansicht des Clubs wird hier aus dem Service geholt,
-      //dabei wird die ID des Clubs sowie die ID des Users mit übergeben
+      // Die Detailansicht des Clubs wird hier aus dem Service geholt,
+      // dabei wird die ID des Clubs sowie die ID des Users mit übergeben
       this.clubService
         .getDetailedClub(this.id, localStorage.activeUser)
         .subscribe(club => {
@@ -44,17 +44,17 @@ export class EditClubComponent implements OnInit {
     });
   }
 
-  //userForm ist für die Verarbeitung der User-Eingaben zuständig.
-  //Die FormGroup übernimmt den Zustand und die Validierung der im
-  //HTML vorhandenen FormControl-Instanzen. Validators.required überprüft,
-  //ob der eingebene Name schon verwendet wird.
+  // userForm ist für die Verarbeitung der User-Eingaben zuständig.
+  // Die FormGroup übernimmt den Zustand und die Validierung der im
+  // HTML vorhandenen FormControl-Instanzen. Validators.required überprüft,
+  // ob der eingebene Name schon verwendet wird.
   userForm = new FormGroup({
     brief: new FormControl(),
     description: new FormControl(),
     time: new FormControl(),
     place: new FormControl()
   });
-  //Hier werden die einzelnen Werte der FormGroup ausgelesen.
+  // Hier werden die einzelnen Werte der FormGroup ausgelesen.
   get brief(): any {
     return this.userForm.get('brief');
   }
@@ -68,7 +68,6 @@ export class EditClubComponent implements OnInit {
     return this.userForm.get('place');
   }
 
-  
   async editClub() {
     let { brief, description, time, place } = this.userForm.getRawValue();
 
@@ -80,10 +79,10 @@ export class EditClubComponent implements OnInit {
       .subscribe(club => {
         changedClub = club[0];
         changedID = club[0]._id;
-        
-        //Es wird geprüft, ob die Eingabefelder bearbeitet wurden.
-        //Wenn man nur einige Eingabefelder bearbeiten möchte,
-        //wird der Rest mit den alten Daten befüllt
+
+        // Es wird geprüft, ob die Eingabefelder bearbeitet wurden.
+        // Wenn man nur einige Eingabefelder bearbeiten möchte,
+        // wird der Rest mit den alten Daten befüllt
         if (brief === null) {
           brief = changedClub.brief;
         }

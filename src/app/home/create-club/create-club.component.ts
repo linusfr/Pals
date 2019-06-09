@@ -1,8 +1,8 @@
-//------------------------------------------------------------------------------
-//Diese Komponente dient der Erstellung von Clubs.
-//Es werden die vom User eingegebenen Parameter überprüft
-//und validiert und anschließend an den Service weitergeleitet.
-//------------------------------------------------------------------------------
+// ------------------------------------------------------------------------------
+// Diese Komponente dient der Erstellung von Clubs.
+// Es werden die vom User eingegebenen Parameter überprüft
+// und validiert und anschließend an den Service weitergeleitet.
+// ------------------------------------------------------------------------------
 
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
@@ -26,17 +26,17 @@ export class CreateClubComponent implements OnInit {
 
   show = false;
   selectedValue = 'Kategorie';
-  //Es werden die Kategorien aus dem categoryService geholt.
+  // Es werden die Kategorien aus dem categoryService geholt.
   ngOnInit() {
     this.categoryService
       .getCategories()
       .subscribe(data => (this.categories = data));
   }
 
-  //userForm ist für die Verarbeitung der User-Eingaben zuständig.
-  //Die FormGroup übernimmt den Zustand und die Validierung der im
-  //HTML vorhandenen FormControl-Instanzen. Validators.required überprüft,
-  //ob der eingebene Name schon verwendet wird.
+  // userForm ist für die Verarbeitung der User-Eingaben zuständig.
+  // Die FormGroup übernimmt den Zustand und die Validierung der im
+  // HTML vorhandenen FormControl-Instanzen. Validators.required überprüft,
+  // ob der eingebene Name schon verwendet wird.
   userForm = new FormGroup({
     name: new FormControl('', [Validators.required]),
     brief: new FormControl(),
@@ -44,7 +44,7 @@ export class CreateClubComponent implements OnInit {
     category: new FormControl()
   });
 
-  //Hier werden die einzelnen Werte der FormGroup ausgelesen.
+  // Hier werden die einzelnen Werte der FormGroup ausgelesen.
   get name(): any {
     return this.userForm.get('name');
   }
@@ -60,16 +60,16 @@ export class CreateClubComponent implements OnInit {
 
   categories;
 
-  //addCategory dient dazu, dem User die Möglichkeit geben, Kategorien hinzuzufügen.
+  // addCategory dient dazu, dem User die Möglichkeit geben, Kategorien hinzuzufügen.
   addCategory = category => {
     this.show = false;
     this.categoryService
       .addCategory({ name: category })
       .subscribe(value => this.categories.push(value));
-  };
+  }
 
   async createClub() {
-    //Hier wird der Validator aus der FormGroup abgefragt
+    // Hier wird der Validator aus der FormGroup abgefragt
     if (!this.userForm.valid) {
       return;
     }
@@ -81,7 +81,7 @@ export class CreateClubComponent implements OnInit {
 
     let club;
 
-    //Dem ClubService werden die Werte des Clubs übergeben, der erstellt werden soll.
+    // Dem ClubService werden die Werte des Clubs übergeben, der erstellt werden soll.
     this.clubService
       .addClubs({
         administrator,
@@ -95,13 +95,13 @@ export class CreateClubComponent implements OnInit {
       .then(data => {
         data.subscribe(async value => {
           club = value;
-          //Der alert wird geworfen, wenn der Name bereits vergeben wurde
+          // Der alert wird geworfen, wenn der Name bereits vergeben wurde
           if (value === 'error') {
             alert('Clubname schon in Benutzung!');
           } else {
-            //Es wird eine Gruppe in der Chat-Api erstellt, die dem erstellten Clb zugeordnet wird
+            // Es wird eine Gruppe in der Chat-Api erstellt, die dem erstellten Clb zugeordnet wird
             await this.chatAuth.createGroup(club._id, name);
-            //Für den erstellten Club wird der Administrator des Clubs der Chatgruppe hinzugefügt
+            // Für den erstellten Club wird der Administrator des Clubs der Chatgruppe hinzugefügt
             this.chatAuth.addGroupMember(club._id, localStorage.activeUser);
             //Das ist die im Approuting hinterlegte Route
             this.router.navigate(['detailedClub', club._id]);
