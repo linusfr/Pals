@@ -1,0 +1,927 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>mean documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">mean documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li>ChangeProfilePageComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/home/change-profile-page/change-profile-page.component.ts</code>
+</p>
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-change-profile-page</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./change-profile-page.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./change-profile-page.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#email">email</a>
+                            </li>
+                            <li>
+                                <a href="#fullname">fullname</a>
+                            </li>
+                            <li>
+                                <a href="#user">user</a>
+                            </li>
+                            <li>
+                                <a href="#userForm">userForm</a>
+                            </li>
+                            <li>
+                                <a href="#userSplit">userSplit</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#editUser">editUser</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit">ngOnInit</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Accessors</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                    <a href="#firstName">firstName</a>
+                                </li>
+                                <li>
+                                    <a href="#lastName">lastName</a>
+                                </li>
+                                <li>
+                                    <a href="#userEmail">userEmail</a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(userService: <a href="../injectables/UserService.html">UserService</a>, router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/home/change-profile-page/change-profile-page.component.ts:14</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>userService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/UserService.html" target="_self" >UserService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>router</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/router/Router" target="_blank" >Router</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="editUser"></a>
+                    <span class="name">
+                        <b>
+                            editUser
+                        </b>
+                        <a href="#editUser"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>editUser()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="35"
+                            class="link-to-prism">src/app/home/change-profile-page/change-profile-page.component.ts:35</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <b>
+                            ngOnInit
+                        </b>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="76"
+                            class="link-to-prism">src/app/home/change-profile-page/change-profile-page.component.ts:76</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="email"></a>
+                        <span class="name">
+                            <b>
+                            email</b>
+                            <a href="#email"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/home/change-profile-page/change-profile-page.component.ts:13</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="fullname"></a>
+                        <span class="name">
+                            <b>
+                            fullname</b>
+                            <a href="#fullname"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/home/change-profile-page/change-profile-page.component.ts:14</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="user"></a>
+                        <span class="name">
+                            <b>
+                            user</b>
+                            <a href="#user"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/home/change-profile-page/change-profile-page.component.ts:12</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="userForm"></a>
+                        <span class="name">
+                            <b>
+                            userForm</b>
+                            <a href="#userForm"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>new FormGroup({
+    firstName: new FormControl(),
+    lastName: new FormControl(),
+    userEmail: new FormControl()
+  })</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/home/change-profile-page/change-profile-page.component.ts:19</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="userSplit"></a>
+                        <span class="name">
+                            <b>
+                            userSplit</b>
+                            <a href="#userSplit"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>[]</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[]</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/home/change-profile-page/change-profile-page.component.ts:17</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+</section>
+
+    <section>
+    <h3 id="accessors">
+        Accessors
+    </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="firstName"></a>
+                        <span class="name"><b>firstName</b><a href="#firstName"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>firstName()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/home/change-profile-page/change-profile-page.component.ts:25</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="lastName"></a>
+                        <span class="name"><b>lastName</b><a href="#lastName"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>lastName()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/home/change-profile-page/change-profile-page.component.ts:28</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="userEmail"></a>
+                        <span class="name"><b>userEmail</b><a href="#userEmail"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>userEmail()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/app/home/change-profile-page/change-profile-page.component.ts:31</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+</section>
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit, Input, Output, EventEmitter } from &#x27;@angular/core&#x27;;
+import { UserService } from &#x27;../../services/user.service&#x27;;
+import { FormGroup, FormControl, Validators } from &#x27;@angular/forms&#x27;;
+import { Router } from &#x27;@angular/router&#x27;;
+
+@Component({
+  selector: &#x27;app-change-profile-page&#x27;,
+  templateUrl: &#x27;./change-profile-page.component.html&#x27;,
+  styleUrls: [&#x27;./change-profile-page.component.scss&#x27;]
+})
+export class ChangeProfilePageComponent implements OnInit {
+  user;
+  email;
+  fullname;
+
+  constructor(private userService: UserService, private router: Router) {}
+  userSplit &#x3D; [];
+
+  userForm &#x3D; new FormGroup({
+    firstName: new FormControl(),
+    lastName: new FormControl(),
+    userEmail: new FormControl()
+  });
+
+  get firstName(): any {
+    return this.userForm.get(&#x27;firstName&#x27;);
+  }
+  get lastName(): any {
+    return this.userForm.get(&#x27;lastName&#x27;);
+  }
+  get userEmail(): any {
+    return this.userForm.get(&#x27;userEmail&#x27;);
+  }
+
+  editUser() {
+    this.userService.getActiveUser().subscribe(user &#x3D;&gt; {
+      console.log(user);
+      this.user &#x3D; user;
+      this.email &#x3D; this.user.email;
+      this.fullname &#x3D; this.user.fullname;
+      this.userSplit &#x3D; this.fullname.split(&#x27; &#x27;);
+      this.userSplit.forEach(value &#x3D;&gt; console.log(value));
+
+      let { firstName, lastName, userEmail } &#x3D; this.userForm.getRawValue();
+      console.log(firstName, lastName, userEmail);
+
+      if (firstName &#x3D;&#x3D;&#x3D; null) {
+        firstName &#x3D; this.userSplit[0];
+      }
+      if (lastName &#x3D;&#x3D;&#x3D; null) {
+        lastName &#x3D; this.userSplit[1];
+      }
+      if (userEmail &#x3D;&#x3D;&#x3D; null) {
+        userEmail &#x3D; this.email;
+      }
+
+      let id &#x3D; localStorage.activeUser;
+      let fullName;
+
+      if (lastName &#x3D;&#x3D;&#x3D; null &amp;&amp; this.userSplit[1] &#x3D;&#x3D;&#x3D; undefined) {
+        fullName &#x3D; firstName;
+      } else {
+        fullName &#x3D; firstName + &#x27; &#x27; + lastName;
+      }
+      let email &#x3D; this.email;
+
+      console.log(&#x27;data&#x27;, id, fullName, userEmail);
+
+      this.userService.editUser({ id, fullName, userEmail }).subscribe(data &#x3D;&gt; {
+        console.log(data);
+        this.router.navigate([&#x27;/profile&#x27;]);
+      });
+    });
+  }
+
+  ngOnInit() {
+    this.userService.getActiveUser().subscribe(user &#x3D;&gt; {
+      console.log(user);
+      this.user &#x3D; user;
+      this.email &#x3D; this.user.email;
+      this.fullname &#x3D; this.user.fullname;
+      this.userSplit &#x3D; this.fullname.split(&#x27; &#x27;);
+      this.userSplit.forEach(value &#x3D;&gt; console.log(value));
+    });
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div&gt;
+  &lt;mat-icon [routerLink]&#x3D;&quot;[&#x27;/profile&#x27;]&quot; id&#x3D;&quot;backArrow&quot;&gt;arrow_back&lt;/mat-icon&gt;
+&lt;/div&gt;
+
+&lt;div class&#x3D;&quot;card&quot;&gt;
+
+  &lt;div class&#x3D;&quot;image&quot;&gt;
+    &lt;img id&#x3D;&quot;ppicture&quot; src&#x3D;&quot;../assets/Teddy-bear-looking-for-a-friend.jpg&quot; alt&#x3D;&quot;Profilbild&quot; /&gt;
+
+    &lt;div id&#x3D;&quot;pictureText&quot;&gt;
+      &lt;p&gt;
+        Lade ein aussagekräftiges Bild hoch!
+      &lt;/p&gt;
+    &lt;/div&gt;
+
+    &lt;div id&#x3D;&quot;loadButton&quot;&gt;
+      &lt;button mat-stroked-button class&#x3D;&quot;submit&quot; color&#x3D;&quot;secondary&quot;&gt;
+        Datei auswählen
+      &lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;div class&#x3D;&quot;description&quot;&gt;
+    &lt;div class&#x3D;&quot;header&quot;&gt;
+      Dein Profil bearbeiten
+    &lt;/div&gt;
+
+    &lt;div id&#x3D;&quot;profileInfo&quot;&gt;
+      &lt;mat-form-field&gt;
+        &lt;mat-label&gt;Vorname:&lt;/mat-label&gt;
+        &lt;textarea matInput [formControl]&#x3D;&quot;firstName&quot; type&#x3D;&quot;text&quot;&gt;{{ userSplit[0] }}&lt;/textarea&gt;
+      &lt;/mat-form-field&gt;
+
+      &lt;mat-form-field&gt;
+        &lt;mat-label&gt;Nachname:&lt;/mat-label&gt;
+        &lt;textarea matInput [formControl]&#x3D;&quot;lastName&quot; type&#x3D;&quot;text&quot;&gt;{{ userSplit[1] }}&lt;/textarea&gt;
+      &lt;/mat-form-field&gt;
+
+      &lt;mat-form-field&gt;
+        &lt;mat-label&gt;E-Mail-Adresse:&lt;/mat-label&gt;
+        &lt;textarea matInput [formControl]&#x3D;&quot;userEmail&quot; type&#x3D;&quot;text&quot;&gt;{{ email }}&lt;/textarea&gt;
+      &lt;/mat-form-field&gt;
+    &lt;/div&gt;
+
+    &lt;div id&#x3D;&quot;buttonChangeProfile&quot;&gt;
+      &lt;button mat-stroked-button (click)&#x3D;&quot;editUser()&quot; color&#x3D;&quot;primary&quot; class&#x3D;&quot;submit&quot;&gt;
+        Profil speichern
+      &lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>./change-profile-page.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">.card {
+  width: 90%;
+  height: 30em;
+  display: flex;
+  flex-direction: row;
+  margin: 4em;
+  margin-top: 0em;
+  color: #37474f;
+}
+
+.image {
+  background-color: #d8d8d8;
+  border-top-left-radius: 0.9em;
+  border-bottom-left-radius: 0.9em;
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+}
+
+#ppicture {
+  display: flex;
+  width: 60%;
+  height: 60%;
+  margin: 0 auto;
+  margin-top: 10px;
+  border-radius: 0.9em;
+  vertical-align: middle;
+}
+
+.description {
+  background-color: #ebebeb;
+  border-top-right-radius: 0.9em;
+  border-bottom-right-radius: 0.9em;
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  text-align: center;
+  font-size: 2em;
+  padding-top: 1em;
+  padding-bottom: 0.5em;
+  color: #607d8b;
+}
+
+#buttonChangeProfile {
+  text-align: center;
+  margin-top: 1.5em;
+}
+
+#profileInfo {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  margin-top: 30px;
+  width: 20em;
+  color: #607d8b;
+}
+
+#pictureText {
+  text-align: center;
+}
+
+#loadButton {
+  display: flex;
+  margin: 0 auto;
+}
+
+#backArrow {
+  font-size: 3em;
+  color: white;
+  margin-left: 20px;
+  margin-top: 20px;
+  background-color: #37474f;
+  width: 50px;
+  height: 50px;
+  border-radius: 1em;
+}
+
+#backArrow:hover {
+  cursor: pointer;
+}
+
+mat-label {
+  color: #607d8b;
+}
+
+mat-form-field {
+  color: #607d8b;
+}
+
+@media only screen and (max-width: 768px) {
+  .card {
+    width: 90%;
+    flex-direction: column;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    height: 60em;
+  }
+
+  #ppicture {
+    height: 70%;
+  }
+
+  .image {
+    border-top-left-radius: 0.9em;
+    border-top-right-radius: 0.9em;
+    border-bottom-left-radius: 0em;
+    width: 100%;
+    height: 40em;
+  }
+
+  .description {
+    border-bottom-right-radius: 0.9em;
+    border-bottom-left-radius: 0.9em;
+    border-top-right-radius: 0em;
+    width: 100%;
+  }
+
+  #buttonChangeProfile {
+    margin: 0em;
+    margin-bottom: 7em;
+    margin-top: 1em;
+  }
+
+  #backArrow {
+    margin-bottom: 10px;
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div>  <mat-icon [routerLink]="[\'/profile\']" id="backArrow">arrow_back</mat-icon></div><div class="card">  <div class="image">    <img id="ppicture" src="../assets/Teddy-bear-looking-for-a-friend.jpg" alt="Profilbild" />    <div id="pictureText">      <p>        Lade ein aussagekräftiges Bild hoch!      </p>    </div>    <div id="loadButton">      <button mat-stroked-button class="submit" color="secondary">        Datei auswählen      </button>    </div>  </div>  <div class="description">    <div class="header">      Dein Profil bearbeiten    </div>    <div id="profileInfo">      <mat-form-field>        <mat-label>Vorname:</mat-label>        <textarea matInput [formControl]="firstName" type="text">{{ userSplit[0] }}</textarea>      </mat-form-field>      <mat-form-field>        <mat-label>Nachname:</mat-label>        <textarea matInput [formControl]="lastName" type="text">{{ userSplit[1] }}</textarea>      </mat-form-field>      <mat-form-field>        <mat-label>E-Mail-Adresse:</mat-label>        <textarea matInput [formControl]="userEmail" type="text">{{ email }}</textarea>      </mat-form-field>    </div>    <div id="buttonChangeProfile">      <button mat-stroked-button (click)="editUser()" color="primary" class="submit">        Profil speichern      </button>    </div>  </div></div></div>'
+    var COMPONENTS = [{'name': 'AddClubComponent', 'selector': 'app-add-club'},{'name': 'AdminComponent', 'selector': 'app-admin'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'ChangeProfilePageComponent', 'selector': 'app-change-profile-page'},{'name': 'ChatLoginComponent', 'selector': 'app-chat-login'},{'name': 'CreateClubComponent', 'selector': 'app-create-club'},{'name': 'DetailedViewComponent', 'selector': 'app-detailed-view'},{'name': 'EditClubComponent', 'selector': 'app-edit-club'},{'name': 'GroupViewComponent', 'selector': 'app-group-view'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'JoinedClubsComponent', 'selector': 'app-joined-clubs'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'ProfilePageComponent', 'selector': 'app-profile-page'},{'name': 'RegisterComponent', 'selector': 'app-register'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'ChangeProfilePageComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'ChangeProfilePageComponent.html';
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

@@ -47,10 +47,6 @@ const routes: Routes = [
     path: 'auth',
     loadChildren: 'app/auth/auth.module#AuthModule'
   },
-  {
-    path: 'admin',
-    loadChildren: 'app/admin/admin.module#AdminModule'
-  },
   // { path: '', redirectTo: 'chat', pathMatch: 'full' }, // our home screen would also lead to the chat login field
   //{ path: 'chatLogin', component: ChatLoginComponent }, // would start at login screen, which we do not need -->
   { path: 'chat', component: GroupViewComponent }

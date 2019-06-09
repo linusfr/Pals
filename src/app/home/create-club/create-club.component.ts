@@ -1,4 +1,4 @@
-// -----------------------------------------------------------------------------
+//------------------------------------------------------------------------------
 //Diese Komponente dient der Erstellung von Clubs.
 //Es werden die vom User eingegebenen Parameter überprüft
 //und validiert und anschließend an den Service weitergeleitet.
@@ -26,6 +26,7 @@ export class CreateClubComponent implements OnInit {
 
   show = false;
   selectedValue = 'Kategorie';
+  //Es werden die Kategorien aus dem categoryService geholt.
   ngOnInit() {
     this.categoryService
       .getCategories()
@@ -94,7 +95,6 @@ export class CreateClubComponent implements OnInit {
       .then(data => {
         data.subscribe(async value => {
           club = value;
-          console.log(value);
           //Der alert wird geworfen, wenn der Name bereits vergeben wurde
           if (value === 'error') {
             alert('Clubname schon in Benutzung!');
