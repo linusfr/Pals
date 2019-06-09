@@ -27,12 +27,9 @@ export class EditClubComponent implements OnInit {
 
   // Es werden die Kategorien aus dem categoryService geholt.
   // Als Parameter werden die ID des Clubs mitgegeben, der bearbeitet werden soll.
-  // Weiterhin wird geprüft, ob der User, der den Club bearbeiten will, der Administrator ist.
   ngOnInit() {
     this.club = this.route.params.subscribe(params => {
       this.id = params['id'];
-      console.log('club_id', this.id);
-      console.log('user_id', localStorage.activeUser);
       // Die Detailansicht des Clubs wird hier aus dem Service geholt,
       // dabei wird die ID des Clubs sowie die ID des Users mit übergeben
       this.clubService

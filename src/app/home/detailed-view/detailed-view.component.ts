@@ -1,7 +1,10 @@
 // -----------------------------------------------------------------------------
-//
+//Diese Komponente dient der Darstellung der Clubs, sie zeigt alle Informationen
+//des Clubs an und bietet Weiterleitung auf die Clubeinstellungen.
+//Hier wird auch die Rolle des aktiven Nutzers überprüft, um die gewünschten
+//Dinge anzeigen zu lassen. zusätzlich wird der Chat gesetzt und auf den
+//GoogleCalendar weitergeleitet. 
 // ------------------------------------------------------------------------------
-
 
 import { Component, OnInit } from '@angular/core';
 import {
@@ -40,8 +43,7 @@ export class DetailedViewComponent implements OnInit {
   isOwner = false;
   meinDatum;
   myDate;
-
-  // 
+ 
   render = function () {
     return this.isMember
       ? `<div id="joinClubButton">
@@ -52,7 +54,7 @@ export class DetailedViewComponent implements OnInit {
       : `<div class="chat">Chat</div>`;
   };
 
-  // 
+  //Es werden mithilfe der ID alle Informationen über den Club abgerufen 
   ngOnInit() {
     this.club = this.route.params.subscribe(params => {
       this.id = params['id'];
@@ -65,14 +67,14 @@ export class DetailedViewComponent implements OnInit {
           this.club = club[0];
           let user = localStorage.activeUser;
 
-          // check member
+          // Überprüfung, ob der aktive Nutzer Clubmitglied ist
           club[0].member.forEach(member => {
             if (member === user) {
               this.isMember = true;
             }
           });
 
-          // check owner
+          // Überprüfung, ob der aktive Nutzer Ersteller des Clubs ist
           if (club[0].administrator._id === user) {
             this.isOwner = true;
           }
@@ -139,7 +141,7 @@ export class DetailedViewComponent implements OnInit {
     return meinDatum;
   }
 
-//
+// Funktion, mit der der Nutzer den Club verlassen kann.
   exitClub = () => {
     this.clubService
       .removeMember(this.club, localStorage.activeUser)
@@ -150,7 +152,8 @@ export class DetailedViewComponent implements OnInit {
   }
 
   // Funktion, die aufgerufen wird, wenn ein Nutzer einem Club beitritt.
-  // ... add stuff...
+  // Der aktive Nutzer wird der Mitgliederliste des Clubs hinzugefügt und 
+  // des Status des Users wird auf Mitglied gesetzt.
   // Zudem wird der Nutzer mit Hilfe des Comet-Chat-API-Services der Chatgruppe
   // in der Comet Chat Datenbank hinzugefügt. 
   joinClub = () => {
