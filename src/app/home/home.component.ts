@@ -1,9 +1,8 @@
 import { ClubService } from './../services/club.service';
-import { AuthService } from './../auth/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { UserService } from './../services/user.service';
 import { CategoryService } from '../services/category.service';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-home',
@@ -40,7 +39,6 @@ export class HomeComponent implements OnInit {
       .getCategories()
       .subscribe(data => (this.categories = data));
 
-    // ----------- GET CLUBS -> WORKING! -----------------------
     this.clubService.getClubs().subscribe(clubs => {
       this.clubs = clubs;
       console.log(clubs);
@@ -58,17 +56,17 @@ export class HomeComponent implements OnInit {
     // this.addSampleCategories();
   }
 
+  //Wird für die Suche nach Clubs genutzt.
+  //Die Suche wird pro neu eingegebenem Buchstaben andere Resultate liefern.
+  //Zusätzlich wird der Kategorien-Filter berücksichtigt.
   onKey(event) {
     let { category } = this.userForm.getRawValue();
     if (category === null) {
       category = 'all';
     }
-    console.log(category);
-    console.log(event.target.value);
     this.clubService
       .searchClubs(event.target.value, category)
       .subscribe(data => {
-        console.log(data);
         this.clubs = data;
       });
   }
@@ -77,9 +75,6 @@ export class HomeComponent implements OnInit {
     if (name === null) {
       name = '';
     }
-
-    console.log(event);
-
     this.clubService.searchClubs(name, event.value).subscribe(data => {
       console.log(data);
       this.clubs = data;

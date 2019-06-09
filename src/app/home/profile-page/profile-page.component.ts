@@ -1,3 +1,7 @@
+//---------------------------------------------------------------
+//Diese Komponente ist für die Anzeige des User-Profils zuständig
+//---------------------------------------------------------------
+
 import { Component, OnInit, Input } from '@angular/core';
 import { UserService } from '../../services/user.service';
 
@@ -16,7 +20,6 @@ export class ProfilePageComponent implements OnInit {
 
   ngOnInit() {
     this.userService.getActiveUser().subscribe(user => {
-      console.log(user);
       this.user = user;
       this.email = this.user.email;
       this.fullname = this.user.fullname;

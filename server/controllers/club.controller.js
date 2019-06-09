@@ -1,5 +1,4 @@
 const Club = require('../models/club.model');
-const Category = require('../models/category.model');
 const categoryCtrl = require('./category.controller');
 
 module.exports = {
@@ -13,10 +12,14 @@ module.exports = {
   removeMember
 };
 
+//Funktion, um einen Club hinzuzufügen
 async function addClub(club) {
+  //Mittels CategoryController wird überprüft, ob die hinzuzufügende Kategorie schon existiert
   let categoryExists = await categoryCtrl.categoryExists({
     name: club.category
   });
+  //Falls die Kategorie nicht existiert, wird sie über den CategoryController in die Datenbank eingetragen
+  //Ansonsten wird die ID der Kategorie übermittelt
   if (categoryExists === false) {
     club.category = await categoryCtrl.addCategory({ name: club.category })._id;
   } else {
@@ -31,21 +34,23 @@ async function addClub(club) {
   return club;
 }
 
+//Funktion, um einen Club zu bearbeiten
 async function editClub(club) {
-  // alten Club rausziehen
+  //Der alte Club wird aufgerufen
   let oldClub = await Club.findOne({ _id: club.changedID });
 
-  // Geänderte Felder überarbeiten
+  //Geänderte Felder werden überarbeitet
   oldClub.brief = club.brief;
   oldClub.description = club.description;
   oldClub.time = club.time;
   oldClub.place = club.place;
 
-  // alten Club überschreiben
+  //Der alte Club wird überschrieben
   let res = await Club.replaceOne({ _id: club.changedID }, oldClub);
   return oldClub;
 }
 
+//Alle Clubs zurückgeben
 async function getClubs() {
   let clubs = await Club.find({});
 
@@ -56,9 +61,12 @@ async function getClubs() {
   return filteredClubs;
 }
 
+//Club über den Namen filtern
 async function getClubsByName(name, category) {
   let categoryID = '';
   let categories = await categoryCtrl.getCategories();
+  //Iteriert durch alle Clubs, und vergleicht den Namen des gesuchten Clubs
+  //Ist der richtige Club gefunden, wird dessen ID zurückgegeben
   categories.forEach(value => {
     if (value.name === category) {
       categoryID = value._id;
@@ -78,6 +86,7 @@ async function getClubsByName(name, category) {
     });
   }
 
+  //Die Werte der Clubs werden auf ID, Name, Kurzbeschreibung und URL zu seinem zufällig generierten Bild beschränkt
   let filteredClubs = clubs.map(({ _id, name, brief, imgURL }) => {
     return { _id, name, brief, imgURL };
   });
@@ -85,9 +94,12 @@ async function getClubsByName(name, category) {
   return filteredClubs;
 }
 
+//Gibt die Clubs zurück, in denen man Mitglied ist
 async function getJoinedClubs(id) {
+  //Sucht die Clubs, in denen im Member-Feld die ID des angemeldeten Users ist
   let clubs = await Club.find({ member: id });
 
+  //Die Werte der Clubs werden auf ID, Name, Kurzbeschreibung und URL zu seinem zufällig generierten Bild beschränkt
   let filteredClubs = clubs.map(({ _id, name, brief, imgURL }) => {
     return { _id, name, brief, imgURL };
   });
@@ -95,7 +107,9 @@ async function getJoinedClubs(id) {
   return filteredClubs;
 }
 
+//Sucht einen Club mittels als Parameter übergebener ClubID
 async function getDetailedClub(userID, clubID) {
+  //
   return await Club.find({ _id: clubID })
     .populate('administrator')
     .populate('category');

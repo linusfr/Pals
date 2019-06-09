@@ -1,3 +1,7 @@
+//----------------------------------------------------------------------------------------------------------
+//Mit diesem Service geben wir den vorgefertigten Kategorien die englischen Begriffe für die Pexels API mit.
+//----------------------------------------------------------------------------------------------------------
+
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 
@@ -7,6 +11,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 export class ImageService {
   constructor(private http: HttpClient) {}
 
+  //Vorgefertigte Kategorien, die für die PexelsAPI in's Englische übersetzt wurden.
   public async getRandomPicture(categoryName) {
     switch (categoryName) {
       case 'Sport':

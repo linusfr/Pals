@@ -1,16 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { switchMap } from 'rxjs/operators';
 import {
   NgAddToCalendarService,
   ICalendarEvent
 } from '@trademe/ng-add-to-calendar';
 import { SafeUrl, DomSanitizer } from '@angular/platform-browser';
-import { ActivatedRoute, ParamMap } from '@angular/router';
+import { ActivatedRoute} from '@angular/router';
 import { ClubService } from '../../services/club.service';
 import { AuthService } from '../../auth/auth.service';
 import { UserService } from '../../services/user.service';
 import { CometChatApiService } from '../../chat/CometChatService/comet-chat-api.service';
-import { formatDate } from '@angular/common';
 
 @Component({
   selector: 'app-detailed-view',
@@ -26,7 +24,6 @@ export class DetailedViewComponent implements OnInit {
     private _addToCalendarService: NgAddToCalendarService,
     private _sanitizer: DomSanitizer,
     private clubService: ClubService,
-    private authService: AuthService,
     private userService: UserService,
     private chatAuth: CometChatApiService
   ) {}

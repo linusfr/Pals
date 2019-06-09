@@ -1,7 +1,7 @@
 // -----------------------------------------------------------------------------
 //Dieser Service liefert alle nötigen Funktionen, die der Chat zum
 //Starten und Funktionieren benötigt.
-//Der Service kann an allen Stellen der Anwendung aufgerufen werden,
+//Dieser Service kann an allen Stellen der Anwendung aufgerufen werden,
 //um dort auf die Funktionen zugreifen zu können.
 //------------------------------------------------------------------------------
 
@@ -51,6 +51,11 @@ export class CometChatService {
       .then(_ => console.log('User logged in'), console.error);
   }
 
+
+  // Funktion um eine Nachricht an den Comet Chat Server und somit über Umweg an den aktuellen Gruppenchat zu senden. 
+  // Dabei werden die Empfänger-ID (in unseren Fällen immer eine Gruppen-ID), 
+  // der eigentliche Text, sowie die Nachrichten-Art und Empfänger-Art (Gruppe oder Einzelperson)
+  // übergeben.
   sendMessage(receiverId: string, text: string) {
     const message = new CometChat.TextMessage(
       receiverId,
@@ -58,10 +63,14 @@ export class CometChatService {
       CometChat.MESSAGE_TYPE.TEXT,
       CometChat.RECEIVER_TYPE.GROUP
     );
-
     return CometChat.sendMessage(message);
   }
 
+  // Funktion um aktuell hereinkommende Nachrichten zu erkennen und darzustellen
+  // Dies erreicht man mit Hilfe eines Message Listeners. Dieser erhält eine 
+  // einzigartige ID, in unserem Fall die ClubId. Mithilfe der MessageListener API 
+  // von Comet Chat können wir dann Handler für die unterschiedlichen Arten von 
+  // Nachrichten registrieren
   listenForMessages(listenerId: string, onMessageReceived: (msg: any) => void) {
     CometChat.addMessageListener(
       listenerId,
@@ -72,6 +81,8 @@ export class CometChatService {
     );
   }
 
+  // Funktion zum Entfernen des durch "listenForMessages" erstellten Message Listeners
+  // Übergeben wird hier einfach die Listener ID
   removeListener(listenerId: string) {
     CometChat.removeMessageListener(listenerId);
   }
@@ -80,6 +91,10 @@ export class CometChatService {
     return CometChat.joinGroup(groupId, CometChat.GROUP_TYPE.PUBLIC, '');
   }
 
+  // Funktion zum Abrufen vorheriger Nachrichten
+  // Über die Comet Chat API können wir die Nachrichten über einen message request abrufen
+  // Dafür übergeben wir lediglich die GruppenID, also die ClubId, 
+  // und begrenzen die Anzahl der Nachrichten, die abgerufen werden
   getPreviousMessages(groupId: string) {
     const messageRequest = new CometChat.MessagesRequestBuilder()
       .setGUID(groupId)
