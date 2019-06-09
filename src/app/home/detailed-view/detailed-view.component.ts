@@ -151,6 +151,7 @@ export class DetailedViewComponent implements OnInit {
       });
   }
 
+
   joinClub = () => {
     this.clubService
       .addMember(this.club, localStorage.activeUser)
