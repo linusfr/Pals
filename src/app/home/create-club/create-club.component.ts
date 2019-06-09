@@ -99,7 +99,7 @@ export class CreateClubComponent implements OnInit {
           if (value === 'error') {
             alert('Clubname schon in Benutzung!');
           } else {
-            // Es wird eine Gruppe in der Chat-Api erstellt, die dem erstellten Clb zugeordnet wird
+            // Es wird eine Gruppe in der Comet Chat-Datenbank erstellt, die dem erstellten Club zugeordnet wird
             await this.chatAuth.createGroup(club._id, name);
             // Für den erstellten Club wird der Administrator des Clubs der Chatgruppe hinzugefügt
             this.chatAuth.addGroupMember(club._id, localStorage.activeUser);

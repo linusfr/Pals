@@ -1,3 +1,8 @@
+// -----------------------------------------------------------------------------
+//
+// ------------------------------------------------------------------------------
+
+
 import { Component, OnInit } from '@angular/core';
 import {
   NgAddToCalendarService,
@@ -26,7 +31,7 @@ export class DetailedViewComponent implements OnInit {
     private clubService: ClubService,
     private userService: UserService,
     private chatAuth: CometChatApiService
-  ) {}
+  ) { }
 
   club = {};
   currentUsr = {};
@@ -36,7 +41,8 @@ export class DetailedViewComponent implements OnInit {
   meinDatum;
   myDate;
 
-  render = function() {
+  // 
+  render = function () {
     return this.isMember
       ? `<div id="joinClubButton">
         <button mat-stroked-button color="primary" class="submit">
@@ -46,6 +52,7 @@ export class DetailedViewComponent implements OnInit {
       : `<div class="chat">Chat</div>`;
   };
 
+  // 
   ngOnInit() {
     this.club = this.route.params.subscribe(params => {
       this.id = params['id'];
@@ -70,23 +77,24 @@ export class DetailedViewComponent implements OnInit {
             this.isOwner = true;
           }
 
-          // console.log(club);
-          // console.log(this.formatMeetingDate(club[0].time));
+          // Konvertierung des vom Nutzer übergebenen Treffpunkt-Datums
+          // in die nötigen Formate für Google Calendar und die Club-Anzeige
           this.meinDatum = this.formatMeetingDate(club[0].time);
           this.myDate = this.formatDateforCalendar(club[0].time);
 
+          // Aus den vom Nutzer festgelegten Daten zum Club wird ein Event erstellt, 
+          // das vom addToCalendarService an den Google Calendar übergeben wird.
           this.newEvent = {
-            // Event title
+            // Eventtitel
             title: club[0].name,
-            // Event start date
-            start: new Date(this.myDate), // has to be preformatted in the following format:  2011-04-11T10:20
-            // Event duration (IN MINUTES)
+            // Event Startzeit - diese muss im folgenden Format vom Nutzer übergeben werden, 
+            // damit Google Calendar das Datum auslesen kann: 2011-04-11T10:20
+            start: new Date(this.myDate),  
+            // Eventdauer in Minuten (standardmäßig auf 120 Minuten festgelegt)
             duration: 120,
-            // If an end time is set, this will take precedence over duration (optional)
-            // end: new Date('June 15, 2013 23:00'),
-            // Event Address (optional)
+            // Treffpunkt
             address: club[0].place ? club[0].place : 'place',
-            // Event Description (optional)
+            // Clubbeschreibung 
             description: club[0].description
           };
           this.googleCalendarEventUrl = this._sanitizer.bypassSecurityTrustUrl(
@@ -106,43 +114,32 @@ export class DetailedViewComponent implements OnInit {
 
     this.userService.getActiveUser().subscribe(user => {
       this.currentUsr = user[0];
-      // console.log(this.currentUsr);
     });
   }
 
-  // Funktion um das erhaltene Datum in das
-  // richtige Format für ein Date-Objekt zu bringen,
-  // damit dies in der Google Calendar Api gelesen werden kann.
-  // Format as given: 27-04-2019-12-00
-  // needed: YYYY-MM-DDTHH:MM:SS
-  formatMeetingDate = olddate => {
-    let parts = olddate.split('-');
-    // monat (part 1) wird von JavaScript von 0 an gezählt, daher -1 rechnen --> 0 = Januar
-    let mydate = new Date(parts[2], parts[1] - 1, parts[0], parts[3], parts[4]);
-    console.log(mydate.toDateString());
-
-    // als ausgeschriebenes Datum auf Deutsch darstellen:
-    let options = {
-      weekday: 'long',
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric',
-      hour: 'numeric',
-      minutes: 'numeric'
-    };
-    let meinDatum = mydate.toLocaleDateString('de-DE', options);
-
-    return meinDatum;
-  }
-
+  // Funktion um das erhaltene Datum in das richtige Format für ein Date-Objekt zu bringen,
+  // damit dies von der Google Calendar API gelesen werden kann.
+  // Dabei wird der erhaltene String (nötiges Format: 27-04-2019-12-00) an den Minuszeichen
+  // getrennt und einzelne Substrings in die richtige Reihenfolge an ein Date-Objekt übergeben. 
+  // Der Monat (part 1) wird von JavaScript von 0 an gezählt, daher -1 rechnen --> 0 = Januar
   formatDateforCalendar = olddate => {
     let parts = olddate.split('-');
-    // monat (part 1) wird von JavaScript von 0 an gezählt, daher -1 rechnen --> 0 = Januar
     let mydate = new Date(parts[2], parts[1] - 1, parts[0], parts[3], parts[4]);
-
     return mydate;
   }
 
+  // Funktion um das erhaltene Datum als ausgeschriebenes Datum auf Deutsch zurückzuliefern
+  formatMeetingDate = olddate => {
+    let parts = olddate.split('-');
+    let mydate = new Date(parts[2], parts[1] - 1, parts[0], parts[3], parts[4]);
+    let options = {
+      weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minutes: 'numeric'
+    };
+    let meinDatum = mydate.toLocaleDateString('de-DE', options);
+    return meinDatum;
+  }
+
+//
   exitClub = () => {
     this.clubService
       .removeMember(this.club, localStorage.activeUser)
@@ -152,7 +149,10 @@ export class DetailedViewComponent implements OnInit {
       });
   }
 
-
+  // Funktion, die aufgerufen wird, wenn ein Nutzer einem Club beitritt.
+  // ... add stuff...
+  // Zudem wird der Nutzer mit Hilfe des Comet-Chat-API-Services der Chatgruppe
+  // in der Comet Chat Datenbank hinzugefügt. 
   joinClub = () => {
     this.clubService
       .addMember(this.club, localStorage.activeUser)

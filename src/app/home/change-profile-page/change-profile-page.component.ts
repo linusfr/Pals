@@ -1,3 +1,9 @@
+//-----------------------------------------------------------------------------
+// Mit dieser Komponente können die Profile von Nutzern geändert werden.
+// Es werden die User-Informationen geholt und 
+//
+//-----------------------------------------------------------------------------
+
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { UserService } from '../../services/user.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
@@ -16,12 +22,16 @@ export class ChangeProfilePageComponent implements OnInit {
   constructor(private userService: UserService, private router: Router) {}
   userSplit = [];
 
+  // Mit userForm verarbeitet man die User-Eingaben.
+  // Die FormGroup übernimmt den Zustand der im HTML
+  // vorhandenen FormControl-Instanzen.
   userForm = new FormGroup({
     firstName: new FormControl(),
     lastName: new FormControl(),
     userEmail: new FormControl()
   });
 
+  //Hier werden die einzelnen Werte der userForm ausgelesen.
   get firstName(): any {
     return this.userForm.get('firstName');
   }
@@ -32,6 +42,7 @@ export class ChangeProfilePageComponent implements OnInit {
     return this.userForm.get('userEmail');
   }
 
+  //Die Bearbeitung findet hier statt.
   editUser() {
     this.userService.getActiveUser().subscribe(user => {
       console.log(user);
@@ -44,6 +55,7 @@ export class ChangeProfilePageComponent implements OnInit {
       let { firstName, lastName, userEmail } = this.userForm.getRawValue();
       console.log(firstName, lastName, userEmail);
 
+      //Werden bestimmte Werte nicht verändert, werden die alten Werte beibehalten.
       if (firstName === null) {
         firstName = this.userSplit[0];
       }
@@ -54,9 +66,11 @@ export class ChangeProfilePageComponent implements OnInit {
         userEmail = this.email;
       }
 
+      //Die ID wird aus dem LocalStorage geholt.
       let id = localStorage.activeUser;
       let fullName;
 
+      //Wenn kein Nachname vorhanden ist, wird nur der Vorname eingesetzt.
       if (lastName === null && this.userSplit[1] === undefined) {
         fullName = firstName;
       } else {
@@ -64,10 +78,8 @@ export class ChangeProfilePageComponent implements OnInit {
       }
       let email = this.email;
 
-      console.log('data', id, fullName, userEmail);
-
+      //Die Daten werden dem Service übergeben
       this.userService.editUser({ id, fullName, userEmail }).subscribe(data => {
-        console.log(data);
         data = '' + data;
         if (data === 'emailExists') {
           alert('Emailadresse bereits in Verwendung.');
@@ -78,6 +90,7 @@ export class ChangeProfilePageComponent implements OnInit {
     });
   }
 
+  //Hier werden die alten Daten des Users ausgelesen
   ngOnInit() {
     this.userService.getActiveUser().subscribe(user => {
       console.log(user);
