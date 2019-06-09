@@ -1,3 +1,7 @@
+//---------------------------------------------------------------
+//Diese Komponente ist für die Anzeige des User-Profils zuständig
+//---------------------------------------------------------------
+
 import { Component, OnInit, Input } from '@angular/core';
 import { UserService } from '../../services/user.service';
 

@@ -103,6 +103,7 @@ export class CreateClubComponent implements OnInit {
             await this.chatAuth.createGroup(club._id, name);
             //Für den erstellten Club wird der Administrator des Clubs der Chatgruppe hinzugefügt
             this.chatAuth.addGroupMember(club._id, localStorage.activeUser);
+            //Das ist die im Approuting hinterlegte Route
             this.router.navigate(['detailedClub', club._id]);
           }
         });

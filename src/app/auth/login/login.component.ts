@@ -14,11 +14,11 @@ export class LoginComponent implements OnInit {
     private authService: AuthService,
     private router: Router,
     private userService: UserService
-  ) {}
+  ) { }
 
   email: string;
   password: string;
-  ngOnInit() {}
+  ngOnInit() { }
 
   login(): void {
     this.authService.login(this.email, this.password).subscribe(data => {
