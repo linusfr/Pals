@@ -175,8 +175,8 @@
                     </tr>
                     <tr>
                       <td class="col-md-4">
-                        <div class="io-line">Defined in <a href="" data-line="9"
-                            class="link-to-prism">src/app/home/joined-clubs/joined-clubs.component.ts:9</a></div>
+                        <div class="io-line">Defined in <a href="" data-line="13"
+                            class="link-to-prism">src/app/home/joined-clubs/joined-clubs.component.ts:13</a></div>
                       </td>
                     </tr>
 
@@ -245,8 +245,8 @@
 
                     <tr>
                       <td class="col-md-4">
-                        <div class="io-line">Defined in <a href="" data-line="14"
-                            class="link-to-prism">src/app/home/joined-clubs/joined-clubs.component.ts:14</a></div>
+                        <div class="io-line">Defined in <a href="" data-line="19"
+                            class="link-to-prism">src/app/home/joined-clubs/joined-clubs.component.ts:19</a></div>
                       </td>
                     </tr>
 
@@ -284,8 +284,8 @@
                     </tr>
                     <tr>
                       <td class="col-md-4">
-                        <div class="io-line">Defined in <a href="" data-line="12"
-                            class="link-to-prism">src/app/home/joined-clubs/joined-clubs.component.ts:12</a></div>
+                        <div class="io-line">Defined in <a href="" data-line="16"
+                            class="link-to-prism">src/app/home/joined-clubs/joined-clubs.component.ts:16</a></div>
                       </td>
                     </tr>
 
@@ -311,6 +311,7 @@ export class JoinedClubsComponent implements OnInit {
 
   clubs;
 
+  // Holt alle Clubs, denen der aktuell angemeldete User beigetreten ist
   ngOnInit() {
     this.clubService.getJoinedClubs().subscribe(clubs &#x3D;&gt; {
       this.clubs &#x3D; clubs;
@@ -476,9 +477,6 @@ export class JoinedClubsComponent implements OnInit {
             }, {
               'name': 'ChangeProfilePageComponent',
               'selector': 'app-change-profile-page'
-            }, {
-              'name': 'ChatLoginComponent',
-              'selector': 'app-chat-login'
             }, {
               'name': 'CreateClubComponent',
               'selector': 'app-create-club'

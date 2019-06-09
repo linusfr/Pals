@@ -230,8 +230,8 @@
 
                     <tr>
                       <td class="col-md-4">
-                        <div class="io-line">Defined in <a href="" data-line="77"
-                            class="link-to-prism">src/app/auth/auth.service.ts:77</a></div>
+                        <div class="io-line">Defined in <a href="" data-line="78"
+                            class="link-to-prism">src/app/auth/auth.service.ts:78</a></div>
                       </td>
                     </tr>
 
@@ -359,8 +359,8 @@
 
                     <tr>
                       <td class="col-md-4">
-                        <div class="io-line">Defined in <a href="" data-line="81"
-                            class="link-to-prism">src/app/auth/auth.service.ts:81</a></div>
+                        <div class="io-line">Defined in <a href="" data-line="82"
+                            class="link-to-prism">src/app/auth/auth.service.ts:82</a></div>
                       </td>
                     </tr>
 
@@ -520,8 +520,8 @@
 
                     <tr>
                       <td class="col-md-4">
-                        <div class="io-line">Defined in <a href="" data-line="69"
-                            class="link-to-prism">src/app/auth/auth.service.ts:69</a></div>
+                        <div class="io-line">Defined in <a href="" data-line="70"
+                            class="link-to-prism">src/app/auth/auth.service.ts:70</a></div>
                       </td>
                     </tr>
 
@@ -588,8 +588,8 @@
 
                     <tr>
                       <td class="col-md-4">
-                        <div class="io-line">Defined in <a href="" data-line="95"
-                            class="link-to-prism">src/app/auth/auth.service.ts:95</a></div>
+                        <div class="io-line">Defined in <a href="" data-line="96"
+                            class="link-to-prism">src/app/auth/auth.service.ts:96</a></div>
                       </td>
                     </tr>
 
@@ -702,7 +702,8 @@ export class AuthService {
           observer.next({ user: data.user });
           this.setUser(data.user);
           localStorage.activeUser &#x3D; data.user._id;
-          // console.log(&#x27;chatTest&#x27;, data.user._id, data.user.fullname);
+          // An dieser Stelle erstellt man via Comet Chat API einen neuen Nutzer in der Chat Datenbank
+          // für den neu registrierten Nutzer
           this.chatAuth.createUser(data.user._id, data.user.fullname);
           this.token.saveToken(data.token);
           observer.complete();

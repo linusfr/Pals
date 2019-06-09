@@ -425,11 +425,11 @@ export class LoginComponent implements OnInit {
     private authService: AuthService,
     private router: Router,
     private userService: UserService
-  ) {}
+  ) { }
 
   email: string;
   password: string;
-  ngOnInit() {}
+  ngOnInit() { }
 
   login(): void {
     this.authService.login(this.email, this.password).subscribe(data &#x3D;&gt; {
@@ -636,9 +636,6 @@ a {
             }, {
               'name': 'ChangeProfilePageComponent',
               'selector': 'app-change-profile-page'
-            }, {
-              'name': 'ChatLoginComponent',
-              'selector': 'app-chat-login'
             }, {
               'name': 'CreateClubComponent',
               'selector': 'app-create-club'

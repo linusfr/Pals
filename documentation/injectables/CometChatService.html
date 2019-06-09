@@ -139,8 +139,8 @@
                     </tr>
                     <tr>
                       <td class="col-md-4">
-                        <div class="io-line">Defined in <a href="" data-line="10"
-                            class="link-to-prism">src/app/chat/CometChatService/comet-chat.service.ts:10</a></div>
+                        <div class="io-line">Defined in <a href="" data-line="16"
+                            class="link-to-prism">src/app/chat/CometChatService/comet-chat.service.ts:16</a></div>
                       </td>
                     </tr>
 
@@ -207,8 +207,8 @@
 
                     <tr>
                       <td class="col-md-4">
-                        <div class="io-line">Defined in <a href="" data-line="66"
-                            class="link-to-prism">src/app/chat/CometChatService/comet-chat.service.ts:66</a></div>
+                        <div class="io-line">Defined in <a href="" data-line="96"
+                            class="link-to-prism">src/app/chat/CometChatService/comet-chat.service.ts:96</a></div>
                       </td>
                     </tr>
 
@@ -283,8 +283,8 @@
 
                     <tr>
                       <td class="col-md-4">
-                        <div class="io-line">Defined in <a href="" data-line="21"
-                            class="link-to-prism">src/app/chat/CometChatService/comet-chat.service.ts:21</a></div>
+                        <div class="io-line">Defined in <a href="" data-line="33"
+                            class="link-to-prism">src/app/chat/CometChatService/comet-chat.service.ts:33</a></div>
                       </td>
                     </tr>
 
@@ -363,8 +363,8 @@
 
                     <tr>
                       <td class="col-md-4">
-                        <div class="io-line">Defined in <a href="" data-line="62"
-                            class="link-to-prism">src/app/chat/CometChatService/comet-chat.service.ts:62</a></div>
+                        <div class="io-line">Defined in <a href="" data-line="88"
+                            class="link-to-prism">src/app/chat/CometChatService/comet-chat.service.ts:88</a></div>
                       </td>
                     </tr>
 
@@ -441,8 +441,8 @@
 
                     <tr>
                       <td class="col-md-4">
-                        <div class="io-line">Defined in <a href="" data-line="48"
-                            class="link-to-prism">src/app/chat/CometChatService/comet-chat.service.ts:48</a></div>
+                        <div class="io-line">Defined in <a href="" data-line="72"
+                            class="link-to-prism">src/app/chat/CometChatService/comet-chat.service.ts:72</a></div>
                       </td>
                     </tr>
 
@@ -531,8 +531,8 @@
 
                     <tr>
                       <td class="col-md-4">
-                        <div class="io-line">Defined in <a href="" data-line="31"
-                            class="link-to-prism">src/app/chat/CometChatService/comet-chat.service.ts:31</a></div>
+                        <div class="io-line">Defined in <a href="" data-line="47"
+                            class="link-to-prism">src/app/chat/CometChatService/comet-chat.service.ts:47</a></div>
                       </td>
                     </tr>
 
@@ -616,8 +616,8 @@
 
                     <tr>
                       <td class="col-md-4">
-                        <div class="io-line">Defined in <a href="" data-line="15"
-                            class="link-to-prism">src/app/chat/CometChatService/comet-chat.service.ts:15</a></div>
+                        <div class="io-line">Defined in <a href="" data-line="22"
+                            class="link-to-prism">src/app/chat/CometChatService/comet-chat.service.ts:22</a></div>
                       </td>
                     </tr>
 
@@ -659,8 +659,8 @@
 
                     <tr>
                       <td class="col-md-4">
-                        <div class="io-line">Defined in <a href="" data-line="58"
-                            class="link-to-prism">src/app/chat/CometChatService/comet-chat.service.ts:58</a></div>
+                        <div class="io-line">Defined in <a href="" data-line="84"
+                            class="link-to-prism">src/app/chat/CometChatService/comet-chat.service.ts:84</a></div>
                       </td>
                     </tr>
 
@@ -737,8 +737,8 @@
 
                     <tr>
                       <td class="col-md-4">
-                        <div class="io-line">Defined in <a href="" data-line="37"
-                            class="link-to-prism">src/app/chat/CometChatService/comet-chat.service.ts:37</a></div>
+                        <div class="io-line">Defined in <a href="" data-line="57"
+                            class="link-to-prism">src/app/chat/CometChatService/comet-chat.service.ts:57</a></div>
                       </td>
                     </tr>
 
@@ -823,8 +823,8 @@
                     </tr>
                     <tr>
                       <td class="col-md-4">
-                        <div class="io-line">Defined in <a href="" data-line="12"
-                            class="link-to-prism">src/app/chat/CometChatService/comet-chat.service.ts:12</a></div>
+                        <div class="io-line">Defined in <a href="" data-line="18"
+                            class="link-to-prism">src/app/chat/CometChatService/comet-chat.service.ts:18</a></div>
                       </td>
                     </tr>
 
@@ -841,7 +841,6 @@
 import { CometChat } from &#x27;@cometchat-pro/chat&#x27;;
 import { environment } from &#x27;../../../environments/environment&#x27;;
 import { UserService } from &#x27;../../services/user.service&#x27;;
-import { elementEventFullName } from &#x27;@angular/compiler/src/view_compiler/view_compiler&#x27;;
 
 @Injectable({
   providedIn: &#x27;root&#x27;
@@ -850,13 +849,19 @@ export class CometChatService {
   constructor(private userService: UserService) {}
   currentUser;
 
-  // currentName &#x3D; this.currentUser.fullname;
+  // Bei Aufruf dieses Services wird der aktuell in der Anwendung angemeldete
+  // Nutzer als currentUser gespeichert
   ngOnInit() {
     this.userService.getActiveUser().subscribe(user &#x3D;&gt; {
       this.currentUser &#x3D; user;
     });
   }
 
+  // Funktion zum Initialisieren des Chats:
+  // Nimmt als Parameter lediglich die App-Id, welche man von CometChat erhält.
+  // Diese ist in der Datei environment hinterlegt.
+  // Die Methode liefert ein Promise, welches genutzt wird,um in der Konsole
+  // Rückmeldung zu geben, ob die Initialisierung des Chats erfolgreich war
   init(appID: string &#x3D; environment.cometChat.appId) {
     CometChat.init(appID).then(
       msg &#x3D;&gt; console.log(&#x27;Initialized succesfull: &#x27;, msg),
@@ -867,12 +872,20 @@ export class CometChatService {
     );
   }
 
+  // Funktion zum Einloggen des Nutzers in den Chat
+  // Als Parameter werden der aktuelle Nutzer und der API-Schlüssel übergeben
+  // Bei erfolgreicher Anmeldung wird eine passende Konsolennachricht ausgegeben.
+  // Der Nutzer kann den Chat nicht nutzen, wenn er nicht eingeloggt ist
   login(userId: string, apiKey) {
     return CometChat.login(userId, apiKey)
       .then(usr &#x3D;&gt; (this.currentUser &#x3D; usr), (this.currentUser &#x3D; null))
       .then(_ &#x3D;&gt; console.log(&#x27;User logged in&#x27;), console.error);
   }
 
+  // Funktion um eine Nachricht an den Comet Chat Server und somit über Umweg an den aktuellen Gruppenchat zu senden.
+  // Dabei werden die Empfänger-ID (in unseren Fällen immer eine Gruppen-ID),
+  // der eigentliche Text, sowie die Nachrichten-Art und Empfänger-Art (Gruppe oder Einzelperson)
+  // übergeben.
   sendMessage(receiverId: string, text: string) {
     const message &#x3D; new CometChat.TextMessage(
       receiverId,
@@ -880,10 +893,14 @@ export class CometChatService {
       CometChat.MESSAGE_TYPE.TEXT,
       CometChat.RECEIVER_TYPE.GROUP
     );
-
     return CometChat.sendMessage(message);
   }
 
+  // Funktion um aktuell hereinkommende Nachrichten zu erkennen und darzustellen
+  // Dies erreicht man mit Hilfe eines Message Listeners. Dieser erhält eine
+  // einzigartige ID, in unserem Fall die ClubId. Mithilfe der MessageListener API
+  // von Comet Chat können wir dann Handler für die unterschiedlichen Arten von
+  // Nachrichten registrieren
   listenForMessages(listenerId: string, onMessageReceived: (msg: any) &#x3D;&gt; void) {
     CometChat.addMessageListener(
       listenerId,
@@ -894,6 +911,8 @@ export class CometChatService {
     );
   }
 
+  // Funktion zum Entfernen des durch &quot;listenForMessages&quot; erstellten Message Listeners
+  // Übergeben wird hier einfach die Listener ID
   removeListener(listenerId: string) {
     CometChat.removeMessageListener(listenerId);
   }
@@ -902,6 +921,10 @@ export class CometChatService {
     return CometChat.joinGroup(groupId, CometChat.GROUP_TYPE.PUBLIC, &#x27;&#x27;);
   }
 
+  // Funktion zum Abrufen vorheriger Nachrichten
+  // Über die Comet Chat API können wir die Nachrichten über einen message request abrufen
+  // Dafür übergeben wir lediglich die GruppenID, also die ClubId,
+  // und begrenzen die Anzahl der Nachrichten, die abgerufen werden
   getPreviousMessages(groupId: string) {
     const messageRequest &#x3D; new CometChat.MessagesRequestBuilder()
       .setGUID(groupId)

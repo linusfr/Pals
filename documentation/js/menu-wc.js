@@ -68,8 +68,8 @@ customElements.define(
                                     <li class="chapter inner">
                                         <div class="simple menu-toggler" data-toggle="collapse" ${
                                           isNormalMode
-                                            ? 'data-target="#components-links-module-AppModule-df444b7895c6b552bd574a3c84b57289"'
-                                            : 'data-target="#xs-components-links-module-AppModule-df444b7895c6b552bd574a3c84b57289"'
+                                            ? 'data-target="#components-links-module-AppModule-4ead3112bf7b52153905db94771ce741"'
+                                            : 'data-target="#xs-components-links-module-AppModule-4ead3112bf7b52153905db94771ce741"'
                                         }>
                                             <span class="icon ion-md-cog"></span>
                                             <span>Components</span>
@@ -77,8 +77,8 @@ customElements.define(
                                         </div>
                                         <ul class="links collapse" ${
                                           isNormalMode
-                                            ? 'id="components-links-module-AppModule-df444b7895c6b552bd574a3c84b57289"'
-                                            : 'id="xs-components-links-module-AppModule-df444b7895c6b552bd574a3c84b57289"'
+                                            ? 'id="components-links-module-AppModule-4ead3112bf7b52153905db94771ce741"'
+                                            : 'id="xs-components-links-module-AppModule-4ead3112bf7b52153905db94771ce741"'
                                         }>
                                             <li class="link">
                                                 <a href="components/AddClubComponent.html"
@@ -91,10 +91,6 @@ customElements.define(
                                             <li class="link">
                                                 <a href="components/ChangeProfilePageComponent.html"
                                                     data-type="entity-link" data-context="sub-entity" data-context-id="modules">ChangeProfilePageComponent</a>
-                                            </li>
-                                            <li class="link">
-                                                <a href="components/ChatLoginComponent.html"
-                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">ChatLoginComponent</a>
                                             </li>
                                             <li class="link">
                                                 <a href="components/CreateClubComponent.html"
@@ -133,8 +129,8 @@ customElements.define(
                                 <li class="chapter inner">
                                     <div class="simple menu-toggler" data-toggle="collapse" ${
                                       isNormalMode
-                                        ? 'data-target="#injectables-links-module-AppModule-df444b7895c6b552bd574a3c84b57289"'
-                                        : 'data-target="#xs-injectables-links-module-AppModule-df444b7895c6b552bd574a3c84b57289"'
+                                        ? 'data-target="#injectables-links-module-AppModule-4ead3112bf7b52153905db94771ce741"'
+                                        : 'data-target="#xs-injectables-links-module-AppModule-4ead3112bf7b52153905db94771ce741"'
                                     }>
                                         <span class="icon ion-md-arrow-round-down"></span>
                                         <span>Injectables</span>
@@ -142,8 +138,8 @@ customElements.define(
                                     </div>
                                     <ul class="links collapse" ${
                                       isNormalMode
-                                        ? 'id="injectables-links-module-AppModule-df444b7895c6b552bd574a3c84b57289"'
-                                        : 'id="xs-injectables-links-module-AppModule-df444b7895c6b552bd574a3c84b57289"'
+                                        ? 'id="injectables-links-module-AppModule-4ead3112bf7b52153905db94771ce741"'
+                                        : 'id="xs-injectables-links-module-AppModule-4ead3112bf7b52153905db94771ce741"'
                                     }>
                                         <li class="link">
                                             <a href="injectables/ClubService.html"

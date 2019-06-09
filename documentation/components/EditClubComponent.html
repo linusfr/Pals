@@ -307,8 +307,8 @@
 
                     <tr>
                       <td class="col-md-4">
-                        <div class="io-line">Defined in <a href="" data-line="72"
-                            class="link-to-prism">src/app/home/edit-club/edit-club.component.ts:72</a></div>
+                        <div class="io-line">Defined in <a href="" data-line="71"
+                            class="link-to-prism">src/app/home/edit-club/edit-club.component.ts:71</a></div>
                       </td>
                     </tr>
 
@@ -589,16 +589,16 @@ export class EditClubComponent implements OnInit {
   club &#x3D; {};
   id;
 
-  //Es werden die Kategorien aus dem categoryService geholt.
-  //Als Parameter werden die ID des Clubs mitgegeben, der bearbeitet werden soll.
-  //Weiterhin wird geprüft, ob der User, der den Club bearbeiten will, der Administrator ist.
+  // Es werden die Kategorien aus dem categoryService geholt.
+  // Als Parameter werden die ID des Clubs mitgegeben, der bearbeitet werden soll.
+  // Weiterhin wird geprüft, ob der User, der den Club bearbeiten will, der Administrator ist.
   ngOnInit() {
     this.club &#x3D; this.route.params.subscribe(params &#x3D;&gt; {
       this.id &#x3D; params[&#x27;id&#x27;];
       console.log(&#x27;club_id&#x27;, this.id);
       console.log(&#x27;user_id&#x27;, localStorage.activeUser);
-      //Die Detailansicht des Clubs wird hier aus dem Service geholt,
-      //dabei wird die ID des Clubs sowie die ID des Users mit übergeben
+      // Die Detailansicht des Clubs wird hier aus dem Service geholt,
+      // dabei wird die ID des Clubs sowie die ID des Users mit übergeben
       this.clubService
         .getDetailedClub(this.id, localStorage.activeUser)
         .subscribe(club &#x3D;&gt; {
@@ -608,17 +608,17 @@ export class EditClubComponent implements OnInit {
     });
   }
 
-  //userForm ist für die Verarbeitung der User-Eingaben zuständig.
-  //Die FormGroup übernimmt den Zustand und die Validierung der im
-  //HTML vorhandenen FormControl-Instanzen. Validators.required überprüft,
-  //ob der eingebene Name schon verwendet wird.
+  // userForm ist für die Verarbeitung der User-Eingaben zuständig.
+  // Die FormGroup übernimmt den Zustand und die Validierung der im
+  // HTML vorhandenen FormControl-Instanzen. Validators.required überprüft,
+  // ob der eingebene Name schon verwendet wird.
   userForm &#x3D; new FormGroup({
     brief: new FormControl(),
     description: new FormControl(),
     time: new FormControl(),
     place: new FormControl()
   });
-  //Hier werden die einzelnen Werte der FormGroup ausgelesen.
+  // Hier werden die einzelnen Werte der FormGroup ausgelesen.
   get brief(): any {
     return this.userForm.get(&#x27;brief&#x27;);
   }
@@ -632,7 +632,6 @@ export class EditClubComponent implements OnInit {
     return this.userForm.get(&#x27;place&#x27;);
   }
 
-  
   async editClub() {
     let { brief, description, time, place } &#x3D; this.userForm.getRawValue();
 
@@ -644,10 +643,10 @@ export class EditClubComponent implements OnInit {
       .subscribe(club &#x3D;&gt; {
         changedClub &#x3D; club[0];
         changedID &#x3D; club[0]._id;
-        
-        //Es wird geprüft, ob die Eingabefelder bearbeitet wurden.
-        //Wenn man nur einige Eingabefelder bearbeiten möchte,
-        //wird der Rest mit den alten Daten befüllt
+
+        // Es wird geprüft, ob die Eingabefelder bearbeitet wurden.
+        // Wenn man nur einige Eingabefelder bearbeiten möchte,
+        // wird der Rest mit den alten Daten befüllt
         if (brief &#x3D;&#x3D;&#x3D; null) {
           brief &#x3D; changedClub.brief;
         }
@@ -892,9 +891,6 @@ mat-select {
             }, {
               'name': 'ChangeProfilePageComponent',
               'selector': 'app-change-profile-page'
-            }, {
-              'name': 'ChatLoginComponent',
-              'selector': 'app-chat-login'
             }, {
               'name': 'CreateClubComponent',
               'selector': 'app-create-club'

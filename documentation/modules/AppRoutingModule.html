@@ -78,8 +78,6 @@ import { RouterModule, Routes } from &#x27;@angular/router&#x27;;
 import { AuthGuard } from &#x27;../auth/auth-guard.service&#x27;;
 import { HomeComponent } from &#x27;../home/home.component&#x27;;
 import { GroupViewComponent } from &#x27;../chat/group-view/group-view.component&#x27;;
-import { ChatLoginComponent } from &#x27;../chat/chat-login/chat-login.component&#x27;;
-
 import { DetailedViewComponent } from &#x27;../home/detailed-view/detailed-view.component&#x27;;
 import { ProfilePageComponent } from &#x27;../home/profile-page/profile-page.component&#x27;;
 import { CreateClubComponent } from &#x27;../home/create-club/create-club.component&#x27;;
@@ -123,7 +121,7 @@ const routes: Routes &#x3D; [
     loadChildren: &#x27;app/auth/auth.module#AuthModule&#x27;
   },
   // { path: &#x27;&#x27;, redirectTo: &#x27;chat&#x27;, pathMatch: &#x27;full&#x27; }, // our home screen would also lead to the chat login field
-  { path: &#x27;chatLogin&#x27;, component: ChatLoginComponent }, // would start at login screen, which we do not need --&gt;
+  // { path: &#x27;chatLogin&#x27;, component: ChatLoginComponent }, // would start at login screen, which we do not need --&gt;
   { path: &#x27;chat&#x27;, component: GroupViewComponent }
 ];
 

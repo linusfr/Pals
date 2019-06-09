@@ -665,17 +665,17 @@ export class CreateClubComponent implements OnInit {
 
   show &#x3D; false;
   selectedValue &#x3D; &#x27;Kategorie&#x27;;
-  //Es werden die Kategorien aus dem categoryService geholt.
+  // Es werden die Kategorien aus dem categoryService geholt.
   ngOnInit() {
     this.categoryService
       .getCategories()
       .subscribe(data &#x3D;&gt; (this.categories &#x3D; data));
   }
 
-  //userForm ist für die Verarbeitung der User-Eingaben zuständig.
-  //Die FormGroup übernimmt den Zustand und die Validierung der im
-  //HTML vorhandenen FormControl-Instanzen. Validators.required überprüft,
-  //ob der eingebene Name schon verwendet wird.
+  // userForm ist für die Verarbeitung der User-Eingaben zuständig.
+  // Die FormGroup übernimmt den Zustand und die Validierung der im
+  // HTML vorhandenen FormControl-Instanzen. Validators.required überprüft,
+  // ob der eingebene Name schon verwendet wird.
   userForm &#x3D; new FormGroup({
     name: new FormControl(&#x27;&#x27;, [Validators.required]),
     brief: new FormControl(),
@@ -683,7 +683,7 @@ export class CreateClubComponent implements OnInit {
     category: new FormControl()
   });
 
-  //Hier werden die einzelnen Werte der FormGroup ausgelesen.
+  // Hier werden die einzelnen Werte der FormGroup ausgelesen.
   get name(): any {
     return this.userForm.get(&#x27;name&#x27;);
   }
@@ -699,16 +699,16 @@ export class CreateClubComponent implements OnInit {
 
   categories;
 
-  //addCategory dient dazu, dem User die Möglichkeit geben, Kategorien hinzuzufügen.
+  // addCategory dient dazu, dem User die Möglichkeit geben, Kategorien hinzuzufügen.
   addCategory &#x3D; category &#x3D;&gt; {
     this.show &#x3D; false;
     this.categoryService
       .addCategory({ name: category })
       .subscribe(value &#x3D;&gt; this.categories.push(value));
-  };
+  }
 
   async createClub() {
-    //Hier wird der Validator aus der FormGroup abgefragt
+    // Hier wird der Validator aus der FormGroup abgefragt
     if (!this.userForm.valid) {
       return;
     }
@@ -720,7 +720,7 @@ export class CreateClubComponent implements OnInit {
 
     let club;
 
-    //Dem ClubService werden die Werte des Clubs übergeben, der erstellt werden soll.
+    // Dem ClubService werden die Werte des Clubs übergeben, der erstellt werden soll.
     this.clubService
       .addClubs({
         administrator,
@@ -734,14 +734,15 @@ export class CreateClubComponent implements OnInit {
       .then(data &#x3D;&gt; {
         data.subscribe(async value &#x3D;&gt; {
           club &#x3D; value;
-          //Der alert wird geworfen, wenn der Name bereits vergeben wurde
+          // Der alert wird geworfen, wenn der Name bereits vergeben wurde
           if (value &#x3D;&#x3D;&#x3D; &#x27;error&#x27;) {
             alert(&#x27;Clubname schon in Benutzung!&#x27;);
           } else {
-            //Es wird eine Gruppe in der Chat-Api erstellt, die dem erstellten Clb zugeordnet wird
+            // Es wird eine Gruppe in der Chat-Api erstellt, die dem erstellten Clb zugeordnet wird
             await this.chatAuth.createGroup(club._id, name);
-            //Für den erstellten Club wird der Administrator des Clubs der Chatgruppe hinzugefügt
+            // Für den erstellten Club wird der Administrator des Clubs der Chatgruppe hinzugefügt
             this.chatAuth.addGroupMember(club._id, localStorage.activeUser);
+            //Das ist die im Approuting hinterlegte Route
             this.router.navigate([&#x27;detailedClub&#x27;, club._id]);
           }
         });
@@ -772,7 +773,7 @@ export class CreateClubComponent implements OnInit {
 
     &lt;div id&#x3D;&quot;loadButton&quot;&gt;
       &lt;button mat-stroked-button class&#x3D;&quot;submit&quot; color&#x3D;&quot;secondary&quot;&gt;
-      Clubbild auswählen
+        Clubbild auswählen
       &lt;/button&gt;
     &lt;/div&gt;
   &lt;/div&gt;
@@ -882,14 +883,14 @@ export class CreateClubComponent implements OnInit {
 }
 
 #pictureText {
-  font-size: 1.9em;
+  font-size: 1.3em;
   text-align: center;
   padding-top: 5em;
   padding-bottom: 4em;
 }
 
 .submit {
-  font-size: 1.3em;
+  font-size: 1em;
 }
 
 #loadButton {
@@ -899,7 +900,7 @@ export class CreateClubComponent implements OnInit {
 
 #altText {
   text-align: center;
-  font-size: 1.5em;
+  font-size: 1em;
 }
 
 #createClubInfo {
@@ -1036,7 +1037,7 @@ mat-select {
           <script src="../js/libs/deep-iterator.js"></script>
           <script>
             var COMPONENT_TEMPLATE =
-              '<div><div>  <mat-icon [routerLink]="[\'/\']" id="backArrow">arrow_back</mat-icon></div><div class="card">  <div class="profilImage">    <div id="pictureText">      <p>        Das Clubbild erstellen wir für euch passend zur Kategorie.      </p>    </div>    <div id="altText">      <p>        Alternativ kann es selber gewählt werden.      </p>    </div>    <div id="loadButton">      <button mat-stroked-button class="submit" color="secondary">      Clubbild auswählen      </button>    </div>  </div>  <div class="description">    <div class="header">      Erstelle deinen eigenen Club:    </div>    <div id="createClubInfo" ng-if="false">      <mat-form-field appearance="standard">        <mat-label>Clubname: *</mat-label>        <input matInput [formControl]="name" type="text" required />      </mat-form-field>      <mat-form-field appearance="standard">        <mat-label>Club-Thema:</mat-label>        <input matInput [formControl]="brief" type="text" required />      </mat-form-field>      <mat-form-field appearance="standard">        <mat-label>Beschreibung: *</mat-label>        <input matInput [formControl]="description" type="text" required />      </mat-form-field>      <mat-form-field>        <mat-label>Kategorie</mat-label>        <mat-select #selected [formControl]="category">          <mat-option *ngFor="let category of categories" [value]="category.name">            {{ category.name }}          </mat-option>          <button (click)="neue = !neue" id="showButton">            <mat-option placeholder="Kategorie">              {{ show ? \'\' : \'neue\' }}              Kategorie anlegen            </mat-option>          </button>        </mat-select>      </mat-form-field>      <div *ngIf="neue" id="newKategorie">        <mat-form-field>          <mat-label>Neue Kategorie:</mat-label>          <textarea matInput #categoryInput (keydown.enter)="addCategory(categoryInput.value)"            (keyup.enter)="neue=!neue"></textarea>        </mat-form-field>        <button mat-stroked-button id="cButton" (click)="addCategory(categoryInput.value)" (click)="neue = !neue"          (click)="selected.value = categoryInput.value" color="secondary" class="submit">          Kategorie erstellen        </button>      </div>    </div>    <div id="createClubButton">      <button mat-stroked-button (click)="createClub()" color="primary" class="submit">        Club erstellen      </button>    </div>  </div></div></div>'
+              '<div><div>  <mat-icon [routerLink]="[\'/\']" id="backArrow">arrow_back</mat-icon></div><div class="card">  <div class="profilImage">    <div id="pictureText">      <p>        Das Clubbild erstellen wir für euch passend zur Kategorie.      </p>    </div>    <div id="altText">      <p>        Alternativ kann es selber gewählt werden.      </p>    </div>    <div id="loadButton">      <button mat-stroked-button class="submit" color="secondary">        Clubbild auswählen      </button>    </div>  </div>  <div class="description">    <div class="header">      Erstelle deinen eigenen Club:    </div>    <div id="createClubInfo" ng-if="false">      <mat-form-field appearance="standard">        <mat-label>Clubname: *</mat-label>        <input matInput [formControl]="name" type="text" required />      </mat-form-field>      <mat-form-field appearance="standard">        <mat-label>Club-Thema:</mat-label>        <input matInput [formControl]="brief" type="text" required />      </mat-form-field>      <mat-form-field appearance="standard">        <mat-label>Beschreibung: *</mat-label>        <input matInput [formControl]="description" type="text" required />      </mat-form-field>      <mat-form-field>        <mat-label>Kategorie</mat-label>        <mat-select #selected [formControl]="category">          <mat-option *ngFor="let category of categories" [value]="category.name">            {{ category.name }}          </mat-option>          <button (click)="neue = !neue" id="showButton">            <mat-option placeholder="Kategorie">              {{ show ? \'\' : \'neue\' }}              Kategorie anlegen            </mat-option>          </button>        </mat-select>      </mat-form-field>      <div *ngIf="neue" id="newKategorie">        <mat-form-field>          <mat-label>Neue Kategorie:</mat-label>          <textarea matInput #categoryInput (keydown.enter)="addCategory(categoryInput.value)"            (keyup.enter)="neue=!neue"></textarea>        </mat-form-field>        <button mat-stroked-button id="cButton" (click)="addCategory(categoryInput.value)" (click)="neue = !neue"          (click)="selected.value = categoryInput.value" color="secondary" class="submit">          Kategorie erstellen        </button>      </div>    </div>    <div id="createClubButton">      <button mat-stroked-button (click)="createClub()" color="primary" class="submit">        Club erstellen      </button>    </div>  </div></div></div>'
             var COMPONENTS = [{
               'name': 'AddClubComponent',
               'selector': 'app-add-club'
@@ -1046,9 +1047,6 @@ mat-select {
             }, {
               'name': 'ChangeProfilePageComponent',
               'selector': 'app-change-profile-page'
-            }, {
-              'name': 'ChatLoginComponent',
-              'selector': 'app-chat-login'
             }, {
               'name': 'CreateClubComponent',
               'selector': 'app-create-club'

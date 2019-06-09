@@ -114,8 +114,8 @@
                     </tr>
                     <tr>
                       <td class="col-md-4">
-                        <div class="io-line">Defined in <a href="" data-line="8"
-                            class="link-to-prism">src/app/chat/CometChatService/comet-chat-api.service.ts:8</a></div>
+                        <div class="io-line">Defined in <a href="" data-line="20"
+                            class="link-to-prism">src/app/chat/CometChatService/comet-chat-api.service.ts:20</a></div>
                       </td>
                     </tr>
 
@@ -181,8 +181,8 @@
 
                     <tr>
                       <td class="col-md-4">
-                        <div class="io-line">Defined in <a href="" data-line="73"
-                            class="link-to-prism">src/app/chat/CometChatService/comet-chat-api.service.ts:73</a></div>
+                        <div class="io-line">Defined in <a href="" data-line="87"
+                            class="link-to-prism">src/app/chat/CometChatService/comet-chat-api.service.ts:87</a></div>
                       </td>
                     </tr>
 
@@ -258,8 +258,8 @@
 
                     <tr>
                       <td class="col-md-4">
-                        <div class="io-line">Defined in <a href="" data-line="12"
-                            class="link-to-prism">src/app/chat/CometChatService/comet-chat-api.service.ts:12</a></div>
+                        <div class="io-line">Defined in <a href="" data-line="28"
+                            class="link-to-prism">src/app/chat/CometChatService/comet-chat-api.service.ts:28</a></div>
                       </td>
                     </tr>
 
@@ -326,8 +326,8 @@
 
                     <tr>
                       <td class="col-md-4">
-                        <div class="io-line">Defined in <a href="" data-line="51"
-                            class="link-to-prism">src/app/chat/CometChatService/comet-chat-api.service.ts:51</a></div>
+                        <div class="io-line">Defined in <a href="" data-line="66"
+                            class="link-to-prism">src/app/chat/CometChatService/comet-chat-api.service.ts:66</a></div>
                       </td>
                     </tr>
 
@@ -403,8 +403,8 @@
 
                     <tr>
                       <td class="col-md-4">
-                        <div class="io-line">Defined in <a href="" data-line="34"
-                            class="link-to-prism">src/app/chat/CometChatService/comet-chat-api.service.ts:34</a></div>
+                        <div class="io-line">Defined in <a href="" data-line="46"
+                            class="link-to-prism">src/app/chat/CometChatService/comet-chat-api.service.ts:46</a></div>
                       </td>
                     </tr>
 
@@ -474,29 +474,29 @@ import { HttpClient, HttpParams } from &#x27;@angular/common/http&#x27;;
 export class CometChatApiService {
   constructor(private http: HttpClient) {}
 
-  // Methode um einen Authentifizierungs-Token für jeden Nutzer zu erstellen, der im Chat eingeloggt werden soll
+  // Funktion um einen Authentifizierungs-Token für jeden Nutzer zu erstellen,
+  // der im Chat eingeloggt werden soll.
+  // Dieser Token wird dann in der Comet-Chat-eigenen Datenbank hinterlegt.
+  // Der Aufruf hierzu funktioniert über XMLHttpRequest, wobei hierzu lediglich
+  // die userid, der API-Key und die App-Id vorliegen müssen
   createAuthToken(userid) {
     let data &#x3D; null;
-
     let xhr &#x3D; new XMLHttpRequest();
-
     xhr.addEventListener(&#x27;readystatechange&#x27;, function() {
       if (this.readyState &#x3D;&#x3D;&#x3D; this.DONE) {
       }
     });
-
     xhr.open(
       &#x27;POST&#x27;,
       &#x60;https://api.cometchat.com/v1/users/${userid}/auth_tokens&#x60;
     );
     xhr.setRequestHeader(&#x27;apikey&#x27;, environment.cometChat.apiKey);
     xhr.setRequestHeader(&#x27;appid&#x27;, environment.cometChat.appId);
-
     xhr.send(data);
   }
 
-  // Methode um via API von CometChat in deren System einen neuen Nutzer zu erstellen
-
+  // Funktion um via Comet-Chat-API einen neuen Nutzer in der Comet-Chat-Datenbank zu erstellen.
+  // Dies geschieht über einen XMLHttpRequest. Hierzu übergeben wir die NutzerId sowie den Nutzernamen.
   createUser(userid, uname) {
     let data &#x3D; &#x60;{\&quot;uid\&quot;:\&quot;${userid}\&quot;,\&quot;name\&quot;:\&quot;${uname}\&quot;}&#x60;;
 
@@ -514,46 +514,43 @@ export class CometChatApiService {
     xhr.send(data);
   }
 
+  // Funktion um via Comet-Chat-API eine neue Gruppe in der Comet-Chat-Datenbank zu erstellen.
+  // Hierzu übergeben wir eine groupId, in unserem Fall immer die ClubId, und den Gruppennamen,
+  // also den Namen des Clubs, für den wir einen Gruppenchat benötigen.
   createGroup(groupid, groupname) {
     return new Promise((resolve, reject) &#x3D;&gt; {
       let data &#x3D; &#x60;{\&quot;guid\&quot;:\&quot;${groupid}\&quot;,\&quot;name\&quot;:\&quot;${groupname}\&quot;,\&quot;type\&quot;:\&quot;public\&quot;}&#x60;;
-
       let xhr &#x3D; new XMLHttpRequest();
-
       xhr.addEventListener(&#x27;readystatechange&#x27;, function() {
         if (this.readyState &#x3D;&#x3D;&#x3D; this.DONE) {
           resolve();
-          console.log(this.responseText);
         }
       });
-
       xhr.open(&#x27;POST&#x27;, &#x27;https://api.cometchat.com/v1/groups&#x27;);
       xhr.setRequestHeader(&#x27;apikey&#x27;, environment.cometChat.apiKey);
       xhr.setRequestHeader(&#x27;appid&#x27;, environment.cometChat.appId);
       xhr.setRequestHeader(&#x27;content-type&#x27;, &#x27;application/json&#x27;);
-
       xhr.send(data);
     });
   }
 
+  // Funktion um via Comet-Chat-API einer existierenden Gruppe in der Comet-Chat-Datenbank
+  // neue Gruppenmitglieder hinzuzügen. Ist ein Nutzer der Gruppe nicht hinzugefügt, kann er
+  // den Gruppenchat nicht nutzen.
+  // Hierbei handelt es sich wieder um ein XMLHttpRequest, dem wir die GruppenId und die NutzerId übergeben.
   addGroupMember(groupid, userid) {
     let data &#x3D; null;
-
     let xhr &#x3D; new XMLHttpRequest();
-
     xhr.addEventListener(&#x27;readystatechange&#x27;, function() {
       if (this.readyState &#x3D;&#x3D;&#x3D; this.DONE) {
-        console.log(this.responseText);
       }
     });
-
     xhr.open(
       &#x27;POST&#x27;,
       &#x60;https://api.cometchat.com/v1.6/groups/${groupid}/members/${userid}&#x60;
     );
     xhr.setRequestHeader(&#x27;apikey&#x27;, environment.cometChat.apiKey);
     xhr.setRequestHeader(&#x27;appid&#x27;, environment.cometChat.appId);
-
     xhr.send(data);
   }
 }

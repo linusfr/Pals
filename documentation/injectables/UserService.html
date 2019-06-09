@@ -108,8 +108,8 @@
                     </tr>
                     <tr>
                       <td class="col-md-4">
-                        <div class="io-line">Defined in <a href="" data-line="7"
-                            class="link-to-prism">src/app/services/user.service.ts:7</a></div>
+                        <div class="io-line">Defined in <a href="" data-line="11"
+                            class="link-to-prism">src/app/services/user.service.ts:11</a></div>
                       </td>
                     </tr>
 
@@ -175,8 +175,8 @@
 
                     <tr>
                       <td class="col-md-4">
-                        <div class="io-line">Defined in <a href="" data-line="18"
-                            class="link-to-prism">src/app/services/user.service.ts:18</a></div>
+                        <div class="io-line">Defined in <a href="" data-line="25"
+                            class="link-to-prism">src/app/services/user.service.ts:25</a></div>
                       </td>
                     </tr>
 
@@ -243,8 +243,8 @@
 
                     <tr>
                       <td class="col-md-4">
-                        <div class="io-line">Defined in <a href="" data-line="10"
-                            class="link-to-prism">src/app/services/user.service.ts:10</a></div>
+                        <div class="io-line">Defined in <a href="" data-line="15"
+                            class="link-to-prism">src/app/services/user.service.ts:15</a></div>
                       </td>
                     </tr>
 
@@ -277,14 +277,17 @@ import { HttpParams, HttpClient } from &#x27;@angular/common/http&#x27;;
 export class UserService {
   constructor(private http: HttpClient) {}
 
+  // Gibt die ID des angemeldeten Users zurück
   getActiveUser() {
     let user &#x3D; localStorage.activeUser;
+    // Hier wird die ID des User als Parameter mitgegeben
     const params &#x3D; {
       params: new HttpParams().append(&#x27;userID&#x27;, user)
     };
     return this.http.get(&#x27;/api/user/activeUser&#x27;, params);
   }
 
+  // Wird benötigt, um die Daten des angemeldeten Users bearbeiten zu können
   editUser(user) {
     return this.http.post(&#x27;/api/user/edit&#x27;, user);
   }

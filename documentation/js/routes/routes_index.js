@@ -16,7 +16,6 @@ var ROUTES_INDEX = {
         { path: 'profile', component: 'ProfilePageComponent' },
         { path: 'changeProfile', component: 'ChangeProfilePageComponent' },
         { path: 'auth', loadChildren: 'app/auth/auth.module#AuthModule' },
-        { path: 'chatLogin', component: 'ChatLoginComponent' },
         { path: 'chat', component: 'GroupViewComponent' }
       ],
       kind: 'module'

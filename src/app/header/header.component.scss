@@ -43,7 +43,7 @@ header {
     background-color: #37474f;
   }
 
-  .flexParent{
+  .flexParent {
     display: flex;
     flex-direction: row;
     background-color: #37474f;
@@ -155,14 +155,13 @@ header {
     padding-right: 20px;
   }
 
-  a{
+  a {
     flex-direction: row;
     display: flex;
-    
+
     line-height: 0px;
     align-self: flex-end;
-  
-}
+  }
 
   #loggedInIcon {
     padding-bottom: 4%;

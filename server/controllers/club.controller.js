@@ -32,7 +32,7 @@ async function addClub(club) {
 
   try {
     club = await new Club(club).save();
-  } catch(e) {
+  } catch (e) {
     club = 'error';
   }
   return club;

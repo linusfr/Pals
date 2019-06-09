@@ -108,8 +108,8 @@
                     </tr>
                     <tr>
                       <td class="col-md-4">
-                        <div class="io-line">Defined in <a href="" data-line="7"
-                            class="link-to-prism">src/app/services/category.service.ts:7</a></div>
+                        <div class="io-line">Defined in <a href="" data-line="11"
+                            class="link-to-prism">src/app/services/category.service.ts:11</a></div>
                       </td>
                     </tr>
 
@@ -175,8 +175,8 @@
 
                     <tr>
                       <td class="col-md-4">
-                        <div class="io-line">Defined in <a href="" data-line="15"
-                            class="link-to-prism">src/app/services/category.service.ts:15</a></div>
+                        <div class="io-line">Defined in <a href="" data-line="19"
+                            class="link-to-prism">src/app/services/category.service.ts:19</a></div>
                       </td>
                     </tr>
 
@@ -243,8 +243,8 @@
 
                     <tr>
                       <td class="col-md-4">
-                        <div class="io-line">Defined in <a href="" data-line="11"
-                            class="link-to-prism">src/app/services/category.service.ts:11</a></div>
+                        <div class="io-line">Defined in <a href="" data-line="15"
+                            class="link-to-prism">src/app/services/category.service.ts:15</a></div>
                       </td>
                     </tr>
 
@@ -277,11 +277,11 @@ import { HttpClient } from &#x27;@angular/common/http&#x27;;
 export class CategoryService {
   constructor(private http: HttpClient) {}
 
-  //Gibt alle Kategorien zurück
+  // Gibt alle Kategorien zurück
   getCategories() {
     return this.http.get(&#x27;/api/category&#x27;);
   }
-  //Fügt eine einzelne Kategorie hinzu
+  // Fügt eine einzelne Kategorie hinzu
   addCategory(category) {
     return this.http.post(&#x27;/api/category/add&#x27;, category);
   }

@@ -462,7 +462,7 @@ export class HeaderComponent implements OnInit {
   &lt;meta name&#x3D;&quot;viewport&quot; content&#x3D;&quot;width&#x3D;device-width, initial-scale&#x3D;1.0&quot; /&gt;
 
   &lt;div class&#x3D;&quot;flexParent&quot;&gt;
-    &lt;div class&#x3D;&quot;wrapper&quot;&gt;
+    &lt;div id&#x3D;&quot;wrapper&quot;&gt;
       &lt;div class&#x3D;&quot;flexChildren&quot;&gt;
         &lt;div class&#x3D;&quot;logoWrapper&quot;&gt;
           &lt;a [routerLink]&#x3D;&quot;[&#x27;/&#x27;]&quot;&gt;
@@ -481,7 +481,7 @@ export class HeaderComponent implements OnInit {
         &lt;mat-icon id&#x3D;&quot;login_icon&quot; color&#x3D;&quot;primary&quot; [routerLink]&#x3D;&quot;[&#x27;/auth/login&#x27;]&quot; *ngIf&#x3D;&quot;!user&quot;&gt;
           fingerprint
         &lt;/mat-icon&gt;
-        &lt;div&gt;
+        &lt;div id&#x3D;&quot;logos&quot;&gt;
           &lt;a class&#x3D;&quot;links side&quot; *ngIf&#x3D;&quot;user&quot; [matMenuTriggerFor]&#x3D;&quot;menu&quot;&gt;
             &lt;mat-icon id&#x3D;&quot;loggedInIcon&quot;&gt;how_to_reg&lt;/mat-icon&gt;{{ user.fullname }}
           &lt;/a&gt;
@@ -551,13 +551,7 @@ header {
     background-color: #37474f;
   }
 
-  .wrapper {
-    display: flex;
-    flex-direction: row;
-    width: 60%;
-  }
-
-  .flexParent {
+  .flexParent{
     display: flex;
     flex-direction: row;
     background-color: #37474f;
@@ -565,7 +559,7 @@ header {
   }
 
   .flexChildren {
-    width: 33%;
+    width: 0%;
     height: 80px;
   }
 
@@ -579,6 +573,7 @@ header {
     justify-content: center;
     align-items: center;
     margin: 0 auto;
+    width: 50%;
   }
 
   .buttonWrapper {
@@ -600,6 +595,7 @@ header {
   .logoWrapper {
     display: flex;
     align-items: center;
+    width: 50%;
   }
 
   #logo {
@@ -667,10 +663,30 @@ header {
     padding-right: 20px;
   }
 
+  a{
+    flex-direction: row;
+    display: flex;
+    
+    line-height: 0px;
+    align-self: flex-end;
+  
+}
+
   #loggedInIcon {
     padding-bottom: 4%;
     font-size: 2.5em;
     margin-right: 10px;
+  }
+
+  #wrapper {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+  }
+
+  #logos {
+    display: flex;
+    flex-direction: row;
   }
 
   @media only screen and (max-width: 768px) {
@@ -685,10 +701,12 @@ header {
       margin: 0 auto;
     }
 
-    .wrapper {
-      display: flex;
-      flex-direction: row;
-      width: 100%;
+    .logoWrapper {
+      width: 50%;
+    }
+
+    .locationContainer {
+      width: 50%;
     }
   }
 }
@@ -721,7 +739,7 @@ header {
           <script src="../js/libs/deep-iterator.js"></script>
           <script>
             var COMPONENT_TEMPLATE =
-              '<div><header>  <meta name="viewport" content="width=device-width, initial-scale=1.0" />  <div class="flexParent">    <div class="wrapper">      <div class="flexChildren">        <div class="logoWrapper">          <a [routerLink]="[\'/\']">            <img id="logo" src="../assets/Pals_LOGO.png" alt="Pals" />          </a>        </div>      </div>      <div class="flexChildren locationContainer">        <i class="material-icons md-18">location_on</i>        <span>Flensburg</span>      </div>    </div>    <div class="flexChildren">      <div class="buttonWrapper">        <mat-icon id="favorit_icon" [routerLink]="[\'joinedClubs\']">favorite</mat-icon>        <mat-icon id="login_icon" color="primary" [routerLink]="[\'/auth/login\']" *ngIf="!user">          fingerprint        </mat-icon>        <div>          <a class="links side" *ngIf="user" [matMenuTriggerFor]="menu">            <mat-icon id="loggedInIcon">how_to_reg</mat-icon>{{ user.fullname }}          </a>          <mat-menu #menu="matMenu">            <button mat-menu-item *ngIf="user && user.isAdmin" [routerLink]="[\'/admin\']">              admin            </button>            <button mat-menu-item [routerLink]="[\'/profile\']" color="primary">              Profil            </button>            <button mat-menu-item (click)="logout()">logout</button>          </mat-menu>        </div>      </div>    </div>  </div></header></div>'
+              '<div><header>  <meta name="viewport" content="width=device-width, initial-scale=1.0" />  <div class="flexParent">    <div id="wrapper">      <div class="flexChildren">        <div class="logoWrapper">          <a [routerLink]="[\'/\']">            <img id="logo" src="../assets/Pals_LOGO.png" alt="Pals" />          </a>        </div>      </div>      <div class="flexChildren locationContainer">        <i class="material-icons md-18">location_on</i>        <span>Flensburg</span>      </div>    </div>    <div class="flexChildren">      <div class="buttonWrapper">        <mat-icon id="favorit_icon" [routerLink]="[\'joinedClubs\']">favorite</mat-icon>        <mat-icon id="login_icon" color="primary" [routerLink]="[\'/auth/login\']" *ngIf="!user">          fingerprint        </mat-icon>        <div id="logos">          <a class="links side" *ngIf="user" [matMenuTriggerFor]="menu">            <mat-icon id="loggedInIcon">how_to_reg</mat-icon>{{ user.fullname }}          </a>          <mat-menu #menu="matMenu">            <button mat-menu-item *ngIf="user && user.isAdmin" [routerLink]="[\'/admin\']">              admin            </button>            <button mat-menu-item [routerLink]="[\'/profile\']" color="primary">              Profil            </button>            <button mat-menu-item (click)="logout()">logout</button>          </mat-menu>        </div>      </div>    </div>  </div></header></div>'
             var COMPONENTS = [{
               'name': 'AddClubComponent',
               'selector': 'app-add-club'
@@ -731,9 +749,6 @@ header {
             }, {
               'name': 'ChangeProfilePageComponent',
               'selector': 'app-change-profile-page'
-            }, {
-              'name': 'ChatLoginComponent',
-              'selector': 'app-chat-login'
             }, {
               'name': 'CreateClubComponent',
               'selector': 'app-create-club'
