@@ -1,6 +1,7 @@
 // -----------------------------------------------------------------------------
-//Diese Komponente dient der Erstellung des Gruppenchats.
-//
+//Diese Komponente dient der Erstellung des Gruppenchats
+//Das Template (html-Datei) beinhaltet das eigentliche Chatfenster 
+//und das Eingabefeld für Nachrichten.
 //------------------------------------------------------------------------------
 
 import { Component, OnInit, OnDestroy } from '@angular/core';
