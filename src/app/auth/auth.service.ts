@@ -1,7 +1,7 @@
 // auth.service
 // injectable Service
 // intesection between angular and the server for passport
-// handles loging in and/or registering users
+// handles logging in and/or registering users
 
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
@@ -58,7 +58,8 @@ export class AuthService {
           observer.next({ user: data.user });
           this.setUser(data.user);
           localStorage.activeUser = data.user._id;
-          // console.log('chatTest', data.user._id, data.user.fullname);
+          // An dieser Stelle erstellt man via Comet Chat API einen neuen Nutzer in der Chat Datenbank 
+          // für den neu registrierten Nutzer
           this.chatAuth.createUser(data.user._id, data.user.fullname);
           this.token.saveToken(data.token);
           observer.complete();
