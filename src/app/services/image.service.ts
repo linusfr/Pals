@@ -1,4 +1,6 @@
+//----------------------------------------------------------------------------------------------------------
 //Mit diesem Service geben wir den vorgefertigten Kategorien die englischen Begriffe für die Pexels API mit.
+//----------------------------------------------------------------------------------------------------------
 
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';

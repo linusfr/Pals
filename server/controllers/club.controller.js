@@ -1,5 +1,4 @@
 const Club = require('../models/club.model');
-const Category = require('../models/category.model');
 const categoryCtrl = require('./category.controller');
 
 module.exports = {
@@ -14,9 +13,12 @@ module.exports = {
 };
 
 async function addClub(club) {
+  //Mittels CategoryController wird überprüft, ob die hinzuzufügende Kategorie schon existiert
   let categoryExists = await categoryCtrl.categoryExists({
     name: club.category
   });
+  //Falls die Kategorie nicht existiert, wird sie über den CategoryController in die Datenbank eingetragen
+  //Ansonsten wird die ID der Kategorie übermittelt
   if (categoryExists === false) {
     club.category = await categoryCtrl.addCategory({ name: club.category })._id;
   } else {
@@ -32,16 +34,16 @@ async function addClub(club) {
 }
 
 async function editClub(club) {
-  // alten Club rausziehen
+  //Der alte Club wird aufgerufen
   let oldClub = await Club.findOne({ _id: club.changedID });
 
-  // Geänderte Felder überarbeiten
+  //Geänderte Felder werden überarbeitet
   oldClub.brief = club.brief;
   oldClub.description = club.description;
   oldClub.time = club.time;
   oldClub.place = club.place;
 
-  // alten Club überschreiben
+  //Der alte Club wird überschrieben
   let res = await Club.replaceOne({ _id: club.changedID }, oldClub);
   return oldClub;
 }

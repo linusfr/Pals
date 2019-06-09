@@ -1,4 +1,6 @@
+//--------------------------------------------------------------
 //Im UserService wird die für die User benötigte Logik verwaltet
+//--------------------------------------------------------------
 
 import { Injectable } from '@angular/core';
 import { HttpParams, HttpClient } from '@angular/common/http';

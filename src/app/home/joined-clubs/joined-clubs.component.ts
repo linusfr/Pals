@@ -1,4 +1,6 @@
+//------------------------------------------------------------------------
 //Diese Komponente ist für das Anzeigen der beigetretenen Clubs zuständig.
+//------------------------------------------------------------------------
 
 import { Component, OnInit } from '@angular/core';
 import { ClubService } from '../../services/club.service';
