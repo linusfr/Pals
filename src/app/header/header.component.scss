@@ -43,12 +43,6 @@ header {
     background-color: #37474F;
   }
 
-  .wrapper {
-    display: flex;
-    flex-direction: row;
-    width: 60%;
-  }
-
   .flexParent{
     display: flex;
     flex-direction: row;
@@ -57,7 +51,7 @@ header {
   }
 
   .flexChildren {
-    width: 33%;
+    width: 0%;
     height: 80px;
   }
 
@@ -71,6 +65,7 @@ header {
     justify-content: center;
     align-items: center;
     margin: 0 auto;
+    width: 50%;
   }
 
   .buttonWrapper {
@@ -92,6 +87,7 @@ header {
   .logoWrapper {
     display: flex;
     align-items: center;
+    width: 50%;
   }
 
   #logo {
@@ -155,10 +151,30 @@ header {
     padding-right: 20px;
   }
 
+  a{
+    flex-direction: row;
+    display: flex;
+    
+    line-height: 0px;
+    align-self: flex-end;
+  
+}
+
   #loggedInIcon {
     padding-bottom: 4%;
     font-size: 2.5em;
     margin-right: 10px;
+  }
+
+  #wrapper {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+  }
+
+  #logos {
+    display: flex;
+    flex-direction: row;
   }
 
   @media only screen and (max-width: 768px) {
@@ -174,10 +190,12 @@ header {
       margin: 0 auto;
     }
 
-    .wrapper {
-      display: flex;
-      flex-direction: row;
-      width: 100%;
+    .logoWrapper {
+      width: 50%;
+    }
+
+    .locationContainer {
+      width: 50%;
     }
   }
 

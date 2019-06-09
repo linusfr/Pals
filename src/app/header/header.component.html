@@ -2,7 +2,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <div class="flexParent">
-    <div class="wrapper">
+    <div id="wrapper">
       <div class="flexChildren">
         <div class="logoWrapper">
           <a [routerLink]="['/']">
@@ -29,7 +29,7 @@
         >
           fingerprint
         </mat-icon>
-        <div>
+        <div id="logos">
           <a class="links side" *ngIf="user" [matMenuTriggerFor]="menu">
             <mat-icon id="loggedInIcon">how_to_reg</mat-icon>{{ user.fullname }}
           </a>

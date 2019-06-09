@@ -44,7 +44,6 @@ import { GroupViewComponent } from './chat/group-view/group-view.component';
 import { ChatLoginComponent } from './chat/chat-login/chat-login.component';
 
 import { AddClubComponent } from './home/add-club/add-club.component';
-import { ClubSmallComponent } from './home/club-small/club-small.component';
 
 @NgModule({
   declarations: [
@@ -60,7 +59,6 @@ import { ClubSmallComponent } from './home/club-small/club-small.component';
     JoinedClubsComponent,
     AddClubComponent,
     EditClubComponent,
-    ClubSmallComponent
   ],
   imports: [
     HttpModule,
