@@ -9,6 +9,15 @@ const router = express.Router();
 module.exports = router;
 
 router.post('/register', asyncHandler(register), login);
+
+// In Passport können mehrere Methoden definiert werden, auf welche
+// Nutzer authentifiziert werden können. Diese sind innerhalb von
+// Passport.js in dem Config Ordner definiert.
+// Diese kamen vorkonfiguriert mit MeanJS.io,
+// und wir haben diese nicht geändert.
+// Auch sonst haben wir sowohl an der auth.route, noch an
+// dem auth.controller etwas geändert.
+
 router.post(
   '/login',
   passport.authenticate('local', { session: false }),
@@ -20,7 +29,6 @@ router.get('/me', passport.authenticate('jwt', { session: false }), login);
 async function register(req, res, next) {
   let user = await userCtrl.insert(req.body);
   user = user.toObject();
-  console.log(user);
   delete user.hashedPassword;
   req.user = user;
   next();
