@@ -54,7 +54,6 @@ export class DetailedViewComponent implements OnInit {
       this.id = params['id'];
       localStorage.clubID = this.id;
       let b = localStorage.getItem('clubID');
-      console.log(`this is the club id: ${b}`, b);
 
       this.clubService
         .getDetailedClub(this.id, localStorage.activeUser)
