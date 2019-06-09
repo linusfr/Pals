@@ -57,7 +57,7 @@ import { AddClubComponent } from './home/add-club/add-club.component';
     ChangeProfilePageComponent,
     JoinedClubsComponent,
     AddClubComponent,
-    EditClubComponent
+    EditClubComponent,
   ],
   imports: [
     HttpModule,
