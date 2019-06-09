@@ -10,7 +10,6 @@ import { SharedModule } from './shared/shared.module';
 import { AuthModule } from './auth/auth.module';
 
 import { AppComponent } from './app.component';
-import { AdminModule } from './admin/admin.module';
 import { AuthHeaderInterceptor } from './interceptors/header.interceptor';
 import { CatchErrorInterceptor } from './interceptors/http-error.interceptor';
 
@@ -68,7 +67,6 @@ import { AddClubComponent } from './home/add-club/add-club.component';
     RouterModule,
     SharedModule,
     AuthModule,
-    AdminModule,
     MaterialModule,
     AppRoutingModule,
     FormsModule,
