@@ -16,7 +16,7 @@ export class ClubService {
   getClubs() {
     return this.http.get('/api/clubs');
   }
-  // Übergibt alle Clubs, denen der mitgegebene User beigetreten ist
+  // Holt alle Clubs, denen der mitgegebene User beigetreten ist
   getJoinedClubs() {
     let userID = localStorage.activeUser;
     // Parameter, die man dem HttpClient übergibt
