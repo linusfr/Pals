@@ -24,7 +24,7 @@ export class GroupViewComponent implements OnInit, OnDestroy {
   constructor(
     private chatService: CometChatService,
     private userService: UserService
-  ) { }
+  ) {}
 
   // Funktion ruft den aktuell gespeicherten Nutzer aus dem Local Storage auf und gibt diesen zurück
   currentUser() {
@@ -43,8 +43,8 @@ export class GroupViewComponent implements OnInit, OnDestroy {
       this.fullname = this.user.fullname;
     });
 
-    //Der Nutzer wird in den Chat eingeloggt und die aktuellen Nachrichten werden abgerufen.  
-    //Hier ist ein Timeout nötig, da der Websocket sonst noch nicht fertig geladen hat und ein Fehler geworfen wird
+    // Der Nutzer wird in den Chat eingeloggt und die aktuellen Nachrichten werden abgerufen.
+    // Hier ist ein Timeout nötig, da der Websocket sonst noch nicht fertig geladen hat und ein Fehler geworfen wird
     setTimeout(() => {
       this.chatService.login(this.currentUser(), environment.cometChat.apiKey);
       this.getMessages().then(data => this.listenForMessages());
@@ -59,10 +59,10 @@ export class GroupViewComponent implements OnInit, OnDestroy {
   }
 
   // Funktion um eine Nachricht im Chat zu schreiben
-  // Dabei wird zunächst die aktuelle clubId ausgelesen und zusammen mit der Nachricht 
-  // an die Methode sendMessage des Comet-Chat-Service übergeben, der die Nachricht letztendlich versendet. 
-  // Zudem wird die Nachricht zusammen mit dem Nutzernamen dem Nachrichten-Array hinzugefügt, 
-  // damit wir diese auch im Chat-Fenster lesen können. 
+  // Dabei wird zunächst die aktuelle clubId ausgelesen und zusammen mit der Nachricht
+  // an die Methode sendMessage des Comet-Chat-Service übergeben, der die Nachricht letztendlich versendet.
+  // Zudem wird die Nachricht zusammen mit dem Nutzernamen dem Nachrichten-Array hinzugefügt,
+  // damit wir diese auch im Chat-Fenster lesen können.
   sendMessage(message: string) {
     this.getGroupId().then(data => {
       let id = '' + data;
@@ -76,9 +76,9 @@ export class GroupViewComponent implements OnInit, OnDestroy {
 
   // Diese Funktion dient dazu, die vorherigen Nachrichten eines Gruppenchats abzufragen
   // hierzu wird die ClubId-abgefragt und an die Methode getPreviousMessages des Comet-Chat-Service übergeben.
-  // Die dadurch vom Comet-Chat-Server angefragten Nachrichten werden im lokalen Message-Array gespeichert. 
-  // Da die Abfrage der ClubId längert dauert und die getMessage-Abfrage sonst eine Fehlermeldung 
-  // werfen würde, da groupId noch nicht gesetzt ist, muss die Nachricht asynchron laufen und ein 
+  // Die dadurch vom Comet-Chat-Server angefragten Nachrichten werden im lokalen Message-Array gespeichert.
+  // Da die Abfrage der ClubId längert dauert und die getMessage-Abfrage sonst eine Fehlermeldung
+  // werfen würde, da groupId noch nicht gesetzt ist, muss die Nachricht asynchron laufen und ein
   // Promise zurückgeben, mit dem wir dann weiterarbeiten können
   async getMessages() {
     this.getGroupId().then(data => {
@@ -93,10 +93,10 @@ export class GroupViewComponent implements OnInit, OnDestroy {
   }
 
   // Funktion um aktuelle, neu geschriebene Nachrichten zu erkennen und darzustellen
-  // Hier wird die im Comet-Chat-Service definitierte Methode listerForMessages aufgerufen und 
+  // Hier wird die im Comet-Chat-Service definitierte Methode listerForMessages aufgerufen und
   // so ein MessageListener erstellt, der im aktuellen Gruppenchat nach neuen Nachrichten horcht.
   // Werden eine neue Nachricht entdeckt, die für diese Gruppe bzw. diesen Club gedacht ist,
-  // wird die Nachricht auf das Message Array geschoben. 
+  // wird die Nachricht auf das Message Array geschoben.
   listenForMessages() {
     this.getGroupId().then(data => {
       let id = '' + data;
@@ -111,7 +111,7 @@ export class GroupViewComponent implements OnInit, OnDestroy {
   }
 
   // Im Falle eines Destroy-Events, wenn also z.B. die aktuelle Club-ansicht verlassen wird,
-  // wird der aktuelle Message Listener entfernt und das Message-Array wieder geleert. 
+  // wird der aktuelle Message Listener entfernt und das Message-Array wieder geleert.
   ngOnDestroy(): void {
     this.getGroupId().then(data => {
       let id = '' + data;

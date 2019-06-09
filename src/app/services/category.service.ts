@@ -1,6 +1,6 @@
-//-----------------------------------------------------
-//Dieser Service verwaltet die Logik für die Kategorien
-//-----------------------------------------------------
+// -----------------------------------------------------
+// Dieser Service verwaltet die Logik für die Kategorien
+// -----------------------------------------------------
 
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
@@ -11,11 +11,11 @@ import { HttpClient } from '@angular/common/http';
 export class CategoryService {
   constructor(private http: HttpClient) {}
 
-  //Gibt alle Kategorien zurück
+  // Gibt alle Kategorien zurück
   getCategories() {
     return this.http.get('/api/category');
   }
-  //Fügt eine einzelne Kategorie hinzu
+  // Fügt eine einzelne Kategorie hinzu
   addCategory(category) {
     return this.http.post('/api/category/add', category);
   }
