@@ -1,9 +1,9 @@
 // -----------------------------------------------------------------------------
-//Dieser Service liefert alle nötigen Funktionen, die der Chat zum
-//Starten und Funktionieren benötigt.
-//Dieser Service kann an allen Stellen der Anwendung aufgerufen werden,
-//um dort auf die Funktionen zugreifen zu können.
-//------------------------------------------------------------------------------
+// Dieser Service liefert alle nötigen Funktionen, die der Chat zum
+// Starten und Funktionieren benötigt.
+// Dieser Service kann an allen Stellen der Anwendung aufgerufen werden,
+// um dort auf die Funktionen zugreifen zu können.
+// ------------------------------------------------------------------------------
 
 import { Injectable, OnInit } from '@angular/core';
 import { CometChat } from '@cometchat-pro/chat';
@@ -13,12 +13,11 @@ import { UserService } from '../../services/user.service';
 @Injectable({
   providedIn: 'root'
 })
-
 export class CometChatService {
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService) {}
   currentUser;
 
-  // Bei Aufruf dieses Services wird der aktuell in der Anwendung angemeldete 
+  // Bei Aufruf dieses Services wird der aktuell in der Anwendung angemeldete
   // Nutzer als currentUser gespeichert
   ngOnInit() {
     this.userService.getActiveUser().subscribe(user => {
@@ -29,7 +28,7 @@ export class CometChatService {
   // Funktion zum Initialisieren des Chats:
   // Nimmt als Parameter lediglich die App-Id, welche man von CometChat erhält.
   // Diese ist in der Datei environment hinterlegt.
-  // Die Methode liefert ein Promise, welches genutzt wird,um in der Konsole 
+  // Die Methode liefert ein Promise, welches genutzt wird,um in der Konsole
   // Rückmeldung zu geben, ob die Initialisierung des Chats erfolgreich war
   init(appID: string = environment.cometChat.appId) {
     CometChat.init(appID).then(
@@ -51,9 +50,8 @@ export class CometChatService {
       .then(_ => console.log('User logged in'), console.error);
   }
 
-
-  // Funktion um eine Nachricht an den Comet Chat Server und somit über Umweg an den aktuellen Gruppenchat zu senden. 
-  // Dabei werden die Empfänger-ID (in unseren Fällen immer eine Gruppen-ID), 
+  // Funktion um eine Nachricht an den Comet Chat Server und somit über Umweg an den aktuellen Gruppenchat zu senden.
+  // Dabei werden die Empfänger-ID (in unseren Fällen immer eine Gruppen-ID),
   // der eigentliche Text, sowie die Nachrichten-Art und Empfänger-Art (Gruppe oder Einzelperson)
   // übergeben.
   sendMessage(receiverId: string, text: string) {
@@ -67,9 +65,9 @@ export class CometChatService {
   }
 
   // Funktion um aktuell hereinkommende Nachrichten zu erkennen und darzustellen
-  // Dies erreicht man mit Hilfe eines Message Listeners. Dieser erhält eine 
-  // einzigartige ID, in unserem Fall die ClubId. Mithilfe der MessageListener API 
-  // von Comet Chat können wir dann Handler für die unterschiedlichen Arten von 
+  // Dies erreicht man mit Hilfe eines Message Listeners. Dieser erhält eine
+  // einzigartige ID, in unserem Fall die ClubId. Mithilfe der MessageListener API
+  // von Comet Chat können wir dann Handler für die unterschiedlichen Arten von
   // Nachrichten registrieren
   listenForMessages(listenerId: string, onMessageReceived: (msg: any) => void) {
     CometChat.addMessageListener(
@@ -93,7 +91,7 @@ export class CometChatService {
 
   // Funktion zum Abrufen vorheriger Nachrichten
   // Über die Comet Chat API können wir die Nachrichten über einen message request abrufen
-  // Dafür übergeben wir lediglich die GruppenID, also die ClubId, 
+  // Dafür übergeben wir lediglich die GruppenID, also die ClubId,
   // und begrenzen die Anzahl der Nachrichten, die abgerufen werden
   getPreviousMessages(groupId: string) {
     const messageRequest = new CometChat.MessagesRequestBuilder()

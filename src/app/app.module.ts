@@ -34,12 +34,12 @@ import { UserService } from './services/user.service';
 
 // GOOGLE CALENDAR EXPORT
 import { NgAddToCalendarModule } from '@trademe/ng-add-to-calendar';
+import { AuthService } from './auth/auth.service';
+import { TokenStorage } from './auth/token.storage';
 import { JoinedClubsComponent } from './home/joined-clubs/joined-clubs.component';
 
 // CHAT
 import { GroupViewComponent } from './chat/group-view/group-view.component';
-//import { ChatLoginComponent } from './chat/chat-login/chat-login.component';
-
 import { AddClubComponent } from './home/add-club/add-club.component';
 
 @NgModule({

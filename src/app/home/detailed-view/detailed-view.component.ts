@@ -4,7 +4,7 @@ import {
   ICalendarEvent
 } from '@trademe/ng-add-to-calendar';
 import { SafeUrl, DomSanitizer } from '@angular/platform-browser';
-import { ActivatedRoute} from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { ClubService } from '../../services/club.service';
 import { AuthService } from '../../auth/auth.service';
 import { UserService } from '../../services/user.service';
@@ -51,7 +51,6 @@ export class DetailedViewComponent implements OnInit {
       this.id = params['id'];
       localStorage.clubID = this.id;
       let b = localStorage.getItem('clubID');
-      console.log(`this is the club id: ${b}`, b);
 
       this.clubService
         .getDetailedClub(this.id, localStorage.activeUser)
@@ -111,7 +110,9 @@ export class DetailedViewComponent implements OnInit {
     });
   }
 
-  // Funktion um das erhaltene Datum in das richtige Format für ein Date-Objekt zu bringen, damit dies in der Google Calendar Api gelesen werden kann.
+  // Funktion um das erhaltene Datum in das
+  // richtige Format für ein Date-Objekt zu bringen,
+  // damit dies in der Google Calendar Api gelesen werden kann.
   // Format as given: 27-04-2019-12-00
   // needed: YYYY-MM-DDTHH:MM:SS
   formatMeetingDate = olddate => {
@@ -150,6 +151,7 @@ export class DetailedViewComponent implements OnInit {
         this.isMember = false;
       });
   }
+
 
   joinClub = () => {
     this.clubService

@@ -58,7 +58,7 @@ export class AuthService {
           observer.next({ user: data.user });
           this.setUser(data.user);
           localStorage.activeUser = data.user._id;
-          // An dieser Stelle erstellt man via Comet Chat API einen neuen Nutzer in der Chat Datenbank 
+          // An dieser Stelle erstellt man via Comet Chat API einen neuen Nutzer in der Chat Datenbank
           // für den neu registrierten Nutzer
           this.chatAuth.createUser(data.user._id, data.user.fullname);
           this.token.saveToken(data.token);
