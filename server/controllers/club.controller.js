@@ -28,7 +28,7 @@ async function addClub(club) {
 
   try {
     club = await new Club(club).save();
-  } catch {
+  } catch(e) {
     club = 'error';
   }
   return club;
