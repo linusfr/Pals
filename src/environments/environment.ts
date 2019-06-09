@@ -1,3 +1,9 @@
+// -----------------------------------------------------------------------------
+//Dies ist eine Konfigurations-datei, welche verschiedene Werte definitiert, 
+//die für die jeweilige Konfiguration wichtig sind.
+//Hier können globale Werte gespeichert werden, wie z.B. Zugangsdaten oder API-Schlüssel
+//------------------------------------------------------------------------------
+
 export const environment = {
   production: false,
   cometChat: {

@@ -1,23 +1,36 @@
+// -----------------------------------------------------------------------------
+//Dieser Service liefert alle nötigen Funktionen, die der Chat zum
+//Starten und Funktionieren benötigt.
+//Der Service kann an allen Stellen der Anwendung aufgerufen werden,
+//um dort auf die Funktionen zugreifen zu können.
+//------------------------------------------------------------------------------
+
 import { Injectable, OnInit } from '@angular/core';
 import { CometChat } from '@cometchat-pro/chat';
 import { environment } from '../../../environments/environment';
 import { UserService } from '../../services/user.service';
-import { elementEventFullName } from '@angular/compiler/src/view_compiler/view_compiler';
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class CometChatService {
-  constructor(private userService: UserService) {}
+  constructor(private userService: UserService) { }
   currentUser;
 
-  // currentName = this.currentUser.fullname;
+  // Bei Aufruf dieses Services wird der aktuell in der Anwendung angemeldete 
+  // Nutzer als currentUser gespeichert
   ngOnInit() {
     this.userService.getActiveUser().subscribe(user => {
       this.currentUser = user;
     });
   }
 
+  // Funktion zum Initialisieren des Chats:
+  // Nimmt als Parameter lediglich die App-Id, welche man von CometChat erhält.
+  // Diese ist in der Datei environment hinterlegt.
+  // Die Methode liefert ein Promise, welches genutzt wird,um in der Konsole 
+  // Rückmeldung zu geben, ob die Initialisierung des Chats erfolgreich war
   init(appID: string = environment.cometChat.appId) {
     CometChat.init(appID).then(
       msg => console.log('Initialized succesfull: ', msg),
@@ -28,6 +41,10 @@ export class CometChatService {
     );
   }
 
+  // Funktion zum Einloggen des Nutzers in den Chat
+  // Als Parameter werden der aktuelle Nutzer und der API-Schlüssel übergeben
+  // Bei erfolgreicher Anmeldung wird eine passende Konsolennachricht ausgegeben.
+  // Der Nutzer kann den Chat nicht nutzen, wenn er nicht eingeloggt ist
   login(userId: string, apiKey) {
     return CometChat.login(userId, apiKey)
       .then(usr => (this.currentUser = usr), (this.currentUser = null))
