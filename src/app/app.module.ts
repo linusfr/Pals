@@ -34,8 +34,6 @@ import { UserService } from './services/user.service';
 
 // GOOGLE CALENDAR EXPORT
 import { NgAddToCalendarModule } from '@trademe/ng-add-to-calendar';
-import { AuthService } from './auth/auth.service';
-import { TokenStorage } from './auth/token.storage';
 import { JoinedClubsComponent } from './home/joined-clubs/joined-clubs.component';
 
 // CHAT
@@ -52,7 +50,6 @@ import { AddClubComponent } from './home/add-club/add-club.component';
     DetailedViewComponent,
     CreateClubComponent,
     GroupViewComponent,
-   // ChatLoginComponent,
     ProfilePageComponent,
     ChangeProfilePageComponent,
     JoinedClubsComponent,
