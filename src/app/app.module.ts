@@ -40,7 +40,7 @@ import { JoinedClubsComponent } from './home/joined-clubs/joined-clubs.component
 
 // CHAT
 import { GroupViewComponent } from './chat/group-view/group-view.component';
-import { ChatLoginComponent } from './chat/chat-login/chat-login.component';
+//import { ChatLoginComponent } from './chat/chat-login/chat-login.component';
 
 import { AddClubComponent } from './home/add-club/add-club.component';
 
@@ -52,7 +52,7 @@ import { AddClubComponent } from './home/add-club/add-club.component';
     DetailedViewComponent,
     CreateClubComponent,
     GroupViewComponent,
-    ChatLoginComponent,
+   // ChatLoginComponent,
     ProfilePageComponent,
     ChangeProfilePageComponent,
     JoinedClubsComponent,

@@ -269,8 +269,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="25"
-                            class="link-to-prism">src/app/auth/login/login.component.ts:25</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="23"
+                            class="link-to-prism">src/app/auth/login/login.component.ts:23</a></div>
                 </td>
             </tr>
 
@@ -411,9 +411,7 @@ export class LoginComponent implements OnInit {
 
   email: string;
   password: string;
-  ngOnInit() {
-    console.log(this.userService.isUserOnline());
-  }
+  ngOnInit() {}
 
   login(): void {
     this.authService.login(this.email, this.password).subscribe(data &#x3D;&gt; {
@@ -610,7 +608,7 @@ a {
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
         var COMPONENT_TEMPLATE = '<div><meta name="viewport" content="width=device-width, initial-scale=1.0" /><mat-card class="login-card">  <mat-card-header>    <mat-card-title><img id="logo_login" src="../assets/Pals_LOGO.png" /></mat-card-title>    <mat-card-title>Melde dich jetzt an und entdecke neue Clubs in deiner Stadt!</mat-card-title>  </mat-card-header>  <mat-card-content>    <p>      <mat-form-field appearance="outline" class="form_field">        <mat-label class="label">E-Mail</mat-label>        <input class="outline_field" matInput [(ngModel)]="email" name="email" required>        <mat-icon matSuffix><img id="icon" src="../assets/baseline-account_circle-24px.svg"></mat-icon>        <mat-hint id="hint">E-Mail Adresse</mat-hint>      </mat-form-field>    </p>    <p>      <mat-form-field appearance="outline" class="form_field">        <mat-label class="label">Passwort</mat-label>        <input class="outline_field" matInput [(ngModel)]="password" type="password" name="password" required>        <mat-icon matSuffix><img id="icon" src="../assets/baseline-visibility-24px.svg"></mat-icon>        <mat-hint id="hint">Passwort</mat-hint>      </mat-form-field>    </p>  </mat-card-content>  <mat-card-actions>    <button mat-raised-button (click)="login()" color="primary">Anmelden</button>    <p>      <span id="passwort">Passwort vergessen?</span>    </p>    <p>      <span>        Noch kein Konto?        <a id="register" [routerLink]="[\'/auth/register\']" color="primary">Jetzt Registrieren!</a>      </span>    </p>  </mat-card-actions></mat-card><!--<mat-card class="login-card-image">  <img id="image_basketball" src="../assets/login_basketball.jpg" alt="login_basketball" /></mat-card>--></div>'
-    var COMPONENTS = [{'name': 'AddClubComponent', 'selector': 'app-add-club'},{'name': 'AdminComponent', 'selector': 'app-admin'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'ChangeProfilePageComponent', 'selector': 'app-change-profile-page'},{'name': 'ChatLoginComponent', 'selector': 'app-chat-login'},{'name': 'CreateClubComponent', 'selector': 'app-create-club'},{'name': 'DetailedViewComponent', 'selector': 'app-detailed-view'},{'name': 'EditClubComponent', 'selector': 'app-edit-club'},{'name': 'GroupViewComponent', 'selector': 'app-group-view'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'JoinedClubsComponent', 'selector': 'app-joined-clubs'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'ProfilePageComponent', 'selector': 'app-profile-page'},{'name': 'RegisterComponent', 'selector': 'app-register'}];
+    var COMPONENTS = [{'name': 'AddClubComponent', 'selector': 'app-add-club'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'ChangeProfilePageComponent', 'selector': 'app-change-profile-page'},{'name': 'ChatLoginComponent', 'selector': 'app-chat-login'},{'name': 'CreateClubComponent', 'selector': 'app-create-club'},{'name': 'DetailedViewComponent', 'selector': 'app-detailed-view'},{'name': 'EditClubComponent', 'selector': 'app-edit-club'},{'name': 'GroupViewComponent', 'selector': 'app-group-view'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'JoinedClubsComponent', 'selector': 'app-joined-clubs'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'ProfilePageComponent', 'selector': 'app-profile-page'},{'name': 'RegisterComponent', 'selector': 'app-register'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'LoginComponent'};
 </script>

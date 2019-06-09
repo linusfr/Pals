@@ -1,10 +1,13 @@
-import { Component, OnInit, OnDestroy, getDebugNode } from '@angular/core';
+// -----------------------------------------------------------------------------
+//Diese Komponente dient der Erstellung des Gruppenchats
+//Das Template (html-Datei) beinhaltet das eigentliche Chatfenster 
+//und das Eingabefeld für Nachrichten.
+//------------------------------------------------------------------------------
+
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CometChatService } from '../CometChatService/comet-chat.service';
 import { environment } from '../../../environments/environment';
-import { ChatLoginComponent } from '../chat-login/chat-login.component';
-import { CometChatApiService } from '../CometChatService/comet-chat-api.service';
 import { UserService } from '../../services/user.service';
-import { log } from 'util';
 
 @Component({
   selector: 'app-group-view',
@@ -20,14 +23,15 @@ export class GroupViewComponent implements OnInit, OnDestroy {
 
   constructor(
     private chatService: CometChatService,
-    private chatAuth: CometChatApiService,
     private userService: UserService
   ) {}
 
+  // Funktion ruft den aktuell gespeicherten Nutzer aus dem Local Storage auf und gibt diesen zurück
   currentUser() {
     return localStorage.activeUser;
   }
 
+  // Beim Aufruf 
   ngOnInit() {
     this.messages = [];
 
