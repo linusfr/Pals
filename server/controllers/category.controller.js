@@ -1,3 +1,6 @@
+//---------------------------------------------------------------------
+//Dieser Controller verwaltet alle Datenbankzugriffe für die Kategorien
+//---------------------------------------------------------------------
 const Category = require('../models/category.model');
 
 module.exports = {

@@ -1,11 +1,11 @@
-//Require Wrapper Library
+//benötigte Wrapper Library
 const PexelsAPI = require('pexels-api-wrapper');
 const express = require('express');
 const config = require('../config/config');
 const router = express.Router();
 module.exports = router;
 
-//Create Client instance by passing in API key
+//Client instanz bilden durch erzeugen eines API keys
 const pexelsClient = new PexelsAPI(
   '563492ad6f91700001000001d6010444517a44dab4d3ea7b859f0d40'
 );

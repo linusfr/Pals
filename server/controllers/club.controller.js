@@ -1,3 +1,7 @@
+//----------------------------------------------------------------
+//Dieser Controller verwaltet alle Datenbankzugriffe für die Clubs
+//----------------------------------------------------------------
+
 const Club = require('../models/club.model');
 const categoryCtrl = require('./category.controller');
 
@@ -28,7 +32,7 @@ async function addClub(club) {
 
   try {
     club = await new Club(club).save();
-  } catch(e) {
+  } catch (e) {
     club = 'error';
   }
   return club;
@@ -109,14 +113,16 @@ async function getJoinedClubs(id) {
 
 //Sucht einen Club mittels als Parameter übergebener ClubID
 async function getDetailedClub(userID, clubID) {
-  //
   return await Club.find({ _id: clubID })
     .populate('administrator')
     .populate('category');
 }
 
+//Fügt einem Club ein neues Mitglied hinzu
 async function addMember(club, activeUser) {
+  //Der Mitgliederliste wird der activeUser hinzugefügt
   club.member.push(activeUser);
+
   await Club.replaceOne({ _id: club._id }, club)
     .populate('administrator')
     .populate('category');
